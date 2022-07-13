@@ -7,19 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A6F37CB287DBCDF00143AF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F37CA287DBCDF00143AF9 /* MainViewController.swift */; };
+		4A6F37CD287DBCF300143AF9 /* InitSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F37CC287DBCF300143AF9 /* InitSettingViewController.swift */; };
+		4A6F37D0287DC0CE00143AF9 /* FruitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F37CE287DC0CE00143AF9 /* FruitCell.swift */; };
+		4A6F37D1287DC0CE00143AF9 /* FruitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6F37CF287DC0CE00143AF9 /* FruitCell.xib */; };
+		4A6F37D3287DC7A400143AF9 /* FruitNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F37D2287DC7A400143AF9 /* FruitNumberViewController.swift */; };
+		4A6F37D5287DC82600143AF9 /* FruitOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F37D4287DC82600143AF9 /* FruitOrderViewController.swift */; };
+		4A6F37D7287DC97900143AF9 /* FruitOrderFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F37D6287DC97900143AF9 /* FruitOrderFinishedViewController.swift */; };
+		4AD892C4287E3B0600A01BA3 /* InitSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892C3287E3B0600A01BA3 /* InitSetting.storyboard */; };
+		4AD892C8287E3C0B00A01BA3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892C7287E3C0B00A01BA3 /* Storage.swift */; };
 		52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534D287BAF9000FF87DD /* AppDelegate.swift */; };
 		52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534F287BAF9000FF87DD /* SceneDelegate.swift */; };
-		52D05352287BAF9000FF87DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D05351287BAF9000FF87DD /* ViewController.swift */; };
 		52D05355287BAF9000FF87DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D05353287BAF9000FF87DD /* Main.storyboard */; };
 		52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D05356287BAF9100FF87DD /* Assets.xcassets */; };
 		52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A6F37CA287DBCDF00143AF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4A6F37CC287DBCF300143AF9 /* InitSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSettingViewController.swift; sourceTree = "<group>"; };
+		4A6F37CE287DC0CE00143AF9 /* FruitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCell.swift; sourceTree = "<group>"; };
+		4A6F37CF287DC0CE00143AF9 /* FruitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FruitCell.xib; sourceTree = "<group>"; };
+		4A6F37D2287DC7A400143AF9 /* FruitNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitNumberViewController.swift; sourceTree = "<group>"; };
+		4A6F37D4287DC82600143AF9 /* FruitOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitOrderViewController.swift; sourceTree = "<group>"; };
+		4A6F37D6287DC97900143AF9 /* FruitOrderFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitOrderFinishedViewController.swift; sourceTree = "<group>"; };
+		4AD892C3287E3B0600A01BA3 /* InitSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitSetting.storyboard; sourceTree = "<group>"; };
+		4AD892C7287E3C0B00A01BA3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		52D0534A287BAF9000FF87DD /* FruitFruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitFruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D0534D287BAF9000FF87DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52D0534F287BAF9000FF87DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52D05351287BAF9000FF87DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52D05354287BAF9000FF87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52D05356287BAF9100FF87DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52D05359287BAF9100FF87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AD892C9287E3C1200A01BA3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4AD892C7287E3C0B00A01BA3 /* Storage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		52D05341287BAF9000FF87DD = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +88,7 @@
 				52D05356287BAF9100FF87DD /* Assets.xcassets */,
 				52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */,
 				52D0535B287BAF9100FF87DD /* Info.plist */,
+				4AD892C9287E3C1200A01BA3 /* Utilities */,
 			);
 			path = FruitFruit;
 			sourceTree = "<group>";
@@ -71,7 +96,11 @@
 		52D05361287BB68500FF87DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				52D05351287BAF9000FF87DD /* ViewController.swift */,
+				4A6F37CA287DBCDF00143AF9 /* MainViewController.swift */,
+				4A6F37CC287DBCF300143AF9 /* InitSettingViewController.swift */,
+				4A6F37D2287DC7A400143AF9 /* FruitNumberViewController.swift */,
+				4A6F37D4287DC82600143AF9 /* FruitOrderViewController.swift */,
+				4A6F37D6287DC97900143AF9 /* FruitOrderFinishedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -80,6 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				52D05353287BAF9000FF87DD /* Main.storyboard */,
+				4A6F37CE287DC0CE00143AF9 /* FruitCell.swift */,
+				4A6F37CF287DC0CE00143AF9 /* FruitCell.xib */,
+				4AD892C3287E3B0600A01BA3 /* InitSetting.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AD892C4287E3B0600A01BA3 /* InitSetting.storyboard in Resources */,
+				4A6F37D1287DC0CE00143AF9 /* FruitCell.xib in Resources */,
 				52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */,
 				52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */,
 				52D05355287BAF9000FF87DD /* Main.storyboard in Resources */,
@@ -162,9 +196,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52D05352287BAF9000FF87DD /* ViewController.swift in Sources */,
 				52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */,
+				4A6F37CD287DBCF300143AF9 /* InitSettingViewController.swift in Sources */,
+				4A6F37D7287DC97900143AF9 /* FruitOrderFinishedViewController.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
+				4A6F37D0287DC0CE00143AF9 /* FruitCell.swift in Sources */,
+				4A6F37D3287DC7A400143AF9 /* FruitNumberViewController.swift in Sources */,
+				4A6F37D5287DC82600143AF9 /* FruitOrderViewController.swift in Sources */,
+				4A6F37CB287DBCDF00143AF9 /* MainViewController.swift in Sources */,
+				4AD892C8287E3C0B00A01BA3 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,8 +349,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4JPWGVR2ZN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FruitFruit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -323,8 +365,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = guel.FruitFruit;
+				PRODUCT_BUNDLE_IDENTIFIER = FruitFruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Mony;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -336,8 +379,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4JPWGVR2ZN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FruitFruit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -350,8 +395,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = guel.FruitFruit;
+				PRODUCT_BUNDLE_IDENTIFIER = FruitFruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Mony;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
