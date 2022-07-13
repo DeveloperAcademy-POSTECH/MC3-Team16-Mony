@@ -17,8 +17,8 @@ class FruitTextField: UITextField {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         bottomBorder = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        bottomBorder.backgroundColor = UIColor.gray
         bottomBorder.translatesAutoresizingMaskIntoConstraints = false
+        bottomBorder.backgroundColor = UIColor.gray
         
         addSubview(bottomBorder)
         
@@ -28,4 +28,3 @@ class FruitTextField: UITextField {
         bottomBorder.heightAnchor.constraint(equalToConstant: 1).isActive = true // Set Border-Strength
     }
 }
-

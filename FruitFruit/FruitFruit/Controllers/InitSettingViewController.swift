@@ -21,7 +21,6 @@ class InitSettingViewController: UIViewController {
         nicknameTextField.delegate = self
     }
     
-    
     @IBAction func initSettingFinished(_ sender: UIButton) {
         if let name = nameTextField.text, let nickname = nicknameTextField.text {
             if !name.isEmpty && !nickname.isEmpty {
@@ -49,6 +48,27 @@ class InitSettingViewController: UIViewController {
 }
 
 extension InitSettingViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if nameTextField.isEditing {
+            nameTextField.bottomBorder.backgroundColor = UIColor.orange
+        } else if nicknameTextField.isEditing {
+            nicknameTextField.bottomBorder.backgroundColor = UIColor.orange
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if !nicknameTextField.isEditing {
+            nicknameTextField.bottomBorder.backgroundColor = UIColor.gray
+        }
+        
+        if !nameTextField.isEditing {
+            nameTextField.bottomBorder.backgroundColor = UIColor.gray
+        }
+    }
+    
+    //TODO: FruitTextField 상에서 Protocol 상속 -> Delegate 파악해서 DidSet 효과 주기
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
