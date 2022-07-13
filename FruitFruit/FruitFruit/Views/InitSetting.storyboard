@@ -74,6 +74,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YzE-xe-Ch6"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="l2h-HJ-1CH" id="8ii-de-T9C"/>
+                        <outlet property="nicknameTextField" destination="eNE-W0-YVs" id="0Lb-pM-wBG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

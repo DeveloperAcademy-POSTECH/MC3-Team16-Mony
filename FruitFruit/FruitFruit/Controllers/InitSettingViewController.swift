@@ -7,10 +7,14 @@
 
 import UIKit
 
-class InitSettingViewController: UINavigationController {
+class InitSettingViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: FruitTextField!
+    @IBOutlet weak var nicknameTextField: FruitTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.delegate = self
+        nicknameTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -27,3 +31,15 @@ class InitSettingViewController: UINavigationController {
     */
 
 }
+
+extension InitSettingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+}
+

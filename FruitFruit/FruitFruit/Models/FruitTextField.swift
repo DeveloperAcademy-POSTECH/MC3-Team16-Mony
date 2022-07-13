@@ -10,7 +10,10 @@ import UIKit
 
 class FruitTextField: UITextField {
     var bottomBorder = UIView()
+    
     override func awakeFromNib() {
+        super.awakeFromNib()
+
         self.translatesAutoresizingMaskIntoConstraints = false
         
         bottomBorder = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -25,3 +28,4 @@ class FruitTextField: UITextField {
         bottomBorder.heightAnchor.constraint(equalToConstant: 1).isActive = true // Set Border-Strength
     }
 }
+
