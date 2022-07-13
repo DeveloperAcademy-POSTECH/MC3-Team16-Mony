@@ -51,6 +51,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="확인"/>
+                                <connections>
+                                    <action selector="initSettingFinished:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zM1-FE-07X"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

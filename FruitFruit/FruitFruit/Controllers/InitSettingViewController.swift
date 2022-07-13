@@ -20,6 +20,15 @@ class InitSettingViewController: UIViewController {
     }
     
 
+    @IBAction func initSettingFinished(_ sender: UIButton) {
+        if let name = nameTextField.text, let nickname = nicknameTextField.text {
+            if name != "" && nickname != "" {
+                let user = User(name: name, nickname: nickname)
+                print(user)
+                // User 정보 생성
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

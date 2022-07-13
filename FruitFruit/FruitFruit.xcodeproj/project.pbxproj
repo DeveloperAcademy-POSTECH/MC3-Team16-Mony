@@ -13,6 +13,7 @@
 		4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */; };
 		4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */; };
 		4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E2287F0A9200A01BA3 /* InitSettingViewController.swift */; };
+		4AD892E5287F0DC500A01BA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E4287F0DC500A01BA3 /* User.swift */; };
 		52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534D287BAF9000FF87DD /* AppDelegate.swift */; };
 		52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534F287BAF9000FF87DD /* SceneDelegate.swift */; };
 		52D05352287BAF9000FF87DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D05351287BAF9000FF87DD /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTextField.swift; sourceTree = "<group>"; };
 		4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4AD892E2287F0A9200A01BA3 /* InitSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSettingViewController.swift; sourceTree = "<group>"; };
+		4AD892E4287F0DC500A01BA3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		52D0534A287BAF9000FF87DD /* FruitFruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitFruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D0534D287BAF9000FF87DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52D0534F287BAF9000FF87DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */,
+				4AD892E4287F0DC500A01BA3 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				52D05352287BAF9000FF87DD /* ViewController.swift in Sources */,
 				52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */,
+				4AD892E5287F0DC500A01BA3 /* User.swift in Sources */,
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
 				4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
