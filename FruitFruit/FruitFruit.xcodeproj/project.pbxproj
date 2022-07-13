@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4AD892D7287E9A0E00A01BA3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */; };
 		4AD892D9287E9A0E00A01BA3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D8287E9A0E00A01BA3 /* FirebaseFirestoreSwift */; };
+		4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */; };
 		52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534D287BAF9000FF87DD /* AppDelegate.swift */; };
 		52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534F287BAF9000FF87DD /* SceneDelegate.swift */; };
 		52D05352287BAF9000FF87DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D05351287BAF9000FF87DD /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52D0534A287BAF9000FF87DD /* FruitFruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitFruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D0534D287BAF9000FF87DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52D0534F287BAF9000FF87DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				52D05356287BAF9100FF87DD /* Assets.xcassets */,
 				52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */,
 				52D0535B287BAF9100FF87DD /* Info.plist */,
+				4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */,
 			);
 			path = FruitFruit;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */,
+				4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */,
 				52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */,
 				52D05355287BAF9000FF87DD /* Main.storyboard in Resources */,
 			);
