@@ -28,11 +28,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eNE-W0-YVs">
+                                <rect key="frame" x="24" y="264" width="366" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="eNE-W0-YVs" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="264" id="0BI-1a-0OL"/>
                             <constraint firstItem="aOM-LO-Sbd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="95" id="0KD-h1-u4z"/>
+                            <constraint firstItem="eNE-W0-YVs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="HLZ-J9-391"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eNE-W0-YVs" secondAttribute="trailing" constant="24" id="PaO-Y3-utX"/>
                             <constraint firstItem="sAk-Q5-Idh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="125" id="RwV-Yc-g6r"/>
                             <constraint firstItem="aOM-LO-Sbd" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="Vtq-i7-407"/>
                             <constraint firstItem="sAk-Q5-Idh" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="fJ6-Mv-OmU"/>
