@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,8 +50,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="EZ4-8K-cRn"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="확인"/>
+                                <buttonConfiguration key="configuration" style="filled" title="확인">
+                                    <backgroundConfiguration key="background" cornerRadius="16">
+                                        <color key="backgroundColor" name="Fruitfruit_Button"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="initSettingFinished:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zM1-FE-07X"/>
                                 </connections>
@@ -78,6 +84,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YzE-xe-Ch6"/>
                     <connections>
+                        <outlet property="initSettingButton" destination="fZg-0l-MYw" id="zi1-t1-aea"/>
                         <outlet property="nameTextField" destination="l2h-HJ-1CH" id="8ii-de-T9C"/>
                         <outlet property="nicknameTextField" destination="eNE-W0-YVs" id="0Lb-pM-wBG"/>
                     </connections>
@@ -106,6 +113,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="Fruitfruit_Button">
+            <color red="0.99607843137254903" green="0.54117647058823526" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

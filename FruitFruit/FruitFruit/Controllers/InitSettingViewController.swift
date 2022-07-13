@@ -13,12 +13,13 @@ class InitSettingViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: FruitTextField!
     @IBOutlet weak var nicknameTextField: FruitTextField!
-    
+    @IBOutlet weak var initSettingButton: UIButton!
     let db = Firestore.firestore()
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
         nicknameTextField.delegate = self
+        initSettingButton.configuration?.background.backgroundColor = UIColor(named: "Fruitfruit_Button")?.withAlphaComponent(0.2)
     }
     
     @IBAction func initSettingFinished(_ sender: UIButton) {
@@ -35,6 +36,7 @@ class InitSettingViewController: UIViewController {
             }
         }
     }
+    
     /*
     // MARK: - Navigation
 
@@ -44,7 +46,6 @@ class InitSettingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
 extension InitSettingViewController: UITextFieldDelegate {
@@ -64,6 +65,12 @@ extension InitSettingViewController: UITextFieldDelegate {
         
         if !nameTextField.isEditing {
             nameTextField.bottomBorder.backgroundColor = UIColor.gray
+        }
+        
+        if let name = nameTextField.text, let nickname = nicknameTextField.text {
+            if !name.isEmpty && !nickname.isEmpty {
+                initSettingButton.configuration?.background.backgroundColor = UIColor(named: "Fruitfruit_Button")
+            }
         }
     }
     
