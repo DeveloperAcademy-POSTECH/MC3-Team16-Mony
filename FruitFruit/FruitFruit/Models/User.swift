@@ -8,7 +8,7 @@
 import Foundation
 
 struct User {
-    let id = UUID()
+    let id = UUID().uuidString
     var name: String
     var nickname: String
 }
