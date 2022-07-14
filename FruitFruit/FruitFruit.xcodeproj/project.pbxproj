@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */; };
 		4AD892D7287E9A0E00A01BA3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */; };
 		4AD892D9287E9A0E00A01BA3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D8287E9A0E00A01BA3 /* FirebaseFirestoreSwift */; };
 		4AD892DB287E9B7200A01BA3 /* InitSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitSetting.storyboard; sourceTree = "<group>"; };
 		4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTextField.swift; sourceTree = "<group>"; };
 		4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -53,6 +55,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A14564F287FC663007CBED0 /* InitStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */,
+				4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */,
+			);
+			path = InitStoryboard;
+			sourceTree = "<group>";
+		};
+		4A145650287FC67B007CBED0 /* MainStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				52D05353287BAF9000FF87DD /* Main.storyboard */,
+			);
+			path = MainStoryboard;
+			sourceTree = "<group>";
+		};
+		4ACD0016287FEFA100BBEB4D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		4AD892E8287F0FE700A01BA3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +117,7 @@
 				52D0535B287BAF9100FF87DD /* Info.plist */,
 				4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */,
 				4AD892E8287F0FE700A01BA3 /* Utilities */,
+				4ACD0016287FEFA100BBEB4D /* Extension */,
 			);
 			path = FruitFruit;
 			sourceTree = "<group>";
@@ -106,8 +134,8 @@
 		52D05362287BB69600FF87DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				52D05353287BAF9000FF87DD /* Main.storyboard */,
-				4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */,
+				4A14564F287FC663007CBED0 /* InitStoryboard */,
+				4A145650287FC67B007CBED0 /* MainStoryboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,7 +143,6 @@
 		52D05363287BB6A200FF87DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */,
 				4AD892E4287F0DC500A01BA3 /* User.swift */,
 			);
 			path = Models;
@@ -207,6 +234,7 @@
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
 				4AD892E7287F0FE100A01BA3 /* Constants.swift in Sources */,
 				4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */,
+				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

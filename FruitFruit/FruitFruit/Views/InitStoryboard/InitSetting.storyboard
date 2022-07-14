@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="어서 와요, 푸릇푸릇입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOM-LO-Sbd">
-                                <rect key="frame" x="24" y="95" width="167" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어서와요 푸릇푸릇입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOM-LO-Sbd">
+                                <rect key="frame" x="24" y="95" width="118" height="14"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름을 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAk-Q5-Idh">
-                                <rect key="frame" x="24" y="125" width="200.5" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="이름을 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAk-Q5-Idh">
+                                <rect key="frame" x="24" y="125" width="307" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,8 +66,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eNE-W0-YVs" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="232" id="0BI-1a-0OL"/>
-                            <constraint firstItem="aOM-LO-Sbd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="95" id="0KD-h1-u4z"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8Kz-AJ-iXy" secondAttribute="trailing" constant="24" id="3Vt-Br-rie"/>
+                            <constraint firstItem="aOM-LO-Sbd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="95" id="GeV-Hp-vqH"/>
                             <constraint firstItem="eNE-W0-YVs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="HLZ-J9-391"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eNE-W0-YVs" secondAttribute="trailing" constant="24" id="PaO-Y3-utX"/>
                             <constraint firstItem="sAk-Q5-Idh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="125" id="RwV-Yc-g6r"/>
@@ -84,10 +84,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="YzE-xe-Ch6"/>
                     <connections>
+                        <outlet property="addNameLabel" destination="sAk-Q5-Idh" id="0uS-qT-QrY"/>
                         <outlet property="initSettingButton" destination="fZg-0l-MYw" id="zi1-t1-aea"/>
                         <outlet property="nameLabel" destination="jJ1-Ma-Sgm" id="7ci-Vd-iWz"/>
                         <outlet property="nameTextField" destination="8Kz-AJ-iXy" id="oIh-xM-Jrt"/>
                         <outlet property="nicknameTextField" destination="eNE-W0-YVs" id="0Lb-pM-wBG"/>
+                        <outlet property="smallNameLabel" destination="jJ1-Ma-Sgm" id="2yl-Wk-Jnb"/>
+                        <outlet property="welcomeLabel" destination="aOM-LO-Sbd" id="jF9-wh-Z4V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
