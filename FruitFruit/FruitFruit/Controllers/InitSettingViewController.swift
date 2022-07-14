@@ -19,8 +19,15 @@ class InitSettingViewController: UIViewController {
     @IBOutlet weak var nicknameTextField: FruitTextField!
     @IBOutlet weak var initSettingButton: UIButton!
     let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.delegate = self
+        nicknameTextField.delegate = self
+        setUI()
+    }
+    
+    func setUI() {
         welcomeLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         welcomeLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         addNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
@@ -29,17 +36,15 @@ class InitSettingViewController: UIViewController {
         nameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black)
         nameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nameTextField.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
-        nameTextField.delegate = self
         nicknameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
         nicknameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black)
         nicknameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         smallNameLabel.font = UIFont.preferredFont(for: .footnote, weight: .regular)
         smallNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
-
-        nicknameTextField.delegate = self
         initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
         initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
+        // 텍스트 폰트, 색깔 설정
         nicknameTextField.isHidden = true
         nameLabel.isHidden = true
     }
@@ -65,8 +70,10 @@ class InitSettingViewController: UIViewController {
                constraint.constant = topPadding
             }
         }
+        // 이름 텍스트 필드 위치 조정
         
         if !initialSet {
+            // 닉네임 필드 사리지기
             UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.nameLabel.isHidden = true
                 self.nicknameTextField.isHidden = true
@@ -76,6 +83,7 @@ class InitSettingViewController: UIViewController {
                 })
             })
         } else {
+            // 닉네임 필드 나타나기
             UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
             }, completion: { _ in
@@ -90,6 +98,7 @@ class InitSettingViewController: UIViewController {
             self.welcomeLabel.text = !initialSet ? "어서와요 푸릇푸릇입니다" : "애플아카데미개발자 러너인가요?"
             self.addNameLabel.text = !initialSet ? "이름을 입력해주세요" : "닉네임을 입력해주세요"
         }, completion: nil)
+        // 이름/닉네임 입력 상황 -> 텍스트 변경
     }
     
     func textFieldVisibilityCheck() {

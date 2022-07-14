@@ -23,6 +23,7 @@ struct Constants {
         static let black = "Fruitfruit_Black1"
         static let gray1 = "Fruitfruit_Gray1"
         static let gray2 = "Fruitfruit_Gray2"
+        static let gray3 = "Fruitfruit_Gray3"
         static let orange1 = "Fruitfruit_Orange1"
         static let orange2 = "Fruitfruit_Orange2"
     }
