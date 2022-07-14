@@ -21,7 +21,7 @@ class FruitTextField: UITextField {
         bottomBorder = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         bottomBorder.translatesAutoresizingMaskIntoConstraints = false
         bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray2)
-        
+
         addSubview(bottomBorder)
         
         
@@ -29,6 +29,14 @@ class FruitTextField: UITextField {
         bottomBorder.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         bottomBorder.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         heightAnchorUnclicked.isActive = true
+    }
+    
+    func backgroundSet(_ isEditing: Bool) {
+        if isEditing {
+            bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.orange1)
+        } else {
+            bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray2)
+        }
     }
     
     func heightSet(_ isHeightSet: Bool) {
@@ -39,6 +47,5 @@ class FruitTextField: UITextField {
             heightAnchorClicked.isActive = false
             heightAnchorUnclicked.isActive = true
         }
-        // TODO: 2픽셀 될 때 -> 텍스트 필드와의 길이 픽셀 줄이기
     }
 }

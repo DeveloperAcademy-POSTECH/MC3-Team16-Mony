@@ -123,22 +123,23 @@ extension InitSettingViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         if nameTextField.isEditing {
-            nameTextField.bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.orange1)
+            nameTextField.backgroundSet(true)
             nameTextField.heightSet(true)
         } else if nicknameTextField.isEditing {
-            nicknameTextField.bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.orange1)
+            nicknameTextField.backgroundSet(true)
             nicknameTextField.heightSet(true)
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if !nicknameTextField.isEditing {
-            nicknameTextField.bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray2)
+//            nicknameTextField.bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray2)
+            nicknameTextField.backgroundSet(false)
             nameTextField.heightSet(false)
         }
         
         if !nameTextField.isEditing {
-            nameTextField.bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray2)
+            nameTextField.backgroundSet(false)
             nicknameTextField.heightSet(false)
         }
         
