@@ -5,7 +5,7 @@
 //  Created by Junyeong Park on 2022/07/13.
 //
 
-import Foundation
+import UIKit
 
 struct Constants {
     static let appName = "FruitFruit"
@@ -26,5 +26,9 @@ struct Constants {
         static let gray3 = "Fruitfruit_Gray3"
         static let orange1 = "Fruitfruit_Orange1"
         static let orange2 = "Fruitfruit_Orange2"
+        static let buttonGradient = [
+            UIColor(red: 0.992, green: 0.533, blue: 0.157, alpha: 1),
+            UIColor(red: 1, green: 0.6, blue: 0, alpha: 1)
+          ]
     }
 }

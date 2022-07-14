@@ -49,6 +49,9 @@ class InitSettingViewController: UIViewController {
         // 텍스트 폰트, 색깔 설정
         nicknameTextField.isHidden = true
         nameLabel.isHidden = true
+        buttonColorCheck()
+        print("초기 세팅")
+        print(initSettingButton.layer.sublayers?.count)
     }
     
     @IBAction func initSettingFinished(_ sender: UIButton) {
@@ -134,13 +137,28 @@ class InitSettingViewController: UIViewController {
     func buttonColorCheck() {
         if let name = nameTextField.text, let nickname = nicknameTextField.text {
             if !name.isEmpty && !nickname.isEmpty {
-                initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button1)
+                initSettingButton.configuration?.background.backgroundColor = .clear
                 initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
+                let graident = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
+                UIView.animate(withDuration: 4.0, delay: 0, options: .transitionCrossDissolve, animations: {
+                    self.initSettingButton.layer.insertSublayer(graident, at: 0)
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.5) {
+                        self.initSettingButton.configuration?.background.backgroundColor = UIColor.clear
+                    }
+                })
             } else {
-                initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
+                if initSettingButton.layer.sublayers!.count == 3 {
+                    initSettingButton.layer.sublayers?.removeFirst()
+                }
+                
                 initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
+                initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
             }
         } else {
+            if initSettingButton.layer.sublayers!.count == 3 {
+                initSettingButton.layer.sublayers?.removeFirst()
+            }
             initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
             initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         }
@@ -179,12 +197,14 @@ extension InitSettingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         textFieldVisibilityCheck()
+        buttonColorCheck()
         return true
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         textFieldVisibilityCheck()
+        buttonColorCheck()
     }
 }
 
