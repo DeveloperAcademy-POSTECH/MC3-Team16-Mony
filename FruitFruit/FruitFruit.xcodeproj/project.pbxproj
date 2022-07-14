@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AC41CB7287F2FD9004CFBEC /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC41CB6287F2FD9004CFBEC /* UIButton+Extension.swift */; };
 		4AD892D7287E9A0E00A01BA3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */; };
 		4AD892D9287E9A0E00A01BA3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D8287E9A0E00A01BA3 /* FirebaseFirestoreSwift */; };
 		4AD892DB287E9B7200A01BA3 /* InitSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4AC41CB6287F2FD9004CFBEC /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitSetting.storyboard; sourceTree = "<group>"; };
 		4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTextField.swift; sourceTree = "<group>"; };
 		4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -55,14 +53,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4AC41CB8287F2FE1004CFBEC /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				4AC41CB6287F2FD9004CFBEC /* UIButton+Extension.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		4AD892E8287F0FE700A01BA3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +90,6 @@
 				52D0535B287BAF9100FF87DD /* Info.plist */,
 				4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */,
 				4AD892E8287F0FE700A01BA3 /* Utilities */,
-				4AC41CB8287F2FE1004CFBEC /* Extension */,
 			);
 			path = FruitFruit;
 			sourceTree = "<group>";
@@ -217,7 +206,6 @@
 				4AD892E5287F0DC500A01BA3 /* User.swift in Sources */,
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
 				4AD892E7287F0FE100A01BA3 /* Constants.swift in Sources */,
-				4AC41CB7287F2FD9004CFBEC /* UIButton+Extension.swift in Sources */,
 				4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
 			);
