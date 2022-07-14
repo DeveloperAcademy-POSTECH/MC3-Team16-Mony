@@ -67,25 +67,29 @@ class InitSettingViewController: UIViewController {
         }
         
         if !initialSet {
-            UIView.animate(withDuration: 0.8, animations: {
+            UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.nameLabel.isHidden = true
                 self.nicknameTextField.isHidden = true
             }, completion: { _ in
-                UIView.animate(withDuration: 0.8, animations: {
+                UIView.animate(withDuration: 0.0, delay: 0.2, options: .curveEaseOut , animations: {
                     self.view.layoutIfNeeded()
-                }, completion: nil)
+                })
             })
         } else {
-            UIView.animate(withDuration: 0.8, animations: {
+            UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
             }, completion: { _ in
-                UIView.animate(withDuration: 0.8, animations: {
+                UIView.animate(withDuration: 0.0, delay: 0.2, options: .curveEaseIn, animations: {
                     self.nameLabel.isHidden = false
                     self.nicknameTextField.isHidden = false
                 }, completion: nil)
             })
-            
         }
+        
+        UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseIn, animations: {
+            self.welcomeLabel.text = !initialSet ? "어서와요 푸릇푸릇입니다" : "애플아카데미개발자 러너인가요?"
+            self.addNameLabel.text = !initialSet ? "이름을 입력해주세요" : "닉네임을 입력해주세요"
+        }, completion: nil)
     }
     
     func textFieldVisibilityCheck() {
