@@ -11,7 +11,8 @@ import Firebase
 
 class InitSettingViewController: UIViewController {
 
-    @IBOutlet weak var nameTextField: FruitTextField!
+    @IBOutlet weak var nameLabel: UILabel!
+    weak var nameTextField: FruitTextField!
     @IBOutlet weak var nicknameTextField: FruitTextField!
     @IBOutlet weak var initSettingButton: UIButton!
     let db = Firestore.firestore()
@@ -19,7 +20,10 @@ class InitSettingViewController: UIViewController {
         super.viewDidLoad()
         nameTextField.delegate = self
         nicknameTextField.delegate = self
-        initSettingButton.configuration?.background.backgroundColor = UIColor(named: "Fruitfruit_Button")?.withAlphaComponent(0.2)
+        initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
+        nicknameTextField.isHidden = true
+        nameLabel.isHidden = true
+        nameTextFieldSet()
     }
     
     @IBAction func initSettingFinished(_ sender: UIButton) {
@@ -35,6 +39,13 @@ class InitSettingViewController: UIViewController {
                 // UserDefaults 참 설정
             }
         }
+    }
+    
+    func nameTextFieldSet() {
+        self.view.addSubview(nameTextField)
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.topAnchor.constraint(equalTo: view.superview!.topAnchor, constant: 264).isActive = true
+        nameTextField.leftAnchor.constraint(equalTo: view.superview!., constant: <#T##CGFloat#>)
     }
     
     /*
@@ -69,8 +80,12 @@ extension InitSettingViewController: UITextFieldDelegate {
         
         if let name = nameTextField.text, let nickname = nicknameTextField.text {
             if !name.isEmpty && !nickname.isEmpty {
-                initSettingButton.configuration?.background.backgroundColor = UIColor(named: "Fruitfruit_Button")
+                initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button1)
+            } else {
+                initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
             }
+        } else {
+            initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
         }
     }
     

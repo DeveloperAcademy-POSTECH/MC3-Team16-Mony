@@ -23,7 +23,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="이름을 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAk-Q5-Idh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="이름을 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAk-Q5-Idh">
                                 <rect key="frame" x="24" y="125" width="282" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
@@ -33,11 +33,6 @@
                                 <rect key="frame" x="24" y="232" width="366" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l2h-HJ-1CH" customClass="FruitTextField" customModule="FruitFruit" customModuleProvider="target">
-                                <rect key="frame" x="25" y="325" width="365" height="18.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJ1-Ma-Sgm">
                                 <rect key="frame" x="25" y="295" width="22.5" height="16"/>
@@ -68,24 +63,21 @@
                             <constraint firstItem="eNE-W0-YVs" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="232" id="0BI-1a-0OL"/>
                             <constraint firstItem="aOM-LO-Sbd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="95" id="0KD-h1-u4z"/>
                             <constraint firstItem="eNE-W0-YVs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="HLZ-J9-391"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="l2h-HJ-1CH" secondAttribute="trailing" constant="24" id="LVZ-bJ-vKh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eNE-W0-YVs" secondAttribute="trailing" constant="24" id="PaO-Y3-utX"/>
                             <constraint firstItem="sAk-Q5-Idh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="125" id="RwV-Yc-g6r"/>
                             <constraint firstItem="fZg-0l-MYw" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="746" id="RyG-wI-ioG"/>
-                            <constraint firstItem="l2h-HJ-1CH" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="325" id="TgH-Gz-eFD"/>
                             <constraint firstItem="fZg-0l-MYw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="U99-o4-GHq"/>
                             <constraint firstItem="aOM-LO-Sbd" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="Vtq-i7-407"/>
                             <constraint firstItem="jJ1-Ma-Sgm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="aD4-0m-L83"/>
                             <constraint firstItem="jJ1-Ma-Sgm" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="295" id="dZ4-3A-pTk"/>
                             <constraint firstItem="sAk-Q5-Idh" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="fJ6-Mv-OmU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fZg-0l-MYw" secondAttribute="trailing" constant="24" id="l43-Oq-J9g"/>
-                            <constraint firstItem="l2h-HJ-1CH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="wzh-47-y9q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YzE-xe-Ch6"/>
                     <connections>
                         <outlet property="initSettingButton" destination="fZg-0l-MYw" id="zi1-t1-aea"/>
-                        <outlet property="nameTextField" destination="l2h-HJ-1CH" id="8ii-de-T9C"/>
+                        <outlet property="nameLabel" destination="jJ1-Ma-Sgm" id="7ci-Vd-iWz"/>
                         <outlet property="nicknameTextField" destination="eNE-W0-YVs" id="0Lb-pM-wBG"/>
                     </connections>
                 </viewController>
