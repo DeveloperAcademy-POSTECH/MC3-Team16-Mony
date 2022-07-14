@@ -11,8 +11,8 @@ import Firebase
 
 class InitSettingViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: FruitTextField!
     @IBOutlet weak var nameLabel: UILabel!
-    weak var nameTextField: FruitTextField!
     @IBOutlet weak var nicknameTextField: FruitTextField!
     @IBOutlet weak var initSettingButton: UIButton!
     let db = Firestore.firestore()
@@ -23,7 +23,6 @@ class InitSettingViewController: UIViewController {
         initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
         nicknameTextField.isHidden = true
         nameLabel.isHidden = true
-        nameTextFieldSet()
     }
     
     @IBAction func initSettingFinished(_ sender: UIButton) {
@@ -41,11 +40,34 @@ class InitSettingViewController: UIViewController {
         }
     }
     
-    func nameTextFieldSet() {
-        self.view.addSubview(nameTextField)
-        nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        nameTextField.topAnchor.constraint(equalTo: view.superview!.topAnchor, constant: 264).isActive = true
-        nameTextField.leftAnchor.constraint(equalTo: view.superview!., constant: <#T##CGFloat#>)
+    func nameTextFieldSet(_ initialSet: Bool) {
+        let topPadding: CGFloat = initialSet ? 325 : 232
+        for constraint in self.view.constraints {
+            if constraint.identifier == "nameTextFieldTop" {
+               constraint.constant = topPadding
+            }
+        }
+        view.layoutIfNeeded()
+    }
+    
+    func textFieldVisibilityCheck() {
+        if let name = nameTextField.text {
+            if name != "" && nicknameTextField.isHidden {
+                nameTextFieldSet(true)
+                nameLabel.isHidden = false
+                nicknameTextField.isHidden = false
+            } else if name == "" {
+                if !nicknameTextField.isHidden {
+                    if let nickname = nicknameTextField.text {
+                        if nickname == "" {
+                            nameTextFieldSet(false)
+                            nameLabel.isHidden = true
+                            nicknameTextField.isHidden = true
+                        }
+                    }
+                }
+            }
+        }
     }
     
     /*
@@ -93,11 +115,13 @@ extension InitSettingViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
+        textFieldVisibilityCheck()
         return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+        textFieldVisibilityCheck()
     }
 }
 
