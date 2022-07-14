@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class FruitTextField: UITextField {
-    var bottomBorder = UIView()
+    var bottomBorder = UIView()    
     
     lazy var heightAnchorClicked = bottomBorder.heightAnchor.constraint(equalToConstant: 2)
     lazy var heightAnchorUnclicked = bottomBorder.heightAnchor.constraint(equalToConstant: 1)

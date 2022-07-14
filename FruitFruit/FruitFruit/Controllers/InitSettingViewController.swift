@@ -10,7 +10,7 @@ import FirebaseFirestore
 import Firebase
 
 class InitSettingViewController: UIViewController {
-
+    // MARK: - PROPERTIES
     @IBOutlet weak var smallNameLabel: UILabel!
     @IBOutlet weak var addNameLabel: UILabel!
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -26,6 +26,8 @@ class InitSettingViewController: UIViewController {
         nicknameTextField.delegate = self
         setUI()
     }
+    
+    // MARK: - FUNCTIONS
     
     func setUI() {
         welcomeLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
@@ -62,6 +64,16 @@ class InitSettingViewController: UIViewController {
             }
         }
     }
+    
+    func nicknameHiddenToggle() {
+        if nicknameTextField.isHidden {
+            nicknameTextField.isHidden = false
+            nameLabel.isHidden = false
+        } else {
+            nicknameTextField.isHidden = true
+            nameLabel.isHidden = true
+        }
+    }
 
     func nameTextFieldSet(_ initialSet: Bool) {
         let topPadding: CGFloat = initialSet ? 325 : 232
@@ -71,25 +83,27 @@ class InitSettingViewController: UIViewController {
             }
         }
         // 이름 텍스트 필드 위치 조정
-        
+
         if !initialSet {
-            // 닉네임 필드 사리지기
-            UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.nameLabel.isHidden = true
-                self.nicknameTextField.isHidden = true
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.0, delay: 0.2, options: .curveEaseOut , animations: {
-                    self.view.layoutIfNeeded()
-                })
-            })
-        } else {
-            // 닉네임 필드 나타나기
             UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
             }, completion: { _ in
-                UIView.animate(withDuration: 0.0, delay: 0.2, options: .curveEaseIn, animations: {
-                    self.nameLabel.isHidden = false
-                    self.nicknameTextField.isHidden = false
+                UIView.animate(withDuration: 0.1, delay: 0.0, options: .transitionCrossDissolve , animations: {
+                    self.nameLabel.alpha = 0
+                    self.nicknameTextField.alpha = 0
+                })
+            })
+            nicknameHiddenToggle()
+        } else {
+            nicknameHiddenToggle()
+            self.nameLabel.alpha = 0
+            self.nicknameTextField.alpha = 0
+            UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.1, delay: 0.0, options: .transitionCrossDissolve, animations: {
+                    self.nameLabel.alpha = 1
+                    self.nicknameTextField.alpha = 1
                 }, completion: nil)
             })
         }
@@ -116,33 +130,8 @@ class InitSettingViewController: UIViewController {
             }
         }
     }
-}
-
-extension InitSettingViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        if nameTextField.isEditing {
-            nameTextField.backgroundSet(true)
-            nameTextField.heightSet(true)
-        } else if nicknameTextField.isEditing {
-            nicknameTextField.backgroundSet(true)
-            nicknameTextField.heightSet(true)
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if !nicknameTextField.isEditing {
-//            nicknameTextField.bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray2)
-            nicknameTextField.backgroundSet(false)
-            nameTextField.heightSet(false)
-        }
-        
-        if !nameTextField.isEditing {
-            nameTextField.backgroundSet(false)
-            nicknameTextField.heightSet(false)
-        }
-        
+    func buttonColorCheck() {
         if let name = nameTextField.text, let nickname = nicknameTextField.text {
             if !name.isEmpty && !nickname.isEmpty {
                 initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button1)
@@ -156,15 +145,43 @@ extension InitSettingViewController: UITextFieldDelegate {
             initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         }
     }
-    
+}
+
+// MARK: - EXTENSIONS
+
+extension InitSettingViewController: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if nameTextField.isEditing {
+            nameTextField.backgroundSet(true)
+            nameTextField.heightSet(true)
+        } else if nicknameTextField.isEditing {
+            nicknameTextField.backgroundSet(true)
+            nicknameTextField.heightSet(true)
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if !nicknameTextField.isEditing {
+            nicknameTextField.backgroundSet(false)
+            nameTextField.heightSet(false)
+        }
+
+        if !nameTextField.isEditing {
+            nameTextField.backgroundSet(false)
+            nicknameTextField.heightSet(false)
+        }
+        //TODO: 텍스트 필드 체크 -> 공백 체크 / 한글, 영어만 가능
+    }
+
     //TODO: FruitTextField 상에서 Protocol 상속 -> Delegate 파악해서 DidSet 효과 주기
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         textFieldVisibilityCheck()
         return true
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         textFieldVisibilityCheck()
