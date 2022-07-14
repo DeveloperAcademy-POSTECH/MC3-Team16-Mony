@@ -21,4 +21,9 @@ extension UIView {
         graident.cornerRadius = 16
         return graident
     }
+    // How to use
+    // 1. let gradient = button.applyButtonGraident(colors: [yourColor])
+    // 2. button.layer.insertSublayer(graident, at: 0)
+    // 버튼 레이어의 가장 상단부에 위치 백그라운드 컬러를 그레디언트로 주기
+
 }

@@ -50,8 +50,6 @@ class InitSettingViewController: UIViewController {
         nicknameTextField.isHidden = true
         nameLabel.isHidden = true
         buttonColorCheck()
-        print("초기 세팅")
-        print(initSettingButton.layer.sublayers?.count)
     }
     
     @IBAction func initSettingFinished(_ sender: UIButton) {
