@@ -22,6 +22,13 @@ class HomeViewController: UIViewController {
         return cellButton
     }()
     
+    let fruitOrderLabel: UILabel = {
+        let label = UILabel()
+        label.text = "참여가능한 과일팟"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     @IBOutlet weak var homeTitleLabel: UILabel!
 
     
@@ -31,9 +38,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.applyBackgroundGradient()
         setHomeViewUI()
-        setHomeTitleText(from: "푸릇푸릇!\n상큼한 수요일 되세요", colorText: "푸릇푸릇!", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
-        setFruitStatusLabelText(from: "주문이 취소되었어요")
-        setFruitCellButton()
     }
     
     // MARK: - FUNCTIONS
@@ -41,6 +45,10 @@ class HomeViewController: UIViewController {
     private func setHomeViewUI() {
         homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         setFruitStatusLabel()
+        setHomeTitleText(from: "푸릇푸릇!\n상큼한 수요일 되세요", colorText: "푸릇푸릇!", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
+        setFruitStatusLabelText(from: "주문이 취소되었어요")
+        setFruitCellButton()
+        setFruitOrderLabel()
     }
     
     func setHomeTitleText(from text: String) {
@@ -80,17 +88,25 @@ class HomeViewController: UIViewController {
         fruitCellButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         fruitCellButton.heightAnchor.constraint(equalToConstant: 154).isActive = true
         fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 359).isActive = true
-//        fruitCellButton.isUserInteractionEnabled = true
+        fruitCellButton.isUserInteractionEnabled = true
         let cellButtonGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapCellButton))
         fruitCellButton.addGestureRecognizer(cellButtonGesture)
     }
     // 버튼 테스트 용. -> UITableView의 셀로 활용하기
-    
+
     @objc func tapCellButton() {
         print("TAP CELL BUTTON")
         //TODO: 주문 뷰로 네비게이션 이동하기
         //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
     }
+    
+    private func setFruitOrderLabel() {
+        fruitOrderLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        view.addSubview(fruitOrderLabel)
+        fruitOrderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 327).isActive = true
+    }
+
 }
 
 
