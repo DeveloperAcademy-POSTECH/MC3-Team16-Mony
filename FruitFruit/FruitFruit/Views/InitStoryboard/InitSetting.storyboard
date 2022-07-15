@@ -23,8 +23,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="이름을 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAk-Q5-Idh">
-                                <rect key="frame" x="24" y="125" width="307" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름을 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAk-Q5-Idh">
+                                <rect key="frame" x="24" y="125" width="200" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -89,7 +89,6 @@
                         <outlet property="nameLabel" destination="jJ1-Ma-Sgm" id="7ci-Vd-iWz"/>
                         <outlet property="nameTextField" destination="8Kz-AJ-iXy" id="oIh-xM-Jrt"/>
                         <outlet property="nicknameTextField" destination="eNE-W0-YVs" id="0Lb-pM-wBG"/>
-                        <outlet property="smallNameLabel" destination="jJ1-Ma-Sgm" id="2yl-Wk-Jnb"/>
                         <outlet property="welcomeLabel" destination="aOM-LO-Sbd" id="jF9-wh-Z4V"/>
                     </connections>
                 </viewController>
