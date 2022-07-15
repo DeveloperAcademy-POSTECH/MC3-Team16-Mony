@@ -71,7 +71,7 @@ class FruitStatusLabel: UIView {
     
     private func setLabel() {
         statusLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        statusLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        statusLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
         self.addSubview(statusLabel)
         statusLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
         statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true

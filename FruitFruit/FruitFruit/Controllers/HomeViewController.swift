@@ -54,7 +54,6 @@ class HomeViewController: UIViewController {
     }
     
     private func setFruitStatusLabel() {
-        fruitStatusLabel.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 48, height: 68)
         view.addSubview(fruitStatusLabel)
         fruitStatusLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
         fruitStatusLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
@@ -79,9 +78,19 @@ class HomeViewController: UIViewController {
         view.addSubview(fruitCellButton)
         fruitCellButton.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
         fruitCellButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitCellButton.heightAnchor.constraint(equalToConstant: 154).isActive = true
         fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 359).isActive = true
+//        fruitCellButton.isUserInteractionEnabled = true
+        let cellButtonGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapCellButton))
+        fruitCellButton.addGestureRecognizer(cellButtonGesture)
     }
     // 버튼 테스트 용. -> UITableView의 셀로 활용하기
+    
+    @objc func tapCellButton() {
+        print("TAP CELL BUTTON")
+        //TODO: 주문 뷰로 네비게이션 이동하기
+        //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
+    }
 }
 
 

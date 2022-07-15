@@ -19,11 +19,11 @@ class FruitCellButton: UIButton {
     }
     
     private func setUI(frame: CGRect) {
-        self.backgroundColor = .clear
+        self.backgroundColor = .blue
         self.layer.cornerRadius = 20
-        let fruitCellButtonView = FruitCellButtonView(frame: frame)
+        let fruitCellButtonView = FruitCellButtonView(frame: CGRect(x:0, y:0, width: frame.width, height: frame.height))
+        fruitCellButtonView.isUserInteractionEnabled = false
         insertSubview(fruitCellButtonView, at: 0)
-        //TODO: UIView -> UIImage 렌더링 -> setImage 실패 이유 알아보기 (optional)
         //TODO: 커스텀 Button -> 클릭 이벤트 모션 (Glowing) 실패 -> 유사 효과 구현하기
     }
 }

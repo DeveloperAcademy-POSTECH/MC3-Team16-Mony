@@ -32,13 +32,6 @@ class FruitCellButtonView: UIView {
         setUI()
     }
     
-    init(frame: CGRect, fruitShop: String, fruitName: String, fruitPrice: String) {
-        super.init(frame: frame)
-        setUI()
-        setLabelText(fruitShop, fruitName, fruitPrice)
-        self.isUserInteractionEnabled = false
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -57,21 +50,21 @@ class FruitCellButtonView: UIView {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
     }
-
+   
     private func setLabels() {
+        self.addSubview(fruitShopLabel)
+        self.addSubview(fruitNameLabel)
+        self.addSubview(fruitPriceLabel)
         fruitShopLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
         fruitShopLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
-        self.addSubview(fruitShopLabel)
         fruitShopLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
         fruitShopLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitShopLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         fruitNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         fruitNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.orange1)
-        self.addSubview(fruitNameLabel)
         fruitNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 54).isActive = true
         fruitNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitNameLabel.heightAnchor.constraint(equalToConstant: 33).isActive = true
-        self.addSubview(fruitPriceLabel)
         fruitPriceLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
         fruitPriceLabel.topAnchor.constraint(equalTo: topAnchor, constant: 108).isActive = true
         fruitPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
