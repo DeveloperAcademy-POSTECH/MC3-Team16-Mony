@@ -9,14 +9,25 @@ import UIKit
 
 class FruitStatusLabel: UIView {
     
+    var statusLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setBackground()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        setUI()
+    }
+    
+    private func setUI() {
         setBackground()
+        setLabel()
     }
     
     private func setBackground() {
@@ -56,5 +67,18 @@ class FruitStatusLabel: UIView {
         shapes.layer.cornerRadius = 20
         shapes.layer.borderWidth = 1
         shapes.layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
+    }
+    
+    private func setLabel() {
+        statusLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
+        statusLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        self.addSubview(statusLabel)
+        statusLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
+        statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
+        statusLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
+    }
+    
+    func setLabelText(from text: String) {
+        statusLabel.text = text
     }
 }

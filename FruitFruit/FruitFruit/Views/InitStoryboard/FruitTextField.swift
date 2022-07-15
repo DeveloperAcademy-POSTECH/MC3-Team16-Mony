@@ -24,7 +24,6 @@ class FruitTextField: UITextField {
 
         addSubview(bottomBorder)
         
-        
         bottomBorder.topAnchor.constraint(equalTo: bottomAnchor, constant: 8).isActive = true
         bottomBorder.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         bottomBorder.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
