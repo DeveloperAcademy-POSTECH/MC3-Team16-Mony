@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
         view.applyBackgroundGradient()
         setHomeViewUI()
         setHomeTitleText(from: "푸릇푸릇!\n상큼한 수요일 되세요", colorText: "푸릇푸릇!", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
+        setFruitStatusLabelText(from: "주문이 취소되었어요")
     }
     
     // MARK: - FUNCTIONS
@@ -52,6 +53,10 @@ class HomeViewController: UIViewController {
         let nsString = text.getColoredText(colorText, color)
         homeTitleLabel.text = ""
         homeTitleLabel.attributedText = nsString
+    }
+    
+    func setFruitStatusLabelText(from text: String) {
+        fruitStautsLabel.setLabelText(from: text)
     }
 }
 
