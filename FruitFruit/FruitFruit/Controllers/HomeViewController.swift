@@ -25,13 +25,14 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.applyBackgroundGradient()
         setHomeViewUI()
-        setFruitStatusLabel()
+        setHomeTitleText(from: "푸릇푸릇!\n상큼한 수요일 되세요", colorText: "푸릇푸릇!", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
     }
     
     // MARK: - FUNCTIONS
     
     private func setHomeViewUI() {
         homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
+        setFruitStatusLabel()
     }
     
     private func setFruitStatusLabel() {
@@ -41,6 +42,16 @@ class HomeViewController: UIViewController {
         fruitStautsLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
         fruitStautsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         fruitStautsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
+    }
+    
+    func setHomeTitleText(from text: String) {
+        homeTitleLabel.text = text
+    }
+    
+    func setHomeTitleText(from text: String, colorText: String, color: UIColor) {
+        let nsString = text.getColoredText(colorText, color)
+        homeTitleLabel.text = ""
+        homeTitleLabel.attributedText = nsString
     }
 }
 
