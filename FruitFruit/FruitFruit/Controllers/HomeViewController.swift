@@ -36,15 +36,6 @@ class HomeViewController: UIViewController {
         setFruitStatusLabel()
     }
     
-    private func setFruitStatusLabel() {
-        fruitStautsLabel.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 48, height: 68)
-        view.addSubview(fruitStautsLabel)
-        fruitStautsLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
-        fruitStautsLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
-        fruitStautsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        fruitStautsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
-    }
-    
     func setHomeTitleText(from text: String) {
         homeTitleLabel.text = text
     }
@@ -55,8 +46,25 @@ class HomeViewController: UIViewController {
         homeTitleLabel.attributedText = nsString
     }
     
+    private func setFruitStatusLabel() {
+        fruitStautsLabel.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 48, height: 68)
+        view.addSubview(fruitStautsLabel)
+        fruitStautsLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
+        fruitStautsLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
+        fruitStautsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitStautsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
+        fruitStautsLabel.isUserInteractionEnabled = true
+        let labelTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapStatusLabel))
+        fruitStautsLabel.addGestureRecognizer(labelTapGesture)
+    }
+    
     func setFruitStatusLabelText(from text: String) {
         fruitStautsLabel.setLabelText(from: text)
+    }
+    
+    @objc func tapStatusLabel() {
+        print("FruitStatuLabel tapped")
+        //TODO: 주문 상태 확인 뷰로 네비게이션 이동하기
     }
 }
 
