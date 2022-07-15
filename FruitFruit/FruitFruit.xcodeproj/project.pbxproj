@@ -12,6 +12,7 @@
 		4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACD0023288103E100BBEB4D /* Home.storyboard */; };
 		4ACD00272881041400BBEB4D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD00262881041400BBEB4D /* HomeViewController.swift */; };
 		4ACD00292881079400BBEB4D /* FruitBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD00282881079400BBEB4D /* FruitBackground.swift */; };
+		4ACD002D2881948900BBEB4D /* FruitStatusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD002C2881948900BBEB4D /* FruitStatusLabel.swift */; };
 		4AD892D7287E9A0E00A01BA3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */; };
 		4AD892D9287E9A0E00A01BA3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D8287E9A0E00A01BA3 /* FirebaseFirestoreSwift */; };
 		4AD892DB287E9B7200A01BA3 /* InitSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */; };
@@ -32,6 +33,7 @@
 		4ACD0023288103E100BBEB4D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4ACD00262881041400BBEB4D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4ACD00282881079400BBEB4D /* FruitBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitBackground.swift; sourceTree = "<group>"; };
+		4ACD002C2881948900BBEB4D /* FruitStatusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusLabel.swift; sourceTree = "<group>"; };
 		4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitSetting.storyboard; sourceTree = "<group>"; };
 		4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTextField.swift; sourceTree = "<group>"; };
 		4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				4ACD0023288103E100BBEB4D /* Home.storyboard */,
+				4ACD002C2881948900BBEB4D /* FruitStatusLabel.swift */,
 			);
 			path = HomeStoryboard;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */,
 				4AD892E5287F0DC500A01BA3 /* User.swift in Sources */,
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
+				4ACD002D2881948900BBEB4D /* FruitStatusLabel.swift in Sources */,
 				4AD892E7287F0FE100A01BA3 /* Constants.swift in Sources */,
 				4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */,
 				4ACD00272881041400BBEB4D /* HomeViewController.swift in Sources */,

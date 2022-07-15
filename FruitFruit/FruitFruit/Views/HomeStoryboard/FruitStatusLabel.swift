@@ -1,0 +1,60 @@
+//
+//  FruitStatusLabel.swift
+//  FruitFruit
+//
+//  Created by Junyeong Park on 2022/07/15.
+//
+
+import UIKit
+
+class FruitStatusLabel: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setBackground()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+        setBackground()
+    }
+    
+    private func setBackground() {
+        self.backgroundColor = .white
+        setShadow()
+        setBorder()
+    }
+    
+    private func setShadow() {
+        let shadows = UIView()
+        shadows.frame = self.frame
+        shadows.clipsToBounds = false
+        self.addSubview(shadows)
+        let shadowPath = UIBezierPath(roundedRect: shadows.bounds, cornerRadius: 20)
+        let shadowLayer = CALayer()
+        shadowLayer.shadowPath = shadowPath.cgPath
+        shadowLayer.shadowColor = UIColor(named: Constants.FruitfruitColors.gray2)?.cgColor
+        shadowLayer.shadowOpacity = 1
+        shadowLayer.shadowRadius = 10
+        shadowLayer.shadowOffset = CGSize(width: 2, height: 6)
+        shadowLayer.bounds = shadows.bounds
+        shadowLayer.position = shadows.center
+        shadows.layer.addSublayer(shadowLayer)
+    }
+    
+    private func setBorder() {
+        let shapes = UIView()
+        shapes.frame = self.frame
+        shapes.clipsToBounds = true
+        self.addSubview(shapes)
+        
+        let borderLayer = CALayer()
+        borderLayer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        borderLayer.bounds = shapes.bounds
+        borderLayer.position = shapes.center
+        shapes.layer.insertSublayer(borderLayer, at: 0)
+        shapes.layer.cornerRadius = 20
+        shapes.layer.borderWidth = 1
+        shapes.layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
+    }
+}
