@@ -33,7 +33,6 @@ struct Constants {
         static let backgroundGradient = [
             UIColor(red: 1, green: 0.89, blue: 0.784, alpha: 1),
             UIColor(red: 1, green: 1, blue: 1, alpha: 0)
-
           ]
     }
 }

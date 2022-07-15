@@ -8,6 +8,7 @@
 import UIKit
 
 class FruitStatusLabel: UIView {
+    //TODO: 주문 상태별 이미지 뷰 (1). 조건에 따른 이미지 세팅 (2). 확인 안 한 경우 이미지 흔들리는 애니메이션 구현
     
     var statusLabel: UILabel = {
         let label = UILabel()
@@ -22,7 +23,6 @@ class FruitStatusLabel: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        setUI()
     }
     
     private func setUI() {
@@ -31,7 +31,7 @@ class FruitStatusLabel: UIView {
     }
     
     private func setBackground() {
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
         setShadow()
         setBorder()
     }

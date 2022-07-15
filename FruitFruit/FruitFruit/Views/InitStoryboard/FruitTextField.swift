@@ -29,7 +29,6 @@ class FruitTextField: UITextField {
         bottomBorder.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         heightAnchorUnclicked.isActive = true
     }
-    
     func backgroundSet(_ isEditing: Bool) {
         if isEditing {
             bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.orange1)

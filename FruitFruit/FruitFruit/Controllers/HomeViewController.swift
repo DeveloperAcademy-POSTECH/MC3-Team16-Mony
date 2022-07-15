@@ -9,11 +9,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
     // MARK: - PROPERTIES
-    let fruitStautsLabel: FruitStatusLabel = {
+    let fruitStatusLabel: FruitStatusLabel = {
         let statusLabel = FruitStatusLabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 68))
         // TODO: UIScreen을 사용하지 않고 LifeCycle에서 view.bounds를 사용해서 Init하기
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         return statusLabel
+    }()
+    
+    let fruitCellButton: FruitCellButton = {
+        let cellButton = FruitCellButton(frame: CGRect(x:0, y:0, width: UIScreen.main.bounds.width - 48, height: 154))
+        cellButton.translatesAutoresizingMaskIntoConstraints = false
+        return cellButton
     }()
     
     @IBOutlet weak var homeTitleLabel: UILabel!
@@ -27,6 +33,7 @@ class HomeViewController: UIViewController {
         setHomeViewUI()
         setHomeTitleText(from: "푸릇푸릇!\n상큼한 수요일 되세요", colorText: "푸릇푸릇!", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
         setFruitStatusLabelText(from: "주문이 취소되었어요")
+        setFruitCellButton()
     }
     
     // MARK: - FUNCTIONS
@@ -47,25 +54,34 @@ class HomeViewController: UIViewController {
     }
     
     private func setFruitStatusLabel() {
-        fruitStautsLabel.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 48, height: 68)
-        view.addSubview(fruitStautsLabel)
-        fruitStautsLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
-        fruitStautsLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
-        fruitStautsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        fruitStautsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
-        fruitStautsLabel.isUserInteractionEnabled = true
+        fruitStatusLabel.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 48, height: 68)
+        view.addSubview(fruitStatusLabel)
+        fruitStatusLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
+        fruitStatusLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
+        fruitStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitStatusLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
+        fruitStatusLabel.isUserInteractionEnabled = true
         let labelTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapStatusLabel))
-        fruitStautsLabel.addGestureRecognizer(labelTapGesture)
+        fruitStatusLabel.addGestureRecognizer(labelTapGesture)
     }
     
     func setFruitStatusLabelText(from text: String) {
-        fruitStautsLabel.setLabelText(from: text)
+        fruitStatusLabel.setLabelText(from: text)
     }
     
     @objc func tapStatusLabel() {
         print("FruitStatuLabel tapped")
         //TODO: 주문 상태 확인 뷰로 네비게이션 이동하기
+        //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
     }
+    
+    private func setFruitCellButton() {
+        view.addSubview(fruitCellButton)
+        fruitCellButton.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
+        fruitCellButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 359).isActive = true
+    }
+    // 버튼 테스트 용. -> UITableView의 셀로 활용하기
 }
 
 
