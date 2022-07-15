@@ -11,7 +11,6 @@ import Firebase
 
 class InitSettingViewController: UIViewController {
     // MARK: - PROPERTIES
-    @IBOutlet weak var smallNameLabel: UILabel!
     @IBOutlet weak var addNameLabel: UILabel!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var nameTextField: FruitTextField!
@@ -44,8 +43,8 @@ class InitSettingViewController: UIViewController {
         nicknameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nicknameTextField.autocorrectionType = .no
-        smallNameLabel.font = UIFont.preferredFont(for: .footnote, weight: .regular)
-        smallNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        nameLabel.font = UIFont.preferredFont(for: .footnote, weight: .regular)
+        nameLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
         initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         // 텍스트 폰트, 색깔 설정

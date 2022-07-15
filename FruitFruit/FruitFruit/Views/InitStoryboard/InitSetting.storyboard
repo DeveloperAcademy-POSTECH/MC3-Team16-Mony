@@ -89,7 +89,6 @@
                         <outlet property="nameLabel" destination="jJ1-Ma-Sgm" id="7ci-Vd-iWz"/>
                         <outlet property="nameTextField" destination="8Kz-AJ-iXy" id="oIh-xM-Jrt"/>
                         <outlet property="nicknameTextField" destination="eNE-W0-YVs" id="0Lb-pM-wBG"/>
-                        <outlet property="smallNameLabel" destination="jJ1-Ma-Sgm" id="2yl-Wk-Jnb"/>
                         <outlet property="welcomeLabel" destination="aOM-LO-Sbd" id="jF9-wh-Z4V"/>
                     </connections>
                 </viewController>
