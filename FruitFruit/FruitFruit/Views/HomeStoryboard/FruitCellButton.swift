@@ -19,7 +19,7 @@ class FruitCellButton: UIButton {
     }
     
     private func setUI(frame: CGRect) {
-        self.backgroundColor = .blue
+        self.backgroundColor = .clear
         self.layer.cornerRadius = 20
         let fruitCellButtonView = FruitCellButtonView(frame: CGRect(x:0, y:0, width: frame.width, height: frame.height))
         fruitCellButtonView.isUserInteractionEnabled = false

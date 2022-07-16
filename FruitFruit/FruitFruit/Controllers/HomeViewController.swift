@@ -39,6 +39,7 @@ class HomeViewController: UIViewController {
         view.applyBackgroundGradient()
         setHomeViewUI()
     }
+    //TODO: delegate 선언 -> 주문 상태 유무에 따른 위치 조정
     
     // MARK: - FUNCTIONS
     
@@ -62,6 +63,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setFruitStatusLabel() {
+        fruitOrderLabel.isHidden = false
         view.addSubview(fruitStatusLabel)
         fruitStatusLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
         fruitStatusLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
@@ -71,7 +73,8 @@ class HomeViewController: UIViewController {
         let labelTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapStatusLabel))
         fruitStatusLabel.addGestureRecognizer(labelTapGesture)
     }
-    
+
+
     func setFruitStatusLabelText(from text: String) {
         fruitStatusLabel.setLabelText(from: text)
     }
@@ -89,8 +92,7 @@ class HomeViewController: UIViewController {
         fruitCellButton.heightAnchor.constraint(equalToConstant: 154).isActive = true
         fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 359).isActive = true
         fruitCellButton.isUserInteractionEnabled = true
-        let cellButtonGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapCellButton))
-        fruitCellButton.addGestureRecognizer(cellButtonGesture)
+        fruitCellButton.addTarget(self, action: #selector(tapCellButton), for: .touchUpInside)
     }
     // 버튼 테스트 용. -> UITableView의 셀로 활용하기
 
@@ -106,7 +108,6 @@ class HomeViewController: UIViewController {
         fruitOrderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 327).isActive = true
     }
-
 }
 
 
