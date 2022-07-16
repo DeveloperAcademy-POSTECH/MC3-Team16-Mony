@@ -35,4 +35,13 @@ struct Constants {
             UIColor(red: 1, green: 1, blue: 1, alpha: 0)
           ]
     }
+    struct FruitfruitImages {
+        struct Fruits {
+            static let orangeSecondary = "Fruitfruit_Orange_Secondary"
+        }
+        struct Status {
+            static let arrived = "Fruitfruit_Status_Arrived"
+        }
+    }
+    
 }
