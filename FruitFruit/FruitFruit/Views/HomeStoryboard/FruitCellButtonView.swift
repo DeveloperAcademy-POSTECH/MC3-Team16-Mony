@@ -27,6 +27,12 @@ class FruitCellButtonView: UIView {
         return label
     }()
     
+    var fruitImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -40,6 +46,7 @@ class FruitCellButtonView: UIView {
         setBackground()
         setLabels()
         setLabelText()
+        setFruitButtonImage(Constants.FruitfruitImages.Fruits.orangeSecondary)
         //TODO: setLabelText -> UI 확인용 함수. 이후 데이터 모델 입력되었을 때 뷰 뜨도록 구현
     }
     
@@ -55,6 +62,7 @@ class FruitCellButtonView: UIView {
         self.addSubview(fruitShopLabel)
         self.addSubview(fruitNameLabel)
         self.addSubview(fruitPriceLabel)
+        self.addSubview(fruitImage)
         fruitShopLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
         fruitShopLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         fruitShopLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
@@ -69,6 +77,8 @@ class FruitCellButtonView: UIView {
         fruitPriceLabel.topAnchor.constraint(equalTo: topAnchor, constant: 108).isActive = true
         fruitPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitPriceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        fruitImage.topAnchor.constraint(equalTo: topAnchor, constant: 34).isActive = true
+        fruitImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 222.47).isActive = true
     }
     
     func setLabelText() {
@@ -83,5 +93,9 @@ class FruitCellButtonView: UIView {
         fruitShopLabel.text = fruitShop
         fruitNameLabel.text = fruitName
         fruitPriceLabel.attributedText = "1개 \(fruitPrice)".getColoredText("1개", UIColor(named: Constants.FruitfruitColors.gray1)!)
+    }
+    
+    func setFruitButtonImage(_ text: String) {
+        fruitImage.image = UIImage(named: text)
     }
 }

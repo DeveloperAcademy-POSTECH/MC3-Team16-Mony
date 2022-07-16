@@ -46,8 +46,8 @@ class HomeViewController: UIViewController {
     private func setHomeViewUI() {
         homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         setFruitStatusLabel()
-        setHomeTitleText(from: "푸릇푸릇!\n상큼한 수요일 되세요", colorText: "푸릇푸릇!", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
-        setFruitStatusLabelText(from: "주문이 취소되었어요")
+        setHomeTitleText(from: "맛있는 여름오렌지가\nC5로 오고있어요", colorText: "여름오렌지", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
+        setFruitStatusLabelText(from: "입금이 확인되었어요")
         setFruitStatusLabelImage(from: Constants.FruitfruitImages.Status.arrived)
         setFruitCellButton()
         setFruitOrderLabel()
