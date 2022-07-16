@@ -48,6 +48,7 @@ class HomeViewController: UIViewController {
         setFruitStatusLabel()
         setHomeTitleText(from: "푸릇푸릇!\n상큼한 수요일 되세요", colorText: "푸릇푸릇!", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
         setFruitStatusLabelText(from: "주문이 취소되었어요")
+        setFruitStatusLabelImage(from: Constants.FruitfruitImages.Status.arrived)
         setFruitCellButton()
         setFruitOrderLabel()
     }
@@ -78,6 +79,11 @@ class HomeViewController: UIViewController {
     func setFruitStatusLabelText(from text: String) {
         fruitStatusLabel.setLabelText(from: text)
     }
+    
+    func setFruitStatusLabelImage(from text: String) {
+        fruitStatusLabel.setLabelImage(from: text)
+    }
+    //TODO: 데이터 모델 -> 한 번에 사용 + 디폴트 값 설정하기
     
     @objc func tapStatusLabel() {
         print("FruitStatuLabel tapped")
