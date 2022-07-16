@@ -136,30 +136,25 @@ class InitSettingViewController: UIViewController {
     func buttonColorCheck() {
         if let name = nameTextField.text, let nickname = nicknameTextField.text {
             if !name.isEmpty && !nickname.isEmpty {
-                initSettingButton.configuration?.background.backgroundColor = .clear
-                initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
-                let graident = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
-                UIView.animate(withDuration: 4.0, delay: 0, options: .transitionCrossDissolve, animations: {
-                    self.initSettingButton.layer.insertSublayer(graident, at: 0)
-                }, completion: { _ in
-                    UIView.animate(withDuration: 0.5) {
-                        self.initSettingButton.configuration?.background.backgroundColor = UIColor.clear
-                    }
-                })
+                if initSettingButton.layer.sublayers!.count == 2 {
+                    initSettingButton.configuration?.background.backgroundColor = .clear
+                    initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
+                    let graident = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
+                    UIView.animate(withDuration: 4.0, delay: 0, options: .transitionCrossDissolve, animations: {
+                        self.initSettingButton.layer.insertSublayer(graident, at: 0)
+                    }, completion: { _ in
+                        UIView.animate(withDuration: 0.5) {
+                            self.initSettingButton.configuration?.background.backgroundColor = UIColor.clear
+                        }
+                    })
+                }
             } else {
                 if initSettingButton.layer.sublayers!.count == 3 {
                     initSettingButton.layer.sublayers?.removeFirst()
                 }
-                
                 initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
                 initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
             }
-        } else {
-            if initSettingButton.layer.sublayers!.count == 3 {
-                initSettingButton.layer.sublayers?.removeFirst()
-            }
-            initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
-            initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         }
     }
 }
