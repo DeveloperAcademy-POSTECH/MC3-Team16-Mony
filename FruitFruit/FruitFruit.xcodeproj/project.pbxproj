@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A49503928844AC500C6357A /* FruitSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A49503828844AC500C6357A /* FruitSelectButton.swift */; };
 		4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */; };
 		4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD001D288073D600BBEB4D /* UIView+Extension.swift */; };
 		4AD892D7287E9A0E00A01BA3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A49503828844AC500C6357A /* FruitSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSelectButton.swift; sourceTree = "<group>"; };
 		4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		4ACD001D288073D600BBEB4D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitSetting.storyboard; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		52D05362287BB69600FF87DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4A49503828844AC500C6357A /* FruitSelectButton.swift */,
 				4A14564F287FC663007CBED0 /* InitStoryboard */,
 			);
 			path = Views;
@@ -225,6 +228,7 @@
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
 				4AD892E7287F0FE100A01BA3 /* Constants.swift in Sources */,
 				4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */,
+				4A49503928844AC500C6357A /* FruitSelectButton.swift in Sources */,
 				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
 				4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
