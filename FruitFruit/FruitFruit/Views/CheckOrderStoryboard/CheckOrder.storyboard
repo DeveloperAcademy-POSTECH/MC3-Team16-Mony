@@ -1,28 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Check Order View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController id="Y6W-OH-hqX" customClass="CheckOrderViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eWQ-zW-czO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-NN-9fU">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="44"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <items>
+                                            <navigationItem title="주문하기" id="d54-IL-clG">
+                                                <barButtonItem key="leftBarButtonItem" title="BackButton" image="chevron.left" catalog="system" style="plain" id="Bur-y3-cPh">
+                                                    <color key="tintColor" name="Fruitfruit_Orange1"/>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" title="ExitButton" image="xmark" catalog="system" id="9fh-FD-LI4">
+                                                    <color key="tintColor" name="Fruitfruit_Orange1"/>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdu-33-Zhz">
+                                        <rect key="frame" x="24" y="196" width="41.5" height="22"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.0800000000000001" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox6-Th-Sog">
+                                        <rect key="frame" x="24" y="248" width="41.5" height="27.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3400000000000001" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmd-oV-Rjw">
+                                        <rect key="frame" x="36" y="746" width="342" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="7Gc-2w-7zo"/>
+                                            <constraint firstAttribute="width" constant="342" id="UUt-XG-Y21"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="WnE-NN-9fU" firstAttribute="top" secondItem="eWQ-zW-czO" secondAttribute="top" constant="50" id="Dwb-rd-Xzr"/>
+                                    <constraint firstItem="Ox6-Th-Sog" firstAttribute="top" secondItem="Fdu-33-Zhz" secondAttribute="bottom" constant="30" id="FbE-MK-rtj"/>
+                                    <constraint firstItem="jmd-oV-Rjw" firstAttribute="centerX" secondItem="eWQ-zW-czO" secondAttribute="centerX" id="HHo-qX-e0y"/>
+                                    <constraint firstItem="Ox6-Th-Sog" firstAttribute="leading" secondItem="eWQ-zW-czO" secondAttribute="leading" constant="24" id="dvV-QE-gQE"/>
+                                    <constraint firstItem="Fdu-33-Zhz" firstAttribute="leading" secondItem="eWQ-zW-czO" secondAttribute="leading" constant="24" id="mOw-xs-5AC"/>
+                                    <constraint firstItem="jmd-oV-Rjw" firstAttribute="top" secondItem="eWQ-zW-czO" secondAttribute="top" constant="746" id="osO-2r-XAQ"/>
+                                    <constraint firstItem="jmd-oV-Rjw" firstAttribute="centerY" secondItem="eWQ-zW-czO" secondAttribute="centerY" id="t7c-pb-PVT"/>
+                                    <constraint firstItem="Fdu-33-Zhz" firstAttribute="top" secondItem="WnE-NN-9fU" secondAttribute="bottom" constant="102" id="uy1-OS-wzF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eWQ-zW-czO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Cqc-9J-Y5D"/>
+                            <constraint firstItem="eWQ-zW-czO" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="VdM-Gm-avh"/>
+                            <constraint firstItem="eWQ-zW-czO" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="eaU-SR-aZr"/>
+                            <constraint firstAttribute="bottom" secondItem="eWQ-zW-czO" secondAttribute="bottom" id="xnH-KV-GHJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="eWQ-zW-czO" id="Mr2-ei-xyH"/>
+                        <outlet property="checkOrderButton" destination="jmd-oV-Rjw" id="ftr-pm-d1A"/>
+                        <outlet property="checkOrderSecondaryLabel" destination="Ox6-Th-Sog" id="GsK-0F-hUj"/>
+                        <outlet property="checkOrderTitleLabel" destination="Fdu-33-Zhz" id="f0S-BS-MPH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="113.04347826086958" y="91.741071428571431"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="Fruitfruit_Orange1">
+            <color red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
