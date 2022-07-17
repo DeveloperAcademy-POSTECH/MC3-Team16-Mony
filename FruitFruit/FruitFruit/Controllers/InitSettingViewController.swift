@@ -185,20 +185,22 @@ extension InitSettingViewController: UITextFieldDelegate {
         }
         //TODO: 텍스트 필드 체크 -> 공백 체크 / 한글, 영어만 가능
     }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        buttonColorCheck()
+    }
 
     //TODO: FruitTextField 상에서 Protocol 상속 -> Delegate 파악해서 DidSet 효과 주기
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         textFieldVisibilityCheck()
-        buttonColorCheck()
         return true
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         textFieldVisibilityCheck()
-        buttonColorCheck()
     }
 }
 
