@@ -18,7 +18,7 @@ class InitSettingViewController: UIViewController {
     @IBOutlet weak var nicknameTextField: FruitTextField!
     @IBOutlet weak var initSettingButton: UIButton!
     let db = Firestore.firestore()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
@@ -46,7 +46,7 @@ class InitSettingViewController: UIViewController {
         nameLabel.font = UIFont.preferredFont(for: .footnote, weight: .regular)
         nameLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
-        initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
+        initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
         // 텍스트 폰트, 색깔 설정
         nicknameTextField.isHidden = true
         nameLabel.isHidden = true
@@ -137,23 +137,20 @@ class InitSettingViewController: UIViewController {
         if let name = nameTextField.text, let nickname = nicknameTextField.text {
             if !name.isEmpty && !nickname.isEmpty {
                 if initSettingButton.layer.sublayers!.count == 2 {
-                    initSettingButton.configuration?.background.backgroundColor = .clear
-                    initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
                     let graident = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
                     UIView.animate(withDuration: 4.0, delay: 0, options: .transitionCrossDissolve, animations: {
                         self.initSettingButton.layer.insertSublayer(graident, at: 0)
-                    }, completion: { _ in
-                        UIView.animate(withDuration: 0.5) {
-                            self.initSettingButton.configuration?.background.backgroundColor = UIColor.clear
-                        }
-                    })
+                        self.initSettingButton.configuration?.background.backgroundColor = UIColor.clear
+                        self.initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+                    }, completion: nil)
                 }
             } else {
                 if initSettingButton.layer.sublayers!.count == 3 {
                     initSettingButton.layer.sublayers?.removeFirst()
+                    initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
+                    initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+
                 }
-                initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
-                initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
             }
         }
     }
