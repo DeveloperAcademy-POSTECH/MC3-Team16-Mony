@@ -30,5 +30,18 @@ struct Constants {
             UIColor(red: 0.992, green: 0.533, blue: 0.157, alpha: 1),
             UIColor(red: 1, green: 0.6, blue: 0, alpha: 1)
           ]
+        static let backgroundGradient = [
+            UIColor(red: 1, green: 0.89, blue: 0.784, alpha: 1),
+            UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+          ]
     }
+    struct FruitfruitImages {
+        struct Fruits {
+            static let orangeSecondary = "Fruitfruit_Orange_Secondary.png"
+        }
+        struct Status {
+            static let arrived = "Fruitfruit_Status_Arrived.svg"
+        }
+    }
+    
 }
