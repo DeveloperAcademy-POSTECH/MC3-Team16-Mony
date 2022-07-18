@@ -60,9 +60,20 @@ extension CheckOrderViewController {
     
     private func setTitleCost() -> String {
         //TODO: 과일 가격 받아오는 or 계산하는 코드 추가 (일단은 받아오는 코드)
-        //TODO: 100원 단위로 구분하는 쉼표 추가 (2400 -> 2,400)
         let cost = 2400
-        return String(cost)
+        let share: String
+        let remainder: String
+        let result: String
+        
+        if cost >= 1000 {
+            share = String(cost / 1000)
+            remainder = String(cost % 1000)
+            result = share + "," + remainder
+        } else {
+            result = String(cost)
+        }
+        
+        return result
     }
     
     private func setSecondaryLabelUI() {
