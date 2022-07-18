@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
         setFruitStatusLabel()
         setHomeTitleText(from: "맛있는 여름오렌지가\nC5로 오고있어요", colorText: "여름오렌지", color: UIColor(named: Constants.FruitfruitColors.orange1)!)
         setFruitStatusLabelText(from: "입금이 확인되었어요")
-        setFruitStatusLabelImage(from: Constants.FruitfruitImages.Status.arrived)
+        setFruitStatusLabelImage(from: Constants.FruitfruitImages.Status.checked)
         setFruitCellButton()
         setFruitOrderLabel()
     }

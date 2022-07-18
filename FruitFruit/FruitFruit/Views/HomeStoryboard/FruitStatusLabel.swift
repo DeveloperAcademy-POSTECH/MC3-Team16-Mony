@@ -83,8 +83,8 @@ class FruitStatusLabel: UIView {
         statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         statusLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
         self.addSubview(statusImage)
-        statusImage.topAnchor.constraint(equalTo: topAnchor, constant: -41).isActive = true
-        statusImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 212).isActive = true
+        statusImage.topAnchor.constraint(equalTo: topAnchor, constant: -38).isActive = true
+        statusImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 182).isActive = true
     }
     
     func setLabelText(from text: String) {
@@ -93,5 +93,6 @@ class FruitStatusLabel: UIView {
     
     func setLabelImage(from text: String) {
         statusImage.image = UIImage(named: text)
+        statusImage.frame = CGRect(x:0, y:0, width: 130, height: 130)
     }
 }

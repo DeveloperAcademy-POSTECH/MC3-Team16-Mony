@@ -37,10 +37,14 @@ struct Constants {
     }
     struct FruitfruitImages {
         struct Fruits {
-            static let orangeSecondary = "Fruitfruit_Orange_Secondary.png"
+            static let orangeSecondary = "Fruitfruit_Orange_Secondary.pdf"
+            static let peachSecondary = "Fruitfruit_Peach_Secondary.pdf"
         }
         struct Status {
-            static let arrived = "Fruitfruit_Status_Arrived.svg"
+            static let arrived = "Fruitfruit_Status_Arrived.pdf"
+            static let checking = "Fruitfruit_Status_Chekcking_pdf"
+            static let checked = "Fruitfruit_Status_Checked.pdf"
+            static let canceled = "Fruitfruit_Status_Canceled.pdf"
         }
     }
     
