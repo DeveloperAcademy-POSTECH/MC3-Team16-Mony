@@ -29,13 +29,14 @@ class CheckOrderViewController: UIViewController {
 }
 
 extension CheckOrderViewController {
+    
     private func setCheckOrderViewUI() {
-        setTitleTextUI(from: setTitleText(), colorText: setTitleFruit(), color: UIColor(named: Constants.FruitfruitColors.orange1)!)
+        setTitleLabelUI(from: setTitleText(), colorText: setTitleFruit(), color: UIColor(named: Constants.FruitfruitColors.orange1)!)
         setSecondaryLabelUI()
         setCheckOrderButtonUI()
     }
-    
-    private func setTitleTextUI(from text: String, colorText: String, color: UIColor) {
+
+    private func setTitleLabelUI(from text: String, colorText: String, color: UIColor) {
         let nsString = text.getColoredText(colorText, color)
         checkOrderTitleLabel.text = ""
         checkOrderTitleLabel.attributedText = nsString
