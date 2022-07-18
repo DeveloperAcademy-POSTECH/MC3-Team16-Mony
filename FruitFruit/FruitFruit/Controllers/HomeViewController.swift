@@ -24,7 +24,8 @@ class HomeViewController: UIViewController {
     
     let fruitOrderLabel: UILabel = {
         let label = UILabel()
-        label.text = "참여가능한 과일팟"
+        label.text = "참여가능한 과일모임"
+        label.textColor = UIColor(named: Constants.FruitfruitColors.black)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
