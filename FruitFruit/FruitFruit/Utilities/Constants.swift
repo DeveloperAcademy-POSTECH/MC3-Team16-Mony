@@ -16,6 +16,9 @@ struct Constants {
             static let nameField = "name"
             static let nicknameField = "nickname"
         }
+        struct Orders {
+            static let collectionName =  "Orders"
+        }
     }
     struct FruitfruitColors {
         static let button1 = "Fruitfruit_Button1"

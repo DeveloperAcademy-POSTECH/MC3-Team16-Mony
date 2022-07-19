@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
     // MARK: - PROPERTIES
     var fruitOrders = [FruitOrder]()
     var fruitSaleInfos = [FruitSaleInfo]()
-    
+    let db = Firestore.firestore()
     let fruitStatusLabel: FruitStatusLabel = {
         let statusLabel = FruitStatusLabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 68))
         // TODO: UIScreen을 사용하지 않고 LifeCycle에서 view.bounds를 사용해서 Init하기
@@ -57,6 +58,7 @@ class HomeViewController: UIViewController {
     
     private func fetchOrders() {
         fruitOrders.append(FruitOrder(name: "오렌지", dueDate: Date(), amount: 2, price: 300, status: "Checked", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
+        db.collection(Constants.FStore.Orders.collectionName).document()
     }
     
     private func fetchInfos() {

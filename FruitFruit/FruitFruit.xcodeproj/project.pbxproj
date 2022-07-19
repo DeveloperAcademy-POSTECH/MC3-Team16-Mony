@@ -10,6 +10,7 @@
 		4A0D8AC828865319003CFAEE /* FruitOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8AC728865319003CFAEE /* FruitOrder.swift */; };
 		4A0D8ACA28865370003CFAEE /* FruitSaleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */; };
 		4A0D8ACE288679C7003CFAEE /* FruitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */; };
+		4A1867522886F7ED00630023 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1867512886F7ED00630023 /* Storage.swift */; };
 		4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */; };
 		4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD001D288073D600BBEB4D /* UIView+Extension.swift */; };
 		4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACD0023288103E100BBEB4D /* Home.storyboard */; };
@@ -43,6 +44,7 @@
 		4A0D8AC728865319003CFAEE /* FruitOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitOrder.swift; sourceTree = "<group>"; };
 		4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSaleInfo.swift; sourceTree = "<group>"; };
 		4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatus.swift; sourceTree = "<group>"; };
+		4A1867512886F7ED00630023 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		4ACD001D288073D600BBEB4D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		4ACD0023288103E100BBEB4D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				4AD892E6287F0FE100A01BA3 /* Constants.swift */,
 				4ADDB5E22886A5C900238006 /* convertFruit.swift */,
+				4A1867512886F7ED00630023 /* Storage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				4A0D8AC828865319003CFAEE /* FruitOrder.swift in Sources */,
 				4A0D8ACE288679C7003CFAEE /* FruitStatus.swift in Sources */,
 				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
+				4A1867522886F7ED00630023 /* Storage.swift in Sources */,
 				5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */,
 				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
