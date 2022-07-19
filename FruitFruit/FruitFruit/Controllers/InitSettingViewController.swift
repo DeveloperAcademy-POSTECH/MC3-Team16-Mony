@@ -149,7 +149,6 @@ class InitSettingViewController: UIViewController {
                     initSettingButton.layer.sublayers?.removeFirst()
                     initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
                     initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
-
                 }
             }
         }
