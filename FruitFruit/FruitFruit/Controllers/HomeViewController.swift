@@ -42,6 +42,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.applyBackgroundGradient()
         fetchData()
+        initHomeViewUI()
         setHomeViewUI()
     }
     //TODO: delegate 선언 -> 주문 상태 유무에 따른 위치 조정
@@ -61,46 +62,38 @@ class HomeViewController: UIViewController {
     private func fetchInfos() {
         fruitSaleInfos.append(FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 300, fruitOrigin: "캘리포니아", saleDate: Date(), place: "C5", time: 13))
     }
+    // viewDidLoad 등 현재 사용자 주문 정보 / 가용 과일 정보 fetch
+    
+    private func initHomeViewUI() {
+        homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
+        setFruitStatusLabel()
+        initFruitOrderLabel()
+        initFruitCellButton()
+    }
     
     private func setHomeViewUI() {
-        homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        
         if let fruitOrder = fruitOrders.first {
             let fruitStatus = fruitOrder.statusEnum
-            setFruitStatusLabel()
             setHomeTitleText(from: fruitStatus.homeTitleText(fruit: fruitOrder.name, time: fruitOrder.time, place: fruitOrder.place))
+            fruitStatusLabel.isHidden = false
             setFruitStatusLabelText(from: fruitStatus.statusLabel)
             setFruitStatusLabelImage(from: fruitStatus.statusImageName(fruit: fruitOrder.name))
-            setFruitCellButton()
-            setFruitOrderLabel()
             setFruitOrderLayout(false)
         } else {
             fruitStatusLabel.isHidden = true
-            setFruitStatusLabel()
             setHomeTitleText(from: FruitStatus.Canceled.homeTitleText(fruit: "", time: 0, place: ""))
-            setFruitCellButton()
-            setFruitOrderLabel()
             setFruitOrderLayout(true)
         }
-    }
-    
-    func setHomeTitleText(from text: String) {
-        homeTitleLabel.text = text
+        
+        //TODO: 서버 -> 주문 정보 배열값 업데이트 -> 값 변경 감지
     }
     
     func setHomeTitleText(from text: NSMutableAttributedString) {
         homeTitleLabel.text = ""
         homeTitleLabel.attributedText = text
     }
-    
-    func setHomeTitleText(from text: String, colorText: String, color: UIColor) {
-        let nsString = text.getColoredText(colorText, color)
-        homeTitleLabel.text = ""
-        homeTitleLabel.attributedText = nsString
-    }
-    
+
     private func setFruitStatusLabel() {
-        fruitStatusLabel.isHidden = false
         view.addSubview(fruitStatusLabel)
         fruitStatusLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
         fruitStatusLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
@@ -126,12 +119,17 @@ class HomeViewController: UIViewController {
         //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
     }
     
-    private func setFruitCellButton() {
+    private func initFruitOrderLabel() {
+        fruitOrderLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        view.addSubview(fruitOrderLabel)
+        fruitOrderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+    }
+    
+    private func initFruitCellButton() {
         view.addSubview(fruitCellButton)
         fruitCellButton.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
         fruitCellButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         fruitCellButton.heightAnchor.constraint(equalToConstant: 154).isActive = true
-        fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 359).isActive = true
         fruitCellButton.isUserInteractionEnabled = true
         fruitCellButton.addTarget(self, action: #selector(tapCellButton), for: .touchUpInside)
     }
@@ -141,13 +139,6 @@ class HomeViewController: UIViewController {
         print("TAP CELL BUTTON")
         //TODO: 주문 뷰로 네비게이션 이동하기
         //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
-    }
-    
-    private func setFruitOrderLabel() {
-        fruitOrderLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
-        view.addSubview(fruitOrderLabel)
-        fruitOrderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        setFruitOrderLayout(false)
     }
     
     private func setFruitOrderLayout(_ isTop: Bool) {
