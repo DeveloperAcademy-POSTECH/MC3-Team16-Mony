@@ -76,7 +76,6 @@ class HomeViewController: UIViewController {
         fruitStatusLabel.addGestureRecognizer(labelTapGesture)
     }
 
-
     func setFruitStatusLabelText(from text: String) {
         fruitStatusLabel.setLabelText(from: text)
     }
