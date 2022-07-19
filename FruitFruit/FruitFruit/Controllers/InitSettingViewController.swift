@@ -141,19 +141,15 @@ class InitSettingViewController: UIViewController {
                     let graident = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
                     UIView.animate(withDuration: 4.0, delay: 0, options: .transitionCrossDissolve, animations: {
                         self.initSettingButton.layer.insertSublayer(graident, at: 0)
-                        self.initSettingButton.configuration?.background.backgroundColor = UIColor.clear
-                        self.initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
                     }, completion: nil)
                 }
             } else {
                 if initSettingButton.layer.sublayers!.count == 3 {
                     initSettingButton.layer.sublayers?.removeFirst()
-                    initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
-                    initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
-
                 }
             }
         }
+        self.initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
     }
 }
 
