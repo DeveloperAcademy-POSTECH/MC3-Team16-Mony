@@ -15,4 +15,11 @@ struct FruitSaleInfo: Codable {
     let saleDate: Date
     var place: String
     var time: Int
+    
+    var fruitImagePrimary: String {
+        return "Fruitfruit_\(fruitName)_Primary"
+    }
+    var fruitImageSecondary: String {
+        return "Fruitfruit_\(fruitName)_Secondary"
+    }
 }
