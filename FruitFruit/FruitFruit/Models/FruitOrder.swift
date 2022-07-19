@@ -17,4 +17,22 @@ struct FruitOrder: Codable {
     let user: FruitUser
     var place: String
     var time: Int
+    
+    var statusEnum: FruitStatus {
+        return FruitStatus(rawValue: status) ?? FruitStatus.Canceled
+    }
+    
+    var totalPrice: Int {
+        return price * amount
+    }
+    
+    var twelveHourClock: String {
+        if time > 12 {
+            return "오후 \(time - 12)시"
+        } else if time == 12 {
+            return "정오"
+        } else {
+            return "오전 \(time)시"
+        }
+    }
 }

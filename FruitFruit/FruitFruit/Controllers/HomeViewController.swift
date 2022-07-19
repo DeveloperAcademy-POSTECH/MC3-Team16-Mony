@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     // MARK: - PROPERTIES
+    var fruitOrders = [FruitOrder]()
+    var fruitSaleInfos = [FruitSaleInfo]()
+    
     let fruitStatusLabel: FruitStatusLabel = {
         let statusLabel = FruitStatusLabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 68))
         // TODO: UIScreen을 사용하지 않고 LifeCycle에서 view.bounds를 사용해서 Init하기
