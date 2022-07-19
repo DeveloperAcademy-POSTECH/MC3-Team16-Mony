@@ -18,11 +18,3 @@ struct FruitOrder: Codable {
     var place: String
     var time: Int
 }
-
-
-
-
-// Checking -> HomeView (
-// -> OrderView
-
-// 1 입금 확인 전 2 입금 확인 완료 3 주문 완료 4 배송 완료 5 취소
