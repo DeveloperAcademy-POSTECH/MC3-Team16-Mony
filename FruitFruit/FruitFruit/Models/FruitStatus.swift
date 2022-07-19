@@ -46,13 +46,15 @@ enum FruitStatus: String {
     
     func statusImageName(fruit: String) -> String {
         
+        let fruit = convertFruit(fruit: fruit)
+        
         switch self {
         case .Checking:
             return "Fruitfruit_Status_\(fruit)_Checking.pdf"
         case .Checked:
             return "Fruitfruit_Status_\(fruit)_Checked.pdf"
         case .Canceled:
-            return "Fruitfruit_Status_\(fruit)_Checking.pdf"
+            return "Fruitfruit_Status_Canceled.pdf"
         case .Arriving:
             return "Fruitfruit_Status_\(fruit)_Arriving.pdf"
         case .Arrived:
