@@ -102,6 +102,6 @@ class FruitCellButtonView: UIView {
     
     func setFruitButtonImage(_ text: String) {
         fruitImage.image = UIImage(named: text)
-        fruitImage.frame = CGRect(x: 0, y: 0, width: 93, height: 100)
+        fruitImage.frame.size = CGSize(width: 93, height: 100)
     }
 }
