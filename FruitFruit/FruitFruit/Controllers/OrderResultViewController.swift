@@ -13,6 +13,12 @@ class OrderResultViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var secondaryTitleLabel: UILabel!
     
+    let orderSheet: OrderSheet = {
+        let orderSheet = OrderSheet(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 370))
+        orderSheet.translatesAutoresizingMaskIntoConstraints = false
+        return orderSheet
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +35,9 @@ class OrderResultViewController: UIViewController {
         secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         secondaryTitleLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
         
+        view.addSubview(orderSheet)
+        orderSheet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        orderSheet.topAnchor.constraint(equalTo: view.topAnchor, constant: 259).isActive = true
     }
     
 
