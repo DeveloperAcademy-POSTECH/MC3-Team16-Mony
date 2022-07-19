@@ -64,12 +64,24 @@ class HomeViewController: UIViewController {
     
     private func setHomeViewUI() {
         homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        setFruitStatusLabel()
-        setHomeTitleText(from: fruitOrders[0].statusEnum.homeTitleText(fruit: fruitOrders[0].name, time: fruitOrders[0].time, place: fruitOrders[0].place))
-        setFruitStatusLabelText(from: fruitOrders[0].statusEnum.statusLabel)
-        setFruitStatusLabelImage(from: fruitOrders[0].statusEnum.statusImageName(fruit: fruitOrders[0].name))
-        setFruitCellButton()
-        setFruitOrderLabel()
+        
+        if let fruitOrder = fruitOrders.first {
+            let fruitStatus = fruitOrder.statusEnum
+            setFruitStatusLabel()
+            setHomeTitleText(from: fruitStatus.homeTitleText(fruit: fruitOrder.name, time: fruitOrder.time, place: fruitOrder.place))
+            setFruitStatusLabelText(from: fruitStatus.statusLabel)
+            setFruitStatusLabelImage(from: fruitStatus.statusImageName(fruit: fruitOrder.name))
+            setFruitCellButton()
+            setFruitOrderLabel()
+            setFruitOrderLayout(false)
+        } else {
+            fruitStatusLabel.isHidden = true
+            setFruitStatusLabel()
+            setHomeTitleText(from: FruitStatus.Canceled.homeTitleText(fruit: "", time: 0, place: ""))
+            setFruitCellButton()
+            setFruitOrderLabel()
+            setFruitOrderLayout(true)
+        }
     }
     
     func setHomeTitleText(from text: String) {
@@ -88,7 +100,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setFruitStatusLabel() {
-        fruitOrderLabel.isHidden = false
+        fruitStatusLabel.isHidden = false
         view.addSubview(fruitStatusLabel)
         fruitStatusLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
         fruitStatusLabel.heightAnchor.constraint(equalToConstant: 68).isActive = true
@@ -135,7 +147,21 @@ class HomeViewController: UIViewController {
         fruitOrderLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
         view.addSubview(fruitOrderLabel)
         fruitOrderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 327).isActive = true
+        setFruitOrderLayout(false)
+    }
+    
+    private func setFruitOrderLayout(_ isTop: Bool) {
+        let nextLabel: CGFloat = isTop ? 277 : 327
+        let curLabel: CGFloat = isTop ? 327 : 277
+        
+        fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: curLabel).isActive = false
+        fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: nextLabel).isActive = true
+        
+        let nextButton: CGFloat = isTop ? 309 : 359
+        let curButton: CGFloat = isTop ? 359 : 309
+        
+        fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: curButton).isActive = false
+        fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: nextButton).isActive = true
     }
 }
 
