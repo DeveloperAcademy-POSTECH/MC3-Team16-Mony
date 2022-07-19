@@ -10,6 +10,7 @@ import FirebaseFirestore
 import Firebase
 
 class InitSettingViewController: UIViewController {
+        
     // MARK: - PROPERTIES
     @IBOutlet weak var addNameLabel: UILabel!
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -159,26 +160,18 @@ class InitSettingViewController: UIViewController {
 // MARK: - EXTENSIONS
 
 extension InitSettingViewController: UITextFieldDelegate {
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if nameTextField.isEditing {
-            nameTextField.backgroundSet(true)
-            nameTextField.heightSet(true)
-        } else if nicknameTextField.isEditing {
-            nicknameTextField.backgroundSet(true)
-            nicknameTextField.heightSet(true)
+        if let fruitTextField = textField as? FruitTextField {
+            fruitTextField.backgroundSet(true)
+            fruitTextField.heightSet(true)
         }
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if !nicknameTextField.isEditing {
-            nicknameTextField.backgroundSet(false)
-            nameTextField.heightSet(false)
-        }
-
-        if !nameTextField.isEditing {
-            nameTextField.backgroundSet(false)
-            nicknameTextField.heightSet(false)
+        if let fruitTextField = textField as? FruitTextField {
+            fruitTextField.backgroundSet(false)
+            fruitTextField.heightSet(false)
         }
         //TODO: 텍스트 필드 체크 -> 공백 체크 / 한글, 영어만 가능
     }
