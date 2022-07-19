@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0D8AC828865319003CFAEE /* FruitOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8AC728865319003CFAEE /* FruitOrder.swift */; };
+		4A0D8ACA28865370003CFAEE /* FruitSaleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */; };
+		4A0D8ACE288679C7003CFAEE /* FruitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */; };
 		4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */; };
 		4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD001D288073D600BBEB4D /* UIView+Extension.swift */; };
 		4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACD0023288103E100BBEB4D /* Home.storyboard */; };
@@ -25,7 +28,7 @@
 		4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */; };
 		4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */; };
 		4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E2287F0A9200A01BA3 /* InitSettingViewController.swift */; };
-		4AD892E5287F0DC500A01BA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E4287F0DC500A01BA3 /* User.swift */; };
+		4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E4287F0DC500A01BA3 /* FruitUser.swift */; };
 		4AD892E7287F0FE100A01BA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E6287F0FE100A01BA3 /* Constants.swift */; };
 		5230C63B2880FDAF0069583B /* CheckOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5230C63A2880FDAF0069583B /* CheckOrder.storyboard */; };
 		5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230C63C2880FDC50069583B /* CheckOrderViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0D8AC728865319003CFAEE /* FruitOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitOrder.swift; sourceTree = "<group>"; };
+		4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSaleInfo.swift; sourceTree = "<group>"; };
+		4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatus.swift; sourceTree = "<group>"; };
 		4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		4ACD001D288073D600BBEB4D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		4ACD0023288103E100BBEB4D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -52,7 +58,7 @@
 		4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTextField.swift; sourceTree = "<group>"; };
 		4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4AD892E2287F0A9200A01BA3 /* InitSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSettingViewController.swift; sourceTree = "<group>"; };
-		4AD892E4287F0DC500A01BA3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4AD892E4287F0DC500A01BA3 /* FruitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitUser.swift; sourceTree = "<group>"; };
 		4AD892E6287F0FE100A01BA3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5230C63A2880FDAF0069583B /* CheckOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckOrder.storyboard; sourceTree = "<group>"; };
 		5230C63C2880FDC50069583B /* CheckOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOrderViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +190,10 @@
 		52D05363287BB6A200FF87DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4AD892E4287F0DC500A01BA3 /* User.swift */,
+				4AD892E4287F0DC500A01BA3 /* FruitUser.swift */,
+				4A0D8AC728865319003CFAEE /* FruitOrder.swift */,
+				4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */,
+				4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,6 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */,
+				4A0D8AC828865319003CFAEE /* FruitOrder.swift in Sources */,
+				4A0D8ACE288679C7003CFAEE /* FruitStatus.swift in Sources */,
+				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
 				5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */,
 				4AD892E5287F0DC500A01BA3 /* User.swift in Sources */,
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
@@ -287,6 +299,7 @@
 				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
 				4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */,
 				4ACD00292881079400BBEB4D /* FruitBackground.swift in Sources */,
+				4A0D8ACA28865370003CFAEE /* FruitSaleInfo.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

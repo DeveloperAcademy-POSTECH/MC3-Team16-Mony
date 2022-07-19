@@ -47,5 +47,4 @@ struct Constants {
             static let canceled = "Fruitfruit_Status_Canceled.pdf"
         }
     }
-    
 }

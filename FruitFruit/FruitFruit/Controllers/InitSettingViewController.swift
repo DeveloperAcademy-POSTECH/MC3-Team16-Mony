@@ -56,7 +56,7 @@ class InitSettingViewController: UIViewController {
     @IBAction func initSettingFinished(_ sender: UIButton) {
         if let name = nameTextField.text, let nickname = nicknameTextField.text {
             if !name.isEmpty && !nickname.isEmpty {
-                let user = User(name: name, nickname: nickname)
+                let user = FruitUser(name: name, nickname: nickname)
                 // User 정보 생성
                 let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
                 db.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
