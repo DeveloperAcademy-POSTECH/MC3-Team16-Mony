@@ -93,6 +93,6 @@ class FruitStatusLabel: UIView {
     
     func setLabelImage(from text: String) {
         statusImage.image = UIImage(named: text)
-        statusImage.frame = CGRect(x:0, y:0, width: 130, height: 130)
+        statusImage.frame.size = CGSize(width: 130, height: 130)
     }
 }
