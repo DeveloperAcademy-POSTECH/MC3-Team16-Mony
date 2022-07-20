@@ -56,7 +56,7 @@ enum FruitStatus: String {
         case .Canceled:
             return "Fruitfruit_Status_Canceled.pdf"
         case .Arriving:
-            return "Fruitfruit_Status_\(fruit)_Arriving.pdf"
+            return "Fruitfruit_Status_\(fruit)_Arrived.pdf"
         case .Arrived:
             return "Fruitfruit_Status_\(fruit)_Arrived.pdf"
         }
