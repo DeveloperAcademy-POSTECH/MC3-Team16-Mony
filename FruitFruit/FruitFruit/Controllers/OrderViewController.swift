@@ -30,4 +30,7 @@ class OrderViewController: UIViewController {
         lblNumber.text = String(Number) + "개"
     }
 
+    @IBAction func gotToFruitInfoView(_ sender: UIButton) {
+        
+    }
 }

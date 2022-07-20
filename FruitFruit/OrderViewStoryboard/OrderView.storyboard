@@ -107,6 +107,10 @@
                                     </attributedString>
                                     <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="gotToFruitInfoView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="chh-7U-asL"/>
+                                    <segue destination="GM0-iA-pDX" kind="presentation" id="eDe-XQ-ZrI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -119,6 +123,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+        </scene>
+        <!--FruitinfoView-->
+        <scene sceneID="5io-ru-5J9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FruitinfoView" id="GM0-iA-pDX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFG-vh-3gK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="-68"/>
         </scene>
     </scenes>
     <resources>
