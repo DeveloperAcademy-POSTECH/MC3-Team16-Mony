@@ -134,7 +134,6 @@ class HomeViewController: UIViewController {
             setHomeTitleText(from: FruitStatus.Canceled.homeTitleText(fruit: "", time: 0, place: ""))
             setFruitOrderLayout(true)
         }
-        
         //TODO: 서버 -> 주문 정보 배열값 업데이트 -> 값 변경 감지
     }
     

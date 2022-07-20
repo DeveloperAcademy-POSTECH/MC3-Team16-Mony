@@ -11,7 +11,7 @@
         <!--HomeView-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController title="HomeView" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="HomeView" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="971.01449275362324" y="105.80357142857143"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--HomeViewController-->
         <scene sceneID="qGs-c3-RgX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zfr-oG-pjq" sceneMemberID="viewController">
+                <navigationController title="HomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="zfr-oG-pjq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xyl-QS-Qvy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
