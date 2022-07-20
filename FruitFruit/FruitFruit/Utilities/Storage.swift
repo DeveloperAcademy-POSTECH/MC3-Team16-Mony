@@ -8,7 +8,7 @@
 import Foundation
 
 struct Storage {
-    static let defaults = UserDefaults.standard
+    static let userDefaults = UserDefaults.standard
     
     func setFruitUser(fruitUser: FruitUser) {
         let encoder = JSONEncoder()
