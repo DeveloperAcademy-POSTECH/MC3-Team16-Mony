@@ -138,8 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				52D0534C287BAF9000FF87DD /* FruitFruit */,
-				63D3CFBA28877E0F00D9A0B4 /* FruitinfoStoryboard */,
 				6341892E28869CD1005E0C2C /* OrderViewStoryboard */,
+				63D3CFBA28877E0F00D9A0B4 /* FruitinfoStoryboard */,
 				52D0534B287BAF9000FF87DD /* Products */,
 			);
 			sourceTree = "<group>";
