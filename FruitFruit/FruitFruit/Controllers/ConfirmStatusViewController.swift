@@ -8,13 +8,22 @@
 import UIKit
 
 class ConfirmStatusViewController: UIViewController {
-
+    
+    @IBOutlet weak var backgroundView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUI()
         // Do any additional setup after loading the view.
     }
     
+    private func setUI() {
+        setBackground()
+    }
+    
+    private func setBackground() {
+        backgroundView.applyBackgroundGradient()
+    }
 
     /*
     // MARK: - Navigation

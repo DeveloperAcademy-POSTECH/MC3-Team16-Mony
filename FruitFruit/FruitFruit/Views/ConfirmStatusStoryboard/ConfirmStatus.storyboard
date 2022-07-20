@@ -15,9 +15,24 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mH-dl-muE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7mH-dl-muE" secondAttribute="bottom" id="Fj3-cS-V41"/>
+                            <constraint firstItem="7mH-dl-muE" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="L0A-M1-e3s"/>
+                            <constraint firstAttribute="trailing" secondItem="7mH-dl-muE" secondAttribute="trailing" id="gE6-Zq-D4r"/>
+                            <constraint firstItem="7mH-dl-muE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="liB-eG-hVv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="7mH-dl-muE" id="fke-xV-1by"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
