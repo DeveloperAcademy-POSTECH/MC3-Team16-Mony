@@ -12,6 +12,8 @@ class OrderResultViewController: UIViewController {
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var secondaryTitleLabel: UILabel!
+    @IBOutlet weak var warningLabel: UILabel!
+    @IBOutlet weak var backToHomeButton: UIButton!
     
     let orderSheet: OrderSheet = {
         let orderSheet = OrderSheet(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 370))
@@ -38,6 +40,21 @@ class OrderResultViewController: UIViewController {
         view.addSubview(orderSheet)
         orderSheet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         orderSheet.topAnchor.constraint(equalTo: view.topAnchor, constant: 259).isActive = true
+    
+        warningLabel.text = "오늘 오후 6시까지 입금이 확인되지 않으면\n주문이 자동으로 취소됩니다."
+        warningLabel.font = UIFont.preferredFont(for: .footnote, weight: .bold)
+        warningLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        
+        backToHomeButton.setTitle("홈으로", for: .normal)
+        let gradient = backToHomeButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
+        backToHomeButton.layer.insertSublayer(gradient, at: 0)
+        DispatchQueue.main.async {
+            self.backToHomeButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        }
+       
+        backToHomeButton.layer.cornerRadius = 16
+        backToHomeButton.layer.borderWidth = 1
+        backToHomeButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
     }
     
 

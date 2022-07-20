@@ -69,5 +69,5 @@ class SheetTable: UIView {
         sheetTable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         sheetTable.heightAnchor.constraint(equalToConstant: 136).isActive = true
     }
-    
+
 }

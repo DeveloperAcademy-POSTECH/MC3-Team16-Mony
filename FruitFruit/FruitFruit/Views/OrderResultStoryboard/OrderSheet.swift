@@ -27,6 +27,12 @@ class OrderSheet: UIView {
         return sheetTable
     }()
     
+    let account: AccountRow = {
+        let accountRow = AccountRow()
+        accountRow.translatesAutoresizingMaskIntoConstraints = false
+        return accountRow
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -41,6 +47,7 @@ class OrderSheet: UIView {
         setLabels()
         setSheetTable()
         setDivider()
+        setAccount()
     }
     
     private func setBackground() {
@@ -113,4 +120,14 @@ class OrderSheet: UIView {
         self.addSubview(dividerView)
         dividerView.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray2)
     }
+    
+    private func setAccount() {
+        self.addSubview(account)
+        account.topAnchor.constraint(equalTo: topAnchor, constant: 319).isActive = true
+        account.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34).isActive = true
+    }
+    
+    
 }
+
+
