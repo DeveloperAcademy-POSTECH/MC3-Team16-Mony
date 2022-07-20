@@ -40,7 +40,7 @@ class OrderSheet: UIView {
         setBackground()
         setLabels()
         self.addSubview(sheetTable)
-//        setDivider()
+        setDivider()
     }
     
     private func setBackground() {
@@ -103,7 +103,11 @@ class OrderSheet: UIView {
         
     }
     
-//    private func setDivider() {
-//        self.addSubview(<#T##view: UIView##UIView#>)
-//    }
+    private func setDivider() {
+        let divider: CGRect = CGRect(x: 24, y: 288, width: 294, height: 1)
+        let dividerView = UIView(frame: divider)
+        
+        self.addSubview(dividerView)
+        dividerView.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray2)
+    }
 }
