@@ -8,10 +8,10 @@
 import Foundation
 
 struct Storage {
-    let defaults = UserDefaults.standard
+    static let defaults = UserDefaults.standard
     
     var fruitUser: FruitUser? {
-        if let fruitUser = defaults.object(forKey: "FruitUser") as? FruitUser {
+        if let fruitUser = Storage.defaults.object(forKey: "FruitUser") as? FruitUser {
             return fruitUser
         } else {
             return nil

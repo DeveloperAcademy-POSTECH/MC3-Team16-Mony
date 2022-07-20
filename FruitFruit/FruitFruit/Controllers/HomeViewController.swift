@@ -43,10 +43,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.applyBackgroundGradient()
         fetchData()
-        initHomeViewUI()
-        setHomeViewUI()
     }
-    //TODO: delegate 선언 -> 주문 상태 유무에 따른 위치 조정
     
     // MARK: - FUNCTIONS
     
@@ -57,12 +54,58 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchOrders() {
-        fruitOrders.append(FruitOrder(name: "오렌지", dueDate: Date(), amount: 2, price: 300, status: "Checked", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
-        db.collection(Constants.FStore.Orders.collectionName).document()
+        if let user = Storage().fruitUser {
+            let detailCollectionName = "\(user.name) \(user.nickname)"
+            db.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
+                self.fruitOrders = []
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    if let documents = querySnapShot?.documents {
+                        for document in documents {
+                            let data = document.data()
+                            do {
+                                let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
+                                self.fruitOrders.append(fruitOrder)
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.initHomeViewUI()
+                self.setHomeViewUI()
+            }
+        }
     }
     
     private func fetchInfos() {
-        fruitSaleInfos.append(FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 300, fruitOrigin: "캘리포니아", saleDate: Date(), place: "C5", time: 13))
+        if let user = Storage().fruitUser {
+            db.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
+                self.fruitSaleInfos = []
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    if let documents = querySnapShot?.documents {
+                        for document in documents {
+                            let data = document.data()
+                            do {
+                                let fruitSaleInfo: FruitSaleInfo = try FruitSaleInfo.decode(dictionary: data)
+                                self.fruitSaleInfos.append(fruitSaleInfo)
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.initHomeViewUI()
+                self.setHomeViewUI()
+            }
+        }
     }
     // viewDidLoad 등 현재 사용자 주문 정보 / 가용 과일 정보 fetch
     
