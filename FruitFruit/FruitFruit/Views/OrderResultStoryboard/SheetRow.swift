@@ -45,11 +45,9 @@ class SheetRow: UIView {
     
     func setUI() {
         row.widthAnchor.constraint(equalToConstant: 294).isActive = true
-        
         [label, value].map {
             row.addArrangedSubview($0)
         }
-        
         self.addSubview(row)
     }
 }
