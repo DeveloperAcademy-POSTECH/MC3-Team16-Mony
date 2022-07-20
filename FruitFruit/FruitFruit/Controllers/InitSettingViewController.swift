@@ -61,10 +61,7 @@ class InitSettingViewController: UIViewController {
                 let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
                 db.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
                 // FireStore 입력
-                let encoder = JSONEncoder()
-                if let encoded = try? encoder.encode(user) {
-                    UserDefaults.standard.setValue(encoded, forKey: "FruitUser")
-                }
+                Storage().setFruitUser(fruitUser: user)
                 // UserDefaults true 설정
             }
         }

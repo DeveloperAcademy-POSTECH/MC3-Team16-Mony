@@ -10,6 +10,13 @@ import Foundation
 struct Storage {
     static let defaults = UserDefaults.standard
     
+    func setFruitUser(fruitUser: FruitUser) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(fruitUser) {
+            UserDefaults.standard.setValue(encoded, forKey: "FruitUser")
+        }
+    }
+    
     var fruitUser: FruitUser? {
         return FruitUser(name: "박준영", nickname: "노아")
 //        if let savedData = Storage.defaults.object(forKey: "FruitUser") as? Data {
