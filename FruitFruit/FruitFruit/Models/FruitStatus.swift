@@ -14,7 +14,7 @@ enum FruitStatus: String {
     case Arriving = "Arriving"
     case Arrived = "Arrived"
     
-    func homeTitleText(fruit: String, time: Int, place: String) -> NSMutableAttributedString  {
+    func makeHomeTitleText(fruit: String, time: Int, place: String) -> NSMutableAttributedString  {
         let color = UIColor(named: Constants.FruitfruitColors.orange1)!
         // TODO: 과일 종류 따라서 나중에 색깔 변경할 수 있음
         switch self {
@@ -44,7 +44,7 @@ enum FruitStatus: String {
         }
     }
     
-    func statusImageName(fruit: String) -> String {
+    func getStatusImageName(fruit: String) -> String {
         
         let fruit = convertFruit(fruit: fruit)
         

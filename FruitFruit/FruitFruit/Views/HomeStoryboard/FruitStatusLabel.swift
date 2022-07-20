@@ -85,7 +85,6 @@ class FruitStatusLabel: UIView {
         self.addSubview(statusImage)
         statusImage.topAnchor.constraint(equalTo: topAnchor, constant: -38).isActive = true
         statusImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 182).isActive = true
-//        statusImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10).isActive = true
     }
     
     func setLabelText(from text: String) {
