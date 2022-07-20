@@ -33,6 +33,8 @@
 		5222B33C2887819C0072B83D /* SheetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222B33B2887819C0072B83D /* SheetRow.swift */; };
 		522AEE892887AED1007ADD6D /* SheetTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AEE882887AED1007ADD6D /* SheetTable.swift */; };
 		522AEE8B28882B7C007ADD6D /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AEE8A28882B7C007ADD6D /* AccountRow.swift */; };
+		522AEE8F28885827007ADD6D /* ConfirmStatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522AEE8E28885827007ADD6D /* ConfirmStatus.storyboard */; };
+		522AEE912888583C007ADD6D /* ConfirmStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AEE902888583C007ADD6D /* ConfirmStatusViewController.swift */; };
 		5230C63B2880FDAF0069583B /* CheckOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5230C63A2880FDAF0069583B /* CheckOrder.storyboard */; };
 		5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230C63C2880FDC50069583B /* CheckOrderViewController.swift */; };
 		52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534D287BAF9000FF87DD /* AppDelegate.swift */; };
@@ -71,6 +73,8 @@
 		5222B33B2887819C0072B83D /* SheetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetRow.swift; sourceTree = "<group>"; };
 		522AEE882887AED1007ADD6D /* SheetTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTable.swift; sourceTree = "<group>"; };
 		522AEE8A28882B7C007ADD6D /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
+		522AEE8E28885827007ADD6D /* ConfirmStatus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmStatus.storyboard; sourceTree = "<group>"; };
+		522AEE902888583C007ADD6D /* ConfirmStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmStatusViewController.swift; sourceTree = "<group>"; };
 		5230C63A2880FDAF0069583B /* CheckOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckOrder.storyboard; sourceTree = "<group>"; };
 		5230C63C2880FDC50069583B /* CheckOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOrderViewController.swift; sourceTree = "<group>"; };
 		52D0534A287BAF9000FF87DD /* FruitFruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitFruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,14 @@
 			path = OrderResultStoryboard;
 			sourceTree = "<group>";
 		};
+		522AEE8D2888580E007ADD6D /* ConfirmStatusStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				522AEE8E28885827007ADD6D /* ConfirmStatus.storyboard */,
+			);
+			path = ConfirmStatusStoryboard;
+			sourceTree = "<group>";
+		};
 		5230C6392880FD6B0069583B /* CheckOrderStoryboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +210,7 @@
 				5230C63C2880FDC50069583B /* CheckOrderViewController.swift */,
 				4ACD00262881041400BBEB4D /* HomeViewController.swift */,
 				5216C4262886F09200EB58A8 /* OrderResultViewController.swift */,
+				522AEE902888583C007ADD6D /* ConfirmStatusViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +218,7 @@
 		52D05362287BB69600FF87DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				522AEE8D2888580E007ADD6D /* ConfirmStatusStoryboard */,
 				5216C4232886F05200EB58A8 /* OrderResultStoryboard */,
 				5230C6392880FD6B0069583B /* CheckOrderStoryboard */,
 				4ACD00282881079400BBEB4D /* FruitBackground.swift */,
@@ -298,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5230C63B2880FDAF0069583B /* CheckOrder.storyboard in Resources */,
+				522AEE8F28885827007ADD6D /* ConfirmStatus.storyboard in Resources */,
 				52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */,
 				4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */,
 				4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */,
@@ -337,6 +352,7 @@
 				4ACD00412882630B00BBEB4D /* UIImage+Extension.swift in Sources */,
 				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
 				4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */,
+				522AEE912888583C007ADD6D /* ConfirmStatusViewController.swift in Sources */,
 				4ACD00292881079400BBEB4D /* FruitBackground.swift in Sources */,
 				4A0D8ACA28865370003CFAEE /* FruitSaleInfo.swift in Sources */,
 				5222B33C2887819C0072B83D /* SheetRow.swift in Sources */,
@@ -485,7 +501,7 @@
 				INFOPLIST_FILE = FruitFruit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Home;
+				INFOPLIST_KEY_UIMainStoryboardFile = ConfirmStatus;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -515,7 +531,7 @@
 				INFOPLIST_FILE = FruitFruit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Home;
+				INFOPLIST_KEY_UIMainStoryboardFile = ConfirmStatus;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
