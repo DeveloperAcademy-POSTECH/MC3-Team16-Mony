@@ -107,7 +107,6 @@ class OrderSheet: UIView {
         fruitLabel.topAnchor.constraint(equalTo: topAnchor, constant: 70).isActive = true
         fruitLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        
     }
     
     private func setSheetTable() {
@@ -126,8 +125,6 @@ class OrderSheet: UIView {
         account.topAnchor.constraint(equalTo: topAnchor, constant: 319).isActive = true
         account.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34).isActive = true
     }
-    
-    
 }
 
 

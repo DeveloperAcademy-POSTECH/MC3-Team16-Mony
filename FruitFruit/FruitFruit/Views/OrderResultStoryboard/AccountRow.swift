@@ -51,12 +51,13 @@ class AccountRow: UIView {
         }
         self.addSubview(accountRow)
         
-//        accountRow.isUserInteractionEnabled = true
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAccountRow))
-//        accountRow.addGestureRecognizer(tapGesture)
+        //TODO: 클립보드 복사 기능 추가
+        // accountRow.isUserInteractionEnabled = true
+        // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAccountRow))
+        // accountRow.addGestureRecognizer(tapGesture)
     }
-
-//    @objc func tapAccountRow() {
-//        print("tapAccountRow tapped")
-//    }
+    
+    // @objc func tapAccountRow() {
+    //    print("tapAccountRow tapped")
+    // }
 }
