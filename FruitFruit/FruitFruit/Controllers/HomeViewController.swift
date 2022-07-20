@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.applyBackgroundGradient()
-//        addMockOrder(fruitOrder: FruitOrder(name: "오렌지", dueDate: Date(), amount: 4, price: 500, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
+        addMockOrder(fruitOrder: FruitOrder(name: "오렌지", dueDate: Date(), amount: 4, price: 500, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
         fruitSaleInfos.append(FruitSaleInfo(shopName: "효곡청과", fruitName: "여름오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
         fetchData()
     }

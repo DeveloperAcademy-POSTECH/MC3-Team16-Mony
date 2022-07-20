@@ -23,13 +23,13 @@ enum FruitStatus: String {
         case .Checked:
             return "맛있는 \(fruit)와\n내일 오전 11시 찾아뵐게요!".getColoredText(fruit, color)
         case .Canceled:
-            return "푸릇푸릇!\n상큼한 수요일 되세요".getColoredText("푸릇푸릇!", color)
+            return Date().dayComment
         case .Arriving:
             return "맛있는 \(fruit)가\nC5로 오고있어요".getColoredText(fruit, color)
         case .Arrived:
             return "맛있는 \(fruit)가\nC5에 도착했어요".getColoredText(fruit, color)
         default:
-            return "푸릇푸릇!\n상큼한 수요일 되세요".getColoredText("푸릇푸릇!", color)
+            return Date().dayComment
         }
     }
     
