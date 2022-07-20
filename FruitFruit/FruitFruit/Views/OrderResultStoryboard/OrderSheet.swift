@@ -39,9 +39,8 @@ class OrderSheet: UIView {
     private func setUI() {
         setBackground()
         setLabels()
-        
         self.addSubview(sheetTable)
-        
+//        setDivider()
     }
     
     private func setBackground() {
@@ -104,4 +103,7 @@ class OrderSheet: UIView {
         
     }
     
+//    private func setDivider() {
+//        self.addSubview(<#T##view: UIView##UIView#>)
+//    }
 }

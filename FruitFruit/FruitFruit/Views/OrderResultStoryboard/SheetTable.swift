@@ -9,37 +9,45 @@ import UIKit
 
 class SheetTable: UIView {
 
-    let sheetRowAmount: SheetRowAmount = {
-        let orderSheet = SheetRowAmount()
-        orderSheet.translatesAutoresizingMaskIntoConstraints = false
-        return orderSheet
+    let sheetRowAmount: SheetRow = {
+        let sheet = SheetRow()
+        sheet.translatesAutoresizingMaskIntoConstraints = false
+        sheet.label.text = "개수"
+        sheet.value.text = "3개"
+        return sheet
     }()
     
-    let sheetRowPrice: SheetRowPrice = {
-        let orderSheet = SheetRowPrice()
-        orderSheet.translatesAutoresizingMaskIntoConstraints = false
-        return orderSheet
+    let sheetRowPrice: SheetRow = {
+        let sheet = SheetRow()
+        sheet.translatesAutoresizingMaskIntoConstraints = false
+        sheet.label.text = "금액"
+        sheet.value.text = "2,400원"
+        return sheet
     }()
     
-    let sheetRowPlace: SheetRowPlace = {
-        let orderSheet = SheetRowPlace()
-        orderSheet.translatesAutoresizingMaskIntoConstraints = false
-        return orderSheet
+    let sheetRowPlace: SheetRow = {
+        let sheet = SheetRow()
+        sheet.translatesAutoresizingMaskIntoConstraints = false
+        sheet.label.text = "수령장소"
+        sheet.value.text = "포스텍 C5"
+        return sheet
     }()
     
-    let sheetRowTime: SheetRowTime = {
-        let orderSheet = SheetRowTime()
-        orderSheet.translatesAutoresizingMaskIntoConstraints = false
-        return orderSheet
+    let sheetRowTime: SheetRow = {
+        let sheet = SheetRow()
+        sheet.translatesAutoresizingMaskIntoConstraints = false
+        sheet.label.text = "시간"
+        sheet.value.text = "오후 1시"
+        return sheet
     }()
     
     let sheetTable: UIStackView = {
-        let sheetTable = UIStackView()
-        sheetTable.translatesAutoresizingMaskIntoConstraints = false
-        sheetTable.axis = .vertical
-        sheetTable.alignment = .fill
-        sheetTable.distribution = .fillEqually
-        return sheetTable
+        let table = UIStackView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.axis = .vertical
+        table.alignment = .fill
+        table.distribution = .fillEqually
+        return table
     }()
     
     override init(frame: CGRect) {
