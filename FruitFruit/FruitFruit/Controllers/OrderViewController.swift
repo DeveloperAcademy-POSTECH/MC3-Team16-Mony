@@ -13,6 +13,7 @@ class OrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.applyBackgroundGradient()
         lblNumber.text = String(Number) + "개"
 
         // Do any additional setup after loading the view.

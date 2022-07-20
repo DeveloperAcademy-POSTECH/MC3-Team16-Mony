@@ -23,7 +23,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="여름오렌지">
                                         <attributes>
-                                            <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -82,7 +82,7 @@
                                     </fragment>
                                     <fragment content="개">
                                         <attributes>
-                                            <font key="NSFont" size="22" name=".AppleSDGothicNeoI-UltraLight"/>
+                                            <font key="NSFont" metaFont="system" size="22"/>
                                             <font key="NSOriginalFont" size="22" name="SFProDisplay-Thin"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -100,7 +100,7 @@
                                         <fragment content="자세히보기">
                                             <attributes>
                                                 <color key="NSColor" red="0.80000001190000003" green="0.81176471709999998" blue="0.82745099070000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <font key="NSFont" size="13" name=".AppleSDGothicNeoI-SemiBold"/>
+                                                <font key="NSFont" metaFont="system"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
