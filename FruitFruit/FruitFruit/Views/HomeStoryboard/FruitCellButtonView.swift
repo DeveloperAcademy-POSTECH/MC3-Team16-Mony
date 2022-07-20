@@ -35,19 +35,17 @@ class FruitCellButtonView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUI() {
+    func setUI(_ fruitSaleInfo: FruitSaleInfo) {
         setBackground()
         setLabels()
-        setLabelText()
-        setFruitButtonImage(Constants.FruitfruitImages.Fruits.orangeSecondary)
-        //TODO: setLabelText -> UI 확인용 함수. 이후 데이터 모델 입력되었을 때 뷰 뜨도록 구현
+        setLabelText(fruitSaleInfo)
+        setFruitButtonImage("Fruitfruit_\(convertFruit(fruit: fruitSaleInfo.fruitName))_Secondary")
     }
     
     private func setBackground() {
@@ -82,22 +80,13 @@ class FruitCellButtonView: UIView {
         fruitImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 200).isActive = true
         fruitImage.widthAnchor.constraint(equalToConstant: 130).isActive = true
         fruitImage.heightAnchor.constraint(equalToConstant: 130).isActive = true
-        //TODO: 130X130 사이즈 맞춰서 SVG 패딩 값 고정!
+    }
+    
 
-    }
-    
-    func setLabelText() {
-        fruitShopLabel.text = "효곡청과"
-        fruitNameLabel.text = "여름오렌지"
-        fruitPriceLabel.text = "1개 800원"
-    }
-    // 초기화용 함수 -> 추후 삭제하기
-    //TODO: FruitCellButtom 정보 데이터 모델 자체를 입력받고 한 번에 표현하기 -> 현재를 각 라벨별 정보를 여러 개 받고 있다.
-    
-    func setLabelText(_ fruitShop: String, _ fruitName: String, _ fruitPrice: String) {
-        fruitShopLabel.text = fruitShop
-        fruitNameLabel.text = fruitName
-        fruitPriceLabel.attributedText = "1개 \(fruitPrice)".getColoredText("1개", UIColor(named: Constants.FruitfruitColors.gray1)!)
+    func setLabelText(_ fruitSaleInfo: FruitSaleInfo) {
+        fruitShopLabel.text = fruitSaleInfo.shopName
+        fruitNameLabel.text = fruitSaleInfo.fruitName
+        fruitPriceLabel.text = "1개 \(fruitSaleInfo.price)원"
     }
     
     func setFruitButtonImage(_ text: String) {

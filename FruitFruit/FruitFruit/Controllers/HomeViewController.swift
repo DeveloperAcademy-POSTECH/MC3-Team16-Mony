@@ -20,6 +20,13 @@ class HomeViewController: UIViewController {
         return statusLabel
     }()
     
+    let fruitTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    // 테이블 뷰 생성
+    
     let fruitCellButton: FruitCellButton = {
         let cellButton = FruitCellButton(frame: CGRect(x:0, y:0, width: UIScreen.main.bounds.width - 48, height: 154))
         cellButton.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +50,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.applyBackgroundGradient()
         addMockOrder(fruitOrder: FruitOrder(name: "오렌지", dueDate: Date(), amount: 4, price: 500, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
-        fruitSaleInfos.append(FruitSaleInfo(shopName: "효곡청과", fruitName: "여름오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
         fetchData()
     }
     
@@ -90,6 +96,8 @@ class HomeViewController: UIViewController {
         if let user = Storage().fruitUser {
             db.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitSaleInfos = []
+                self.fruitSaleInfos.append(FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
+                self.fruitSaleInfos.append(FruitSaleInfo(shopName: "효곡청과", fruitName: "복숭아", price: 600, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 14))
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
@@ -118,7 +126,19 @@ class HomeViewController: UIViewController {
         homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         setFruitStatusLabel()
         initFruitOrderLabel()
-        initFruitCellButton()
+//        initFruitCellButton()
+        initFruitTableView()
+    }
+    
+    private func initFruitTableView() {
+        fruitTableView.register(FruitCell.self, forCellReuseIdentifier: FruitCell.identifier)
+        fruitTableView.delegate = self
+        fruitTableView.dataSource = self
+        view.addSubview(fruitTableView)
+        fruitTableView.backgroundColor = .clear
+        fruitTableView.separatorStyle = .none
+        fruitTableView.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
+        fruitTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
     }
     
     private func setHomeViewUI() {
@@ -131,9 +151,10 @@ class HomeViewController: UIViewController {
             setFruitOrderLayout(false)
         } else {
             fruitStatusLabel.isHidden = true
-            setHomeTitleText(from: FruitStatus.Canceled.homeTitleText(fruit: "", time: 0, place: ""))
+            setHomeTitleText(from: Date().dayComment)
             setFruitOrderLayout(true)
         }
+        fruitTableView.reloadData()
         //TODO: 서버 -> 주문 정보 배열값 업데이트 -> 값 변경 감지
     }
     
@@ -164,6 +185,7 @@ class HomeViewController: UIViewController {
     
     @objc func tapStatusLabel() {
         print("FruitStatuLabel tapped")
+        print(fruitSaleInfos)
         //TODO: 주문 상태 확인 뷰로 네비게이션 이동하기
         //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
     }
@@ -197,12 +219,39 @@ class HomeViewController: UIViewController {
         fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: curLabel).isActive = false
         fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: nextLabel).isActive = true
         
-        let nextButton: CGFloat = isTop ? 309 : 359
-        let curButton: CGFloat = isTop ? 359 : 309
+        let nextTable: CGFloat = isTop ? 309 : 359
+        let curTable: CGFloat = isTop ? 359 : 309
         
-        fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: curButton).isActive = false
-        fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: nextButton).isActive = true
+//        fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: curButton).isActive = false
+//        fruitCellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: nextButton).isActive = true
+        fruitTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: curTable).isActive = false
+        fruitTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: nextTable).isActive = true
+        
+        let nextTableHeight: CGFloat = view.bounds.height - nextTable
+        let curTableHeight: CGFloat = view.bounds.height - curTable
+        
+        fruitTableView.heightAnchor.constraint(equalToConstant: curTableHeight).isActive = false
+        fruitTableView.heightAnchor.constraint(equalToConstant: nextTableHeight).isActive = true
     }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fruitSaleInfos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FruitCell.identifier) as? FruitCell ?? FruitCell()
+        let frame = CGRect(x:0, y:0, width: view.bounds.width - 48, height: 154)
+        cell.setUI(frame: frame, model: fruitSaleInfos[indexPath.row])
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 170
+    }
+
 }
 
 
