@@ -21,6 +21,119 @@ class OrderSheet: UIView {
         return label
     }()
     
+    let amountLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let amountValue: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let data = ["개수", "3개"]
+    
+    let label1: UILabel = {
+        let label = UILabel()
+        
+        label.text = "label1"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let label2: UILabel = {
+        let label = UILabel()
+        
+        label.text = "label2"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let label3: UILabel = {
+        let label = UILabel()
+        
+        label.text = "label3"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let label4: UILabel = {
+        let label = UILabel()
+        
+        label.text = "label4"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let label5: UILabel = {
+        let label = UILabel()
+        
+        label.text = "label5"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let label6: UILabel = {
+        let label = UILabel()
+        
+        label.text = "label6"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    let horizontalView: UIStackView = {
+        let horizontalView = UIStackView()
+        
+        horizontalView.translatesAutoresizingMaskIntoConstraints = false
+        horizontalView.axis = .horizontal
+        horizontalView.alignment = .fill
+        horizontalView.distribution = .equalSpacing
+        
+        return horizontalView
+    }()
+    
+    let horizontalView2: UIStackView = {
+        let horizontalView = UIStackView()
+        
+        horizontalView.translatesAutoresizingMaskIntoConstraints = false
+        horizontalView.axis = .horizontal
+        horizontalView.alignment = .fill
+        horizontalView.distribution = .equalSpacing
+        
+        return horizontalView
+    }()
+    
+    let horizontalView3: UIStackView = {
+        let horizontalView = UIStackView()
+        
+        horizontalView.translatesAutoresizingMaskIntoConstraints = false
+        horizontalView.axis = .horizontal
+        horizontalView.alignment = .fill
+        horizontalView.distribution = .equalSpacing
+        
+        return horizontalView
+    }()
+    
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        
+        return stackView
+    }()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -33,6 +146,29 @@ class OrderSheet: UIView {
     private func setUI() {
         setBackground()
         setLabels()
+        
+        [label1, label2].map {
+            horizontalView.addArrangedSubview($0)
+        }
+        
+        [label3, label4].map {
+            horizontalView2.addArrangedSubview($0)
+        }
+        
+        [label5, label6].map {
+            horizontalView3.addArrangedSubview($0)
+        }
+        
+        [horizontalView, horizontalView2, horizontalView3].map {
+            stackView.addArrangedSubview($0)
+        }
+        
+        self.addSubview(stackView)
+        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 116).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: 136).isActive = true
+        stackView.widthAnchor.constraint(equalToConstant: 294).isActive = true
+        
     }
     
     private func setBackground() {
@@ -92,5 +228,7 @@ class OrderSheet: UIView {
         fruitLabel.topAnchor.constraint(equalTo: topAnchor, constant: 70).isActive = true
         fruitLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        
     }
+    
 }
