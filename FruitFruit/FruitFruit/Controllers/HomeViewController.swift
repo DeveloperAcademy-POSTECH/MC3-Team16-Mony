@@ -42,6 +42,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.applyBackgroundGradient()
         addMockOrder(fruitOrder: FruitOrder(name: "오렌지", dueDate: Date(), amount: 4, price: 500, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
+//        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
+//        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "복숭아", price: 600, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 14))
         fetchData()
     }
     
@@ -57,7 +59,6 @@ class HomeViewController: UIViewController {
             let detailCollectionName = "\(user.name) \(user.nickname)"
 //            db.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
             database.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
-
                 self.fruitOrders = []
                 if let error = error {
                     print(error.localizedDescription)
@@ -87,8 +88,6 @@ class HomeViewController: UIViewController {
         if let user = Storage().fruitUser {
             database.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitSaleInfos = []
-                self.fruitSaleInfos.append(FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
-                self.fruitSaleInfos.append(FruitSaleInfo(shopName: "효곡청과", fruitName: "복숭아", price: 600, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 14))
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
@@ -102,10 +101,12 @@ class HomeViewController: UIViewController {
                                 print(error)
                             }
                         }
-                        DispatchQueue.main.async {
-                            self.initHomeViewUI()
-                            self.setHomeViewUI()
-                        }
+                    }
+                    DispatchQueue.main.async {
+                        print(self.fruitSaleInfos)
+                        self.initHomeViewUI()
+                        self.setHomeViewUI()
+                        self.fruitTableView.reloadData()
                     }
                 }
             }
@@ -116,7 +117,6 @@ class HomeViewController: UIViewController {
         homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         setFruitStatusLabel()
         initFruitOrderLabel()
-//        initFruitCellButton()
         initFruitTableView()
     }
     
@@ -132,6 +132,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setHomeViewUI() {
+        //TODO: 주문 상태 활성화되어 있는지 체크
         if let fruitOrder = fruitOrders.first {
             let fruitStatus = fruitOrder.statusEnum
             setHomeTitleText(from: fruitStatus.makeHomeTitleText(fruit: fruitOrder.name, time: fruitOrder.time, place: fruitOrder.place))
@@ -144,7 +145,6 @@ class HomeViewController: UIViewController {
             setHomeTitleText(from: Date().dayComment)
             setFruitOrderLayout(true)
         }
-        fruitTableView.reloadData()
     }
     
     func setHomeTitleText(from text: NSMutableAttributedString) {
@@ -173,7 +173,9 @@ class HomeViewController: UIViewController {
     
     @objc func tapStatusLabel() {
         print("FruitStatuLabel tapped")
+        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
         print(fruitSaleInfos)
+
         //TODO: 주문 상태 확인 뷰로 네비게이션 이동하기
         //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
     }

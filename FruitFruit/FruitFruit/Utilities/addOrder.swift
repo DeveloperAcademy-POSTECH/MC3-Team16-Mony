@@ -29,5 +29,5 @@ func addMockOrder(fruitOrder: FruitOrder) {
 func addMockSaleInfo(fruitInfo: FruitSaleInfo) {
     let db = Firestore.firestore()
     guard let fruitInfoDict = fruitInfo.dictionary else { return }
-    db.collection(Constants.FStore.SaleInfos.collectionName).document()
+    db.collection(Constants.FStore.SaleInfos.collectionName).addDocument(data: fruitInfoDict)
 }

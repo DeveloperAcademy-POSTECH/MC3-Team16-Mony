@@ -46,7 +46,7 @@ enum FruitStatus: String {
     
     func getStatusImageName(fruit: String) -> String {
         
-        let fruit = convertFruit(fruit: fruit)
+        let fruit = FruitName(rawValue: fruit)?.fruitName ?? "orange"
         
         switch self {
         case .Checking:

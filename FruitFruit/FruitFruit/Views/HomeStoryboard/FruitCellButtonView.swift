@@ -45,7 +45,7 @@ class FruitCellButtonView: UIView {
         setBackground()
         setLabels()
         setLabelText(fruitSaleInfo)
-        setFruitButtonImage("Fruitfruit_\(convertFruit(fruit: fruitSaleInfo.fruitName))_Secondary")
+        setFruitButtonImage(fruitSaleInfo.fruitImageSecondary)
     }
     
     private func setBackground() {
