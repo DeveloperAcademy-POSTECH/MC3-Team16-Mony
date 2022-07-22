@@ -55,16 +55,15 @@ class InitSettingViewController: UIViewController {
     }
     
     @IBAction func initSettingFinished(_ sender: UIButton) {
-        if let name = nameTextField.text, let nickname = nicknameTextField.text {
-            if !name.isEmpty && !nickname.isEmpty {
-                let user = User(name: name, nickname: nickname)
-                // User 정보 생성
-                let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
-                db.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
-                // FireStore 입력
-                UserDefaults.standard.set(true, forKey: "isInitSet")
-                // UserDefaults true 설정
-            }
+        guard let name = nameTextField.text, let nickname = nicknameTextField.text else { return }
+        if !name.isEmpty && !nickname.isEmpty {
+            let user = User(name: name, nickname: nickname)
+            // User 정보 생성
+            let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
+            db.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
+            // FireStore 입력
+            UserDefaults.standard.set(true, forKey: "isInitSet")
+            // UserDefaults true 설정
         }
     }
     
@@ -119,37 +118,38 @@ class InitSettingViewController: UIViewController {
     }
     
     func textFieldVisibilityCheck() {
-        if let name = nameTextField.text {
-            if name != "" && nicknameTextField.isHidden {
-                nameTextFieldSet(true)
-            } else if name == "" {
-                if !nicknameTextField.isHidden {
-                    if let nickname = nicknameTextField.text {
-                        if nickname == "" {
-                            nameTextFieldSet(false)
-                        }
-                    }
-                }
+        guard let name = nameTextField.text else { return }
+        if !name.isEmpty && nicknameTextField.isHidden {
+            nameTextFieldSet(true)
+        } else if name.isEmpty && !nicknameTextField.isHidden {
+            guard let nickname = nicknameTextField.text else { return }
+            if !nickname.isEmpty {
+                nameTextFieldSet(false)
             }
         }
     }
     
     func buttonColorCheck() {
-        if let name = nameTextField.text, let nickname = nicknameTextField.text {
+        guard let name = nameTextField.text, let nickname = nicknameTextField.text else { return }
+        if !name.isEmpty && !nickname.isEmpty {
             if !name.isEmpty && !nickname.isEmpty {
-                if initSettingButton.layer.sublayers!.count == 2 {
-                    let graident = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
+                let limitedCnt = 2
+                if initSettingButton.layer.sublayers!.count == limitedCnt {
+                    let gradient = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
                     UIView.animate(withDuration: 4.0, delay: 0, options: .transitionCrossDissolve, animations: {
-                        self.initSettingButton.layer.insertSublayer(graident, at: 0)
+                        self.initSettingButton.layer.insertSublayer(gradient, at: 0)
                     }, completion: nil)
                 }
             } else {
-                if initSettingButton.layer.sublayers!.count == 3 {
+                let limitedCnt = 3
+                if initSettingButton.layer.sublayers!.count == limitedCnt {
                     initSettingButton.layer.sublayers?.removeFirst()
                 }
             }
         }
-        self.initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        DispatchQueue.main.async {
+            self.initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        }
     }
 }
 
@@ -158,17 +158,15 @@ class InitSettingViewController: UIViewController {
 extension InitSettingViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if let fruitTextField = textField as? FruitTextField {
-            fruitTextField.backgroundSet(true)
-            fruitTextField.heightSet(true)
-        }
+        guard let fruitTextField = textField as? FruitTextField else { return }
+        fruitTextField.backgroundSet(true)
+        fruitTextField.heightSet(true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let fruitTextField = textField as? FruitTextField {
-            fruitTextField.backgroundSet(false)
-            fruitTextField.heightSet(false)
-        }
+        guard let fruitTextField = textField as? FruitTextField else { return }
+        fruitTextField.backgroundSet(false)
+        fruitTextField.heightSet(false)
         //TODO: 텍스트 필드 체크 -> 공백 체크 / 한글, 영어만 가능
     }
     
