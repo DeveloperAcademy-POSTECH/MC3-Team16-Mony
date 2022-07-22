@@ -14,21 +14,12 @@ class HomeViewController: UIViewController {
     var fruitOrders = [FruitOrder]()
     var fruitSaleInfos = [FruitSaleInfo]()
     let database = Firestore.firestore()
-    let fruitStatusLabel: FruitStatusLabel = {
-        let statusLabel = FruitStatusLabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 68))
-        statusLabel.translatesAutoresizingMaskIntoConstraints = false
-        return statusLabel
-    }()
     
-    let flowLayout: UICollectionViewFlowLayout = {
+    let fruitStatusCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 204, height: 68)
-        return layout
-    }()
-    
-    private lazy var fruitStatusCollectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isScrollEnabled = true
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = true
@@ -74,6 +65,7 @@ class HomeViewController: UIViewController {
         fruitStatusCollectionView.dataSource = self
         fruitInfoTableView.delegate = self
         fruitInfoTableView.dataSource = self
+        initHomeViewUI()
         fetchData()
     }
     
@@ -104,10 +96,20 @@ class HomeViewController: UIViewController {
                                 print(error)
                             }
                         }
+                        let layout = UICollectionViewFlowLayout()
+                        layout.scrollDirection = .horizontal
+
+                        if self.fruitOrders.count == 1 {
+                            layout.itemSize = CGSize(width: self.view.bounds.width - 48, height: 68)
+                        } else {
+                            layout.itemSize = CGSize(width: 204, height: 68)
+                        }
+                        self.fruitStatusCollectionView.collectionViewLayout = layout
                         DispatchQueue.main.async {
-                            self.initHomeViewUI()
                             self.setHomeViewUI()
-                            self.fruitStatusCollectionView.reloadData()
+                            if !self.fruitOrders.isEmpty {
+                                self.fruitStatusCollectionView.reloadData()
+                            }
                         }
                     }
                 }
@@ -133,9 +135,10 @@ class HomeViewController: UIViewController {
                             }
                         }
                         DispatchQueue.main.async {
-                            self.initHomeViewUI()
                             self.setHomeViewUI()
-                            self.fruitInfoTableView.reloadData()
+                            if !self.fruitSaleInfos.isEmpty {
+                                self.fruitInfoTableView.reloadData()
+                            }
                         }
                     }
                 }
@@ -155,7 +158,7 @@ class HomeViewController: UIViewController {
         view.addSubview(fruitStatusCollectionView)
         fruitStatusCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
         fruitStatusCollectionView.heightAnchor.constraint(equalToConstant: 68).isActive = true
-        fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         fruitStatusCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
     }
@@ -165,8 +168,10 @@ class HomeViewController: UIViewController {
         view.addSubview(fruitInfoTableView)
         fruitInfoTableView.backgroundColor = .clear
         fruitInfoTableView.separatorStyle = .none
-        fruitInfoTableView.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
+        fruitInfoTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 24).isActive = true
         fruitInfoTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitInfoTableView.topAnchor.constraint(equalTo: fruitOrderLabel.bottomAnchor, constant: 10).isActive = true
+        fruitInfoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func setHomeViewUI() {
@@ -176,11 +181,11 @@ class HomeViewController: UIViewController {
             let firstFruitStatus = firstFruitOrder.statusEnum
             let homeTitleText = firstFruitStatus.makeHomeTitleText(fruit: firstFruitOrder.name, time: firstFruitOrder.time, place: firstFruitOrder.place)
             setHomeTitleText(from: homeTitleText)
-            fruitStatusCollectionView.isHidden = false
             setFruitOrderLayout(false)
+            fruitStatusCollectionView.isHidden = false
         } else {
-            setHomeTitleText(from: Date().dayComment)
             fruitStatusCollectionView.isHidden = true
+            setHomeTitleText(from: Date().dayComment)
             setFruitOrderLayout(true)
         }
     }
@@ -208,30 +213,19 @@ class HomeViewController: UIViewController {
         fruitOrderLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
         view.addSubview(fruitOrderLabel)
         fruitOrderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        let fruitOrderLabelTop = fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 277)
+        fruitOrderLabelTop.isActive = true
+        fruitOrderLabelTop.identifier = "fruitOrderLabelTop"
     }
     
     private func setFruitOrderLayout(_ isTop: Bool) {
-        print("LAYOUT RECHECK")
-        let nextLabel: CGFloat = isTop ? 277 : 335
-        let curLabel: CGFloat = isTop ? 335 : 277
         
-        fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: curLabel).isActive = false
-        fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: nextLabel).isActive = true
-        
-        let nextTable: CGFloat = isTop ? 309 : 377
-        let curTable: CGFloat = isTop ? 377 : 309
-        
-        fruitInfoTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: curTable).isActive = false
-        fruitInfoTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: nextTable).isActive = true
-        
-        let nextTableHeight: CGFloat = view.bounds.height - nextTable
-        let curTableHeight: CGFloat = view.bounds.height - curTable
-        
-        fruitInfoTableView.heightAnchor.constraint(equalToConstant: curTableHeight).isActive = false
-        fruitInfoTableView.heightAnchor.constraint(equalToConstant: nextTableHeight).isActive = true
-        print(nextTable)
-        print(curTable)
-        self.view.layoutIfNeeded()
+        for constraint in self.view.constraints {
+            if constraint.identifier == "fruitOrderLabelTop" {
+                constraint.constant = isTop ? 277 : 335
+            }
+        }
+        view.layoutIfNeeded()
     }
 }
 
