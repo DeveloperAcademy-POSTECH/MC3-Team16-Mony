@@ -20,4 +20,13 @@ enum FruitName: String {
             return "Peach"
         }
     }
+    
+    var fruitSecondary: String {
+        switch self {
+        case .Orange:
+            return Constants.FruitfruitImages.Fruits.orangeSecondary
+        case .Peach:
+            return Constants.FruitfruitImages.Fruits.peachSecondary
+        }
+    }
 }
