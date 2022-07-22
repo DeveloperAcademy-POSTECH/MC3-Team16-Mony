@@ -69,6 +69,10 @@ class ConfirmStatusViewController: UIViewController {
     */
 
     @objc func tapAccountRow() {
-        print("tapAccountRow tapped")
+        UIPasteboard.general.string = "카카오뱅크 303-22-201058 이정환"
+        if let myString = UIPasteboard.general.string {
+            print(myString)
+        }
+        
     }
 }
