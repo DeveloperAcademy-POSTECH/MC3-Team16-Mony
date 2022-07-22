@@ -257,7 +257,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					52D05349287BAF9000FF87DD = {
 						CreatedOnToolsVersion = 13.3;
@@ -314,7 +314,6 @@
 				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
 				4A1867522886F7ED00630023 /* Storage.swift in Sources */,
 				5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */,
-				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
 				4ACD002D2881948900BBEB4D /* FruitStatusLabel.swift in Sources */,
 				4ACD00352881C59600BBEB4D /* FruitCell.swift in Sources */,

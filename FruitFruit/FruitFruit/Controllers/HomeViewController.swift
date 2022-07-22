@@ -41,6 +41,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.applyBackgroundGradient()
+        fruitTableView.delegate = self
+        fruitTableView.dataSource = self
         addMockOrder(fruitOrder: FruitOrder(name: "오렌지", dueDate: Date(), amount: 4, price: 500, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
 //        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
 //        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "복숭아", price: 600, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 14))
@@ -66,7 +68,6 @@ class HomeViewController: UIViewController {
                     if let documents = querySnapShot?.documents {
                         for document in documents {
                             let data = document.data()
-                            print(data)
                             do {
                                 let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
                                 self.fruitOrders.append(fruitOrder)
@@ -87,7 +88,7 @@ class HomeViewController: UIViewController {
     private func fetchInfos() {
         if let user = Storage().fruitUser {
             database.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
-                self.fruitSaleInfos = []
+                self.fruitSaleInfos.removeAll()
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
@@ -101,12 +102,11 @@ class HomeViewController: UIViewController {
                                 print(error)
                             }
                         }
-                    }
-                    DispatchQueue.main.async {
-                        print(self.fruitSaleInfos)
-                        self.initHomeViewUI()
-                        self.setHomeViewUI()
-                        self.fruitTableView.reloadData()
+                        DispatchQueue.main.async {
+                            self.initHomeViewUI()
+                            self.setHomeViewUI()
+                            self.fruitTableView.reloadData()
+                        }
                     }
                 }
             }
@@ -122,11 +122,9 @@ class HomeViewController: UIViewController {
     
     private func initFruitTableView() {
         fruitTableView.register(FruitCell.self, forCellReuseIdentifier: FruitCell.identifier)
-        fruitTableView.delegate = self
-        fruitTableView.dataSource = self
         view.addSubview(fruitTableView)
         fruitTableView.backgroundColor = .clear
-        fruitTableView.separatorStyle = .none
+//        fruitTableView.separatorStyle = .none
         fruitTableView.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
         fruitTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
     }
@@ -173,8 +171,8 @@ class HomeViewController: UIViewController {
     
     @objc func tapStatusLabel() {
         print("FruitStatuLabel tapped")
-        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
-        print(fruitSaleInfos)
+//        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
+        fruitTableView.reloadData()
 
         //TODO: 주문 상태 확인 뷰로 네비게이션 이동하기
         //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
@@ -208,12 +206,13 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fruitSaleInfos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FruitCell.identifier) as? FruitCell ?? FruitCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: FruitCell.identifier, for: indexPath) as! FruitCell
         let frame = CGRect(x:0, y:0, width: view.bounds.width - 48, height: 154)
         cell.setUI(frame: frame, model: fruitSaleInfos[indexPath.row])
         cell.selectionStyle = .none
@@ -221,7 +220,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 170
+        return 154
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(fruitSaleInfos[indexPath.row])
     }
 
 }
