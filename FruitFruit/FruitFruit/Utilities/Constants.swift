@@ -56,5 +56,8 @@ struct Constants {
             static let canceled = "Fruitfruit_Status_Canceled.pdf"
         }
         static let profile = "Fruitfruit_Profile.pdf"
+        struct Others {
+            static let account = "Fruitfruit_Account.pdf"
+        }
     }
 }
