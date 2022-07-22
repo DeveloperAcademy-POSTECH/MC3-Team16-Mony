@@ -29,9 +29,7 @@ class ConfirmStatusViewController: UIViewController {
     private func setUI() {
         setBackground()
         setLabels()
-        view.addSubview(orderSheet)
-        orderSheet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        orderSheet.topAnchor.constraint(equalTo: view.topAnchor, constant: 310).isActive = true
+        setOrderSheet()
     }
     
     private func setBackground() {
@@ -47,6 +45,18 @@ class ConfirmStatusViewController: UIViewController {
         secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
         secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
     }
+    
+    private func setOrderSheet() {
+        view.addSubview(orderSheet)
+        orderSheet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        orderSheet.topAnchor.constraint(equalTo: view.topAnchor, constant: 310).isActive = true
+        orderSheet.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 48).isActive = true
+        orderSheet.heightAnchor.constraint(equalToConstant: 370).isActive = true
+        
+        orderSheet.account.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAccountRow))
+        orderSheet.account.addGestureRecognizer(tapGesture)
+    }
 
     /*
     // MARK: - Navigation
@@ -58,4 +68,7 @@ class ConfirmStatusViewController: UIViewController {
     }
     */
 
+    @objc func tapAccountRow() {
+        print("tapAccountRow tapped")
+    }
 }

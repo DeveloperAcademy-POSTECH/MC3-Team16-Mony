@@ -38,6 +38,9 @@ class AccountRow: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
+        self.isUserInteractionEnabled = true
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAccountRow))
+//        self.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder: NSCoder) {
@@ -49,15 +52,11 @@ class AccountRow: UIView {
         [accountText, accountImage].map {
             accountRow.addArrangedSubview($0)
         }
-        self.addSubview(accountRow)
         
-        //TODO: 클립보드 복사 기능 추가
-        // accountRow.isUserInteractionEnabled = true
-        // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAccountRow))
-        // accountRow.addGestureRecognizer(tapGesture)
+        self.addSubview(accountRow)
     }
     
-    // @objc func tapAccountRow() {
-    //    print("tapAccountRow tapped")
-    // }
+//    @objc func tapAccountRow() {
+//        print("tapAccountRow tapped")
+//    }
 }

@@ -124,7 +124,10 @@ class OrderSheet: UIView {
         self.addSubview(account)
         account.topAnchor.constraint(equalTo: topAnchor, constant: 319).isActive = true
         account.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34).isActive = true
+        account.widthAnchor.constraint(equalToConstant: 270).isActive = true
+        account.heightAnchor.constraint(equalToConstant: 21).isActive = true
     }
+
 }
 
 
