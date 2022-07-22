@@ -17,8 +17,8 @@ class HomeViewController: UIViewController {
     
     let fruitStatusCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 204, height: 68)
+//        layout.scrollDirection = .horizontal
+//        layout.itemSize = CGSize(width: 204, height: 68)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isScrollEnabled = true
         view.showsHorizontalScrollIndicator = false
@@ -77,6 +77,7 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchOrders() {
+        //TODO: 유효한 주문 -> 연산 프로퍼티로 체크하기
         if let user = Storage().fruitUser {
             let detailCollectionName = "\(user.name) \(user.nickname)"
             database.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
@@ -118,6 +119,7 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchInfos() {
+        //TODO: 판매 유효한 과일 -> 날짜순서대로 고르기
         if let user = Storage().fruitUser {
             database.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitSaleInfos.removeAll()
@@ -219,13 +221,11 @@ class HomeViewController: UIViewController {
     }
     
     private func setFruitOrderLayout(_ isTop: Bool) {
-        
         for constraint in self.view.constraints {
             if constraint.identifier == "fruitOrderLabelTop" {
                 constraint.constant = isTop ? 277 : 335
             }
         }
-        
         UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -288,5 +288,3 @@ extension HomeViewController: UICollectionViewDataSource {
         print(fruitOrders[indexPath.item])
     }
 }
-
-
