@@ -28,7 +28,8 @@ struct Constants {
     struct FruitfruitColors {
         static let button1 = "Fruitfruit_Button1"
         static let button2 = "Fruitfruit_Button2"
-        static let black = "Fruitfruit_Black1"
+        static let black1 = "Fruitfruit_Black1"
+        static let black2 = "Fruitfruit_Black2"
         static let gray1 = "Fruitfruit_Gray1"
         static let gray2 = "Fruitfruit_Gray2"
         static let gray3 = "Fruitfruit_Gray3"

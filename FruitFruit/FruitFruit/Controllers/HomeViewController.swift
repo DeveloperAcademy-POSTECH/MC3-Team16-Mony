@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     let fruitOrderLabel: UILabel = {
         let label = UILabel()
         label.text = "참여가능한 과일모임"
-        label.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        label.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,9 +51,6 @@ class HomeViewController: UIViewController {
         view.applyBackgroundGradient()
         fruitTableView.delegate = self
         fruitTableView.dataSource = self
-        addMockOrder(fruitOrder: FruitOrder(name: "오렌지", dueDate: Date(), amount: 4, price: 500, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
-//        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
-//        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "복숭아", price: 600, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 14))
         fetchData()
     }
     
@@ -67,8 +64,7 @@ class HomeViewController: UIViewController {
     private func fetchOrders() {
         if let user = Storage().fruitUser {
             let detailCollectionName = "\(user.name) \(user.nickname)"
-//            db.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
-            database.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
+            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitOrders = []
                 if let error = error {
                     print(error.localizedDescription)
@@ -133,7 +129,7 @@ class HomeViewController: UIViewController {
         fruitTableView.register(FruitCell.self, forCellReuseIdentifier: FruitCell.identifier)
         view.addSubview(fruitTableView)
         fruitTableView.backgroundColor = .clear
-//        fruitTableView.separatorStyle = .none
+        fruitTableView.separatorStyle = .none
         fruitTableView.widthAnchor.constraint(equalToConstant: view.bounds.width - 48).isActive = true
         fruitTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
     }
@@ -180,8 +176,6 @@ class HomeViewController: UIViewController {
     
     @objc func tapStatusLabel() {
         print("FruitStatuLabel tapped")
-//        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 500, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
-        fruitTableView.reloadData()
 
         //TODO: 주문 상태 확인 뷰로 네비게이션 이동하기
         //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
@@ -254,6 +248,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(fruitSaleInfos[indexPath.section])
+        //TODO: FruitOrderView로 navigation prepare
     }
 }
 

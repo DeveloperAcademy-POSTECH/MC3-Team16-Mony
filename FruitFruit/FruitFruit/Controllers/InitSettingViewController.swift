@@ -32,14 +32,14 @@ class InitSettingViewController: UIViewController {
         welcomeLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         welcomeLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         addNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        addNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        addNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
-        nameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        nameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nameTextField.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nameTextField.autocorrectionType = .no
         nicknameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
-        nicknameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        nicknameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nicknameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nicknameTextField.autocorrectionType = .no

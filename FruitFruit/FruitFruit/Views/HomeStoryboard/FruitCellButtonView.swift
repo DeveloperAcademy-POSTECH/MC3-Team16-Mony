@@ -62,7 +62,7 @@ class FruitCellButtonView: UIView {
         self.addSubview(fruitPriceLabel)
         self.addSubview(fruitImage)
         fruitShopLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        fruitShopLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        fruitShopLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         fruitShopLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
         fruitShopLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitShopLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -72,7 +72,7 @@ class FruitCellButtonView: UIView {
         fruitNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitNameLabel.heightAnchor.constraint(equalToConstant: 33).isActive = true
         fruitPriceLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        fruitPriceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        fruitPriceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         fruitPriceLabel.topAnchor.constraint(equalTo: topAnchor, constant: 108).isActive = true
         fruitPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitPriceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
