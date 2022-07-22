@@ -32,7 +32,7 @@ class FruitStatusCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented.")
     }
     
-    private func setUI(model: FruitOrder) {
+    func setUI(model: FruitOrder) {
         backgroundColor = .clear
         layer.backgroundColor = UIColor(named: Constants.FruitfruitColors.gray3)?.cgColor
         layer.cornerRadius = 20
