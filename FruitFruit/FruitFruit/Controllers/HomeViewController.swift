@@ -225,7 +225,10 @@ class HomeViewController: UIViewController {
                 constraint.constant = isTop ? 277 : 335
             }
         }
-        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }
 
@@ -279,6 +282,10 @@ extension HomeViewController: UICollectionViewDataSource {
         let cell = fruitStatusCollectionView.dequeueReusableCell(withReuseIdentifier: FruitStatusCell.id, for: indexPath) as! FruitStatusCell
         cell.prepare(model: fruitOrders[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(fruitOrders[indexPath.item])
     }
 }
 
