@@ -33,6 +33,14 @@ class HomeViewController: UIViewController {
         return label
     }()
     
+    let fruitProfile: UIImageView = {
+        let profile = UIImageView()
+        profile.image = UIImage(named: Constants.FruitfruitImages.profile)
+        profile.frame = CGRect(x:0, y:0, width: 48, height: 48)
+        profile.translatesAutoresizingMaskIntoConstraints = false
+        return profile
+    }()
+    
     @IBOutlet weak var homeTitleLabel: UILabel!
 
     
@@ -115,6 +123,7 @@ class HomeViewController: UIViewController {
     
     private func initHomeViewUI() {
         homeTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
+        initFruitProfile()
         setFruitStatusLabel()
         initFruitOrderLabel()
         initFruitTableView()
@@ -176,6 +185,12 @@ class HomeViewController: UIViewController {
 
         //TODO: 주문 상태 확인 뷰로 네비게이션 이동하기
         //TODO: 라벨 클릭 시 일반 버튼처럼 번쩍거리는 클릭 이벤트 효과 주기
+    }
+    
+    private func initFruitProfile() {
+        view.addSubview(fruitProfile)
+        fruitProfile.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+        fruitProfile.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26).isActive = true
     }
     
     private func initFruitOrderLabel() {
