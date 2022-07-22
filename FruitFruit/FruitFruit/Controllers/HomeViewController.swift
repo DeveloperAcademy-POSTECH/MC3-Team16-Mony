@@ -218,7 +218,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FruitCell.identifier, for: indexPath) as! FruitCell
         let frame = CGRect(x:0, y:0, width: view.bounds.width - 48, height: 154)
-        cell.setUI(frame: frame, model: fruitSaleInfos[indexPath.row])
+        cell.setUI(frame: frame, model: fruitSaleInfos[indexPath.section])
         cell.selectionStyle = .none
         return cell
     }
@@ -238,9 +238,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(fruitSaleInfos[indexPath.row])
+        print(fruitSaleInfos[indexPath.section])
     }
-
 }
 
 
