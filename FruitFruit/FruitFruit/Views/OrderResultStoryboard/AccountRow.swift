@@ -39,8 +39,6 @@ class AccountRow: UIView {
         super.init(frame: frame)
         setUI()
         self.isUserInteractionEnabled = true
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAccountRow))
-//        self.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder: NSCoder) {
@@ -55,8 +53,4 @@ class AccountRow: UIView {
         
         self.addSubview(accountRow)
     }
-    
-//    @objc func tapAccountRow() {
-//        print("tapAccountRow tapped")
-//    }
 }

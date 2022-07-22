@@ -13,6 +13,7 @@ class ConfirmStatusViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var secondaryTitleLabel: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var statusImage: UIImageView!
     
     let orderSheet: OrderSheet = {
         let orderSheet = OrderSheet(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 370))
@@ -29,6 +30,7 @@ class ConfirmStatusViewController: UIViewController {
     private func setUI() {
         setBackground()
         setLabels()
+        setImage()
         setOrderSheet()
     }
     
@@ -37,13 +39,18 @@ class ConfirmStatusViewController: UIViewController {
     }
     
     private func setLabels() {
-        titleLabel.text = "입금을\n확인 중이에요!"
+        titleLabel.text = FruitStatus.Checking.detailTitleLabel
         titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         titleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
         
-        secondaryTitleLabel.text = "오늘 오후 6시까지 입금이 확인되지 않으면\n주문이 자동으로 취소됩니다."
+        secondaryTitleLabel.text = FruitStatus.Checking.detailSecondaryTitleLabel
         secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
         secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+    }
+    
+    private func setImage() {
+        statusImage.image = UIImage(named: Constants.FruitfruitImages.Status.checking)
+        statusImage.frame.size = CGSize(width: 160, height: 160)
     }
     
     private func setOrderSheet() {
@@ -73,6 +80,5 @@ class ConfirmStatusViewController: UIViewController {
         if let myString = UIPasteboard.general.string {
             print(myString)
         }
-        
     }
 }

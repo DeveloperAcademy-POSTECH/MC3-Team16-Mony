@@ -58,14 +58,23 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hth-E5-4C7">
+                                        <rect key="frame" x="254" y="110" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="Omq-M6-kOG"/>
+                                            <constraint firstAttribute="width" constant="160" id="cmA-Ra-wCj"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="bgP-bi-6yO" firstAttribute="centerX" secondItem="7mH-dl-muE" secondAttribute="centerX" id="KO9-G5-DwK"/>
                                     <constraint firstItem="Cbf-bl-8m6" firstAttribute="top" secondItem="WLi-tN-6hA" secondAttribute="bottom" constant="8" id="LgY-UM-IUN"/>
                                     <constraint firstItem="bgP-bi-6yO" firstAttribute="top" secondItem="7mH-dl-muE" secondAttribute="top" constant="62" id="Rcb-8Q-Qkx"/>
+                                    <constraint firstAttribute="trailing" secondItem="hth-E5-4C7" secondAttribute="trailing" id="RxY-i6-nAv"/>
                                     <constraint firstItem="WLi-tN-6hA" firstAttribute="leading" secondItem="7mH-dl-muE" secondAttribute="leading" constant="24" id="U6n-3h-ZCi"/>
                                     <constraint firstItem="bgP-bi-6yO" firstAttribute="leading" secondItem="7mH-dl-muE" secondAttribute="leading" id="XL7-UC-Nnx"/>
+                                    <constraint firstItem="hth-E5-4C7" firstAttribute="top" secondItem="7mH-dl-muE" secondAttribute="top" constant="110" id="aNt-g6-gXG"/>
                                     <constraint firstAttribute="trailing" secondItem="bgP-bi-6yO" secondAttribute="trailing" id="hqT-LU-7Yn"/>
                                     <constraint firstItem="Cbf-bl-8m6" firstAttribute="leading" secondItem="7mH-dl-muE" secondAttribute="leading" constant="24" id="k0g-OR-gSg"/>
                                     <constraint firstItem="WLi-tN-6hA" firstAttribute="top" secondItem="7mH-dl-muE" secondAttribute="top" constant="140" id="vei-zV-ghe"/>
@@ -85,6 +94,7 @@
                         <outlet property="backgroundView" destination="7mH-dl-muE" id="fke-xV-1by"/>
                         <outlet property="navigationBar" destination="bgP-bi-6yO" id="vIE-BI-jqB"/>
                         <outlet property="secondaryTitleLabel" destination="Cbf-bl-8m6" id="pIO-mn-Wji"/>
+                        <outlet property="statusImage" destination="hth-E5-4C7" id="gJP-Un-Lzg"/>
                         <outlet property="titleLabel" destination="WLi-tN-6hA" id="jnj-zL-2sV"/>
                     </connections>
                 </viewController>
