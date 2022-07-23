@@ -17,8 +17,6 @@ class HomeViewController: UIViewController {
     
     let fruitStatusCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        layout.itemSize = CGSize(width: 204, height: 68)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isScrollEnabled = true
         view.showsHorizontalScrollIndicator = false
@@ -51,6 +49,19 @@ class HomeViewController: UIViewController {
         profile.translatesAutoresizingMaskIntoConstraints = false
         return profile
     }()
+    
+    let fruitQuestionMark: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let fruitQuestionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     
     @IBOutlet weak var homeTitleLabel: UILabel!
 
@@ -149,6 +160,7 @@ class HomeViewController: UIViewController {
         initFruitStatusCollectionView()
         initFruitOrderLabel()
         initFruitInfoTableView()
+        initFruitQuestion()
     }
     
     private func initFruitStatusCollectionView() {
@@ -190,11 +202,42 @@ class HomeViewController: UIViewController {
             setHomeTitleText(from: Date().dayComment)
             setFruitOrderLayout(true)
         }
+        if fruitSaleInfos.isEmpty {
+            print(fruitSaleInfos)
+            fruitInfoTableView.isHidden = true
+            fruitQuestionLabel.isHidden = false
+            fruitQuestionMark.isHidden = false
+        } else {
+            fruitInfoTableView.isHidden = false
+            fruitQuestionLabel.isHidden = true
+            fruitQuestionMark.isHidden = true
+        }
     }
     
-    func setHomeTitleText(from text: NSMutableAttributedString) {
+    private func setHomeTitleText(from text: NSMutableAttributedString) {
         homeTitleLabel.text = ""
         homeTitleLabel.attributedText = text
+    }
+    
+    private func initFruitQuestion() {
+        fruitQuestionMark.text = "?"
+        fruitQuestionMark.backgroundColor = .clear
+        fruitQuestionMark.textColor = UIColor(named: Constants.FruitfruitColors.gray2)
+        fruitQuestionMark.font = UIFont.systemFont(ofSize: 100, weight: UIFont.Weight(rawValue: 600))
+//        fruitQuestionMark.font = UIFont.preferredFont(for: .largeTitle, weight: .bold)
+        fruitQuestionLabel.text = "참여가능한 과일모임이 없네요"
+        fruitQuestionLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        fruitQuestionLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        view.addSubview(fruitQuestionMark)
+        view.addSubview(fruitQuestionLabel)
+        fruitQuestionMark.topAnchor.constraint(equalTo: view.topAnchor, constant: 442).isActive = true
+        fruitQuestionMark.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 174).isActive = true
+        fruitQuestionMark.heightAnchor.constraint(equalToConstant: 72).isActive = true
+        fruitQuestionMark.widthAnchor.constraint(equalToConstant: 55).isActive = true
+        //TODO: HIFI Design -> "?" 폰트 맞추기
+        fruitQuestionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 596).isActive = true
+        fruitQuestionLabel.widthAnchor.constraint(equalToConstant: 207).isActive = true
+        fruitQuestionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 92).isActive = true
     }
     
     private func initFruitProfile() {
