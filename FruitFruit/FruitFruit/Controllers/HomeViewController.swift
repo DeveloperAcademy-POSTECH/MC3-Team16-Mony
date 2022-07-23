@@ -221,11 +221,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setFruitOrderLayout(_ isTop: Bool) {
-        for constraint in self.view.constraints {
-            if constraint.identifier == "fruitOrderLabelTop" {
-                constraint.constant = isTop ? 277 : 335
-            }
-        }
+        view.constraints.filter{$0.identifier == "fruitOrderLabelTop"}.first?.constant = isTop ? 277 : 335
         UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)

@@ -21,7 +21,7 @@ class SheetRow: UIView {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        label.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        label.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         return label
     }()
     
