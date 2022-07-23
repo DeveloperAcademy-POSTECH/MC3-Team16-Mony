@@ -26,7 +26,6 @@ class HomeViewController: UIViewController {
         view.contentInset = .zero
         view.backgroundColor = .clear
         view.clipsToBounds = true
-        view.register(FruitStatusCell.self, forCellWithReuseIdentifier: FruitStatusCell.id)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -61,10 +60,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.applyBackgroundGradient()
-        fruitStatusCollectionView.delegate = self
-        fruitStatusCollectionView.dataSource = self
-        fruitInfoTableView.delegate = self
-        fruitInfoTableView.dataSource = self
         initHomeViewUI()
         fetchData()
     }
@@ -157,6 +152,9 @@ class HomeViewController: UIViewController {
     }
     
     private func initFruitStatusCollectionView() {
+        fruitStatusCollectionView.register(FruitStatusCell.self, forCellWithReuseIdentifier: FruitStatusCell.id)
+        fruitStatusCollectionView.delegate = self
+        fruitStatusCollectionView.dataSource = self
         view.addSubview(fruitStatusCollectionView)
         fruitStatusCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
         fruitStatusCollectionView.heightAnchor.constraint(equalToConstant: 68).isActive = true
@@ -167,6 +165,8 @@ class HomeViewController: UIViewController {
     
     private func initFruitInfoTableView() {
         fruitInfoTableView.register(FruitCell.self, forCellReuseIdentifier: FruitCell.identifier)
+        fruitInfoTableView.delegate = self
+        fruitInfoTableView.dataSource = self
         view.addSubview(fruitInfoTableView)
         fruitInfoTableView.backgroundColor = .clear
         fruitInfoTableView.separatorStyle = .none
