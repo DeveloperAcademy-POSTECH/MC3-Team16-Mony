@@ -16,11 +16,20 @@ struct Constants {
             static let nameField = "name"
             static let nicknameField = "nickname"
         }
+        struct Orders {
+            static let collectionName =  "Orders"
+            static let orderField = "dueDate"
+        }
+        struct SaleInfos {
+            static let collectionName = "SaleInfos"
+            static let orderField = "saleDate"
+        }
     }
     struct FruitfruitColors {
         static let button1 = "Fruitfruit_Button1"
         static let button2 = "Fruitfruit_Button2"
-        static let black = "Fruitfruit_Black1"
+        static let black1 = "Fruitfruit_Black1"
+        static let black2 = "Fruitfruit_Black2"
         static let gray1 = "Fruitfruit_Gray1"
         static let gray2 = "Fruitfruit_Gray2"
         static let gray3 = "Fruitfruit_Gray3"
@@ -46,6 +55,7 @@ struct Constants {
             static let checked = "Fruitfruit_Status_Checked.pdf"
             static let canceled = "Fruitfruit_Status_Canceled.pdf"
         }
+        static let profile = "Fruitfruit_Profile.pdf"
         struct Others {
             static let account = "Fruitfruit_Account.pdf"
         }

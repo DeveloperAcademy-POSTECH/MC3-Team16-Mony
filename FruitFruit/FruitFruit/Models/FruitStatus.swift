@@ -14,7 +14,7 @@ enum FruitStatus: String {
     case Arriving = "Arriving"
     case Arrived = "Arrived"
     
-    func homeTitleText(fruit: String, time: Int, place: String) -> NSAttributedString  {
+    func makeHomeTitleText(fruit: String, time: Int, place: String) -> NSMutableAttributedString  {
         let color = UIColor(named: Constants.FruitfruitColors.orange1)!
         // TODO: 과일 종류 따라서 나중에 색깔 변경할 수 있음
         switch self {
@@ -23,13 +23,13 @@ enum FruitStatus: String {
         case .Checked:
             return "맛있는 \(fruit)와\n내일 오전 11시 찾아뵐게요!".getColoredText(fruit, color)
         case .Canceled:
-            return "푸릇푸릇!\n상큼한 수요일 되세요".getColoredText("푸릇푸릇!", color)
+            return Date().dayComment
         case .Arriving:
             return "맛있는 \(fruit)가\nC5로 오고있어요".getColoredText(fruit, color)
         case .Arrived:
             return "맛있는 \(fruit)가\nC5에 도착했어요".getColoredText(fruit, color)
         default:
-            return "푸릇푸릇!\n상큼한 수요일 되세요".getColoredText("푸릇푸릇!", color)
+            return Date().dayComment
         }
     }
     
@@ -44,16 +44,19 @@ enum FruitStatus: String {
         }
     }
     
-    func statusImageName(fruit: String) -> String {
+    func getStatusImageName(fruit: String) -> String {
+        
+        let fruit = FruitName(rawValue: fruit)?.fruitName ?? "orange"
+        
         switch self {
         case .Checking:
             return "Fruitfruit_Status_\(fruit)_Checking.pdf"
         case .Checked:
             return "Fruitfruit_Status_\(fruit)_Checked.pdf"
         case .Canceled:
-            return "Fruitfruit_Status_\(fruit)_Checking.pdf"
+            return "Fruitfruit_Status_Canceled.pdf"
         case .Arriving:
-            return "Fruitfruit_Status_\(fruit)_Arriving.pdf"
+            return "Fruitfruit_Status_\(fruit)_Arrived.pdf"
         case .Arrived:
             return "Fruitfruit_Status_\(fruit)_Arrived.pdf"
         }

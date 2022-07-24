@@ -17,9 +17,9 @@ struct FruitSaleInfo: Codable {
     var time: Int
     
     var fruitImagePrimary: String {
-        return "Fruitfruit_\(fruitName)_Primary"
+        return "Fruitfruit_\(convertFruit(fruit: fruitName))_Primary"
     }
     var fruitImageSecondary: String {
-        return "Fruitfruit_\(fruitName)_Secondary"
+        return "Fruitfruit_\(convertFruit(fruit: fruitName))_Secondary"
     }
 }
