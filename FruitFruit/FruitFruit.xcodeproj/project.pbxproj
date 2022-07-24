@@ -145,8 +145,8 @@
 			children = (
 				5216C4242886F07300EB58A8 /* OrderResult.storyboard */,
 				52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */,
-				5222B33B2887819C0072B83D /* SheetRow.swift */,
 				522AEE882887AED1007ADD6D /* SheetTable.swift */,
+				5222B33B2887819C0072B83D /* SheetRow.swift */,
 				522AEE8A28882B7C007ADD6D /* AccountRow.swift */,
 			);
 			path = OrderResultStoryboard;

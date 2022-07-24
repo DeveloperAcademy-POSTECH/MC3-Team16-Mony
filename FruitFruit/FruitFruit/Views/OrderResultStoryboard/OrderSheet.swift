@@ -33,6 +33,9 @@ class OrderSheet: UIView {
         return accountRow
     }()
     
+    //TODO: Home에서 전달된 data 배치
+    var status: FruitStatus = .Canceled
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -44,7 +47,7 @@ class OrderSheet: UIView {
     
     private func setUI() {
         setBackground()
-        setLabels()
+        setLabels(status)
         setSheetTable()
         setDivider()
         setAccount()
@@ -90,11 +93,11 @@ class OrderSheet: UIView {
         shapes.layer.borderColor = UIColor(named: Constants.FruitfruitColors.gray2)?.cgColor
     }
     
-    private func setLabels() {
+    private func setLabels(_ status: FruitStatus) {
         self.addSubview(secondaryTitleLabel)
         self.addSubview(fruitLabel)
         
-        secondaryTitleLabel.text = "주문내역"
+        secondaryTitleLabel.text = status == .Canceled ? "주문 취소 내역" : "주문내역"
         secondaryTitleLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
         secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         secondaryTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
@@ -103,7 +106,7 @@ class OrderSheet: UIView {
         
         fruitLabel.text = "여름오렌지"
         fruitLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        fruitLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        fruitLabel.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
         fruitLabel.topAnchor.constraint(equalTo: topAnchor, constant: 70).isActive = true
         fruitLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
@@ -111,6 +114,10 @@ class OrderSheet: UIView {
     
     private func setSheetTable() {
         self.addSubview(sheetTable)
+        sheetTable.sheetRowAmount.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
+        sheetTable.sheetRowPrice.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
+        sheetTable.sheetRowPlace.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
+        sheetTable.sheetRowTime.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
     }
     
     private func setDivider() {
@@ -126,8 +133,8 @@ class OrderSheet: UIView {
         account.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34).isActive = true
         account.widthAnchor.constraint(equalToConstant: 270).isActive = true
         account.heightAnchor.constraint(equalToConstant: 21).isActive = true
+        account.accountText.textColor = UIColor(named: status == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
+        account.accountImage.tintColor = UIColor(named: status == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
     }
 
 }
-
-
