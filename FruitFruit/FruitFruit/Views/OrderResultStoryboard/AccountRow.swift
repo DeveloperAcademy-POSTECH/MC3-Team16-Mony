@@ -38,7 +38,6 @@ class AccountRow: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
-        self.isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
