@@ -28,9 +28,15 @@
                                     <navigationItem title="주문하기" id="d54-IL-clG">
                                         <barButtonItem key="leftBarButtonItem" title="BackButton" image="chevron.left" catalog="system" style="plain" id="Bur-y3-cPh">
                                             <color key="tintColor" name="Fruitfruit_Orange1"/>
+                                            <connections>
+                                                <action selector="onNavigationBackButtonClicked:" destination="Y6W-OH-hqX" id="Z54-gR-nkg"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="ExitButton" image="xmark" catalog="system" id="9fh-FD-LI4">
                                             <color key="tintColor" name="Fruitfruit_Orange1"/>
+                                            <connections>
+                                                <action selector="onNavigationExitButtonClicked:" destination="Y6W-OH-hqX" id="fcZ-V5-E8Y"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -94,10 +100,10 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="eWQ-zW-czO" id="Mr2-ei-xyH"/>
-                        <outlet property="checkOrderButton" destination="jmd-oV-Rjw" id="ftr-pm-d1A"/>
-                        <outlet property="checkOrderSecondaryLabel" destination="Ox6-Th-Sog" id="GsK-0F-hUj"/>
-                        <outlet property="checkOrderTitleLabel" destination="Fdu-33-Zhz" id="f0S-BS-MPH"/>
                         <outlet property="navigationBar" destination="WnE-NN-9fU" id="C0c-hT-ZV7"/>
+                        <outlet property="orderButton" destination="jmd-oV-Rjw" id="ftr-pm-d1A"/>
+                        <outlet property="secondaryTitleLabel" destination="Ox6-Th-Sog" id="GsK-0F-hUj"/>
+                        <outlet property="titleLabel" destination="Fdu-33-Zhz" id="f0S-BS-MPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

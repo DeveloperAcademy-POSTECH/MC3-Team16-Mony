@@ -10,10 +10,18 @@ import UIKit
 class CheckOrderViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var checkOrderTitleLabel: UILabel!
-    @IBOutlet weak var checkOrderSecondaryLabel: UILabel!
-    @IBOutlet weak var checkOrderButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var secondaryTitleLabel: UILabel!
+    @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    @IBAction func onNavigationBackButtonClicked(_ sender: UIBarButtonItem) {
+        print("onNavigationBackButtonClicked")
+    }
+    
+    @IBAction func onNavigationExitButtonClicked(_ sender: UIBarButtonItem) {
+        print("onNavigationExitButtonClicked")
+    }
     
     @IBAction func onCheckOrderButtonClicked(_ sender: UIButton) {
         //TODO: Navigation 코드 추가
@@ -48,9 +56,9 @@ extension CheckOrderViewController {
     
     private func setTitleLabelUI(from text: String, colorText: String, color: UIColor) {
         let nsString = text.getColoredText(colorText, color)
-        checkOrderTitleLabel.text = ""
-        checkOrderTitleLabel.attributedText = nsString
-        checkOrderTitleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
+        titleLabel.text = ""
+        titleLabel.attributedText = nsString
+        titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
     }
     
     private func setTitleText() -> String {
@@ -88,9 +96,9 @@ extension CheckOrderViewController {
     }
     
     private func setSecondaryLabelUI() {
-        checkOrderSecondaryLabel.text = setSecondaryText()
-        checkOrderSecondaryLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        checkOrderSecondaryLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        secondaryTitleLabel.text = setSecondaryText()
+        secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
+        secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
     }
     
     private func setSecondaryText() -> String {
@@ -115,14 +123,14 @@ extension CheckOrderViewController {
     }
     
     private func setCheckOrderButtonUI() {
-        checkOrderButton.setTitle("주문하기", for: .normal)
+        orderButton.setTitle("주문하기", for: .normal)
         DispatchQueue.main.async {
-            self.checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+            self.orderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
         }
-        let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
-        checkOrderButton.layer.insertSublayer(gradient, at: 0)
-        checkOrderButton.layer.cornerRadius = 16
-        checkOrderButton.layer.borderWidth = 1
-        checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
+        let gradient = orderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
+        orderButton.layer.insertSublayer(gradient, at: 0)
+        orderButton.layer.cornerRadius = 16
+        orderButton.layer.borderWidth = 1
+        orderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
     }
 }
