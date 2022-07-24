@@ -14,7 +14,6 @@ class AccountRow: UIView {
         let underlineAttriString = NSAttributedString(string: "카카오뱅크 303-22-201058 이정환", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
         text.translatesAutoresizingMaskIntoConstraints = false
         text.font = UIFont.preferredFont(for: .callout, weight: .bold)
-        text.textColor = UIColor(named: Constants.FruitfruitColors.orange1)
         text.attributedText = underlineAttriString
         text.widthAnchor.constraint(equalToConstant: 247).isActive = true
         return text
@@ -23,7 +22,8 @@ class AccountRow: UIView {
     let accountImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: Constants.FruitfruitImages.Others.account)
+        image.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        image.image = UIImage(named: Constants.FruitfruitImages.Others.account)?.withRenderingMode(.alwaysTemplate)
         image.widthAnchor.constraint(equalToConstant: 18).isActive = true
         return image
     }()
@@ -49,15 +49,7 @@ class AccountRow: UIView {
         [accountText, accountImage].map {
             accountRow.addArrangedSubview($0)
         }
-        self.addSubview(accountRow)
         
-        //TODO: 클립보드 복사 기능 추가
-        // accountRow.isUserInteractionEnabled = true
-        // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAccountRow))
-        // accountRow.addGestureRecognizer(tapGesture)
+        self.addSubview(accountRow)
     }
-    
-    // @objc func tapAccountRow() {
-    //    print("tapAccountRow tapped")
-    // }
 }
