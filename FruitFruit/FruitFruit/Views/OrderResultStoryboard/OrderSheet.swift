@@ -121,7 +121,7 @@ extension OrderSheet {
         sheetTable.sheetRowAmount.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
         sheetTable.sheetRowPrice.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
         sheetTable.sheetRowPlace.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
-        sheetTable.sheetRowTime.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
+        sheetTable.sheetRowTime.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
     }
     
     private func setDivider() {
