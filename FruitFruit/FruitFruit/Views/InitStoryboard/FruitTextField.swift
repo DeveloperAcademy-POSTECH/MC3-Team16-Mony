@@ -25,13 +25,11 @@ class FruitTextField: UITextField, UITextFieldDelegate {
 
         addSubview(bottomBorder)
         
-        
         bottomBorder.topAnchor.constraint(equalTo: bottomAnchor, constant: 8).isActive = true
         bottomBorder.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         bottomBorder.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         heightAnchorUnclicked.isActive = true
     }
-    
     func backgroundSet(_ isEditing: Bool) {
         if isEditing {
             bottomBorder.backgroundColor = UIColor(named: Constants.FruitfruitColors.orange1)

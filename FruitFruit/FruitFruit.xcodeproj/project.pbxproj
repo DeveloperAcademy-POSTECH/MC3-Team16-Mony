@@ -7,39 +7,99 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0D8AC828865319003CFAEE /* FruitOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8AC728865319003CFAEE /* FruitOrder.swift */; };
+		4A0D8ACA28865370003CFAEE /* FruitSaleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */; };
+		4A0D8ACE288679C7003CFAEE /* FruitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */; };
+		4A1867522886F7ED00630023 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1867512886F7ED00630023 /* Storage.swift */; };
+		4A1867542886FE8C00630023 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1867532886FE8C00630023 /* Encodable+Extension.swift */; };
+		4A1867562886FFAE00630023 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1867552886FFAE00630023 /* Decodable+Extension.swift */; };
+		4A1867582887871A00630023 /* addOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1867572887871A00630023 /* addOrder.swift */; };
+		4A2BECD92887C3E40007441F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BECD82887C3E40007441F /* Date+Extension.swift */; };
 		4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */; };
 		4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD001D288073D600BBEB4D /* UIView+Extension.swift */; };
-		4AD892D7287E9A0E00A01BA3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */; };
-		4AD892D9287E9A0E00A01BA3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AD892D8287E9A0E00A01BA3 /* FirebaseFirestoreSwift */; };
+		4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACD0023288103E100BBEB4D /* Home.storyboard */; };
+		4ACD00272881041400BBEB4D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD00262881041400BBEB4D /* HomeViewController.swift */; };
+		4ACD00292881079400BBEB4D /* FruitBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD00282881079400BBEB4D /* FruitBackground.swift */; };
+		4ACD002D2881948900BBEB4D /* FruitStatusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD002C2881948900BBEB4D /* FruitStatusLabel.swift */; };
+		4ACD002F2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD002E2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift */; };
+		4ACD00332881A7AA00BBEB4D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD00322881A7AA00BBEB4D /* String+Extension.swift */; };
+		4ACD00352881C59600BBEB4D /* FruitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD00342881C59600BBEB4D /* FruitCell.swift */; };
+		4ACD00392881CB5A00BBEB4D /* FruitCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD00382881CB5A00BBEB4D /* FruitCellButton.swift */; };
+		4ACD003D2881CD5000BBEB4D /* FruitCellButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD003C2881CD5000BBEB4D /* FruitCellButtonView.swift */; };
+		4ACD00412882630B00BBEB4D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD00402882630B00BBEB4D /* UIImage+Extension.swift */; };
 		4AD892DB287E9B7200A01BA3 /* InitSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */; };
 		4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */; };
 		4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */; };
 		4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E2287F0A9200A01BA3 /* InitSettingViewController.swift */; };
-		4AD892E5287F0DC500A01BA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E4287F0DC500A01BA3 /* User.swift */; };
+		4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E4287F0DC500A01BA3 /* FruitUser.swift */; };
 		4AD892E7287F0FE100A01BA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD892E6287F0FE100A01BA3 /* Constants.swift */; };
+		4ADDB5E32886A5C900238006 /* convertFruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADDB5E22886A5C900238006 /* convertFruit.swift */; };
+		5216C4252886F07300EB58A8 /* OrderResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5216C4242886F07300EB58A8 /* OrderResult.storyboard */; };
+		5216C4272886F09200EB58A8 /* OrderResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5216C4262886F09200EB58A8 /* OrderResultViewController.swift */; };
+		5222B33C2887819C0072B83D /* SheetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222B33B2887819C0072B83D /* SheetRow.swift */; };
+		522AEE892887AED1007ADD6D /* SheetTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AEE882887AED1007ADD6D /* SheetTable.swift */; };
+		522AEE8B28882B7C007ADD6D /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AEE8A28882B7C007ADD6D /* AccountRow.swift */; };
+		5230C63B2880FDAF0069583B /* CheckOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5230C63A2880FDAF0069583B /* CheckOrder.storyboard */; };
+		5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230C63C2880FDC50069583B /* CheckOrderViewController.swift */; };
 		52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534D287BAF9000FF87DD /* AppDelegate.swift */; };
 		52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534F287BAF9000FF87DD /* SceneDelegate.swift */; };
-		52D05352287BAF9000FF87DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D05351287BAF9000FF87DD /* ViewController.swift */; };
 		52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D05356287BAF9100FF87DD /* Assets.xcassets */; };
 		52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */; };
+		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
+		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
+		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
+		D2DF7E34288937790009CC95 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E33288937790009CC95 /* FirebaseFirestore */; };
+		D2DF7E36288937790009CC95 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */; };
+		D2DF7E38288939010009CC95 /* FruitName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF7E37288939010009CC95 /* FruitName.swift */; };
+		52DC680B2886D63A00CDA17B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680A2886D63A00CDA17B /* FirebaseAuth */; };
+		52DC680D2886D65300CDA17B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680C2886D65300CDA17B /* FirebaseFirestore */; };
+		52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0D8AC728865319003CFAEE /* FruitOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitOrder.swift; sourceTree = "<group>"; };
+		4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSaleInfo.swift; sourceTree = "<group>"; };
+		4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatus.swift; sourceTree = "<group>"; };
+		4A1867512886F7ED00630023 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		4A1867532886FE8C00630023 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		4A1867552886FFAE00630023 /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
+		4A1867572887871A00630023 /* addOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addOrder.swift; sourceTree = "<group>"; };
+		4A2BECD82887C3E40007441F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		4ACD001D288073D600BBEB4D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		4ACD0023288103E100BBEB4D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		4ACD00262881041400BBEB4D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4ACD00282881079400BBEB4D /* FruitBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitBackground.swift; sourceTree = "<group>"; };
+		4ACD002C2881948900BBEB4D /* FruitStatusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusLabel.swift; sourceTree = "<group>"; };
+		4ACD002E2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString_Extension.swift; sourceTree = "<group>"; };
+		4ACD00322881A7AA00BBEB4D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		4ACD00342881C59600BBEB4D /* FruitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCell.swift; sourceTree = "<group>"; };
+		4ACD00382881CB5A00BBEB4D /* FruitCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCellButton.swift; sourceTree = "<group>"; };
+		4ACD003C2881CD5000BBEB4D /* FruitCellButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCellButtonView.swift; sourceTree = "<group>"; };
+		4ACD00402882630B00BBEB4D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		4AD892DA287E9B7200A01BA3 /* InitSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitSetting.storyboard; sourceTree = "<group>"; };
 		4AD892DC287EA21F00A01BA3 /* FruitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTextField.swift; sourceTree = "<group>"; };
 		4AD892DE287EA4AF00A01BA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4AD892E2287F0A9200A01BA3 /* InitSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSettingViewController.swift; sourceTree = "<group>"; };
-		4AD892E4287F0DC500A01BA3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4AD892E4287F0DC500A01BA3 /* FruitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitUser.swift; sourceTree = "<group>"; };
 		4AD892E6287F0FE100A01BA3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4ADDB5E22886A5C900238006 /* convertFruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = convertFruit.swift; sourceTree = "<group>"; };
+		5216C4242886F07300EB58A8 /* OrderResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderResult.storyboard; sourceTree = "<group>"; };
+		5216C4262886F09200EB58A8 /* OrderResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultViewController.swift; sourceTree = "<group>"; };
+		5222B33B2887819C0072B83D /* SheetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetRow.swift; sourceTree = "<group>"; };
+		522AEE882887AED1007ADD6D /* SheetTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTable.swift; sourceTree = "<group>"; };
+		522AEE8A28882B7C007ADD6D /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
+		5230C63A2880FDAF0069583B /* CheckOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckOrder.storyboard; sourceTree = "<group>"; };
+		5230C63C2880FDC50069583B /* CheckOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOrderViewController.swift; sourceTree = "<group>"; };
 		52D0534A287BAF9000FF87DD /* FruitFruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitFruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D0534D287BAF9000FF87DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52D0534F287BAF9000FF87DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52D05351287BAF9000FF87DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52D05356287BAF9100FF87DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52D05359287BAF9100FF87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52D0535B287BAF9100FF87DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2C81586288A717E001AD894 /* FruitStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusCell.swift; sourceTree = "<group>"; };
+		D2DF7E37288939010009CC95 /* FruitName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitName.swift; sourceTree = "<group>"; };
+		52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +109,12 @@
 			files = (
 				4AD892D7287E9A0E00A01BA3 /* FirebaseFirestore in Frameworks */,
 				4AD892D9287E9A0E00A01BA3 /* FirebaseFirestoreSwift in Frameworks */,
+				D2DF7E34288937790009CC95 /* FirebaseFirestore in Frameworks */,
+				D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */,
+				D2DF7E36288937790009CC95 /* FirebaseFirestoreSwift in Frameworks */,
+				D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */,
+				52DC680B2886D63A00CDA17B /* FirebaseAuth in Frameworks */,
+				52DC680D2886D65300CDA17B /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,16 +135,58 @@
 			children = (
 				4ACD0014287FEF9C00BBEB4D /* Font+Extension.swift */,
 				4ACD001D288073D600BBEB4D /* UIView+Extension.swift */,
+				4ACD002E2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift */,
+				4ACD00322881A7AA00BBEB4D /* String+Extension.swift */,
+				4ACD00402882630B00BBEB4D /* UIImage+Extension.swift */,
+				4A1867532886FE8C00630023 /* Encodable+Extension.swift */,
+				4A1867552886FFAE00630023 /* Decodable+Extension.swift */,
+				4A2BECD82887C3E40007441F /* Date+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4ACD0025288103E800BBEB4D /* HomeStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				4ACD0023288103E100BBEB4D /* Home.storyboard */,
+				4ACD002C2881948900BBEB4D /* FruitStatusLabel.swift */,
+				4ACD00342881C59600BBEB4D /* FruitCell.swift */,
+				4ACD00382881CB5A00BBEB4D /* FruitCellButton.swift */,
+				4ACD003C2881CD5000BBEB4D /* FruitCellButtonView.swift */,
+				D2C81586288A717E001AD894 /* FruitStatusCell.swift */,
+			);
+			path = HomeStoryboard;
 			sourceTree = "<group>";
 		};
 		4AD892E8287F0FE700A01BA3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				4AD892E6287F0FE100A01BA3 /* Constants.swift */,
+				4ADDB5E22886A5C900238006 /* convertFruit.swift */,
+				4A1867512886F7ED00630023 /* Storage.swift */,
+				4A1867572887871A00630023 /* addOrder.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5216C4232886F05200EB58A8 /* OrderResultStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				5216C4242886F07300EB58A8 /* OrderResult.storyboard */,
+				52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */,
+				5222B33B2887819C0072B83D /* SheetRow.swift */,
+				522AEE882887AED1007ADD6D /* SheetTable.swift */,
+				522AEE8A28882B7C007ADD6D /* AccountRow.swift */,
+			);
+			path = OrderResultStoryboard;
+			sourceTree = "<group>";
+		};
+		5230C6392880FD6B0069583B /* CheckOrderStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				5230C63A2880FDAF0069583B /* CheckOrder.storyboard */,
+			);
+			path = CheckOrderStoryboard;
 			sourceTree = "<group>";
 		};
 		52D05341287BAF9000FF87DD = {
@@ -86,6 +194,7 @@
 			children = (
 				52D0534C287BAF9000FF87DD /* FruitFruit */,
 				52D0534B287BAF9000FF87DD /* Products */,
+				52DCDE6F28850EB6002EC639 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,8 +227,10 @@
 		52D05361287BB68500FF87DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				52D05351287BAF9000FF87DD /* ViewController.swift */,
 				4AD892E2287F0A9200A01BA3 /* InitSettingViewController.swift */,
+				5230C63C2880FDC50069583B /* CheckOrderViewController.swift */,
+				4ACD00262881041400BBEB4D /* HomeViewController.swift */,
+				5216C4262886F09200EB58A8 /* OrderResultViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -127,7 +238,11 @@
 		52D05362287BB69600FF87DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5216C4232886F05200EB58A8 /* OrderResultStoryboard */,
+				5230C6392880FD6B0069583B /* CheckOrderStoryboard */,
+				4ACD00282881079400BBEB4D /* FruitBackground.swift */,
 				4A14564F287FC663007CBED0 /* InitStoryboard */,
+				4ACD0025288103E800BBEB4D /* HomeStoryboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,9 +250,20 @@
 		52D05363287BB6A200FF87DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4AD892E4287F0DC500A01BA3 /* User.swift */,
+				4AD892E4287F0DC500A01BA3 /* FruitUser.swift */,
+				4A0D8AC728865319003CFAEE /* FruitOrder.swift */,
+				4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */,
+				4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */,
+				D2DF7E37288939010009CC95 /* FruitName.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		52DCDE6F28850EB6002EC639 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +285,12 @@
 			packageProductDependencies = (
 				4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */,
 				4AD892D8287E9A0E00A01BA3 /* FirebaseFirestoreSwift */,
+				D2DF7E33288937790009CC95 /* FirebaseFirestore */,
+				D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */,
+				D2C81582288A54B7001AD894 /* FirebaseFirestore */,
+				D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */,
+				52DC680A2886D63A00CDA17B /* FirebaseAuth */,
+				52DC680C2886D65300CDA17B /* FirebaseFirestore */,
 			);
 			productName = FruitFruit;
 			productReference = 52D0534A287BAF9000FF87DD /* FruitFruit.app */;
@@ -172,7 +304,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					52D05349287BAF9000FF87DD = {
 						CreatedOnToolsVersion = 13.3;
@@ -190,6 +322,9 @@
 			mainGroup = 52D05341287BAF9000FF87DD;
 			packageReferences = (
 				4AD892D5287E9A0E00A01BA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D2C81581288A54B7001AD894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 52D0534B287BAF9000FF87DD /* Products */;
 			projectDirPath = "";
@@ -205,10 +340,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5230C63B2880FDAF0069583B /* CheckOrder.storyboard in Resources */,
 				52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */,
+				4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */,
 				4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */,
 				52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */,
 				4AD892DB287E9B7200A01BA3 /* InitSetting.storyboard in Resources */,
+				5216C4252886F07300EB58A8 /* OrderResult.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,15 +357,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52D05352287BAF9000FF87DD /* ViewController.swift in Sources */,
+				4ADDB5E32886A5C900238006 /* convertFruit.swift in Sources */,
 				52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */,
-				4AD892E5287F0DC500A01BA3 /* User.swift in Sources */,
+				4A0D8AC828865319003CFAEE /* FruitOrder.swift in Sources */,
+				4A0D8ACE288679C7003CFAEE /* FruitStatus.swift in Sources */,
+				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
+				4A1867522886F7ED00630023 /* Storage.swift in Sources */,
+				5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */,
+				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
+				522AEE8B28882B7C007ADD6D /* AccountRow.swift in Sources */,
 				4AD892E3287F0A9200A01BA3 /* InitSettingViewController.swift in Sources */,
+				4ACD002D2881948900BBEB4D /* FruitStatusLabel.swift in Sources */,
+				4ACD00352881C59600BBEB4D /* FruitCell.swift in Sources */,
+				4ACD003D2881CD5000BBEB4D /* FruitCellButtonView.swift in Sources */,
 				4AD892E7287F0FE100A01BA3 /* Constants.swift in Sources */,
+				5216C4272886F09200EB58A8 /* OrderResultViewController.swift in Sources */,
+				4ACD00392881CB5A00BBEB4D /* FruitCellButton.swift in Sources */,
 				4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */,
+				4A1867582887871A00630023 /* addOrder.swift in Sources */,
+				4A1867562886FFAE00630023 /* Decodable+Extension.swift in Sources */,
+				4ACD00332881A7AA00BBEB4D /* String+Extension.swift in Sources */,
+				4ACD002F2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift in Sources */,
+				52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */,
+				4ACD00272881041400BBEB4D /* HomeViewController.swift in Sources */,
+				4A1867542886FE8C00630023 /* Encodable+Extension.swift in Sources */,
+				D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */,
+				522AEE892887AED1007ADD6D /* SheetTable.swift in Sources */,
+				4ACD00412882630B00BBEB4D /* UIImage+Extension.swift in Sources */,
 				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
 				4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */,
+				4ACD00292881079400BBEB4D /* FruitBackground.swift in Sources */,
+				4A2BECD92887C3E40007441F /* Date+Extension.swift in Sources */,
+				4A0D8ACA28865370003CFAEE /* FruitSaleInfo.swift in Sources */,
+				5222B33C2887819C0072B83D /* SheetRow.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
+				D2DF7E38288939010009CC95 /* FruitName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +536,7 @@
 				INFOPLIST_FILE = FruitFruit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = InitSetting;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -402,7 +566,7 @@
 				INFOPLIST_FILE = FruitFruit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = InitSetting;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -443,9 +607,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4AD892D5287E9A0E00A01BA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		D2C81581288A54B7001AD894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 9.0.0;
@@ -454,14 +634,34 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */ = {
+		52DC680A2886D63A00CDA17B /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4AD892D5287E9A0E00A01BA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		52DC680C2886D65300CDA17B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		4AD892D8287E9A0E00A01BA3 /* FirebaseFirestoreSwift */ = {
+		D2C81582288A54B7001AD894 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4AD892D5287E9A0E00A01BA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		D2DF7E33288937790009CC95 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

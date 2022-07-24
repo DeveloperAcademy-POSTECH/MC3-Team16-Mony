@@ -29,18 +29,18 @@ class InitSettingViewController: UIViewController {
     
     // MARK: - FUNCTIONS
     
-    func setUI() {
+    private func setUI() {
         welcomeLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         welcomeLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         addNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        addNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        addNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
-        nameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        nameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nameTextField.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nameTextField.autocorrectionType = .no
         nicknameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
-        nicknameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        nicknameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nicknameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nicknameTextField.autocorrectionType = .no
@@ -57,17 +57,19 @@ class InitSettingViewController: UIViewController {
     @IBAction func initSettingFinished(_ sender: UIButton) {
         guard let name = nameTextField.text, let nickname = nicknameTextField.text else { return }
         if !name.isEmpty && !nickname.isEmpty {
-            let user = User(name: name, nickname: nickname)
+            let user = FruitUser(name: name, nickname: nickname)
             // User 정보 생성
             let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
             db.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
             // FireStore 입력
-            UserDefaults.standard.set(true, forKey: "isInitSet")
+            Storage().setFruitUser(fruitUser: user)
             // UserDefaults true 설정
+            goToHome()
+            // HomeView 이동
         }
     }
     
-    func nicknameHiddenToggle() {
+    private func nicknameHiddenToggle() {
         if nicknameTextField.isHidden {
             nicknameTextField.isHidden = false
             nameLabel.isHidden = false
@@ -77,7 +79,7 @@ class InitSettingViewController: UIViewController {
         }
     }
 
-    func nameTextFieldSet(_ initialSet: Bool) {
+    private func nameTextFieldSet(_ initialSet: Bool) {
         let topPadding: CGFloat = initialSet ? 325 : 232
         for constraint in self.view.constraints {
             if constraint.identifier == "nameTextFieldTop" {
@@ -117,7 +119,7 @@ class InitSettingViewController: UIViewController {
         // 이름/닉네임 입력 상황 -> 텍스트 변경
     }
     
-    func textFieldVisibilityCheck() {
+    private func textFieldVisibilityCheck() {
         guard let name = nameTextField.text else { return }
         if !name.isEmpty && nicknameTextField.isHidden {
             nameTextFieldSet(true)
@@ -150,6 +152,15 @@ class InitSettingViewController: UIViewController {
         DispatchQueue.main.async {
             self.initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
         }
+    }
+    
+    private func goToHome() {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let initVC = self.navigationController
+        initVC?.pushViewController(homeVC, animated: true)
+        initVC?.isNavigationBarHidden = true
+        // 현재 네비게이션 컨트롤러 -> 홈뷰 푸쉬로 띄우기
     }
 }
 
