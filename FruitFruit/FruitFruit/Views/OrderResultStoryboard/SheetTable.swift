@@ -8,6 +8,7 @@
 import UIKit
 
 class SheetTable: UIView {
+    //TODO: OrderView or DB에서 전달 받은 데이터 배치
 
     let sheetRowAmount: SheetRow = {
         let sheet = SheetRow()

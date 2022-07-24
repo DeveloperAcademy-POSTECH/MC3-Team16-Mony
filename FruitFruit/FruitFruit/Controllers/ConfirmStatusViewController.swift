@@ -34,6 +34,10 @@ class ConfirmStatusViewController: UIViewController {
         setOrderSheet()
     }
     
+}
+
+extension ConfirmStatusViewController {
+    
     private func setBackground() {
         backgroundView.applyBackgroundGradient()
     }
@@ -81,4 +85,5 @@ class ConfirmStatusViewController: UIViewController {
             print(myString)
         }
     }
+    
 }

@@ -34,7 +34,7 @@ class OrderSheet: UIView {
     }()
     
     //TODO: Home에서 전달된 data 배치
-    var status: FruitStatus = .Canceled
+    var status: FruitStatus = .Checking
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,6 +52,10 @@ class OrderSheet: UIView {
         setDivider()
         setAccount()
     }
+
+}
+
+extension OrderSheet {
     
     private func setBackground() {
         self.backgroundColor = .clear
@@ -136,5 +140,5 @@ class OrderSheet: UIView {
         account.accountText.textColor = UIColor(named: status == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
         account.accountImage.tintColor = UIColor(named: status == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
     }
-
+    
 }

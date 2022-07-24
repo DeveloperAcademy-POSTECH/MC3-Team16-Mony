@@ -95,6 +95,7 @@ extension OrderResultViewController {
         backToHomeButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
     }
     
+    //TODO: status 에 따라 클립보드 활성화/비활성화
     @objc func tapAccountRow() {
         UIPasteboard.general.string = "카카오뱅크 303-22-201058 이정환"
         if let myString = UIPasteboard.general.string {
