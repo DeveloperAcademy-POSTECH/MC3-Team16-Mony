@@ -45,7 +45,7 @@ extension ConfirmStatusViewController {
     private func setLabels() {
         titleLabel.text = FruitStatus.Checking.detailTitleLabel
         titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        titleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        titleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         
         secondaryTitleLabel.text = FruitStatus.Checking.detailSecondaryTitleLabel
         secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
