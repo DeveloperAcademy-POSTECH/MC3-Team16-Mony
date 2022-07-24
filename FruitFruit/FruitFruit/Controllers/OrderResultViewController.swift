@@ -50,14 +50,14 @@ extension OrderResultViewController {
     
     private func setNavigationTitle() {
         navigationTitleLabel.text = "주문 완료"
-        navigationTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        navigationTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         navigationTitleLabel.font = UIFont.preferredFont(for: .headline, weight: .semibold)
     }
     
     private func setTitleLabels() {
         titleLabel.text = "주문이\n완료되었습니다"
         titleLabel.numberOfLines = 0
-        titleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        titleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         
         secondaryTitleLabel.text = "아래 계좌로 입금해주세요"

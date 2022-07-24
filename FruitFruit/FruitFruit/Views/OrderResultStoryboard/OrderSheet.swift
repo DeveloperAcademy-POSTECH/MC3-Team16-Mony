@@ -110,7 +110,7 @@ extension OrderSheet {
         
         fruitLabel.text = "여름오렌지"
         fruitLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        fruitLabel.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black)
+        fruitLabel.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
         fruitLabel.topAnchor.constraint(equalTo: topAnchor, constant: 70).isActive = true
         fruitLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
