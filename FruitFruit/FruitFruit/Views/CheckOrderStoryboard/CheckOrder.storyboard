@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-NN-9fU">
+                            <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-NN-9fU">
                                 <rect key="frame" x="0.0" y="50" width="414" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -80,6 +80,8 @@
                             <constraint firstAttribute="bottom" secondItem="eWQ-zW-czO" secondAttribute="bottom" id="3P4-II-CUl"/>
                             <constraint firstItem="jmd-oV-Rjw" firstAttribute="top" secondItem="Ox6-Th-Sog" secondAttribute="bottom" constant="365" id="5YR-F2-nB6"/>
                             <constraint firstItem="Ox6-Th-Sog" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="6uA-cY-Ux7"/>
+                            <constraint firstAttribute="trailing" secondItem="WnE-NN-9fU" secondAttribute="trailing" id="AdJ-A3-Ozy"/>
+                            <constraint firstItem="WnE-NN-9fU" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Cyg-eG-spK"/>
                             <constraint firstItem="jmd-oV-Rjw" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="EsN-7K-jRx"/>
                             <constraint firstItem="WnE-NN-9fU" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="50" id="Qed-H2-QcR"/>
                             <constraint firstItem="Ox6-Th-Sog" firstAttribute="top" secondItem="Fdu-33-Zhz" secondAttribute="bottom" constant="30" id="Yym-r9-cgg"/>
@@ -95,6 +97,7 @@
                         <outlet property="checkOrderButton" destination="jmd-oV-Rjw" id="ftr-pm-d1A"/>
                         <outlet property="checkOrderSecondaryLabel" destination="Ox6-Th-Sog" id="GsK-0F-hUj"/>
                         <outlet property="checkOrderTitleLabel" destination="Fdu-33-Zhz" id="f0S-BS-MPH"/>
+                        <outlet property="navigationBar" destination="WnE-NN-9fU" id="C0c-hT-ZV7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

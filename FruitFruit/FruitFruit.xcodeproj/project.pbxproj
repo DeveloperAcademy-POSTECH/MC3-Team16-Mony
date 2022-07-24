@@ -45,15 +45,15 @@
 		52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534F287BAF9000FF87DD /* SceneDelegate.swift */; };
 		52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D05356287BAF9100FF87DD /* Assets.xcassets */; };
 		52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */; };
+		52DC680B2886D63A00CDA17B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680A2886D63A00CDA17B /* FirebaseAuth */; };
+		52DC680D2886D65300CDA17B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680C2886D65300CDA17B /* FirebaseFirestore */; };
+		52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */; };
 		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
 		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
 		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
 		D2DF7E34288937790009CC95 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E33288937790009CC95 /* FirebaseFirestore */; };
 		D2DF7E36288937790009CC95 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */; };
 		D2DF7E38288939010009CC95 /* FruitName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF7E37288939010009CC95 /* FruitName.swift */; };
-		52DC680B2886D63A00CDA17B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680A2886D63A00CDA17B /* FirebaseAuth */; };
-		52DC680D2886D65300CDA17B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680C2886D65300CDA17B /* FirebaseFirestore */; };
-		52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,9 +97,9 @@
 		52D05356287BAF9100FF87DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52D05359287BAF9100FF87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52D0535B287BAF9100FF87DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
 		D2C81586288A717E001AD894 /* FruitStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusCell.swift; sourceTree = "<group>"; };
 		D2DF7E37288939010009CC95 /* FruitName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitName.swift; sourceTree = "<group>"; };
-		52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AD892D7287E9A0E00A01BA3 /* FirebaseFirestore in Frameworks */,
-				4AD892D9287E9A0E00A01BA3 /* FirebaseFirestoreSwift in Frameworks */,
 				D2DF7E34288937790009CC95 /* FirebaseFirestore in Frameworks */,
 				D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */,
 				D2DF7E36288937790009CC95 /* FirebaseFirestoreSwift in Frameworks */,
@@ -283,8 +281,6 @@
 			);
 			name = FruitFruit;
 			packageProductDependencies = (
-				4AD892D6287E9A0E00A01BA3 /* FirebaseFirestore */,
-				4AD892D8287E9A0E00A01BA3 /* FirebaseFirestoreSwift */,
 				D2DF7E33288937790009CC95 /* FirebaseFirestore */,
 				D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */,
 				D2C81582288A54B7001AD894 /* FirebaseFirestore */,
@@ -321,7 +317,6 @@
 			);
 			mainGroup = 52D05341287BAF9000FF87DD;
 			packageReferences = (
-				4AD892D5287E9A0E00A01BA3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D2C81581288A54B7001AD894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
@@ -536,7 +531,7 @@
 				INFOPLIST_FILE = FruitFruit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Home;
+				INFOPLIST_KEY_UIMainStoryboardFile = CheckOrder;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -566,7 +561,7 @@
 				INFOPLIST_FILE = FruitFruit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Home;
+				INFOPLIST_KEY_UIMainStoryboardFile = CheckOrder;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -13,6 +13,7 @@ class CheckOrderViewController: UIViewController {
     @IBOutlet weak var checkOrderTitleLabel: UILabel!
     @IBOutlet weak var checkOrderSecondaryLabel: UILabel!
     @IBOutlet weak var checkOrderButton: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func onCheckOrderButtonClicked(_ sender: UIButton) {
         //TODO: Navigation 코드 추가
@@ -21,11 +22,20 @@ class CheckOrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.navigationController?.navigationBar.shadowImage = nil
+        navigationBar.shadowImage = UIImage()
         backgroundView.applyBackgroundGradient()
         setCheckOrderViewUI()
     }
-
+    
+    //    private func goToHome() {
+    //        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+    //        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+    //        let initVC = self.navigationController
+    //        initVC?.pushViewController(homeVC, animated: true)
+    //        initVC?.isNavigationBarHidden = true
+    //        // 현재 네비게이션 컨트롤러 -> 홈뷰 푸쉬로 띄우기
+    //    }
+    
 }
 
 extension CheckOrderViewController {
@@ -35,7 +45,7 @@ extension CheckOrderViewController {
         setSecondaryLabelUI()
         setCheckOrderButtonUI()
     }
-
+    
     private func setTitleLabelUI(from text: String, colorText: String, color: UIColor) {
         let nsString = text.getColoredText(colorText, color)
         checkOrderTitleLabel.text = ""
@@ -105,10 +115,12 @@ extension CheckOrderViewController {
     }
     
     private func setCheckOrderButtonUI() {
+        checkOrderButton.setTitle("주문하기", for: .normal)
+        DispatchQueue.main.async {
+            self.checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        }
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
-        checkOrderButton.setTitle("주문하기", for: .normal)
-        checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         checkOrderButton.layer.cornerRadius = 16
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
