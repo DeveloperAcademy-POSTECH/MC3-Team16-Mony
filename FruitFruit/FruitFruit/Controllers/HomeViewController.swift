@@ -252,6 +252,7 @@ class HomeViewController: UIViewController {
     @objc func tapFruitProfile() {
         print("FruitfruitLabel tapped")
         addMockOrder(fruitOrder: FruitOrder(name: "복숭아", dueDate: Date(), amount: 3, price: 400, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 15))
+        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 400, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
     }
     
     private func initFruitOrderLabel() {
