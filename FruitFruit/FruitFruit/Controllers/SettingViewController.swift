@@ -8,6 +8,7 @@
 import UIKit
 
 class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
+    var isProfileEditing: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,17 +16,33 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func initSettingViewNavBar() {
-        guard let color = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
-        let backButtonImage = UIImage(systemName: "chevron.left")?.withTintColor(color, renderingMode: .alwaysOriginal)
+        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        let backButtonImage = UIImage(systemName: "chevron.left")?.withTintColor(orangeColor, renderingMode: .alwaysOriginal)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .done, target: self, action: #selector(popToPrevious))
         navigationItem.title = "프로필"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .semibold)]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .semibold)]
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정하기", style: .done, target: self, action: #selector(editToggle))
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .semibold)], for: .normal)
     }
     
     @objc private func popToPrevious() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func editToggle() {
+        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        isProfileEditing.toggle()
+        if isProfileEditing {
+            navigationItem.rightBarButtonItem?.title = "수정완료"
+            navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: blackColor], for: .normal)
+        } else {
+            navigationItem.rightBarButtonItem?.title = "수정하기"
+            navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor], for: .normal)
+        }
     }
 
     /*
