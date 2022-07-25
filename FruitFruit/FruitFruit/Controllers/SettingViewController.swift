@@ -67,6 +67,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정하기", style: .done, target: self, action: #selector(editToggle))
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .semibold)], for: .normal)
+        //TODO: 폰트 크기 및 굵기 체크
     }
     
     @objc private func popToPrevious() {
