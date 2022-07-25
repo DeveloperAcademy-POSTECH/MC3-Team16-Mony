@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
+    let database = Firestore.firestore()
     var isProfileEditing: Bool = false
     
     let fruitProfile: UIImageView = {
@@ -67,8 +69,21 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
             navigationItem.rightBarButtonItem?.title = "수정완료"
             navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: blackColor], for: .normal)
         } else {
+            saveProfile()
             navigationItem.rightBarButtonItem?.title = "수정하기"
             navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor], for: .normal)
+        }
+    }
+    
+    private func saveProfile() {
+        guard let name = fruitNameTextField.text, let nickname = fruitNicknameTextField.text else { return }
+        guard var user = Storage().fruitUser else { return }
+        if !name.isEmpty && !nickname.isEmpty {
+            user.nickname = nickname
+            user.name = name
+            let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
+            database.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
+            Storage().setFruitUser(fruitUser: user)
         }
     }
     
