@@ -16,11 +16,22 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         profile.translatesAutoresizingMaskIntoConstraints = false
         return profile
     }()
+    
+    let fruitNicknameTextField: FruitSettingTextField = {
+        let textField = FruitSettingTextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initSettingViewUI()
+    }
+    
+    private func initSettingViewUI() {
         initSettingViewNavBar()
         initProfile()
+        initTextField()
     }
     
     private func initSettingViewNavBar() {
@@ -60,6 +71,17 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitProfile.widthAnchor.constraint(equalToConstant: 118).isActive = true
         fruitProfile.heightAnchor.constraint(equalToConstant: 118).isActive = true
     }
+    
+    private func initTextField() {
+        view.addSubview(fruitNicknameTextField)
+        fruitNicknameTextField.delegate = self
+        guard let user = Storage().fruitUser else { return }
+        fruitNicknameTextField.font = UIFont.preferredFont(for: .title1, weight: .bold)
+        fruitNicknameTextField.topAnchor.constraint(equalTo: fruitProfile.bottomAnchor, constant: 20).isActive = true
+        fruitNicknameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        fruitNicknameTextField.text = user.nickname
+        fruitNicknameTextField.placeholder = user.nickname
+    }
 
     /*
     // MARK: - Navigation
@@ -71,4 +93,29 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     */
 
+}
+
+extension SettingViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let fruitSettingTextField = textField as? FruitSettingTextField else { return }
+        fruitSettingTextField.bottomBorder.isHidden = false
+        DispatchQueue.main.async {
+            fruitSettingTextField.selectedTextRange = fruitSettingTextField.textRange(from: fruitSettingTextField.endOfDocument, to: fruitSettingTextField.endOfDocument)
+        }
+
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let fruitSettingTextField = textField as? FruitSettingTextField else { return }
+        fruitSettingTextField.bottomBorder.isHidden = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
