@@ -29,13 +29,16 @@ class FruitSettingTextField: UITextField {
         textColor = blackColor
         tintColor = orangeColor
         setBottomBorder()
+        bottomBorder.isHidden = true
     }
     
     private func setBottomBorder() {
+        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
         addSubview(bottomBorder)
         bottomBorder.topAnchor.constraint(equalTo: bottomAnchor, constant: 3).isActive = true
         bottomBorder.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         bottomBorder.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         bottomBorder.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        bottomBorder.backgroundColor = orangeColor
     }
 }

@@ -102,7 +102,6 @@ extension SettingViewController: UITextFieldDelegate {
         DispatchQueue.main.async {
             fruitSettingTextField.selectedTextRange = fruitSettingTextField.textRange(from: fruitSettingTextField.endOfDocument, to: fruitSettingTextField.endOfDocument)
         }
-
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
