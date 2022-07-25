@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Order Result View Controller-->
+        <!--OrderResultView-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="OrderResultViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderResultViewController" title="OrderResultView" id="Y6W-OH-hqX" customClass="OrderResultViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,6 +84,7 @@
                             <constraint firstItem="CB3-YI-fQw" firstAttribute="top" secondItem="l5h-PY-oa1" secondAttribute="bottom" constant="10" id="rhK-9Q-oV8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Pxd-UQ-Ave"/>
                     <connections>
                         <outlet property="backToHomeButton" destination="LCy-iW-nDo" id="8vL-Ae-8P4"/>
                         <outlet property="navigationTitleLabel" destination="Ym3-Lu-DLc" id="rTQ-a8-rcZ"/>
@@ -94,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="67"/>
+            <point key="canvasLocation" x="-10" y="80"/>
         </scene>
     </scenes>
     <resources>

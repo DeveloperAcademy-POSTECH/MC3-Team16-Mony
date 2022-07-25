@@ -12,37 +12,23 @@ class CheckOrderViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var secondaryTitleLabel: UILabel!
-    @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var orderButton: UIButton!
     
-    @IBAction func onNavigationBackButtonClicked(_ sender: UIBarButtonItem) {
-        print("onNavigationBackButtonClicked")
-    }
-    
-    @IBAction func onNavigationExitButtonClicked(_ sender: UIBarButtonItem) {
-        print("onNavigationExitButtonClicked")
-    }
-    
-    @IBAction func onCheckOrderButtonClicked(_ sender: UIButton) {
-        //TODO: Navigation 코드 추가
-        print("onCheckOrderButtonClicked")
+    @IBAction func onOrderButtonClicked(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "OrderResult", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "OrderResultViewController") as! OrderResultViewController
+        let initVC = self.navigationController
+        initVC?.pushViewController(homeVC, animated: true)
+        initVC?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.shadowImage = UIImage()
         backgroundView.applyBackgroundGradient()
         setCheckOrderViewUI()
+        navigationBar.shadowImage = UIImage()
     }
-    
-    //    private func goToHome() {
-    //        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-    //        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-    //        let initVC = self.navigationController
-    //        initVC?.pushViewController(homeVC, animated: true)
-    //        initVC?.isNavigationBarHidden = true
-    //        // 현재 네비게이션 컨트롤러 -> 홈뷰 푸쉬로 띄우기
-    //    }
     
 }
 
@@ -123,6 +109,7 @@ extension CheckOrderViewController {
     }
     
     private func setCheckOrderButtonUI() {
+
         orderButton.setTitle("주문하기", for: .normal)
         DispatchQueue.main.async {
             self.orderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
@@ -133,4 +120,5 @@ extension CheckOrderViewController {
         orderButton.layer.borderWidth = 1
         orderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
     }
+    
 }
