@@ -36,6 +36,12 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         divider.translatesAutoresizingMaskIntoConstraints = false
         return divider
     }()
+    
+    let fruitCalendarLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +53,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         initProfile()
         initTextField()
         initDivider()
+        initCalendar()
     }
     
     private func initSettingViewNavBar() {
@@ -130,6 +137,16 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitDivider.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         fruitDivider.topAnchor.constraint(equalTo: fruitProfile.bottomAnchor, constant: 122).isActive = true
         fruitDivider.heightAnchor.constraint(equalToConstant: 1).isActive = true
+    }
+    
+    private func initCalendar() {
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        view.addSubview(fruitCalendarLabel)
+        fruitCalendarLabel.textColor = blackColor
+        fruitCalendarLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        fruitCalendarLabel.text = "푸릇푸릇 달력"
+        fruitCalendarLabel.topAnchor.constraint(equalTo: fruitDivider.bottomAnchor, constant: 40).isActive = true
+        fruitCalendarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
     }
 
     /*
