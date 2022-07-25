@@ -44,7 +44,7 @@ class FruitStatusCell: UICollectionViewCell {
         let _ = self.subviews.map { $0.removeFromSuperview() }
         addSubview(fruitStatusLabel)
         addSubview(fruitStatusImage)
-        let imageName = FruitName(rawValue: model.name)!.fruitSecondary
+        let imageName = FruitType(rawValue: model.name)!.fruitSecondary
         let image = UIImage(named: imageName)
         fruitStatusImage.image = image
         fruitStatusImage.topAnchor.constraint(equalTo: topAnchor, constant: 19).isActive = true
