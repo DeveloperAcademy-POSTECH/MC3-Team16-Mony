@@ -15,6 +15,14 @@ class OrderResultViewController: UIViewController {
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var backToHomeButton: UIButton!
     
+    @IBAction func onBackToHomeButtonClicked(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let initVC = self.navigationController
+        initVC?.pushViewController(homeVC, animated: true)
+        initVC?.isNavigationBarHidden = true
+    }
+    
     let orderSheet: OrderSheet = {
         let orderSheet = OrderSheet(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 370))
         orderSheet.translatesAutoresizingMaskIntoConstraints = false
