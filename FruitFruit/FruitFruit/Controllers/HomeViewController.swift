@@ -252,8 +252,12 @@ class HomeViewController: UIViewController {
     
     @objc func tapFruitProfile() {
         print("FruitfruitLabel tapped")
-        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "수박", price: 400, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
-        addMockOrder(fruitOrder: FruitOrder(name: "물복숭아", dueDate: Date(), amount: 3, price: 400, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 13))
+        let storyboard = UIStoryboard(name: "Setting", bundle: nil)
+        let settingVC = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+        let homeVC = self.navigationController
+        homeVC?.pushViewController(settingVC, animated: true)
+        homeVC?.isNavigationBarHidden = false
+        
     }
     
     private func initFruitOrderLabel() {
