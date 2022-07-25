@@ -49,7 +49,7 @@ class FruitCellButtonView: UIView {
     }
     
     private func setBackground() {
-        backgroundColor = .white
+        backgroundColor = UIColor(white: 1, alpha: 0.5)
         layer.cornerRadius = 20
         layer.borderWidth = 1
         layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
