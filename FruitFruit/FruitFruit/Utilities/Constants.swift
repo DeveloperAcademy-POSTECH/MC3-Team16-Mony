@@ -54,13 +54,13 @@ struct Constants {
         }
         struct Status {
             static let arrived = "Fruitfruit_Status_Arrived.pdf"
-            static let checking = "Fruitfruit_Status_Chekcking_pdf"
+            static let checking = "Fruitfruit_Status_Checking.pdf"
             static let checked = "Fruitfruit_Status_Checked.pdf"
             static let canceled = "Fruitfruit_Status_Canceled.pdf"
         }
         static let profile = "Fruitfruit_Profile.pdf"
         struct Others {
-            static let account = "Fruitfruit_Account.pdf"
+            static let account = "Fruitfruit_Account.svg"
         }
     }
 }
