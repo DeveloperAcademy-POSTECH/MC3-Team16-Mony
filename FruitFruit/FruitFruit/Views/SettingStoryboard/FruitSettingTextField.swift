@@ -30,6 +30,7 @@ class FruitSettingTextField: UITextField {
         tintColor = orangeColor
         setBottomBorder()
         bottomBorder.isHidden = true
+        isUserInteractionEnabled = false
     }
     
     private func setBottomBorder() {

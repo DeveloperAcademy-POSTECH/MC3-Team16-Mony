@@ -22,6 +22,12 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
+    let fruitNameTextField: FruitSettingTextField = {
+        let textField = FruitSettingTextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +61,8 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
         isProfileEditing.toggle()
+        fruitNicknameTextField.isUserInteractionEnabled.toggle()
+        fruitNameTextField.isUserInteractionEnabled.toggle()
         if isProfileEditing {
             navigationItem.rightBarButtonItem?.title = "수정완료"
             navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: blackColor], for: .normal)
@@ -81,6 +89,13 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitNicknameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         fruitNicknameTextField.text = user.nickname
         fruitNicknameTextField.placeholder = user.nickname
+        view.addSubview(fruitNameTextField)
+        fruitNameTextField.delegate = self
+        fruitNameTextField.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        fruitNameTextField.topAnchor.constraint(equalTo: fruitNicknameTextField.bottomAnchor, constant: 10).isActive = true
+        fruitNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        fruitNameTextField.text = user.name
+        fruitNameTextField.placeholder = user.name
     }
 
     /*
