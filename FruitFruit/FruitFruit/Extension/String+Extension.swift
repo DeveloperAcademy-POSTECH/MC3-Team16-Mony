@@ -28,4 +28,16 @@ extension String {
             return FruitType.Orange
         }
     }
+    
+    var isLastConsonantLetter: Bool {
+        guard let lastChar = self.unicodeScalars.first?.value, 0xAC00...0xD7A3 ~= lastChar else { return false }
+        let value = (lastChar - 0xAC00) % 28
+        if value > 0 {
+            return true
+        } else {
+            return false
+        }
+        // true -> 종성 있음
+        // false -> 종성 없음
+    }
 }
