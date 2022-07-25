@@ -22,6 +22,8 @@ extension String {
             return FruitType.Peach
         } else if self.contains("수박") {
             return FruitType.Watermelon
+        } else if self.contains("바나나") {
+            return FruitType.Banana
         } else {
             return FruitType.Orange
         }
