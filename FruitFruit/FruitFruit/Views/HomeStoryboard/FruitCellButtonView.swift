@@ -49,11 +49,15 @@ class FruitCellButtonView: UIView {
     }
     
     private func setBackground() {
-        self.backgroundColor = .clear
-        self.layer.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1).cgColor
-        self.layer.cornerRadius = 20
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
+        backgroundColor = .white
+        layer.cornerRadius = 20
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
+//        self.backgroundColor = .clear
+//        self.layer.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1).cgColor
+//        self.layer.cornerRadius = 20
+//        self.layer.borderWidth = 1
+//        self.layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
     }
    
     private func setLabels() {
