@@ -30,6 +30,12 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
+    let fruitDivider: UIView = {
+        let divider = UIView.init(frame: CGRect(x:0, y:0, width: 0, height: 0))
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        return divider
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +46,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         initSettingViewNavBar()
         initProfile()
         initTextField()
+        initDivider()
     }
     
     private func initSettingViewNavBar() {
@@ -113,6 +120,16 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitNameTextField.text = user.name
         fruitNameTextField.placeholder = user.name
         //TODO: 텍스트 필드 내 폰트 체크
+    }
+    
+    private func initDivider() {
+        view.addSubview(fruitDivider)
+        guard let grayColor = UIColor(named: Constants.FruitfruitColors.gray2) else { return }
+        fruitDivider.backgroundColor = grayColor
+        fruitDivider.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        fruitDivider.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        fruitDivider.topAnchor.constraint(equalTo: fruitProfile.bottomAnchor, constant: 122).isActive = true
+        fruitDivider.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 
     /*
