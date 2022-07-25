@@ -30,13 +30,14 @@ extension String {
     }
     
     var isLastConsonantLetter: Bool {
-        guard let lastChar = self.unicodeScalars.first?.value, 0xAC00...0xD7A3 ~= lastChar else { return false }
-        let value = (lastChar - 0xAC00) % 28
-        if value > 0 {
+        guard let text = self.last else { return false }
+        guard let firstChar = text.unicodeScalars.first?.value, 0xAC00...0xD7A3 ~= firstChar else { return false }
+
+            let value = (firstChar - 0xAC00) % 28
+
+            guard value > 0 else { return false }
+
             return true
-        } else {
-            return false
-        }
         // true -> 종성 있음
         // false -> 종성 없음
     }
