@@ -53,10 +53,9 @@
 		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
 		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
 		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
+		D2DF56DE288E42900064B9A1 /* FruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF56DD288E42900064B9A1 /* FruitType.swift */; };
 		D2DF7E34288937790009CC95 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E33288937790009CC95 /* FirebaseFirestore */; };
 		D2DF7E36288937790009CC95 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */; };
-		D2DF7E38288939010009CC95 /* FruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF7E37288939010009CC95 /* FruitType.swift */; };
-		D2DF7E38288939010009CC95 /* FruitName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF7E37288939010009CC95 /* FruitName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,8 +103,7 @@
 		52D0535B287BAF9100FF87DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
 		D2C81586288A717E001AD894 /* FruitStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusCell.swift; sourceTree = "<group>"; };
-		D2DF7E37288939010009CC95 /* FruitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitType.swift; sourceTree = "<group>"; };
-		D2DF7E37288939010009CC95 /* FruitName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitName.swift; sourceTree = "<group>"; };
+		D2DF56DD288E42900064B9A1 /* FruitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,7 +266,7 @@
 				4A0D8AC728865319003CFAEE /* FruitOrder.swift */,
 				4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */,
 				4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */,
-				D2DF7E37288939010009CC95 /* FruitType.swift */,
+				D2DF56DD288E42900064B9A1 /* FruitType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,9 +400,9 @@
 				4ACD00292881079400BBEB4D /* FruitBackground.swift in Sources */,
 				4A2BECD92887C3E40007441F /* Date+Extension.swift in Sources */,
 				4A0D8ACA28865370003CFAEE /* FruitSaleInfo.swift in Sources */,
+				D2DF56DE288E42900064B9A1 /* FruitType.swift in Sources */,
 				5222B33C2887819C0072B83D /* SheetRow.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
-				D2DF7E38288939010009CC95 /* FruitType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
