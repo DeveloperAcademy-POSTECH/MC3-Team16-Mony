@@ -66,6 +66,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitNicknameTextField.isUserInteractionEnabled.toggle()
         fruitNameTextField.isUserInteractionEnabled.toggle()
         if isProfileEditing {
+            fruitNicknameTextField.becomeFirstResponder()
             navigationItem.rightBarButtonItem?.title = "수정완료"
             navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: blackColor], for: .normal)
         } else {
@@ -111,6 +112,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         fruitNameTextField.text = user.name
         fruitNameTextField.placeholder = user.name
+        //TODO: 텍스트 필드 내 폰트 체크
     }
 
     /*
