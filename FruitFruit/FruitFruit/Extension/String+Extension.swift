@@ -14,4 +14,16 @@ extension String {
         nsString.setColorForText(textToFind: text, withColor: color)
         return nsString
     }
+    
+    var getFruitType: FruitType {
+        if self.contains("오렌지") {
+            return FruitType.Orange
+        } else if self.contains("복숭아") {
+            return FruitType.Peach
+        } else if self.contains("수박") {
+            return FruitType.Watermelon
+        } else {
+            return FruitType.Orange
+        }
+    }
 }

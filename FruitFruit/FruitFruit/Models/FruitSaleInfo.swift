@@ -16,6 +16,10 @@ struct FruitSaleInfo: Codable {
     var place: String
     var time: Int
     
+    var fruitType: FruitType {
+        return fruitName.getFruitType
+    }
+    
     var fruitImagePrimary: String {
         return "Fruitfruit_\(convertFruit(fruit: fruitName))_Primary"
     }

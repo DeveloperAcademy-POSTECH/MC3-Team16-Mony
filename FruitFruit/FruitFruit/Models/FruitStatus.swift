@@ -15,7 +15,8 @@ enum FruitStatus: String {
     case Arrived = "Arrived"
     
     func makeHomeTitleText(fruit: String, time: Int, place: String) -> NSMutableAttributedString  {
-        let color = UIColor(named: Constants.FruitfruitColors.orange1)!
+        let fruitType = fruit.getFruitType
+        let color = UIColor(named: fruitType.fruitColorName)!
         // TODO: 과일 종류 따라서 나중에 색깔 변경할 수 있음
         switch self {
         case .Checking:
@@ -46,7 +47,7 @@ enum FruitStatus: String {
     
     func getStatusImageName(fruit: String) -> String {
         
-        let fruit = FruitName(rawValue: fruit)?.fruitName ?? "orange"
+        let fruit = fruit.getFruitType.fruitName
         
         switch self {
         case .Checking:

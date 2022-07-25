@@ -125,6 +125,7 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchInfos() {
+        //TODO: 날짜, 시간 맞춰서 뷰에 보이는 주문 가능 과일 버튼 표시하기
         //TODO: 판매 유효한 과일 -> 날짜순서대로 고르기
         if let user = Storage().fruitUser {
             database.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
@@ -251,8 +252,7 @@ class HomeViewController: UIViewController {
     
     @objc func tapFruitProfile() {
         print("FruitfruitLabel tapped")
-        addMockOrder(fruitOrder: FruitOrder(name: "복숭아", dueDate: Date(), amount: 3, price: 400, status: "Checking", user: FruitUser(name: "박준영", nickname: "노아"), place: "C5", time: 15))
-        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "오렌지", price: 400, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
+        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "수박", price: 400, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
     }
     
     private func initFruitOrderLabel() {
