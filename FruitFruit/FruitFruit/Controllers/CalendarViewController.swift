@@ -15,6 +15,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initCalendarViewUI()
+        checkMockDate()
     }
     
     private func initCalendarViewUI() {
@@ -71,6 +72,16 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
             print(order.name)
             print(order.status)
             print(order.dueDate)
+        }
+    }
+    
+    private func checkMockDate() {
+        let start = Date().startOfMonth
+        let end = Date().endOfMonth
+        var tmp = start
+        while tmp < end {
+            tmp = Calendar.current.date(byAdding: .day, value: 1, to: tmp)!
+            print(tmp)
         }
     }
 }

@@ -55,6 +55,7 @@
 		D213CFC8288EC4F90038F6E4 /* FruitSettingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */; };
 		D213CFCB288F88050038F6E4 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D213CFCA288F88050038F6E4 /* Calendar.storyboard */; };
 		D213CFCD288F88140038F6E4 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFCC288F88140038F6E4 /* CalendarViewController.swift */; };
+		D26F0290288FD72700BDA9F2 /* FruitDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */; };
 		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
 		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
 		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
@@ -112,6 +113,7 @@
 		D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSettingTextField.swift; sourceTree = "<group>"; };
 		D213CFCA288F88050038F6E4 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		D213CFCC288F88140038F6E4 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDayCell.swift; sourceTree = "<group>"; };
 		D2C81586288A717E001AD894 /* FruitStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusCell.swift; sourceTree = "<group>"; };
 		D2DF56DD288E42900064B9A1 /* FruitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				D213CFCA288F88050038F6E4 /* Calendar.storyboard */,
+				D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */,
 			);
 			path = CalendarStoryboard;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				4A1867542886FE8C00630023 /* Encodable+Extension.swift in Sources */,
 				D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */,
 				522AEE892887AED1007ADD6D /* SheetTable.swift in Sources */,
+				D26F0290288FD72700BDA9F2 /* FruitDayCell.swift in Sources */,
 				4ACD00412882630B00BBEB4D /* UIImage+Extension.swift in Sources */,
 				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
 				4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */,
