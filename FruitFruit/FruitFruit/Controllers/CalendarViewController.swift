@@ -56,6 +56,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
                             print(error)
                         }
                     }
+                    self.fruitArrivedOrders.sort(by: {$0.dueDate < $1.dueDate})
                     DispatchQueue.main.async {
                         //TODO: 달력 UI에 데이터 세팅하기
                         self.setCalendarUI()
@@ -69,6 +70,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         for order in fruitArrivedOrders {
             print(order.name)
             print(order.status)
+            print(order.dueDate)
         }
     }
 }
