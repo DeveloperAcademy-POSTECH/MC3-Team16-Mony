@@ -31,7 +31,7 @@ class InitSettingViewController: UIViewController {
     
     private func setUI() {
         welcomeLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
-        welcomeLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        welcomeLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
         addNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         addNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
