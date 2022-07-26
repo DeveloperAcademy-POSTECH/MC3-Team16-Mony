@@ -72,7 +72,8 @@ extension ConfirmStatusViewController {
         
         orderSheet.account.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAccountRow))
-        orderSheet.account.addGestureRecognizer(tapGesture)
+        if orderInfo.statusEnum == .Checking { orderSheet.account.addGestureRecognizer(tapGesture)
+        }
     }
 
     /*
