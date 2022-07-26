@@ -93,13 +93,13 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func saveProfile() {
         guard let name = fruitNameTextField.text, let nickname = fruitNicknameTextField.text else { return }
-        guard var user = Storage().fruitUser else { return }
+        guard let user = Storage().fruitUser else { return }
+        let curId = user.id
         if !name.isEmpty && !nickname.isEmpty {
-            user.nickname = nickname
-            user.name = name
+            let fruitUser = FruitUser(id: curId, name: name, nickname: nickname)
             let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
             database.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
-            Storage().setFruitUser(fruitUser: user)
+            Storage().setFruitUser(fruitUser: fruitUser)
         }
     }
     
