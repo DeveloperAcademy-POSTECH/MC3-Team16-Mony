@@ -22,7 +22,7 @@ func addMockOrder(fruitOrder: FruitOrder) {
     guard let fruitOrderDict = fruitOrder.dictionary else { return }
     if let user = Storage().fruitUser {
         let detailCollectionName = "\(user.name) \(user.nickname)"
-        db.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).addDocument(data: fruitOrderDict)
+        db.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).addDocument(data: fruitOrderDict)
     }
 }
 

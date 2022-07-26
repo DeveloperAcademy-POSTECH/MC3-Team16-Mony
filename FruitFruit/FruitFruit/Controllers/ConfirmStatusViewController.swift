@@ -8,6 +8,7 @@
 import UIKit
 
 class ConfirmStatusViewController: UIViewController {
+    var fruitOrder: FruitOrder?
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
