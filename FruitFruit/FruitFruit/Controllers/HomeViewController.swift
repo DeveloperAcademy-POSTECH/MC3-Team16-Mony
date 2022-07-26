@@ -92,9 +92,7 @@ class HomeViewController: UIViewController {
         //TODO: 유효한 주문 -> 연산 프로퍼티로 체크하기
         if let user = Storage().fruitUser {
             let detailCollectionName = "\(user.name) \(user.nickname)"
-            database.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
-
-//            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
+            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitOrders = []
                 if let error = error {
                     print(error.localizedDescription)
@@ -264,6 +262,10 @@ class HomeViewController: UIViewController {
         homeVC?.pushViewController(settingVC, animated: true)
         homeVC?.isNavigationBarHidden = false
         
+        
+        //MOCKORDER 추가를 위한 함수
+        guard let user = Storage().fruitUser else { return }
+        addMockOrder(fruitOrder: FruitOrder(name: "여름바나나", dueDate: Date(), amount: 3, price: 500, status: "Checking", user: user, place: "C5", time: 13))
     }
     
     private func initFruitOrderLabel() {

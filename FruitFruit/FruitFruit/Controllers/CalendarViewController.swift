@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
+    var fruitArrivedOrders = [FruitOrder]()
+    let database = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +19,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func initCalendarViewUI() {
         initCalendarViewNavBar()
+        fetchOrders()
     }
     
     private func initCalendarViewNavBar() {
@@ -33,4 +37,38 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+    private func fetchOrders() {
+        guard let user = Storage().fruitUser else { return }
+        let detailCollectionName = "\(user.name) \(user.nickname)"
+        database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).whereField("status", isEqualTo: "Arrived").order(by: Constants.FStore.Orders.orderField).getDocuments { querySnapShot, error in
+            // addSnapShotListener -> 네비게이션 클릭 시점 문서만 불러오기
+            self.fruitArrivedOrders = []
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let documents = querySnapShot?.documents {
+                    for document in documents {
+                        let data = document.data()
+                        do {
+                            let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
+                            self.fruitArrivedOrders.append(fruitOrder)
+                        } catch {
+                            print(error)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        //TODO: 달력 UI에 데이터 세팅하기
+                        self.setCalendarUI()
+                    }
+                }
+            }
+        }
+    }
+    
+    private func setCalendarUI() {
+        for order in fruitArrivedOrders {
+            print(order.name)
+            print(order.status)
+        }
+    }
 }
