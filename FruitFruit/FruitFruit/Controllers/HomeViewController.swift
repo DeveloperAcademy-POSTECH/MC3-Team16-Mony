@@ -177,7 +177,6 @@ class HomeViewController: UIViewController {
         fruitStatusCollectionView.heightAnchor.constraint(equalToConstant: 68).isActive = true
         fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         fruitStatusCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
     }
     
     private func initFruitInfoTableView() {

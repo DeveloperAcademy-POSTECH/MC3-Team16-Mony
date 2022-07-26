@@ -52,13 +52,4 @@ class FruitDayCell: UICollectionViewCell {
         day.font = UIFont.preferredFont(for: .headline, weight: .bold)
         day.textColor = blackColor
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
