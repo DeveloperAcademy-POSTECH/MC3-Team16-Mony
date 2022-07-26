@@ -11,29 +11,29 @@ class OrderViewController: UIViewController {
     @IBOutlet var checkOrderButton: UIButton!
     @IBOutlet var TimeView: UIView!
     @IBOutlet var LocationView: UIView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setCheckOrderButtonUI()
-        TimeView.backgroundColor = .white
-        TimeView.layer.shadowOpacity = 1
-        TimeView.layer.shadowColor = UIColor(red: 0.917, green: 0.813, blue: 0.737, alpha: 0.3).cgColor
-        TimeView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        TimeView.layer.shadowRadius = 20
-        TimeView.layer.masksToBounds = false
+        setTimeViewUI()
+        setLocationViewUI()
         
         view.addSubview(TimeView)
-        
+        view.addSubview(checkOrderButton)
+        checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
         self.view = view
-        view.applyBackgroundGradient()
-        
-    
-        
+    }
+    @objc func checkOrderButtonTapped() {
+        let BottomSheetVC = BottomSheetViewController()
+        BottomSheetVC.modalPresentationStyle = .overFullScreen
+        self.present(BottomSheetVC, animated: false, completion: nil)
     }
     
-    @IBAction func chekOrderbuttonOntap(_ sender: UIButton) {
+    @IBAction func checkOrderbuttonOntap(_ sender: UIButton) {
         print("onCheckOrderButtonClicked")
+        let OrderViewModalVC = OrderViewModalViewController()
+        OrderViewModalVC.modalPresentationStyle = .overFullScreen
+        self.present(OrderViewModalVC, animated: false, completion: nil)
     }
     //checkOrderButton.titleLabel.text = "2400원 3개 구매"
 
@@ -45,6 +45,22 @@ class OrderViewController: UIViewController {
         checkOrderButton.layer.cornerRadius = 16
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
+    }
+    private func setTimeViewUI() {
+        TimeView.backgroundColor = .white
+        TimeView.layer.shadowOpacity = 1
+        TimeView.layer.shadowColor = UIColor(red: 0.917, green: 0.813, blue: 0.737, alpha: 0.3).cgColor
+        TimeView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        TimeView.layer.shadowRadius = 20
+        TimeView.layer.masksToBounds = false
+    }
+    private func setLocationViewUI() {
+        LocationView.backgroundColor = .white
+        LocationView.layer.shadowOpacity = 1
+        LocationView.layer.shadowColor = UIColor(red: 0.917, green: 0.813, blue: 0.737, alpha: 0.3).cgColor
+        LocationView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        LocationView.layer.shadowRadius = 20
+        LocationView.layer.masksToBounds = false
     }
     
 }

@@ -9,49 +9,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--OrderViewModal-->
+        <!--BottomSheetView-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="OrderViewModal" title="OrderViewModal" id="Y6W-OH-hqX" customClass="OrderViewModalViewController" customModule="FruitFruit" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BottomSheetView" title="BottomSheetView" id="Y6W-OH-hqX" customClass="BottomSheetViewController" customModule="FruitFruit" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4G-GQ-ezw">
-                                <rect key="frame" x="24" y="443" width="342" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="342" id="GDe-lq-Yn0"/>
-                                    <constraint firstAttribute="height" constant="58" id="guu-ik-T8N"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
-                                <connections>
-                                    <action selector="chekOrderbuttonOntap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Xi4-YB-4si"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DR-L0-VVt">
-                                <rect key="frame" x="239" y="698" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEa-zi-M8w">
+                                <rect key="frame" x="239" y="63" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="Fruitfruit_Gray1"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="Fruitfruit_btn_Plus" title=""/>
-                                <connections>
-                                    <action selector="btnPlus:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zGI-9q-2ub"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z1-qA-lKt">
-                                <rect key="frame" x="111" y="705" width="41" height="16"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQx-RB-0hu">
+                                <rect key="frame" x="111" y="70" width="41" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="Fruitfruit_Gray1"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="Fruitfruit_btn_Minus" title=""/>
-                                <connections>
-                                    <action selector="btnMinus:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vw3-5A-w3o"/>
-                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOH-pS-Bom">
-                                <rect key="frame" x="157" y="679" width="84" height="69"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJ6-H3-O8A">
+                                <rect key="frame" x="157" y="44" width="84" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="0">
@@ -72,16 +53,12 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
                     </view>
-                    <connections>
-                        <outlet property="checkOrderButton" destination="f4G-GQ-ezw" id="8Nr-Ae-beZ"/>
-                        <outlet property="lblNumber" destination="eOH-pS-Bom" id="4Yj-Pu-XpS"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="110"/>
+            <point key="canvasLocation" x="130.76923076923077" y="101.65876777251184"/>
         </scene>
     </scenes>
     <resources>
@@ -90,8 +67,8 @@
         <namedColor name="Fruitfruit_Gray1">
             <color red="0.80000000000000004" green="0.81176470588235294" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

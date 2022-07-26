@@ -8,18 +8,17 @@
 import UIKit
 
 class OrderViewModalViewController: UIViewController {
-    
+        
     @IBOutlet var lblNumber: UILabel!
     var Number = 1
     @IBOutlet var checkOrderButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblNumber.text = String(Number) + "개"
+       lblNumber.text = String(Number) + "개"
         setCheckOrderButtonUI()
-        // Do any additional setup after loading the view.
     }
-    
+
     @IBAction func btnPlus(_ sender: UIButton) {
         Number += 1
         lblNumber.text = String(Number) + "개"
@@ -33,6 +32,7 @@ class OrderViewModalViewController: UIViewController {
     }
     @IBAction func chekOrderbuttonOntap(_ sender: UIButton) {
         print("onCheckOrderButtonClicked")
+        
     }
     private func setCheckOrderButtonUI() {
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
