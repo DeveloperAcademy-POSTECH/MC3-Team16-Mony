@@ -11,7 +11,7 @@ class ConfirmStatusViewController: UIViewController {
     
     //TODO: 데이터 바인딩
     var saleInfo = FruitSaleInfo(shopName: "효곡청과", fruitName: "여름오렌지", price: 800, fruitOrigin: "캘리포니아", saleDate: Date(), place: "포스텍 C5", time: 13)
-    var orderInfo = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: FruitUser(name: "김유나", nickname: "진저"), place: "포스텍 C5", time: 13)
+    var orderInfo = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Canceled", user: FruitUser(name: "김유나", nickname: "진저"), place: "포스텍 C5", time: 13)
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -47,17 +47,17 @@ extension ConfirmStatusViewController {
     }
     
     private func setLabels() {
-        titleLabel.text = FruitStatus.Checking.detailTitleLabel
+        titleLabel.text = FruitStatus(rawValue: orderInfo.status)?.detailTitleLabel
         titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         titleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
     
-        secondaryTitleLabel.text = FruitStatus.Checking.detailSecondaryTitleLabel
+        secondaryTitleLabel.text = FruitStatus(rawValue: orderInfo.status)?.detailSecondaryTitleLabel
         secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
         secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
     }
     
     private func setImage() {
-        statusImage.image = UIImage(named: Constants.FruitfruitImages.Status.checking)
+        statusImage.image = UIImage(named: FruitStatus(rawValue: orderInfo.status)!.getStatusImageName(fruit: orderInfo.name))
         statusImage.frame.size = CGSize(width: 160, height: 160)
     }
     
