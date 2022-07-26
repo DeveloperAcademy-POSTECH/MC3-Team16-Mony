@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import Firebase
 
 class CheckOrderViewController: UIViewController {
     
     //TODO: 데이터 바인딩
     var saleInfo = FruitSaleInfo(shopName: "효곡청과", fruitName: "여름오렌지", price: 800, fruitOrigin: "캘리포니아", saleDate: Date(), place: "포스텍 C5", time: 13)
     var orderInfo = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: FruitUser(name: "김유나", nickname: "진저"), place: "포스텍 C5", time: 13)
+    let db = Firestore.firestore()
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,11 +23,8 @@ class CheckOrderViewController: UIViewController {
     @IBOutlet weak var orderButton: UIButton!
     
     @IBAction func onOrderButtonClicked(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "OrderResult", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "OrderResultViewController") as! OrderResultViewController
-        let initVC = self.navigationController
-        initVC?.pushViewController(homeVC, animated: true)
-        initVC?.isNavigationBarHidden = true
+        addOrder(fruitOrder: orderInfo)
+        navigateToOrderResultView()
     }
     
     override func viewDidLoad() {
@@ -117,6 +117,14 @@ extension CheckOrderViewController {
         orderButton.layer.cornerRadius = 16
         orderButton.layer.borderWidth = 1
         orderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
+    }
+    
+    private func navigateToOrderResultView() {
+        let storyboard = UIStoryboard(name: "OrderResult", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "OrderResultViewController") as! OrderResultViewController
+        let initVC = self.navigationController
+        initVC?.pushViewController(homeVC, animated: true)
+        initVC?.isNavigationBarHidden = true
     }
     
 }
