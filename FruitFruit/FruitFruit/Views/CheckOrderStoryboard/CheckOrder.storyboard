@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -45,7 +46,8 @@
                                         <barButtonItem key="leftBarButtonItem" title="BackButton" image="chevron.left" catalog="system" id="Bur-y3-cPh">
                                             <color key="tintColor" name="Fruitfruit_Orange1"/>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="ExitButton" image="xmark" catalog="system" id="9fh-FD-LI4">
+                                        <barButtonItem key="rightBarButtonItem" title="ExitButton" id="9fh-FD-LI4">
+                                            <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
                                             <color key="tintColor" name="Fruitfruit_Orange1"/>
                                         </barButtonItem>
                                     </navigationItem>

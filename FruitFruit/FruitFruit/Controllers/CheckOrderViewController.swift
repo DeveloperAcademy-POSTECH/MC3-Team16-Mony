@@ -61,8 +61,7 @@ extension CheckOrderViewController {
     }
     
     private func setTitleAmount() -> String {
-        //TODO: FruitOrder struct 받아와서 추가
-        let amount = 3
+        let amount = orderInfo.amount
         return String(amount)
     }
     
