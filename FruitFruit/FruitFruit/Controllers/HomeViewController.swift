@@ -257,13 +257,11 @@ class HomeViewController: UIViewController {
     }
     
     @objc func tapFruitProfile() {
-        print("FruitfruitLabel tapped")
         let storyboard = UIStoryboard(name: "Setting", bundle: nil)
         let settingVC = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
         let homeVC = self.navigationController
         homeVC?.pushViewController(settingVC, animated: true)
         homeVC?.isNavigationBarHidden = false
-        
     }
     
     private func initFruitOrderLabel() {
@@ -336,6 +334,12 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(fruitOrders[indexPath.item])
+        // 1. ConfrimStatusView -> 연동
+//        let storyboard = UIStoryboard(name: "ConfirmStatus", bundle: nil)
+//        guard let confirmVC = storyboard.instantiateViewController(withIdentifier: "ConfirmStatusViewController") as? ConfirmStatusViewController else { return }
+//        let homeVC = self.navigationController
+//        homeVC?.pushViewController(confirmVC, animated: true)
+//        homeVC?.isNavigationBarHidden = false
+        // 2. 데이터 Prepare
     }
 }
