@@ -66,8 +66,8 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정하기", style: .done, target: self, action: #selector(editToggle))
-        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .semibold)], for: .normal)
-        //TODO: 폰트 크기 및 굵기 체크
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold)], for: .normal)
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold)], for: .selected)
     }
     
     @objc private func popToPrevious() {
@@ -83,11 +83,11 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         if isProfileEditing {
             fruitNicknameTextField.becomeFirstResponder()
             navigationItem.rightBarButtonItem?.title = "수정완료"
-            navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: blackColor], for: .normal)
+            navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold)], for: .normal)
         } else {
             saveProfile()
             navigationItem.rightBarButtonItem?.title = "수정하기"
-            navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor], for: .normal)
+            navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold)], for: .normal)
         }
     }
     
@@ -115,6 +115,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         view.addSubview(fruitNicknameTextField)
         fruitNicknameTextField.delegate = self
         guard let user = Storage().fruitUser else { return }
+        print(user.id)
         fruitNicknameTextField.font = UIFont.preferredFont(for: .title1, weight: .bold)
         fruitNicknameTextField.topAnchor.constraint(equalTo: fruitProfile.bottomAnchor, constant: 20).isActive = true
         fruitNicknameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -136,7 +137,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitDivider.backgroundColor = grayColor
         fruitDivider.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         fruitDivider.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        fruitDivider.topAnchor.constraint(equalTo: fruitProfile.bottomAnchor, constant: 122).isActive = true
+        fruitDivider.topAnchor.constraint(equalTo: fruitProfile.bottomAnchor, constant: 146).isActive = true
         fruitDivider.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
@@ -149,17 +150,6 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarLabel.topAnchor.constraint(equalTo: fruitDivider.bottomAnchor, constant: 40).isActive = true
         fruitCalendarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension SettingViewController: UITextFieldDelegate {
