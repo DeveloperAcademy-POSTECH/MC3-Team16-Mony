@@ -83,8 +83,13 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         let validMonthModels = Date().getValidMonthModels(from: startOrderDate, to: Date())
         let someDateComp = DateComponents(year: 2022, month: 4, day: 8, hour: 12)
         let someDate = Calendar.current.date(from: someDateComp)!
-        guard let firstMonth = validMonthModels.first else { return }
-        guard let validInfos = firstMonth.getDatePosition(from: someDate) else { return }
+        for month in validMonthModels {
+            let result = month.checkWeekDay()
+            print(month.year, month.month)
+            for i in 0..<result.count {
+                print(result[i])
+            }
+        }
         
     }
 }
