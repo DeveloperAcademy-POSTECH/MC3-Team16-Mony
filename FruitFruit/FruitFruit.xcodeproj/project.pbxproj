@@ -58,6 +58,7 @@
 		D26F0290288FD72700BDA9F2 /* FruitDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */; };
 		D26F0292288FDA9D00BDA9F2 /* MonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F0291288FDA9D00BDA9F2 /* MonthModel.swift */; };
 		D26F029428901EE200BDA9F2 /* FruitWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F029328901EE200BDA9F2 /* FruitWeekCell.swift */; };
+		D26F02982890230E00BDA9F2 /* FruitMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F02972890230E00BDA9F2 /* FruitMonthView.swift */; };
 		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
 		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
 		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
@@ -118,6 +119,7 @@
 		D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDayCell.swift; sourceTree = "<group>"; };
 		D26F0291288FDA9D00BDA9F2 /* MonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthModel.swift; sourceTree = "<group>"; };
 		D26F029328901EE200BDA9F2 /* FruitWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitWeekCell.swift; sourceTree = "<group>"; };
+		D26F02972890230E00BDA9F2 /* FruitMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitMonthView.swift; sourceTree = "<group>"; };
 		D2C81586288A717E001AD894 /* FruitStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusCell.swift; sourceTree = "<group>"; };
 		D2DF56DD288E42900064B9A1 /* FruitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -314,6 +316,7 @@
 				D213CFCA288F88050038F6E4 /* Calendar.storyboard */,
 				D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */,
 				D26F029328901EE200BDA9F2 /* FruitWeekCell.swift */,
+				D26F02972890230E00BDA9F2 /* FruitMonthView.swift */,
 			);
 			path = CalendarStoryboard;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				4ACD00332881A7AA00BBEB4D /* String+Extension.swift in Sources */,
 				4ACD002F2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift in Sources */,
 				52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */,
+				D26F02982890230E00BDA9F2 /* FruitMonthView.swift in Sources */,
 				4ACD00272881041400BBEB4D /* HomeViewController.swift in Sources */,
 				4A1867542886FE8C00630023 /* Encodable+Extension.swift in Sources */,
 				D26F0292288FDA9D00BDA9F2 /* MonthModel.swift in Sources */,

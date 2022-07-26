@@ -58,6 +58,4 @@ extension FruitWeekCell: UICollectionViewDataSource {
         cell.prepare(model: weekday[indexPath.item])
         return cell
     }
-    
-    
 }
