@@ -40,8 +40,8 @@ struct MonthModel {
         let weekdayDict = ["일":0, "월":1, "화":2, "수":3, "목":4, "금":5, "토":6]
         let weekDayDictRev = [0:"일", 1:"월", 2:"화", 3:"수", 4:"목", 5:"금", 6:"토"]
         
-        var weekIdx = 1
-        var tempDay = 1
+        var weekIdx = 0
+        var tempDay = 0
         while tempDay + 7 <= curDay {
             tempDay += 7
             weekIdx += 1
@@ -53,7 +53,6 @@ struct MonthModel {
     }
     
     func checkWeekDay() -> [[String]] {
-        //TODO: 해당 달의 특정 '날' -> 몇 주 차, 몇 요일인지 체크하는 함수
         var result = [[String]]()
         result.append(["일", "월", "화", "수", "목", "금", "토"])
         let weekdayDict = ["일":0, "월":1, "화":2, "수":3, "목":4, "금":5, "토":6]
@@ -61,13 +60,10 @@ struct MonthModel {
         var curDayString = firstWeekDay
         var curDayOrder = weekdayDict[firstWeekDay]!
         var curDayInt = 1
-        
         var curWeek = [String]()
-        
         for curDay in 0..<curDayOrder {
             curWeek.append("")
         }
-        
         for weekIdx in 1...numOfWeeks {
             for _ in 0..<7 {
                 if curDayInt > numOfDays {
