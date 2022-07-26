@@ -14,8 +14,8 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addMockOrder()
         initCalendarViewUI()
-        checkMockDate()
     }
     
     private func initCalendarViewUI() {
@@ -61,6 +61,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
                     DispatchQueue.main.async {
                         //TODO: 달력 UI에 데이터 세팅하기
                         self.setCalendarUI()
+                        self.getAllMonths()
                     }
                 }
             }
@@ -73,6 +74,40 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
             print(order.status)
             print(order.dueDate)
         }
+    }
+    
+    private func getAllMonths() {
+        // 가장 오래 된 주문부터 현재 달까지 모든 MonthModel 배열 생성 함수
+        var months = [MonthModel]()
+        guard let startOrder = fruitArrivedOrders.first else { return }
+        let startDate = startOrder.dueDate
+        let startMonthModel = MonthModel(date: startDate)
+        months.append(startMonthModel)
+        let calendar = Calendar.current
+        let startDateComponent = calendar.dateComponents([.year, .month], from: startDate)
+        let endDateComponent = calendar.dateComponents([.year, .month], from: Date())
+        
+        var startMonth = startDateComponent.month!
+        var startYear = startDateComponent.year!
+        
+        let endMonth = endDateComponent.month!
+        let endYear = endDateComponent.year!
+        
+        print(startMonth, startYear)
+        
+        var tempDate = startDate
+        while startMonth < endMonth && startYear <= endYear {
+            tempDate = calendar.date(byAdding: .month, value: 1, to: tempDate)!
+            let tempMonthModel = MonthModel(date: tempDate)
+            months.append(tempMonthModel)
+            startMonth += 1
+            
+            if startMonth == 13 {
+                startMonth = 1
+                startYear += 1
+            }
+        }
+        print(months)
     }
     
     private func checkMockDate() {
