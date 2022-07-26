@@ -9,6 +9,10 @@ import UIKit
 
 class CheckOrderViewController: UIViewController {
     
+    //TODO: 데이터 바인딩
+    var saleInfo = FruitSaleInfo(shopName: "효곡청과", fruitName: "여름오렌지", price: 800, fruitOrigin: "캘리포니아", saleDate: Date(), place: "포스텍 C5", time: 13)
+    var orderInfo = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: FruitUser(name: "김유나", nickname: "진저"), place: "포스텍 C5", time: 13)
+    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var secondaryTitleLabel: UILabel!
@@ -52,20 +56,18 @@ extension CheckOrderViewController {
     }
     
     private func setTitleFruit() -> String {
-        //TODO: 과일 종류 받아오는 코드 추가
-        let fruit = "여름오렌지"
+        let fruit = saleInfo.fruitName
         return fruit
     }
     
     private func setTitleAmount() -> String {
-        //TODO: 과일 개수 받아오는 코드 추가
+        //TODO: FruitOrder struct 받아와서 추가
         let amount = 3
         return String(amount)
     }
     
     private func setTitleCost() -> String {
-        //TODO: 과일 가격 받아오는 or 계산하는 코드 추가 (일단은 받아오는 코드)
-        let cost = 2400
+        let cost = orderInfo.totalPrice
         let share: String
         let remainder: String
         let result: String
@@ -92,8 +94,7 @@ extension CheckOrderViewController {
     }
     
     private func setSecondaryTextTime() -> String {
-        //TODO: 과일 배부 시간 받아오는 코드 추가
-        var hour = 13
+        var hour = orderInfo.time
         if hour > 12 {
             hour = hour - 12
             return "오후 " + String(hour) + "시 "
@@ -104,12 +105,11 @@ extension CheckOrderViewController {
     
     private func setSecondaryTextPlace() -> String {
         //TODO: 과일 배부 장소 받아오는 코드 추가
-        let place = "C5"
+        let place = orderInfo.place
         return place
     }
     
     private func setCheckOrderButtonUI() {
-
         orderButton.setTitle("주문하기", for: .normal)
         DispatchQueue.main.async {
             self.orderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
