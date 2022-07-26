@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConfirmStatusViewController: UIViewController, UIGestureRecognizerDelegate {
+class ConfirmStatusViewController: UIViewController {
     var fruitOrder: FruitOrder?
     
     @IBOutlet weak var backgroundView: UIView!
@@ -26,10 +26,6 @@ class ConfirmStatusViewController: UIViewController, UIGestureRecognizerDelegate
         super.viewDidLoad()
         setUI()
         navigationBar.shadowImage = UIImage()
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        guard let fruitOrder = fruitOrder else { return }
-        print(fruitOrder)
     }
     
     private func setUI() {
