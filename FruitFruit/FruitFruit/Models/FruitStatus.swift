@@ -15,7 +15,8 @@ enum FruitStatus: String {
     case Arrived = "Arrived"
     
     func makeHomeTitleText(fruit: String, time: Int, place: String) -> NSMutableAttributedString  {
-        let color = UIColor(named: Constants.FruitfruitColors.orange1)!
+        let fruitType = fruit.getFruitType
+        let color = UIColor(named: fruitType.fruitColorName)!
         // TODO: 과일 종류 따라서 나중에 색깔 변경할 수 있음
         switch self {
         case .Checking:
@@ -46,7 +47,7 @@ enum FruitStatus: String {
     
     func getStatusImageName(fruit: String) -> String {
         
-        let fruit = FruitName(rawValue: fruit)?.fruitName ?? "orange"
+        let fruit = fruit.getFruitType.fruitName
         
         switch self {
         case .Checking:
@@ -59,6 +60,32 @@ enum FruitStatus: String {
             return "Fruitfruit_Status_\(fruit)_Arrived.pdf"
         case .Arrived:
             return "Fruitfruit_Status_\(fruit)_Arrived.pdf"
+        }
+    }
+    
+    var detailTitleLabel: String {
+        switch self {
+        case .Checking:
+            return "입금을\n확인 중이에요!"
+        case .Checked, .Arriving, .Arrived:
+            return "입금이\n확인 되었어요!"
+        case .Canceled:
+            return "주문이 자동으로\n취소 되었어요 :("
+        }
+    }
+    
+    var detailSecondaryTitleLabel: String {
+        switch self {
+        case .Checking:
+            return "오늘 오후 6시까지 입금되지 않으면\n주문이 자동으로 취소됩니다"
+        case .Canceled:
+            return "6시까지 입금되지 않았어요\n문의사항이 있으시다면 디너를 찾아주세요"
+        case .Checked:
+            return "내일 오후 1시 C5 앞에 배달됩니다"
+        case .Arriving:
+            return "오늘 오후 1시 C5 앞에 배달됩니다"
+        case .Arrived:
+            return "배달이 완료 되었어요"
         }
     }
 }

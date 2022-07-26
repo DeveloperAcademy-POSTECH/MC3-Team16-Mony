@@ -8,7 +8,6 @@
 import UIKit
 
 class OrderResultViewController: UIViewController {
-    
     //TODO: 데이터 바인딩
     var saleInfo = FruitSaleInfo(shopName: "효곡청과", fruitName: "여름오렌지", price: 800, fruitOrigin: "캘리포니아", saleDate: Date(), place: "포스텍 C5", time: 13)
     var orderInfo = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: FruitUser(name: "김유나", nickname: "진저"), place: "포스텍 C5", time: 13)
@@ -45,17 +44,17 @@ class OrderResultViewController: UIViewController {
         setWarningLabel()
         setBackToHomeButton()
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension OrderResultViewController {
@@ -81,6 +80,12 @@ extension OrderResultViewController {
         view.addSubview(orderSheet)
         orderSheet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         orderSheet.topAnchor.constraint(equalTo: view.topAnchor, constant: 259).isActive = true
+        orderSheet.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 48).isActive = true
+        orderSheet.heightAnchor.constraint(equalToConstant: 370).isActive = true
+        
+        orderSheet.account.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAccountRow))
+        orderSheet.account.addGestureRecognizer(tapGesture)
     }
     
     private func setWarningLabel() {
@@ -99,6 +104,14 @@ extension OrderResultViewController {
         backToHomeButton.layer.cornerRadius = 16
         backToHomeButton.layer.borderWidth = 1
         backToHomeButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
+    }
+    
+    //TODO: status 에 따라 클립보드 활성화/비활성화
+    @objc func tapAccountRow() {
+        UIPasteboard.general.string = "카카오뱅크 303-22-201058 이정환"
+        if let myString = UIPasteboard.general.string {
+            print(myString)
+        }
     }
     
 }
