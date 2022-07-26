@@ -8,37 +8,35 @@
 import UIKit
 
 class OrderViewController: UIViewController {
-    @IBOutlet var lblNumber: UILabel!
-    var Number = 1
     @IBOutlet var checkOrderButton: UIButton!
+    @IBOutlet var TimeView: UIView!
+    @IBOutlet var LocationView: UIView!
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setCheckOrderButtonUI()
+        TimeView.backgroundColor = .white
+        TimeView.layer.shadowOpacity = 1
+        TimeView.layer.shadowColor = UIColor(red: 0.917, green: 0.813, blue: 0.737, alpha: 0.3).cgColor
+        TimeView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        TimeView.layer.shadowRadius = 20
+        TimeView.layer.masksToBounds = false
+        
+        view.addSubview(TimeView)
+        
+        self.view = view
+        view.applyBackgroundGradient()
+        
+    
+        
+    }
+    
     @IBAction func chekOrderbuttonOntap(_ sender: UIButton) {
         print("onCheckOrderButtonClicked")
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.applyBackgroundGradient()
-        lblNumber.text = String(Number) + "개"
-        setCheckOrderButtonUI()
-
-
-        // Do any additional setup after loading the view.
-    }
-    @IBAction func btnPlus(_ sender: UIButton) {
-        Number += 1 
-        lblNumber.text = String(Number) + "개"
-    }
-    @IBAction func btnMinus(_ sender: UIButton) {
-        if Number - 1 <= 0 {
-            return
-    }
-        Number -= 1
-        lblNumber.text = String(Number) + "개"
-    }
     //checkOrderButton.titleLabel.text = "2400원 3개 구매"
 
-    @IBAction func gotToFruitInfoView(_ sender: UIButton) {
-        
-    }
     private func setCheckOrderButtonUI() {
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
@@ -48,5 +46,5 @@ class OrderViewController: UIViewController {
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
     }
-
+    
 }
