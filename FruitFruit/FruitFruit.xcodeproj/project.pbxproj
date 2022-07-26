@@ -33,10 +33,10 @@
 		52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534F287BAF9000FF87DD /* SceneDelegate.swift */; };
 		52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D05356287BAF9100FF87DD /* Assets.xcassets */; };
 		52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */; };
+		6305D180288F693F00EB25C0 /* OrderViewModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */; };
+		6305D182288F696200EB25C0 /* OrderViewModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305D181288F696200EB25C0 /* OrderViewModalViewController.swift */; };
 		6341892D28869CC7005E0C2C /* OrderView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6341892C28869CC7005E0C2C /* OrderView.storyboard */; };
 		6341893228869D58005E0C2C /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341893128869D58005E0C2C /* OrderViewController.swift */; };
-		63D3CFB928877E0000D9A0B4 /* FruitinfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3CFB828877E0000D9A0B4 /* FruitinfoViewController.swift */; };
-		63D3CFBC28877E3B00D9A0B4 /* FruitinfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D3CFBB28877E3B00D9A0B4 /* FruitinfoView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,10 +66,10 @@
 		52D05356287BAF9100FF87DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52D05359287BAF9100FF87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52D0535B287BAF9100FF87DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderViewModal.storyboard; sourceTree = "<group>"; };
+		6305D181288F696200EB25C0 /* OrderViewModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModalViewController.swift; sourceTree = "<group>"; };
 		6341892C28869CC7005E0C2C /* OrderView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderView.storyboard; sourceTree = "<group>"; };
 		6341893128869D58005E0C2C /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
-		63D3CFB828877E0000D9A0B4 /* FruitinfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitinfoViewController.swift; sourceTree = "<group>"; };
-		63D3CFBB28877E3B00D9A0B4 /* FruitinfoView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FruitinfoView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +139,7 @@
 			children = (
 				52D0534C287BAF9000FF87DD /* FruitFruit */,
 				6341892E28869CD1005E0C2C /* OrderViewStoryboard */,
-				63D3CFBA28877E0F00D9A0B4 /* FruitinfoStoryboard */,
+				63D3CFBA28877E0F00D9A0B4 /* OrderViewModalStoryboard */,
 				52D0534B287BAF9000FF87DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 				5230C63C2880FDC50069583B /* CheckOrderViewController.swift */,
 				4ACD00262881041400BBEB4D /* HomeViewController.swift */,
 				6341893128869D58005E0C2C /* OrderViewController.swift */,
-				63D3CFB828877E0000D9A0B4 /* FruitinfoViewController.swift */,
+				6305D181288F696200EB25C0 /* OrderViewModalViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -209,12 +209,12 @@
 			path = OrderViewStoryboard;
 			sourceTree = "<group>";
 		};
-		63D3CFBA28877E0F00D9A0B4 /* FruitinfoStoryboard */ = {
+		63D3CFBA28877E0F00D9A0B4 /* OrderViewModalStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				63D3CFBB28877E3B00D9A0B4 /* FruitinfoView.storyboard */,
+				6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */,
 			);
-			path = FruitinfoStoryboard;
+			path = OrderViewModalStoryboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +286,7 @@
 				52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */,
 				4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */,
 				6341892D28869CC7005E0C2C /* OrderView.storyboard in Resources */,
-				63D3CFBC28877E3B00D9A0B4 /* FruitinfoView.storyboard in Resources */,
+				6305D180288F693F00EB25C0 /* OrderViewModal.storyboard in Resources */,
 				4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */,
 				52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */,
 				4AD892DB287E9B7200A01BA3 /* InitSetting.storyboard in Resources */,
@@ -309,7 +309,6 @@
 				4ACD003D2881CD5000BBEB4D /* FruitCellButtonView.swift in Sources */,
 				4AD892E7287F0FE100A01BA3 /* Constants.swift in Sources */,
 				4ACD00392881CB5A00BBEB4D /* FruitCellButton.swift in Sources */,
-				63D3CFB928877E0000D9A0B4 /* FruitinfoViewController.swift in Sources */,
 				4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */,
 				6341893228869D58005E0C2C /* OrderViewController.swift in Sources */,
 				4ACD00332881A7AA00BBEB4D /* String+Extension.swift in Sources */,
@@ -317,6 +316,7 @@
 				4ACD00272881041400BBEB4D /* HomeViewController.swift in Sources */,
 				4ACD00412882630B00BBEB4D /* UIImage+Extension.swift in Sources */,
 				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
+				6305D182288F696200EB25C0 /* OrderViewModalViewController.swift in Sources */,
 				4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */,
 				4ACD00292881079400BBEB4D /* FruitBackground.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,

@@ -69,7 +69,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="gotToFruitInfoView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="chh-7U-asL"/>
-                                    <segue destination="GM0-iA-pDX" kind="presentation" id="eDe-XQ-ZrI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzS-HB-dqb">
@@ -83,6 +82,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
                                     <action selector="chekOrderbuttonOntap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EkI-3e-2KO"/>
+                                    <segue destination="JPR-O4-pmh" kind="presentation" id="iaD-Xr-nZn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0d-aH-nTi">
@@ -138,13 +138,13 @@
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
         </scene>
-        <!--FruitinfoView-->
-        <scene sceneID="5io-ru-5J9">
+        <!--Storyboard Reference-->
+        <scene sceneID="o8H-tY-YpI">
             <objects>
-                <viewControllerPlaceholder storyboardName="FruitinfoView" id="GM0-iA-pDX" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UFG-vh-3gK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="OrderViewModal" id="JPR-O4-pmh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAQ-PS-ET0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="-68"/>
+            <point key="canvasLocation" x="772" y="9"/>
         </scene>
     </scenes>
     <resources>
