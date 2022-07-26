@@ -76,12 +76,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func checkMockDate() {
-        let start = Date().startOfMonth
-        let end = Date().endOfMonth
-        var tmp = start
-        while tmp < end {
-            tmp = Calendar.current.date(byAdding: .day, value: 1, to: tmp)!
-            print(tmp)
-        }
+        let dateModel = MonthModel(date: Date())
+        print(dateModel)
     }
 }
