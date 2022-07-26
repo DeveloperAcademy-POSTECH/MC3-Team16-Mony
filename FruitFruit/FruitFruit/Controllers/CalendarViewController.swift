@@ -81,6 +81,10 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let startOrder = fruitArrivedOrders.first else { return }
         let startOrderDate = startOrder.dueDate
         let validMonthModels = Date().getValidMonthModels(from: startOrderDate, to: Date())
-        validMonthModels.last!.checkWeekDay()
+        let someDateComp = DateComponents(year: 2022, month: 4, day: 6, hour: 12)
+        let someDate = Calendar.current.date(from: someDateComp)!
+        guard let firstMonth = validMonthModels.first else { return }
+        guard let validInfos = firstMonth.getDatePosition(from: someDate) else { return }
+        
     }
 }
