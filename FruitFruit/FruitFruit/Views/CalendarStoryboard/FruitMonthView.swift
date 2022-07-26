@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class FruitMonthView: UIView {
-    var month = [[String]]()
+//    var month = [[String]]()
+    var month = [["일", "월", "화", "수", "목", "금", "토"]]
     let monthLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,8 +32,10 @@ class FruitMonthView: UIView {
     }
     
     func setUI(model: MonthModel) {
-        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        print("FruitMonthView Called")
         month = model.checkWeekDay()
+
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
         addSubview(monthLabel)
         monthLabel.text = "\(model.year)월 \(model.month)월"
         monthLabel.font = UIFont.preferredFont(for: .headline, weight: .semibold)
@@ -43,13 +46,16 @@ class FruitMonthView: UIView {
         fruitMonthTableView.delegate = self
         fruitMonthTableView.dataSource = self
         addSubview(fruitMonthTableView)
-        fruitMonthTableView.backgroundColor = .clear
+        fruitMonthTableView.backgroundColor = .blue
         fruitMonthTableView.separatorStyle = .none
+        fruitMonthTableView.widthAnchor.constraint(equalToConstant: 280).isActive = true
+        let height = CGFloat(month.count * 40)
+        fruitMonthTableView.heightAnchor.constraint(equalToConstant: height).isActive = true
         fruitMonthTableView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 20).isActive = true
-        fruitMonthTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        fruitMonthTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        fruitMonthTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        fruitMonthTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
+        fruitMonthTableView.reloadData()
     }
+
 }
 
 extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
@@ -61,6 +67,11 @@ extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitWeekCell.id, for: indexPath) as? FruitWeekCell else { return FruitWeekCell() }
         cell.setUI(model: month[indexPath.row])
         cell.selectionStyle = .none
+        print("TABLEVIEW RETURN")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
     }
 }

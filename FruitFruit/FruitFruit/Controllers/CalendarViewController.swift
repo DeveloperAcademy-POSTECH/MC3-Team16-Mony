@@ -11,6 +11,12 @@ import FirebaseFirestore
 class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     var fruitArrivedOrders = [FruitOrder]()
     let database = Firestore.firestore()
+    
+    let fruitMonthView: FruitMonthView = {
+        let monthView = FruitMonthView()
+        monthView.translatesAutoresizingMaskIntoConstraints = false
+        return monthView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +67,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
                     DispatchQueue.main.async {
                         //TODO: 달력 UI에 데이터 세팅하기
                         self.setCalendarUI()
-                        self.getAllMonths()
                     }
                 }
             }
@@ -69,27 +74,17 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setCalendarUI() {
-        for order in fruitArrivedOrders {
-            print(order.name)
-            print(order.status)
-            print(order.dueDate)
-        }
+        // 첫 번째 달 -> MonthView 그려보기
+        guard let firstMonth = fruitArrivedOrders.first else { return }
+        let firstMonthDueDate = firstMonth.dueDate
+        let models = Date().getValidMonthModels(from: firstMonthDueDate, to: Date())
+        setMonthView(model: models[0])
     }
     
-    private func getAllMonths() {
-        // 가장 오래 된 주문부터 현재 달까지 모든 MonthModel 배열 생성 함수
-        guard let startOrder = fruitArrivedOrders.first else { return }
-        let startOrderDate = startOrder.dueDate
-        let validMonthModels = Date().getValidMonthModels(from: startOrderDate, to: Date())
-        let someDateComp = DateComponents(year: 2022, month: 4, day: 8, hour: 12)
-        let someDate = Calendar.current.date(from: someDateComp)!
-        for month in validMonthModels {
-            let result = month.checkWeekDay()
-            print(month.year, month.month)
-            for i in 0..<result.count {
-                print(result[i])
-            }
-        }
-        
+    private func setMonthView(model: MonthModel) {
+        view.addSubview(fruitMonthView)
+        fruitMonthView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitMonthView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        fruitMonthView.setUI(model: model)
     }
 }

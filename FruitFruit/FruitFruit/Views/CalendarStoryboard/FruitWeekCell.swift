@@ -16,6 +16,8 @@ class FruitWeekCell: UITableViewCell, UICollectionViewDelegate {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 40, height: 40)
+        layout.minimumInteritemSpacing = .zero
+        layout.minimumLineSpacing = .zero
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isScrollEnabled = false
         view.showsHorizontalScrollIndicator = false
@@ -36,6 +38,8 @@ class FruitWeekCell: UITableViewCell, UICollectionViewDelegate {
     }
     
     func setUI(model: [String]) {
+        print(model)
+        frame.size = CGSize(width: 280, height: 40)
         weekday = model
         fruitWeekCollectionView.register(FruitDayCell.self, forCellWithReuseIdentifier: FruitDayCell.id)
         fruitWeekCollectionView.delegate = self
