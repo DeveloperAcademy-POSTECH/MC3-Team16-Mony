@@ -50,7 +50,7 @@ class OrderSheet: UIView {
         setAccount()
     }
     
-    func prepare(saleInfo: FruitSaleInfo, orderInfo: FruitOrder) {
+    func prepare(orderInfo: FruitOrder) {
         secondaryTitleLabel.text = orderInfo.statusEnum == .Canceled ? "주문 취소 내역" : "주문내역"
         
         fruitLabel.text = orderInfo.name

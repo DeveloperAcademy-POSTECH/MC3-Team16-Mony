@@ -12,9 +12,7 @@ import Firebase
 class CheckOrderViewController: UIViewController {
     
     //TODO: 데이터 바인딩
-    var saleInfo = FruitSaleInfo(shopName: "효곡청과", fruitName: "여름오렌지", price: 800, fruitOrigin: "캘리포니아", saleDate: Date(), place: "포스텍 C5", time: 13)
-    var orderInfo = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: FruitUser(name: "김유나", nickname: "진저"), place: "포스텍 C5", time: 13)
-    let db = Firestore.firestore()
+    var fruitOrder = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,7 +21,7 @@ class CheckOrderViewController: UIViewController {
     @IBOutlet weak var orderButton: UIButton!
     
     @IBAction func onOrderButtonClicked(_ sender: UIButton) {
-        addOrder(fruitOrder: orderInfo)
+        addOrder(fruitOrder: fruitOrder)
         navigateToOrderResultView()
     }
     
@@ -56,17 +54,17 @@ extension CheckOrderViewController {
     }
     
     private func setTitleFruit() -> String {
-        let fruit = saleInfo.fruitName
+        let fruit = fruitOrder.name
         return fruit
     }
     
     private func setTitleAmount() -> String {
-        let amount = orderInfo.amount
+        let amount = fruitOrder.amount
         return String(amount)
     }
     
     private func setTitleCost() -> String {
-        let cost = orderInfo.totalPrice
+        let cost = fruitOrder.totalPrice
         let share: String
         let remainder: String
         let result: String
@@ -93,7 +91,7 @@ extension CheckOrderViewController {
     }
     
     private func setSecondaryTextTime() -> String {
-        var hour = orderInfo.time
+        var hour = fruitOrder.time
         if hour > 12 {
             hour = hour - 12
             return "오후 " + String(hour) + "시 "
@@ -103,7 +101,7 @@ extension CheckOrderViewController {
     }
     
     private func setSecondaryTextPlace() -> String {
-        let place = orderInfo.place
+        let place = fruitOrder.place
         return place
     }
     

@@ -10,8 +10,7 @@ import UIKit
 class ConfirmStatusViewController: UIViewController {
     
     //TODO: 데이터 바인딩
-    var saleInfo = FruitSaleInfo(shopName: "효곡청과", fruitName: "여름오렌지", price: 800, fruitOrigin: "캘리포니아", saleDate: Date(), place: "포스텍 C5", time: 13)
-    var orderInfo = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Canceled", user: FruitUser(name: "김유나", nickname: "진저"), place: "포스텍 C5", time: 13)
+    var fruitOrder: FruitOrder?
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -27,6 +26,7 @@ class ConfirmStatusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let fruitOrder = fruitOrder else { return }
         setUI()
         navigationBar.shadowImage = UIImage()
     }
@@ -47,23 +47,23 @@ extension ConfirmStatusViewController {
     }
     
     private func setLabels() {
-        titleLabel.text = FruitStatus(rawValue: orderInfo.status)?.detailTitleLabel
+        titleLabel.text = FruitStatus(rawValue: fruitOrder.status)?.detailTitleLabel
         titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         titleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
     
-        secondaryTitleLabel.text = FruitStatus(rawValue: orderInfo.status)?.detailSecondaryTitleLabel
+        secondaryTitleLabel.text = FruitStatus(rawValue: fruitOrder.status)?.detailSecondaryTitleLabel
         secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
         secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
     }
     
     private func setImage() {
-        statusImage.image = UIImage(named: FruitStatus(rawValue: orderInfo.status)!.getStatusImageName(fruit: orderInfo.name))
+        statusImage.image = UIImage(named: FruitStatus(rawValue: fruitOrder.status)!.getStatusImageName(fruit: fruitOrder.name))
         statusImage.frame.size = CGSize(width: 160, height: 160)
     }
     
     private func setOrderSheet() {
         view.addSubview(orderSheet)
-        orderSheet.prepare(saleInfo: saleInfo, orderInfo: orderInfo)
+        orderSheet.prepare(orderInfo: fruitOrder)
 
         orderSheet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         orderSheet.topAnchor.constraint(equalTo: view.topAnchor, constant: 310).isActive = true
@@ -72,7 +72,7 @@ extension ConfirmStatusViewController {
         
         orderSheet.account.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAccountRow))
-        if orderInfo.statusEnum == .Checking { orderSheet.account.addGestureRecognizer(tapGesture)
+        if fruitOrder.statusEnum == .Checking { orderSheet.account.addGestureRecognizer(tapGesture)
         }
     }
 
