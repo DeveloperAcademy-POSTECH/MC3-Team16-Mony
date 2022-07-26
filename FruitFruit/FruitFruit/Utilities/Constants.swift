@@ -40,6 +40,7 @@ struct Constants {
         static let peach = "Fruitfruit_Peach"
         static let watermelon = "Fruitfruit_Watermelon"
         static let banana = "Fruitfruit_Banana"
+        static let apple = "Fruitfruit_Apple"
         static let buttonGradient = [
             UIColor(red: 0.992, green: 0.533, blue: 0.157, alpha: 1),
             UIColor(red: 1, green: 0.6, blue: 0, alpha: 1)
@@ -56,6 +57,7 @@ struct Constants {
             static let peach = "Fruitfruit_Peach.pdf"
             static let watermelon = "Fruitfruit_Watermelon.pdf"
             static let grape = "Fruitfruit_Grape.pdf"
+            static let apple = "Fruitfruit_Apple.pdf"
         }
         struct Status {
             static let arrived = "Fruitfruit_Status_Arrived.pdf"
