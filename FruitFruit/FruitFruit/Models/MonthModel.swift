@@ -42,7 +42,7 @@ struct MonthModel {
         
         var weekIdx = 1
         var tempDay = 1
-        while tempDay < curDay {
+        while tempDay + 7 <= curDay {
             tempDay += 7
             weekIdx += 1
         }
