@@ -92,9 +92,7 @@ class HomeViewController: UIViewController {
         //TODO: 유효한 주문 -> 연산 프로퍼티로 체크하기
         if let user = Storage().fruitUser {
             let detailCollectionName = "\(user.name) \(user.nickname)"
-            database.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
-
-//            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
+            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitOrders = []
                 if let error = error {
                     print(error.localizedDescription)
@@ -335,11 +333,11 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 1. ConfrimStatusView -> 연동
-//        let storyboard = UIStoryboard(name: "ConfirmStatus", bundle: nil)
-//        guard let confirmVC = storyboard.instantiateViewController(withIdentifier: "ConfirmStatusViewController") as? ConfirmStatusViewController else { return }
-//        let homeVC = self.navigationController
-//        homeVC?.pushViewController(confirmVC, animated: true)
-//        homeVC?.isNavigationBarHidden = false
+        let storyboard = UIStoryboard(name: "ConfirmStatus", bundle: nil)
+        guard let confirmVC = storyboard.instantiateViewController(withIdentifier: "ConfirmStatusViewController") as? ConfirmStatusViewController else { return }
+        let homeVC = self.navigationController
+        homeVC?.pushViewController(confirmVC, animated: true)
+        homeVC?.isNavigationBarHidden = true
         // 2. 데이터 Prepare
     }
 }

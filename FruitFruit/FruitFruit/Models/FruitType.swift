@@ -12,6 +12,8 @@ enum FruitType: String {
     case Peach = "복숭아"
     case Watermelon = "수박"
     case Banana = "바나나"
+    case Grape = "포도"
+    case Apple = "사과"
 
     var fruitName: String {
         switch self {
@@ -23,19 +25,27 @@ enum FruitType: String {
             return "Watermelon"
         case .Banana:
             return "Banana"
+        case .Grape:
+            return "Grape"
+        case .Apple:
+            return "Apple"
         }
     }
     
-    var fruitSecondary: String {
+    var fruitImageName: String {
         switch self {
         case .Orange:
-            return Constants.FruitfruitImages.Fruits.orangeSecondary
+            return Constants.FruitfruitImages.Fruits.orange
         case .Peach:
-            return Constants.FruitfruitImages.Fruits.peachSecondary
+            return Constants.FruitfruitImages.Fruits.peach
         case .Watermelon:
-            return Constants.FruitfruitImages.Fruits.watermelonSecondary
+            return Constants.FruitfruitImages.Fruits.watermelon
         case .Banana:
-            return Constants.FruitfruitImages.Fruits.bananaSecondary
+            return Constants.FruitfruitImages.Fruits.banana
+        case .Grape:
+            return Constants.FruitfruitImages.Fruits.grape
+        case .Apple:
+            return Constants.FruitfruitImages.Fruits.apple
         }
     }
     
@@ -49,6 +59,10 @@ enum FruitType: String {
             return Constants.FruitfruitColors.watermelon
         case .Banana:
             return Constants.FruitfruitColors.banana
+        case .Grape:
+            return Constants.FruitfruitColors.grape
+        case .Apple:
+            return Constants.FruitfruitColors.apple
         }
     }
 }

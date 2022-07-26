@@ -46,6 +46,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initSettingViewUI()
+        initMockNaviation()
     }
     
     private func initSettingViewUI() {
@@ -149,6 +150,19 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarLabel.text = "푸릇푸릇 달력"
         fruitCalendarLabel.topAnchor.constraint(equalTo: fruitDivider.bottomAnchor, constant: 40).isActive = true
         fruitCalendarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+    }
+    
+    private func initMockNaviation() {
+        fruitCalendarLabel.isUserInteractionEnabled = true
+        let calendarTapGesture = UITapGestureRecognizer(target: self, action: #selector(calendarTapGesture))
+        fruitCalendarLabel.addGestureRecognizer(calendarTapGesture)
+    }
+    
+    @objc private func calendarTapGesture() {
+        let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
+        guard let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
+        let settingVC = self.navigationController
+        settingVC?.pushViewController(calendarVC, animated: true)
     }
 }
 
