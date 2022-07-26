@@ -40,4 +40,35 @@ extension Date {
     var endOfMonth: Date {
         return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth)!
     }
+    
+    func getValidMonthModels(from: Date, to: Date) -> [MonthModel] {
+        var months = [MonthModel]()
+        let startMonthModel = MonthModel(date: from)
+        months.append(startMonthModel)
+        let calendar = Calendar.current
+        let startDateComponent = calendar.dateComponents([.year, .month], from: from)
+        let endDateComponent = calendar.dateComponents([.year, .month], from: to)
+        
+        var startMonth = startDateComponent.month!
+        var startYear = startDateComponent.year!
+        
+        let endMonth = endDateComponent.month!
+        let endYear = endDateComponent.year!
+        
+        print(startMonth, startYear)
+        
+        var tempDate = from
+        while startMonth < endMonth && startYear <= endYear {
+            tempDate = calendar.date(byAdding: .month, value: 1, to: tempDate)!
+            let tempMonthModel = MonthModel(date: tempDate)
+            months.append(tempMonthModel)
+            startMonth += 1
+            
+            if startMonth == 13 {
+                startMonth = 1
+                startYear += 1
+            }
+        }
+        return months
+    }
 }
