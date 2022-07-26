@@ -335,9 +335,11 @@ extension HomeViewController: UICollectionViewDataSource {
         // 1. ConfrimStatusView -> 연동
         let storyboard = UIStoryboard(name: "ConfirmStatus", bundle: nil)
         guard let confirmVC = storyboard.instantiateViewController(withIdentifier: "ConfirmStatusViewController") as? ConfirmStatusViewController else { return }
+        // 2. Data Binding
+        confirmVC.fruitOrder = fruitOrders[indexPath.item]
         let homeVC = self.navigationController
         homeVC?.pushViewController(confirmVC, animated: true)
         homeVC?.isNavigationBarHidden = true
-        // 2. 데이터 Prepare
+        
     }
 }
