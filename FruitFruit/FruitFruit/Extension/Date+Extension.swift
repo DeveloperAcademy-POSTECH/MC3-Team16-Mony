@@ -54,9 +54,7 @@ extension Date {
         
         let endMonth = endDateComponent.month!
         let endYear = endDateComponent.year!
-        
-        print(startMonth, startYear)
-        
+                
         var tempDate = from
         while startMonth < endMonth && startYear <= endYear {
             tempDate = calendar.date(byAdding: .month, value: 1, to: tempDate)!

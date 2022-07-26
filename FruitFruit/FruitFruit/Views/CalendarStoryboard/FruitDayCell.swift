@@ -51,5 +51,6 @@ class FruitDayCell: UICollectionViewCell {
         day.text = model
         day.font = UIFont.preferredFont(for: .headline, weight: .bold)
         day.textColor = blackColor
+        //TODO: Font 체크
     }
 }

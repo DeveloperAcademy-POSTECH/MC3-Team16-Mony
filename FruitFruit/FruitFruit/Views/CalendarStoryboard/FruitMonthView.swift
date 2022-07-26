@@ -9,8 +9,7 @@ import Foundation
 import UIKit
 
 class FruitMonthView: UIView {
-//    var month = [[String]]()
-    var month = [["일", "월", "화", "수", "목", "금", "토"]]
+    var month = [[String]]()
     let monthLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +31,6 @@ class FruitMonthView: UIView {
     }
     
     func setUI(model: MonthModel) {
-        print("FruitMonthView Called")
         month = model.checkWeekDay()
 
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
@@ -67,7 +65,6 @@ extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitWeekCell.id, for: indexPath) as? FruitWeekCell else { return FruitWeekCell() }
         cell.setUI(model: month[indexPath.row])
         cell.selectionStyle = .none
-        print("TABLEVIEW RETURN")
         return cell
     }
     

@@ -38,8 +38,6 @@ class FruitWeekCell: UITableViewCell, UICollectionViewDelegate {
     }
     
     func setUI(model: [String]) {
-        print(model)
-        frame.size = CGSize(width: 280, height: 40)
         weekday = model
         fruitWeekCollectionView.register(FruitDayCell.self, forCellWithReuseIdentifier: FruitDayCell.id)
         fruitWeekCollectionView.delegate = self
