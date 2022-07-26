@@ -18,12 +18,13 @@ struct Storage {
     }
     
     var fruitUser: FruitUser? {
-        return FruitUser(name: "박준영", nickname: "노아")
-//        if let savedData = Storage.userDefaults.object(forKey: "FruitUser") as? Data {
-//            let decoder = JSONDecoder()
-//            if let fruitUser = try? decoder.decode(FruitUser.self, from: savedData) {
-//                return fruitUser
-//            }
-//        }
+//        return FruitUser(name: "박준영", nickname: "노아")
+        if let savedData = Storage.userDefaults.object(forKey: "FruitUser") as? Data {
+            let decoder = JSONDecoder()
+            if let fruitUser = try? decoder.decode(FruitUser.self, from: savedData) {
+                return fruitUser
+            }
+        }
+        return nil
     }
 }

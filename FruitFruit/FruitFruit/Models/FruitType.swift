@@ -11,7 +11,7 @@ enum FruitType: String {
     case Orange = "오렌지"
     case Peach = "복숭아"
     case Watermelon = "수박"
-    //TODO: contains하는 과일 종류 따라서 Enum
+    case Banana = "바나나"
 
     var fruitName: String {
         switch self {
@@ -21,6 +21,8 @@ enum FruitType: String {
             return "Peach"
         case .Watermelon:
             return "Watermelon"
+        case .Banana:
+            return "Banana"
         }
     }
     
@@ -32,6 +34,8 @@ enum FruitType: String {
             return Constants.FruitfruitImages.Fruits.peachSecondary
         case .Watermelon:
             return Constants.FruitfruitImages.Fruits.watermelonSecondary
+        case .Banana:
+            return Constants.FruitfruitImages.Fruits.bananaSecondary
         }
     }
     
@@ -43,6 +47,8 @@ enum FruitType: String {
             return Constants.FruitfruitColors.peach
         case .Watermelon:
             return Constants.FruitfruitColors.watermelon
+        case .Banana:
+            return Constants.FruitfruitColors.banana
         }
     }
 }

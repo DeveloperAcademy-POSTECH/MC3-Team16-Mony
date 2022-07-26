@@ -67,6 +67,12 @@ class HomeViewController: UIViewController {
 
     
     // MARK: - LIFECYCLES
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -185,7 +191,7 @@ class HomeViewController: UIViewController {
         fruitInfoTableView.separatorStyle = .none
         fruitInfoTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 24).isActive = true
         fruitInfoTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        fruitInfoTableView.topAnchor.constraint(equalTo: fruitOrderLabel.bottomAnchor, constant: 10).isActive = true
+        fruitInfoTableView.topAnchor.constraint(equalTo: fruitOrderLabel.bottomAnchor, constant: 20).isActive = true
         fruitInfoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
@@ -252,14 +258,19 @@ class HomeViewController: UIViewController {
     
     @objc func tapFruitProfile() {
         print("FruitfruitLabel tapped")
-        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "수박", price: 400, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
+        let storyboard = UIStoryboard(name: "Setting", bundle: nil)
+        let settingVC = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+        let homeVC = self.navigationController
+        homeVC?.pushViewController(settingVC, animated: true)
+        homeVC?.isNavigationBarHidden = false
+        
     }
     
     private func initFruitOrderLabel() {
         fruitOrderLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
         view.addSubview(fruitOrderLabel)
         fruitOrderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        let fruitOrderLabelTop = fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 277)
+        let fruitOrderLabelTop = fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 237)
         fruitOrderLabelTop.isActive = true
         fruitOrderLabelTop.identifier = "fruitOrderLabelTop"
     }

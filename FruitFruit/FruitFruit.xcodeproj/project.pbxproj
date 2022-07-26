@@ -50,13 +50,15 @@
 		52DC680B2886D63A00CDA17B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680A2886D63A00CDA17B /* FirebaseAuth */; };
 		52DC680D2886D65300CDA17B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680C2886D65300CDA17B /* FirebaseFirestore */; };
 		52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */; };
+		D213CFC4288EAA930038F6E4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFC3288EAA930038F6E4 /* SettingViewController.swift */; };
+		D213CFC6288EAAFC0038F6E4 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D213CFC5288EAAFC0038F6E4 /* Setting.storyboard */; };
+		D213CFC8288EC4F90038F6E4 /* FruitSettingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */; };
 		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
 		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
 		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
+		D2DF56DE288E42900064B9A1 /* FruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF56DD288E42900064B9A1 /* FruitType.swift */; };
 		D2DF7E34288937790009CC95 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E33288937790009CC95 /* FirebaseFirestore */; };
 		D2DF7E36288937790009CC95 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */; };
-		D2DF7E38288939010009CC95 /* FruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF7E37288939010009CC95 /* FruitType.swift */; };
-		D2DF7E38288939010009CC95 /* FruitName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF7E37288939010009CC95 /* FruitName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,9 +105,11 @@
 		52D05359287BAF9100FF87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52D0535B287BAF9100FF87DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
+		D213CFC3288EAA930038F6E4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D213CFC5288EAAFC0038F6E4 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSettingTextField.swift; sourceTree = "<group>"; };
 		D2C81586288A717E001AD894 /* FruitStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusCell.swift; sourceTree = "<group>"; };
-		D2DF7E37288939010009CC95 /* FruitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitType.swift; sourceTree = "<group>"; };
-		D2DF7E37288939010009CC95 /* FruitName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitName.swift; sourceTree = "<group>"; };
+		D2DF56DD288E42900064B9A1 /* FruitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +248,7 @@
 				4ACD00262881041400BBEB4D /* HomeViewController.swift */,
 				5216C4262886F09200EB58A8 /* OrderResultViewController.swift */,
 				522AEE902888583C007ADD6D /* ConfirmStatusViewController.swift */,
+				D213CFC3288EAA930038F6E4 /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 		52D05362287BB69600FF87DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D213CFC0288EAA3A0038F6E4 /* SettingStoryboard */,
 				522AEE8D2888580E007ADD6D /* ConfirmStatusStoryboard */,
 				5216C4232886F05200EB58A8 /* OrderResultStoryboard */,
 				5230C6392880FD6B0069583B /* CheckOrderStoryboard */,
@@ -268,7 +274,7 @@
 				4A0D8AC728865319003CFAEE /* FruitOrder.swift */,
 				4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */,
 				4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */,
-				D2DF7E37288939010009CC95 /* FruitType.swift */,
+				D2DF56DD288E42900064B9A1 /* FruitType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,6 +284,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D213CFC0288EAA3A0038F6E4 /* SettingStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				D213CFC5288EAAFC0038F6E4 /* Setting.storyboard */,
+				D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */,
+			);
+			path = SettingStoryboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +371,7 @@
 				52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */,
 				4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */,
 				4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */,
+				D213CFC6288EAAFC0038F6E4 /* Setting.storyboard in Resources */,
 				52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */,
 				4AD892DB287E9B7200A01BA3 /* InitSetting.storyboard in Resources */,
 				5216C4252886F07300EB58A8 /* OrderResult.storyboard in Resources */,
@@ -386,7 +402,9 @@
 				5216C4272886F09200EB58A8 /* OrderResultViewController.swift in Sources */,
 				4ACD00392881CB5A00BBEB4D /* FruitCellButton.swift in Sources */,
 				4AD892DD287EA21F00A01BA3 /* FruitTextField.swift in Sources */,
+				D213CFC4288EAA930038F6E4 /* SettingViewController.swift in Sources */,
 				4A1867582887871A00630023 /* addOrder.swift in Sources */,
+				D213CFC8288EC4F90038F6E4 /* FruitSettingTextField.swift in Sources */,
 				4A1867562886FFAE00630023 /* Decodable+Extension.swift in Sources */,
 				4ACD00332881A7AA00BBEB4D /* String+Extension.swift in Sources */,
 				4ACD002F2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift in Sources */,
@@ -402,9 +420,9 @@
 				4ACD00292881079400BBEB4D /* FruitBackground.swift in Sources */,
 				4A2BECD92887C3E40007441F /* Date+Extension.swift in Sources */,
 				4A0D8ACA28865370003CFAEE /* FruitSaleInfo.swift in Sources */,
+				D2DF56DE288E42900064B9A1 /* FruitType.swift in Sources */,
 				5222B33C2887819C0072B83D /* SheetRow.swift in Sources */,
 				52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */,
-				D2DF7E38288939010009CC95 /* FruitType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

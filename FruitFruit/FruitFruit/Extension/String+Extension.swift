@@ -22,8 +22,23 @@ extension String {
             return FruitType.Peach
         } else if self.contains("수박") {
             return FruitType.Watermelon
+        } else if self.contains("바나나") {
+            return FruitType.Banana
         } else {
             return FruitType.Orange
         }
+    }
+    
+    var isLastConsonantLetter: Bool {
+        guard let text = self.last else { return false }
+        guard let firstChar = text.unicodeScalars.first?.value, 0xAC00...0xD7A3 ~= firstChar else { return false }
+        
+        let value = (firstChar - 0xAC00) % 28
+        
+        guard value > 0 else { return false }
+        
+        return true
+        // true -> 종성 있음
+        // false -> 종성 없음
     }
 }
