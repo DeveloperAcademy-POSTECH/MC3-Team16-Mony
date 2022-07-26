@@ -104,7 +104,6 @@ extension CheckOrderViewController {
     }
     
     private func setSecondaryTextPlace() -> String {
-        //TODO: 과일 배부 장소 받아오는 코드 추가
         let place = orderInfo.place
         return place
     }
