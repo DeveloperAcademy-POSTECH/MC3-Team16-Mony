@@ -6,13 +6,14 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import Firebase
+import Lottie
 
 class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //TODO: 데이터 바인딩
     var fruitOrder = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
+    
+    let animationView = AnimationView()
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,8 +21,9 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var orderButton: UIButton!
     
     @IBAction func onOrderButtonClicked(_ sender: UIButton) {
-        addOrder(fruitOrder: fruitOrder)
-        navigateToOrderResultView()
+        playLottie()
+        //        addOrder(fruitOrder: fruitOrder)
+        //        navigateToOrderResultView()
     }
     
     override func viewDidLoad() {
@@ -48,7 +50,7 @@ extension CheckOrderViewController {
         
         navigationItem.title = "주문하기"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .bold)]
-
+        
         let exitButtonImage = UIImage(systemName: "xmark")?.withTintColor(orangeColor, renderingMode: .alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: exitButtonImage, style: .done, target: self, action: #selector(exitProcess))
         
@@ -137,6 +139,20 @@ extension CheckOrderViewController {
         orderButton.layer.cornerRadius = 16
         orderButton.layer.borderWidth = 1
         orderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
+    }
+    
+    private func playLottie() {
+        let background = UILabel()
+        background.frame = CGRect(x: 0, y: 0, width: 390, height: 844)
+        background.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        view.addSubview(background)
+        
+        animationView.frame = CGRect(x: 94, y: 315, width: 180, height: 180)
+        animationView.contentMode = .scaleAspectFill
+        animationView.animation = Animation.named("FruitLottie")
+        animationView.play(fromFrame: 0, toFrame: 35)
+        animationView.loopMode = .repeat(2)
+        view.addSubview(animationView)
     }
     
     private func navigateToOrderResultView() {
