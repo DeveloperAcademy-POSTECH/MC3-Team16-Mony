@@ -61,11 +61,7 @@ extension CheckOrderViewController {
     }
     
     @objc private func exitProcess() {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        let initVC = self.navigationController
-        initVC?.pushViewController(homeVC, animated: true)
-        initVC?.isNavigationBarHidden = true
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func setTitleLabelUI(from text: String, colorText: String, color: UIColor) {
