@@ -59,6 +59,19 @@ class FruitDayCell: UICollectionViewCell {
         }
     }
     
+    func prepareToday(model: String?) {
+        guard let model = model else { return }
+        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
+        let _ = self.subviews.map { $0.removeFromSuperview() }
+        addSubview(day)
+        day.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        day.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        day.text = model
+        day.layer.cornerRadius = day.frame.width / 2
+        day.layer.masksToBounds = true
+        day.layer.backgroundColor = orangeColor.cgColor
+    }
+    
     func imagePrepare(model: FruitType) {
         guard let image = UIImage(named: model.fruitImageName) else { return }
         let _ = self.subviews.map { $0.removeFromSuperview() }

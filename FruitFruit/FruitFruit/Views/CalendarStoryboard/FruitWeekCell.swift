@@ -12,6 +12,7 @@ class FruitWeekCell: UITableViewCell, UICollectionViewDelegate {
     static let id = "FruitWeekCell"
     var weekday = [String]()
     var fruitOrderDays = [Int:FruitOrder]()
+    var todayPos: Int?
     
     let fruitWeekCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -38,8 +39,9 @@ class FruitWeekCell: UITableViewCell, UICollectionViewDelegate {
         fatalError("init(coder:) has not been implemented.")
     }
     
-    func setUI(model: [String], orders: [FruitOrder]) {
+    func setUI(model: [String], orders: [FruitOrder], todayPos: Int?) {
         weekday = model
+        self.todayPos = todayPos
         let weekdayDict = ["일":0, "월":1, "화":2, "수":3, "목":4, "금":5, "토":6]
         for order in orders {
             let day = order.dueDate.dayString
@@ -72,6 +74,11 @@ extension FruitWeekCell: UICollectionViewDataSource {
             cell.imagePrepare(model: order.name.getFruitType)
         } else {
             cell.prepare(model: weekday[indexPath.item])
+        }
+        if let todayPos = todayPos {
+            if todayPos == indexPath.item {
+                cell.prepareToday(model: weekday[indexPath.item])
+            }
         }
         return cell
     }
