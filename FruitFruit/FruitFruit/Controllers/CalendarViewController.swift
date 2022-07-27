@@ -78,12 +78,13 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let firstMonth = fruitArrivedOrders.first else { return }
         let firstMonthDueDate = firstMonth.dueDate
         let models = Date().getValidMonthModels(from: firstMonthDueDate, to: Date())
-        setMonthView(model: models[0])
+        setMonthView(model: models[1])
     }
     
     private func setMonthView(model: MonthModel) {
         view.addSubview(fruitMonthView)
-        fruitMonthView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        let leadingMonthPadding: CGFloat = (view.bounds.width - 328) / 2
+        fruitMonthView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingMonthPadding - 7).isActive = true
         fruitMonthView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         fruitMonthView.setUI(model: model)
     }

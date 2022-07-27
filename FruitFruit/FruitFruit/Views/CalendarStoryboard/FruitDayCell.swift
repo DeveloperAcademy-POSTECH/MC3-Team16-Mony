@@ -51,10 +51,11 @@ class FruitDayCell: UICollectionViewCell {
         day.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         day.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         day.text = model
-        day.font = UIFont.preferredFont(for: .headline, weight: .bold)
+//        day.font = UIFont.preferredFont(for: .footnote, weight: .bold)
         if !model.isEmpty {
             let firstLetter = model.first!
             day.textColor = firstLetter.isNumber ? black2Color : black1Color
+            day.font = firstLetter.isNumber ? UIFont.systemFont(ofSize: 17, weight: .bold) : UIFont.systemFont(ofSize: 13, weight: .bold)
         }
         //TODO: Font 체크
     }

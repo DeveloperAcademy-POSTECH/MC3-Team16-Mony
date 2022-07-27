@@ -17,7 +17,7 @@ class FruitWeekCell: UITableViewCell, UICollectionViewDelegate {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 40, height: 40)
         layout.minimumInteritemSpacing = .zero
-        layout.minimumLineSpacing = .zero
+        layout.minimumLineSpacing = 8
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isScrollEnabled = false
         view.showsHorizontalScrollIndicator = false

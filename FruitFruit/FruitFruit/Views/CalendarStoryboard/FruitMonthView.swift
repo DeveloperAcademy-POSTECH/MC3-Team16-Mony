@@ -36,21 +36,21 @@ class FruitMonthView: UIView {
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
         addSubview(monthLabel)
         monthLabel.text = "\(model.year)월 \(model.month)월"
-        monthLabel.font = UIFont.preferredFont(for: .headline, weight: .semibold)
+        monthLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         monthLabel.textColor = blackColor
         monthLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        monthLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
+        monthLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         fruitMonthTableView.register(FruitWeekCell.self, forCellReuseIdentifier: FruitWeekCell.id)
         fruitMonthTableView.delegate = self
         fruitMonthTableView.dataSource = self
         addSubview(fruitMonthTableView)
-        fruitMonthTableView.backgroundColor = .blue
+        fruitMonthTableView.backgroundColor = .clear
         fruitMonthTableView.separatorStyle = .none
-        fruitMonthTableView.widthAnchor.constraint(equalToConstant: 280).isActive = true
-        let height = CGFloat(month.count * 40)
+        fruitMonthTableView.widthAnchor.constraint(equalToConstant: 328).isActive = true
+        let height = CGFloat(month.count * 40 + (month.count - 1) * 17 + 2)
         fruitMonthTableView.heightAnchor.constraint(equalToConstant: height).isActive = true
-        fruitMonthTableView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 20).isActive = true
-        fruitMonthTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
+        fruitMonthTableView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 11).isActive = true
+        fruitMonthTableView.leadingAnchor.constraint(equalTo: monthLabel.leadingAnchor, constant: 7).isActive = true
         fruitMonthTableView.reloadData()
     }
 
@@ -58,17 +58,33 @@ class FruitMonthView: UIView {
 
 extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return month.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitWeekCell.id, for: indexPath) as? FruitWeekCell else { return FruitWeekCell() }
-        cell.setUI(model: month[indexPath.row])
+        cell.setUI(model: month[indexPath.section])
         cell.selectionStyle = .none
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 2
+        } else if section == month.count - 1{
+            return 0
+        } else {
+            return 17
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = .clear
+        return footerView
     }
 }
