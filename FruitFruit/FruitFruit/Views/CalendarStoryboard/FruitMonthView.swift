@@ -10,6 +10,8 @@ import UIKit
 
 class FruitMonthView: UIView {
     var month = [[String]]()
+    var fruitOrderWeek = [Int:[FruitOrder]]()
+    
     let monthLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,9 +32,18 @@ class FruitMonthView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUI(model: MonthModel) {
+    func setUI(model: MonthModel, orders: [FruitOrder]) {
         month = model.checkWeekDay()
-
+        for order in orders {
+            if let position = model.getDatePosition(from: order.dueDate) {
+                let weekPos = position.0 + 1
+                let dayPos = position.1
+                var savedData = fruitOrderWeek[weekPos] ?? []
+                savedData.append(order)
+                fruitOrderWeek[weekPos] = savedData
+                print(savedData, weekPos)
+            }
+        }
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
         addSubview(monthLabel)
         monthLabel.text = "\(model.year)월 \(model.month)월"
@@ -67,7 +78,8 @@ extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitWeekCell.id, for: indexPath) as? FruitWeekCell else { return FruitWeekCell() }
-        cell.setUI(model: month[indexPath.section])
+        let fruitOrders = fruitOrderWeek[indexPath.section] ?? []
+        cell.setUI(model: month[indexPath.section], orders: fruitOrders)
         cell.selectionStyle = .none
         return cell
     }

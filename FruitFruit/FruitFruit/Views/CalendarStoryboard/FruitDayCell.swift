@@ -47,16 +47,26 @@ class FruitDayCell: UICollectionViewCell {
         guard let black1Color = UIColor(named: Constants.FruitfruitColors.black1) else { return }
         guard let black2Color = UIColor(named: Constants.FruitfruitColors.black2) else { return }
         backgroundColor = .clear
+        let _ = self.subviews.map { $0.removeFromSuperview() }
         addSubview(day)
         day.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         day.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         day.text = model
-//        day.font = UIFont.preferredFont(for: .footnote, weight: .bold)
         if !model.isEmpty {
             let firstLetter = model.first!
             day.textColor = firstLetter.isNumber ? black2Color : black1Color
             day.font = firstLetter.isNumber ? UIFont.systemFont(ofSize: 17, weight: .bold) : UIFont.systemFont(ofSize: 13, weight: .bold)
         }
-        //TODO: Font 체크
+    }
+    
+    func imagePrepare(model: FruitType) {
+        guard let image = UIImage(named: model.fruitImageName) else { return }
+        let _ = self.subviews.map { $0.removeFromSuperview() }
+        addSubview(fruitImage)
+        fruitImage.image = image
+        fruitImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        fruitImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        fruitImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        fruitImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
 }

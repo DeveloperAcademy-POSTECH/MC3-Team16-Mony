@@ -47,7 +47,7 @@ struct MonthModel {
             weekIdx += 1
         }
         
-        return (weekIdx, weekdayDict[curDayString]!)
+        return (weekIdx + 1, weekdayDict[curDayString]!)
         // 해당 날짜 -> MonthModel의 달 내에서 몇 주차 몇 번째 요일인지 리턴하기
         // TODO: 달력 그리기 -> 오늘 / 과일 섭취일 날짜 입력 -> 달력 다시 입력값 넣기
     }

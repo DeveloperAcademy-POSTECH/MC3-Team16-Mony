@@ -11,6 +11,7 @@ import UIKit
 class FruitWeekCell: UITableViewCell, UICollectionViewDelegate {
     static let id = "FruitWeekCell"
     var weekday = [String]()
+    var fruitOrderDays = [Int:FruitOrder]()
     
     let fruitWeekCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -37,8 +38,17 @@ class FruitWeekCell: UITableViewCell, UICollectionViewDelegate {
         fatalError("init(coder:) has not been implemented.")
     }
     
-    func setUI(model: [String]) {
+    func setUI(model: [String], orders: [FruitOrder]) {
         weekday = model
+        let weekdayDict = ["일":0, "월":1, "화":2, "수":3, "목":4, "금":5, "토":6]
+        for order in orders {
+            let day = order.dueDate.dayString
+            let dayCnt = weekdayDict[day]!
+            if fruitOrderDays[dayCnt] == nil {
+                fruitOrderDays[dayCnt] = order
+            }
+            // 같은 날 더 빨리 주문 완료된 과일만 입력됨
+        }
         fruitWeekCollectionView.register(FruitDayCell.self, forCellWithReuseIdentifier: FruitDayCell.id)
         fruitWeekCollectionView.delegate = self
         fruitWeekCollectionView.dataSource = self
@@ -57,7 +67,12 @@ extension FruitWeekCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = fruitWeekCollectionView.dequeueReusableCell(withReuseIdentifier: FruitDayCell.id, for: indexPath) as? FruitDayCell else { return FruitDayCell() }
-        cell.prepare(model: weekday[indexPath.item])
+        
+        if let order = fruitOrderDays[indexPath.item] {
+            cell.imagePrepare(model: order.name.getFruitType)
+        } else {
+            cell.prepare(model: weekday[indexPath.item])
+        }
         return cell
     }
 }
