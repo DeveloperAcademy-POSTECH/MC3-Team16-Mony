@@ -8,18 +8,37 @@
 import UIKit
 import FirebaseFirestore
 
+//TODO: 로딩 시간 -> 로티 넣기
+
 class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     var fruitArrivedOrders = [FruitOrder]()
+    var validModels = [MonthModel]()
+    var validOrders = [Int : [FruitOrder]]()
     let database = Firestore.firestore()
+    
+    let fruitMonthView: FruitMonthView = {
+        let monthView = FruitMonthView()
+        monthView.translatesAutoresizingMaskIntoConstraints = false
+        return monthView
+    }()
+    
+    let fruitCalendarTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addMockOrder()
         initCalendarViewUI()
     }
     
     private func initCalendarViewUI() {
         initCalendarViewNavBar()
+        initCalendarTableView()
         fetchOrders()
+        view.applyBackgroundGradient()
     }
     
     private func initCalendarViewNavBar() {
@@ -31,6 +50,13 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .bold)]
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .clear
+        appearance.shadowColor = .clear
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
     }
     
     @objc private func popToPrevious() {
@@ -58,19 +84,97 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
                     }
                     self.fruitArrivedOrders.sort(by: {$0.dueDate < $1.dueDate})
                     DispatchQueue.main.async {
-                        //TODO: 달력 UI에 데이터 세팅하기
-                        self.setCalendarUI()
+                        self.fetchMonthData()
                     }
                 }
             }
         }
     }
     
-    private func setCalendarUI() {
-        for order in fruitArrivedOrders {
-            print(order.name)
-            print(order.status)
-            print(order.dueDate)
+    private func fetchMonthData() {
+        // 첫 번째 달 -> MonthView 그려보기
+        guard let firstMonth = fruitArrivedOrders.first else {
+            validModels = Date().getValidMonthModels(from: Date(), to: Date())
+            return
         }
+        let firstMonthDueDate = firstMonth.dueDate
+        validModels = Date().getValidMonthModels(from: firstMonthDueDate, to: Date())
+        var monthIdxDict = [MonthModel:Int]()
+        for model in validModels.enumerated() {
+            monthIdxDict[model.element] = model.offset
+        }
+        for order in fruitArrivedOrders {
+            let dueDate = order.dueDate
+            let orderMonthModel = MonthModel(date: dueDate)
+            if monthIdxDict[orderMonthModel] != nil {
+                let idx = monthIdxDict[orderMonthModel]!
+                var savedData = validOrders[idx] ?? []
+                savedData.append(order)
+                validOrders[idx] = savedData
+            }
+        }
+        fruitCalendarTableView.reloadData()
+    }
+    
+    private func setMonthView(model: MonthModel) {
+        var validOrders = [FruitOrder]()
+        for order in fruitArrivedOrders {
+            if let _ = model.getDatePosition(from: order.dueDate) {
+                validOrders.append(order)
+            }
+        }
+
+        view.addSubview(fruitMonthView)
+        let leadingMonthPadding: CGFloat = (view.bounds.width - 328) / 2
+        fruitMonthView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingMonthPadding - 7).isActive = true
+        fruitMonthView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        fruitMonthView.setUI(model: model, orders: validOrders)
+    }
+    
+    private func initCalendarTableView() {
+        view.addSubview(fruitCalendarTableView)
+        fruitCalendarTableView.separatorStyle = .none
+        fruitCalendarTableView.delegate = self
+        fruitCalendarTableView.dataSource = self
+        fruitCalendarTableView.register(FruitMonthCell.self, forCellReuseIdentifier: FruitMonthCell.id)
+        fruitCalendarTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        let leadingMonthPadding: CGFloat = (view.bounds.width - 328) / 2
+        fruitCalendarTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingMonthPadding - 7).isActive = true
+        fruitCalendarTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        fruitCalendarTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
+
+extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return validModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitMonthCell.id, for: indexPath) as? FruitMonthCell else { return FruitMonthCell() }
+        cell.selectionStyle = .none
+        cell.setUI(model: validModels[indexPath.section], orders: validOrders[indexPath.section] ?? [])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let numOfWeek = validModels[indexPath.section].numOfWeeks
+        let height = (numOfWeek + 2) * 40 + 2 + numOfWeek * 17
+        return CGFloat(height)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = .clear
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 80
+    }
+}
+
