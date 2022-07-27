@@ -20,6 +20,7 @@ class FruitMonthView: UIView {
     
     let fruitMonthTableView: UITableView = {
         let tableView = UITableView()
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -27,9 +28,10 @@ class FruitMonthView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented.")
     }
     
     func setUI(model: MonthModel, orders: [FruitOrder]) {

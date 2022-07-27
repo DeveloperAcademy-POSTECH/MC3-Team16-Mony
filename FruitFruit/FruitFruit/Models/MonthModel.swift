@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MonthModel {
+struct MonthModel: Hashable {
     let year: Int
     let month: Int
     let numOfDays: Int
