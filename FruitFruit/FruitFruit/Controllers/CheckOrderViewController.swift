@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import Firebase
 
-class CheckOrderViewController: UIViewController {
+class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //TODO: 데이터 바인딩
     var fruitOrder = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
@@ -28,8 +28,37 @@ class CheckOrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundView.applyBackgroundGradient()
+        checkOrderNavBar()
         setCheckOrderViewUI()
-        navigationBar.shadowImage = UIImage()
+        
+    }
+    
+    private func checkOrderNavBar() {
+        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        let backButtonImage = UIImage(systemName: "chevron.left")?.withTintColor(orangeColor, renderingMode: .alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .done, target: self, action: #selector(popToPrevious))
+        
+        navigationItem.title = "주문하기"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .bold)]
+
+        let exitButtonImage = UIImage(systemName: "xmark")?.withTintColor(orangeColor, renderingMode: .alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: exitButtonImage, style: .done, target: self, action: #selector(exitProcess))
+        
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
+    @objc private func popToPrevious() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func exitProcess() {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let initVC = self.navigationController
+        initVC?.pushViewController(homeVC, animated: true)
+        initVC?.isNavigationBarHidden = true
     }
     
 }
@@ -119,9 +148,9 @@ extension CheckOrderViewController {
     
     private func navigateToOrderResultView() {
         let storyboard = UIStoryboard(name: "OrderResult", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "OrderResultViewController") as! OrderResultViewController
+        let orderResultVC = storyboard.instantiateViewController(withIdentifier: "OrderResultViewController") as! OrderResultViewController
         let initVC = self.navigationController
-        initVC?.pushViewController(homeVC, animated: true)
+        initVC?.pushViewController(orderResultVC, animated: true)
         initVC?.isNavigationBarHidden = true
     }
     

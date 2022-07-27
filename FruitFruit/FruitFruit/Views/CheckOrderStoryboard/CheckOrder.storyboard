@@ -3,8 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,23 +36,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-NN-9fU">
-                                <rect key="frame" x="0.0" y="50" width="414" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="주문하기" id="d54-IL-clG">
-                                        <barButtonItem key="leftBarButtonItem" title="BackButton" image="chevron.left" catalog="system" id="Bur-y3-cPh">
-                                            <color key="tintColor" name="Fruitfruit_Orange1"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="ExitButton" id="9fh-FD-LI4">
-                                            <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
-                                            <color key="tintColor" name="Fruitfruit_Orange1"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdu-33-Zhz">
-                                <rect key="frame" x="24" y="196" width="41.5" height="22"/>
+                                <rect key="frame" x="24" y="195" width="41.5" height="22"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
@@ -66,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox6-Th-Sog">
-                                <rect key="frame" x="24" y="248" width="41.5" height="27.5"/>
+                                <rect key="frame" x="24" y="247" width="41.5" height="27.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
@@ -79,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmd-oV-Rjw">
-                                <rect key="frame" x="36" y="640.5" width="342" height="58"/>
+                                <rect key="frame" x="36" y="639.5" width="342" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="7Gc-2w-7zo"/>
                                     <constraint firstAttribute="width" constant="342" id="UUt-XG-Y21"/>
@@ -98,22 +81,18 @@
                             <constraint firstAttribute="bottom" secondItem="eWQ-zW-czO" secondAttribute="bottom" id="3P4-II-CUl"/>
                             <constraint firstItem="jmd-oV-Rjw" firstAttribute="top" secondItem="Ox6-Th-Sog" secondAttribute="bottom" constant="365" id="5YR-F2-nB6"/>
                             <constraint firstItem="Ox6-Th-Sog" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="6uA-cY-Ux7"/>
-                            <constraint firstAttribute="trailing" secondItem="WnE-NN-9fU" secondAttribute="trailing" id="AdJ-A3-Ozy"/>
-                            <constraint firstItem="WnE-NN-9fU" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Cyg-eG-spK"/>
                             <constraint firstItem="jmd-oV-Rjw" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="EsN-7K-jRx"/>
-                            <constraint firstItem="WnE-NN-9fU" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="50" id="Qed-H2-QcR"/>
                             <constraint firstItem="Ox6-Th-Sog" firstAttribute="top" secondItem="Fdu-33-Zhz" secondAttribute="bottom" constant="30" id="Yym-r9-cgg"/>
                             <constraint firstItem="eWQ-zW-czO" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="c4A-wv-PZK"/>
                             <constraint firstAttribute="trailing" secondItem="eWQ-zW-czO" secondAttribute="trailing" id="cje-rn-Zyo"/>
+                            <constraint firstItem="Fdu-33-Zhz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="195" id="dHr-zV-9cs"/>
                             <constraint firstItem="Fdu-33-Zhz" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="ofx-KE-8Lc"/>
-                            <constraint firstItem="Fdu-33-Zhz" firstAttribute="top" secondItem="WnE-NN-9fU" secondAttribute="bottom" constant="102" id="sCh-3Z-tVB"/>
                             <constraint firstItem="eWQ-zW-czO" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="xuX-Zq-8Z6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jkd-cz-EWb"/>
                     <connections>
                         <outlet property="backgroundView" destination="eWQ-zW-czO" id="Mr2-ei-xyH"/>
-                        <outlet property="navigationBar" destination="WnE-NN-9fU" id="C0c-hT-ZV7"/>
                         <outlet property="orderButton" destination="jmd-oV-Rjw" id="tWS-NP-Ufm"/>
                         <outlet property="secondaryTitleLabel" destination="Ox6-Th-Sog" id="GsK-0F-hUj"/>
                         <outlet property="titleLabel" destination="Fdu-33-Zhz" id="f0S-BS-MPH"/>
@@ -125,11 +104,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
-        <namedColor name="Fruitfruit_Orange1">
-            <color red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
