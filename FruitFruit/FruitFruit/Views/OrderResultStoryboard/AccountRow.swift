@@ -8,7 +8,7 @@
 import UIKit
 
 class AccountRow: UIView {
-    
+
     let accountText: UILabel = {
         let text = UILabel()
         let underlineAttriString = NSAttributedString(string: "카카오뱅크 303-22-201058 이정환", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
