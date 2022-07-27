@@ -38,6 +38,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         initCalendarViewNavBar()
         initCalendarTableView()
         fetchOrders()
+        view.applyBackgroundGradient()
     }
     
     private func initCalendarViewNavBar() {
@@ -173,7 +174,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40
+        return 80
     }
 }
 
