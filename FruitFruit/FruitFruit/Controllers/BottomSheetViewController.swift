@@ -13,7 +13,7 @@ class BottomSheetViewController: UIViewController {
     var defaultHeight: CGFloat = 250
     var Number = 1
     let lblNumber: UILabel = {
-       let lblNumber = UILabel()
+       var lblNumber = UILabel()
         lblNumber.translatesAutoresizingMaskIntoConstraints = false
         return lblNumber
     }()
@@ -54,11 +54,10 @@ class BottomSheetViewController: UIViewController {
         view.addSubview(bottomSheetView)
         dimmedView.alpha = 0.0
         setupLayout()
-        lblNumber.text = String(Number) + "개"
+        lblNumber.text = setCount()
         view.addSubview(lblNumber)
         lblNumber.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 72).isActive = true
         lblNumber.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 179).isActive = true
-        //btnPlus.setImage(UIImage(named: "Fruitfruit_btn_Plus"), for: .normal)
         
         btnPlus.setImage(UIImage(named: "Fruitfruit_btn_Plus"), for: .normal)
         self.view.addSubview(btnPlus)
@@ -79,7 +78,6 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -40).isActive = true
         checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
-//        checkOrderButton.layer.insertSublayer(gradient, at: 0)
         checkOrderButton.setTitle(costcountCheckText(), for: .normal)
         checkOrderButton.backgroundColor = .blue
         checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
@@ -89,16 +87,16 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
         checkOrderButton.addTarget(self, action: #selector(onTapOrder), for: .touchUpInside)
     }
-    private func costcountCheckText() -> String {
-        return setCost() + setCount() + " 주문하기"
+    private func setCount() -> String {
+        let count = String(Number) + "개"
+        return count
     }
     private func setCost() -> String {
-        let cost = "900원"
+        let cost = "900원 "
         return cost
     }
-    private func setCount() -> String {
-        let count = " 5개"
-        return count
+    private func costcountCheckText() -> String {
+        return setCost() + setCount() + " 주문하기"
     }
     
     override func viewDidLoad() {
@@ -111,7 +109,7 @@ class BottomSheetViewController: UIViewController {
     @objc
     func onTapPlus() {
         Number += 1
-        lblNumber.text = String(Number) + "개"
+        lblNumber.text = setCount()
     }
     
     @objc
@@ -120,7 +118,7 @@ class BottomSheetViewController: UIViewController {
             return
     }
         Number -= 1
-        lblNumber.text = String(Number) + "개"
+        lblNumber.text = setCount()
     }
     
     @objc
