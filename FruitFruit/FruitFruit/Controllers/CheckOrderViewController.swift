@@ -22,8 +22,10 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func onOrderButtonClicked(_ sender: UIButton) {
         playLottie()
-        //        addOrder(fruitOrder: fruitOrder)
-        //        navigateToOrderResultView()
+        addOrder(fruitOrder: fruitOrder)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.navigateToOrderResultView()
+        }
     }
     
     override func viewDidLoad() {
@@ -37,7 +39,7 @@ extension CheckOrderViewController {
     
     private func setCheckOrderViewUI() {
         checkOrderNavBar()
-        setTitleLabelUI(from: setTitleText(), colorText: setTitleFruit(), color: UIColor(named: Constants.FruitfruitColors.orange1)!)
+        setTitleLabelUI(from: setTitleText(), colorText: setTitleFruit(), color: UIColor(named: fruitOrder.fruitType.fruitColorName)!)
         setSecondaryLabelUI()
         setCheckOrderButtonUI()
     }
@@ -53,9 +55,6 @@ extension CheckOrderViewController {
         
         let exitButtonImage = UIImage(systemName: "xmark")?.withTintColor(orangeColor, renderingMode: .alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: exitButtonImage, style: .done, target: self, action: #selector(exitProcess))
-        
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     @objc private func popToPrevious() {
@@ -147,7 +146,7 @@ extension CheckOrderViewController {
         background.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         view.addSubview(background)
         
-        animationView.frame = CGRect(x: 94, y: 315, width: 180, height: 180)
+        animationView.frame = CGRect(x: 93, y: 315, width: 180, height: 180)
         animationView.contentMode = .scaleAspectFill
         animationView.animation = Animation.named("FruitLottie")
         animationView.play(fromFrame: 0, toFrame: 35)
