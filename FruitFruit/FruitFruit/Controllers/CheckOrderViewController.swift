@@ -17,7 +17,6 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var secondaryTitleLabel: UILabel!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var orderButton: UIButton!
     
     @IBAction func onOrderButtonClicked(_ sender: UIButton) {
@@ -28,9 +27,17 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundView.applyBackgroundGradient()
-        checkOrderNavBar()
         setCheckOrderViewUI()
-        
+    }
+}
+
+extension CheckOrderViewController {
+    
+    private func setCheckOrderViewUI() {
+        checkOrderNavBar()
+        setTitleLabelUI(from: setTitleText(), colorText: setTitleFruit(), color: UIColor(named: Constants.FruitfruitColors.orange1)!)
+        setSecondaryLabelUI()
+        setCheckOrderButtonUI()
     }
     
     private func checkOrderNavBar() {
@@ -59,16 +66,6 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
         let initVC = self.navigationController
         initVC?.pushViewController(homeVC, animated: true)
         initVC?.isNavigationBarHidden = true
-    }
-    
-}
-
-extension CheckOrderViewController {
-    
-    private func setCheckOrderViewUI() {
-        setTitleLabelUI(from: setTitleText(), colorText: setTitleFruit(), color: UIColor(named: Constants.FruitfruitColors.orange1)!)
-        setSecondaryLabelUI()
-        setCheckOrderButtonUI()
     }
     
     private func setTitleLabelUI(from text: String, colorText: String, color: UIColor) {
