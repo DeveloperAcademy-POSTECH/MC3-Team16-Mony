@@ -8,12 +8,22 @@
 import UIKit
 
 class OrderResultViewController: UIViewController {
+    //TODO: 데이터 바인딩
+    var fruitOrder = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Canceled", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var secondaryTitleLabel: UILabel!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var backToHomeButton: UIButton!
+    
+    @IBAction func onBackToHomeButtonClicked(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let initVC = self.navigationController
+        initVC?.pushViewController(homeVC, animated: true)
+        initVC?.isNavigationBarHidden = true
+    }
     
     let orderSheet: OrderSheet = {
         let orderSheet = OrderSheet(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 370))
@@ -67,6 +77,8 @@ extension OrderResultViewController {
     
     private func setOrderSheet() {
         view.addSubview(orderSheet)
+        orderSheet.prepare(orderInfo: fruitOrder)
+        
         orderSheet.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         orderSheet.topAnchor.constraint(equalTo: view.topAnchor, constant: 259).isActive = true
         orderSheet.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 48).isActive = true
@@ -74,7 +86,10 @@ extension OrderResultViewController {
         
         orderSheet.account.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAccountRow))
-        orderSheet.account.addGestureRecognizer(tapGesture)
+        
+        if fruitOrder.statusEnum == .Checking {
+            orderSheet.account.addGestureRecognizer(tapGesture)
+        }
     }
     
     private func setWarningLabel() {
