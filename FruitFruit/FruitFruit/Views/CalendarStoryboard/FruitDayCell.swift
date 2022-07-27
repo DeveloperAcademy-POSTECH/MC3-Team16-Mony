@@ -63,13 +63,19 @@ class FruitDayCell: UICollectionViewCell {
         guard let model = model else { return }
         guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
         let _ = self.subviews.map { $0.removeFromSuperview() }
+        let path = UIBezierPath(ovalIn: CGRect(x:0, y:0, width: 40, height: 40))
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.frame = path.bounds
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = orangeColor.cgColor
+        shapeLayer.lineWidth = 1
+        layer.insertSublayer(shapeLayer, at: 0)
         addSubview(day)
         day.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         day.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         day.text = model
-        day.layer.cornerRadius = day.frame.width / 2
-        day.layer.masksToBounds = true
-        day.layer.backgroundColor = orangeColor.cgColor
+        day.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        day.textColor = UIColor.white
     }
     
     func imagePrepare(model: FruitType) {
