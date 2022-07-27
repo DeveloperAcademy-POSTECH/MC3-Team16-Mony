@@ -1,4 +1,4 @@
-//
+//ani
 //  OrderViewController.swift
 //  FruitFruit
 //
@@ -14,10 +14,12 @@ class OrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCheckOrderButtonUI()
-        setTimeViewUI()
-        setLocationViewUI()
         
+        setCheckOrderButtonUI()
+        setLocationViewUI()
+        setTimeViewUI()
+        view.applyBackgroundGradient()
+        view.addSubview(LocationView)
         view.addSubview(TimeView)
         view.addSubview(checkOrderButton)
         checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
@@ -29,12 +31,7 @@ class OrderViewController: UIViewController {
         self.present(BottomSheetVC, animated: false, completion: nil)
     }
     
-    @IBAction func checkOrderbuttonOntap(_ sender: UIButton) {
-        print("onCheckOrderButtonClicked")
-        let OrderViewModalVC = OrderViewModalViewController()
-        OrderViewModalVC.modalPresentationStyle = .overFullScreen
-        self.present(OrderViewModalVC, animated: false, completion: nil)
-    }
+
     //checkOrderButton.titleLabel.text = "2400원 3개 구매"
 
     private func setCheckOrderButtonUI() {

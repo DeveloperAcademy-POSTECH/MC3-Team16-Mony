@@ -37,6 +37,7 @@
 		6305D182288F696200EB25C0 /* OrderViewModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305D181288F696200EB25C0 /* OrderViewModalViewController.swift */; };
 		6305D184288FE94100EB25C0 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305D183288FE94100EB25C0 /* BottomSheetViewController.swift */; };
 		6305D188288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */; };
+		6305D18A2890C9CB00EB25C0 /* FruitBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305D1892890C9CB00EB25C0 /* FruitBottomSheet.swift */; };
 		6341892D28869CC7005E0C2C /* OrderView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6341892C28869CC7005E0C2C /* OrderView.storyboard */; };
 		6341893228869D58005E0C2C /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341893128869D58005E0C2C /* OrderViewController.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		6305D181288F696200EB25C0 /* OrderViewModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModalViewController.swift; sourceTree = "<group>"; };
 		6305D183288FE94100EB25C0 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheetViewStoryboard.storyboard; sourceTree = "<group>"; };
+		6305D1892890C9CB00EB25C0 /* FruitBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitBottomSheet.swift; sourceTree = "<group>"; };
 		6341892C28869CC7005E0C2C /* OrderView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderView.storyboard; sourceTree = "<group>"; };
 		6341893128869D58005E0C2C /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +221,7 @@
 			children = (
 				6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */,
 				6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */,
+				6305D1892890C9CB00EB25C0 /* FruitBottomSheet.swift */,
 			);
 			path = OrderViewModalStoryboard;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				4ACD00332881A7AA00BBEB4D /* String+Extension.swift in Sources */,
 				4ACD002F2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift in Sources */,
 				4ACD00272881041400BBEB4D /* HomeViewController.swift in Sources */,
+				6305D18A2890C9CB00EB25C0 /* FruitBottomSheet.swift in Sources */,
 				4ACD00412882630B00BBEB4D /* UIImage+Extension.swift in Sources */,
 				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
 				6305D182288F696200EB25C0 /* OrderViewModalViewController.swift in Sources */,
