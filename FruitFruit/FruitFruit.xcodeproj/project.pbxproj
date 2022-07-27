@@ -43,24 +43,30 @@
 		522AEE912888583C007ADD6D /* ConfirmStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AEE902888583C007ADD6D /* ConfirmStatusViewController.swift */; };
 		5230C63B2880FDAF0069583B /* CheckOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5230C63A2880FDAF0069583B /* CheckOrder.storyboard */; };
 		5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230C63C2880FDC50069583B /* CheckOrderViewController.swift */; };
+		526189532890BA360059BFB0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 526189522890BA360059BFB0 /* FirebaseAuth */; };
+		526189552890BA3A0059BFB0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 526189542890BA3A0059BFB0 /* FirebaseFirestore */; };
+		526189572890D7930059BFB0 /* FruitLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 526189562890D7930059BFB0 /* FruitLottie.json */; };
+		5261895A2890E3E00059BFB0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 526189592890E3E00059BFB0 /* Lottie */; };
+		52CCDDD3288F7C1700382548 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		52D0534E287BAF9000FF87DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534D287BAF9000FF87DD /* AppDelegate.swift */; };
 		52D05350287BAF9000FF87DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0534F287BAF9000FF87DD /* SceneDelegate.swift */; };
 		52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D05356287BAF9100FF87DD /* Assets.xcassets */; };
 		52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */; };
-		52DC680B2886D63A00CDA17B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680A2886D63A00CDA17B /* FirebaseAuth */; };
-		52DC680D2886D65300CDA17B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 52DC680C2886D65300CDA17B /* FirebaseFirestore */; };
 		52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */; };
 		D213CFC4288EAA930038F6E4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFC3288EAA930038F6E4 /* SettingViewController.swift */; };
 		D213CFC6288EAAFC0038F6E4 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D213CFC5288EAAFC0038F6E4 /* Setting.storyboard */; };
 		D213CFC8288EC4F90038F6E4 /* FruitSettingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */; };
 		D213CFCB288F88050038F6E4 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D213CFCA288F88050038F6E4 /* Calendar.storyboard */; };
 		D213CFCD288F88140038F6E4 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFCC288F88140038F6E4 /* CalendarViewController.swift */; };
+		D26F0290288FD72700BDA9F2 /* FruitDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */; };
+		D26F0292288FDA9D00BDA9F2 /* MonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F0291288FDA9D00BDA9F2 /* MonthModel.swift */; };
+		D26F029428901EE200BDA9F2 /* FruitWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F029328901EE200BDA9F2 /* FruitWeekCell.swift */; };
+		D26F02982890230E00BDA9F2 /* FruitMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F02972890230E00BDA9F2 /* FruitMonthView.swift */; };
+		D26F029A28910A2300BDA9F2 /* FruitMonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F029928910A2300BDA9F2 /* FruitMonthCell.swift */; };
 		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
 		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
 		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
 		D2DF56DE288E42900064B9A1 /* FruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF56DD288E42900064B9A1 /* FruitType.swift */; };
-		D2DF7E34288937790009CC95 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E33288937790009CC95 /* FirebaseFirestore */; };
-		D2DF7E36288937790009CC95 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +106,7 @@
 		522AEE902888583C007ADD6D /* ConfirmStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmStatusViewController.swift; sourceTree = "<group>"; };
 		5230C63A2880FDAF0069583B /* CheckOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckOrder.storyboard; sourceTree = "<group>"; };
 		5230C63C2880FDC50069583B /* CheckOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOrderViewController.swift; sourceTree = "<group>"; };
+		526189562890D7930059BFB0 /* FruitLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FruitLottie.json; sourceTree = "<group>"; };
 		52D0534A287BAF9000FF87DD /* FruitFruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitFruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D0534D287BAF9000FF87DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52D0534F287BAF9000FF87DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +119,11 @@
 		D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSettingTextField.swift; sourceTree = "<group>"; };
 		D213CFCA288F88050038F6E4 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		D213CFCC288F88140038F6E4 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDayCell.swift; sourceTree = "<group>"; };
+		D26F0291288FDA9D00BDA9F2 /* MonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthModel.swift; sourceTree = "<group>"; };
+		D26F029328901EE200BDA9F2 /* FruitWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitWeekCell.swift; sourceTree = "<group>"; };
+		D26F02972890230E00BDA9F2 /* FruitMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitMonthView.swift; sourceTree = "<group>"; };
+		D26F029928910A2300BDA9F2 /* FruitMonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitMonthCell.swift; sourceTree = "<group>"; };
 		D2C81586288A717E001AD894 /* FruitStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitStatusCell.swift; sourceTree = "<group>"; };
 		D2DF56DD288E42900064B9A1 /* FruitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,12 +133,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2DF7E34288937790009CC95 /* FirebaseFirestore in Frameworks */,
-				D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */,
-				D2DF7E36288937790009CC95 /* FirebaseFirestoreSwift in Frameworks */,
-				D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */,
-				52DC680B2886D63A00CDA17B /* FirebaseAuth in Frameworks */,
-				52DC680D2886D65300CDA17B /* FirebaseFirestore in Frameworks */,
+				526189532890BA360059BFB0 /* FirebaseAuth in Frameworks */,
+				526189552890BA3A0059BFB0 /* FirebaseFirestore in Frameworks */,
+				5261895A2890E3E00059BFB0 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +202,13 @@
 			path = OrderResultStoryboard;
 			sourceTree = "<group>";
 		};
+		52237896288FE1CF00E0D6ED /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		522AEE8D2888580E007ADD6D /* ConfirmStatusStoryboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +220,7 @@
 		5230C6392880FD6B0069583B /* CheckOrderStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				526189562890D7930059BFB0 /* FruitLottie.json */,
 				5230C63A2880FDAF0069583B /* CheckOrder.storyboard */,
 			);
 			path = CheckOrderStoryboard;
@@ -215,6 +232,7 @@
 				52D0534C287BAF9000FF87DD /* FruitFruit */,
 				52D0534B287BAF9000FF87DD /* Products */,
 				52DCDE6F28850EB6002EC639 /* Frameworks */,
+				52237896288FE1CF00E0D6ED /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,6 +299,7 @@
 				4A0D8AC928865370003CFAEE /* FruitSaleInfo.swift */,
 				4A0D8ACD288679C7003CFAEE /* FruitStatus.swift */,
 				D2DF56DD288E42900064B9A1 /* FruitType.swift */,
+				D26F0291288FDA9D00BDA9F2 /* MonthModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,6 +324,10 @@
 			isa = PBXGroup;
 			children = (
 				D213CFCA288F88050038F6E4 /* Calendar.storyboard */,
+				D26F028F288FD72700BDA9F2 /* FruitDayCell.swift */,
+				D26F029328901EE200BDA9F2 /* FruitWeekCell.swift */,
+				D26F02972890230E00BDA9F2 /* FruitMonthView.swift */,
+				D26F029928910A2300BDA9F2 /* FruitMonthCell.swift */,
 			);
 			path = CalendarStoryboard;
 			sourceTree = "<group>";
@@ -326,12 +349,9 @@
 			);
 			name = FruitFruit;
 			packageProductDependencies = (
-				D2DF7E33288937790009CC95 /* FirebaseFirestore */,
-				D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */,
-				D2C81582288A54B7001AD894 /* FirebaseFirestore */,
-				D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */,
-				52DC680A2886D63A00CDA17B /* FirebaseAuth */,
-				52DC680C2886D65300CDA17B /* FirebaseFirestore */,
+				526189522890BA360059BFB0 /* FirebaseAuth */,
+				526189542890BA3A0059BFB0 /* FirebaseFirestore */,
+				526189592890E3E00059BFB0 /* Lottie */,
 			);
 			productName = FruitFruit;
 			productReference = 52D0534A287BAF9000FF87DD /* FruitFruit.app */;
@@ -362,9 +382,9 @@
 			);
 			mainGroup = 52D05341287BAF9000FF87DD;
 			packageReferences = (
-				D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				D2C81581288A54B7001AD894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				526189502890B9570059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				526189512890B9AE0059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				526189582890E3DF0059BFB0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 52D0534B287BAF9000FF87DD /* Products */;
 			projectDirPath = "";
@@ -381,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5230C63B2880FDAF0069583B /* CheckOrder.storyboard in Resources */,
+				526189572890D7930059BFB0 /* FruitLottie.json in Resources */,
 				522AEE8F28885827007ADD6D /* ConfirmStatus.storyboard in Resources */,
 				52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */,
 				4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */,
@@ -425,11 +446,17 @@
 				4ACD00332881A7AA00BBEB4D /* String+Extension.swift in Sources */,
 				4ACD002F2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift in Sources */,
 				52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */,
+				D26F02982890230E00BDA9F2 /* FruitMonthView.swift in Sources */,
+				52CCDDD3288F7C1700382548 /* (null) in Sources */,
 				4ACD00272881041400BBEB4D /* HomeViewController.swift in Sources */,
 				4A1867542886FE8C00630023 /* Encodable+Extension.swift in Sources */,
+				D26F0292288FDA9D00BDA9F2 /* MonthModel.swift in Sources */,
 				D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */,
 				522AEE892887AED1007ADD6D /* SheetTable.swift in Sources */,
+				D26F029A28910A2300BDA9F2 /* FruitMonthCell.swift in Sources */,
+				D26F0290288FD72700BDA9F2 /* FruitDayCell.swift in Sources */,
 				4ACD00412882630B00BBEB4D /* UIImage+Extension.swift in Sources */,
+				D26F029428901EE200BDA9F2 /* FruitWeekCell.swift in Sources */,
 				4ACD0015287FEF9C00BBEB4D /* Font+Extension.swift in Sources */,
 				4ACD001E288073D600BBEB4D /* UIView+Extension.swift in Sources */,
 				522AEE912888583C007ADD6D /* ConfirmStatusViewController.swift in Sources */,
@@ -654,7 +681,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		526189502890B9570059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -662,7 +689,7 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		D2C81581288A54B7001AD894 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		526189512890B9AE0059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -670,46 +697,31 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		526189582890E3DF0059BFB0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		52DC680A2886D63A00CDA17B /* FirebaseAuth */ = {
+		526189522890BA360059BFB0 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 526189502890B9570059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		52DC680C2886D65300CDA17B /* FirebaseFirestore */ = {
+		526189542890BA3A0059BFB0 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 522C5AEC2886C8DD00BF6D4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 526189502890B9570059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		D2C81582288A54B7001AD894 /* FirebaseFirestore */ = {
+		526189592890E3E00059BFB0 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
-		D2DF7E33288937790009CC95 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		D2DF7E35288937790009CC95 /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D2DF7E32288937790009CC95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
+			package = 526189582890E3DF0059BFB0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

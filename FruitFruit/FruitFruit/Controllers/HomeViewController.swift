@@ -91,7 +91,7 @@ class HomeViewController: UIViewController {
     private func fetchOrders() {
         //TODO: 유효한 주문 -> 연산 프로퍼티로 체크하기
         if let user = Storage().fruitUser {
-            let detailCollectionName = "\(user.name) \(user.nickname)"
+            let detailCollectionName = "\(user.name) + \(user.nickname)"
             database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitOrders = []
                 if let error = error {
@@ -177,7 +177,6 @@ class HomeViewController: UIViewController {
         fruitStatusCollectionView.heightAnchor.constraint(equalToConstant: 68).isActive = true
         fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         fruitStatusCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
     }
     
     private func initFruitInfoTableView() {

@@ -26,6 +26,17 @@ func addMockOrder(fruitOrder: FruitOrder) {
     }
 }
 
+func addMockOrder() {
+    let db = Firestore.firestore()
+    guard let user = Storage().fruitUser else { return }
+    let firstDateComponent = DateComponents(year: 2022, month: 5, day: 11, hour: 11)
+    let firstDate = Calendar.current.date(from: firstDateComponent)!
+    let fruitOrder = FruitOrder(name: "여름오렌지", dueDate: firstDate, amount: 5, price: 200, status: "Arrived", user: user, place: "C5", time: 14)
+    guard let fruitOrderDict = fruitOrder.dictionary else { return }
+    let detailCollectionName = "\(user.name) \(user.nickname)"
+    db.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).addDocument(data: fruitOrderDict)
+}
+
 func addMockSaleInfo(fruitInfo: FruitSaleInfo) {
     let db = Firestore.firestore()
     guard let fruitInfoDict = fruitInfo.dictionary else { return }
