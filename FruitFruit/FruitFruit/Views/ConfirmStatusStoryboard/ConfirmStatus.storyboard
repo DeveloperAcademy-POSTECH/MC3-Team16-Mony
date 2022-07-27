@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-bi-6yO">
-                                        <rect key="frame" x="0.0" y="62" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="44"/>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <textAttributes key="titleTextAttributes">
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -73,7 +73,7 @@
                                 <constraints>
                                     <constraint firstItem="bgP-bi-6yO" firstAttribute="centerX" secondItem="7mH-dl-muE" secondAttribute="centerX" id="KO9-G5-DwK"/>
                                     <constraint firstItem="Cbf-bl-8m6" firstAttribute="top" secondItem="WLi-tN-6hA" secondAttribute="bottom" constant="8" id="LgY-UM-IUN"/>
-                                    <constraint firstItem="bgP-bi-6yO" firstAttribute="top" secondItem="7mH-dl-muE" secondAttribute="top" constant="62" id="Rcb-8Q-Qkx"/>
+                                    <constraint firstItem="bgP-bi-6yO" firstAttribute="top" secondItem="7mH-dl-muE" secondAttribute="top" constant="50" id="Rcb-8Q-Qkx"/>
                                     <constraint firstAttribute="trailing" secondItem="hth-E5-4C7" secondAttribute="trailing" id="RxY-i6-nAv"/>
                                     <constraint firstItem="WLi-tN-6hA" firstAttribute="leading" secondItem="7mH-dl-muE" secondAttribute="leading" constant="24" id="U6n-3h-ZCi"/>
                                     <constraint firstItem="bgP-bi-6yO" firstAttribute="leading" secondItem="7mH-dl-muE" secondAttribute="leading" id="XL7-UC-Nnx"/>
