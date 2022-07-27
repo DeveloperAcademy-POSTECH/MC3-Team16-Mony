@@ -12,7 +12,7 @@
         <!--Confirm Status View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="ConfirmStatusViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmStatusViewController" id="Y6W-OH-hqX" customClass="ConfirmStatusViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,6 +30,9 @@
                                             <navigationItem title="알림" id="Xhe-Pj-NC1">
                                                 <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="qD7-el-Wdx">
                                                     <color key="tintColor" name="Fruitfruit_Orange1"/>
+                                                    <connections>
+                                                        <action selector="onNavigationBackButtonClicked:" destination="Y6W-OH-hqX" id="h39-dJ-74l"/>
+                                                    </connections>
                                                 </barButtonItem>
                                             </navigationItem>
                                         </items>

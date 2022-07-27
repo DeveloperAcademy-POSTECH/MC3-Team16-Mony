@@ -7,9 +7,7 @@
 
 import UIKit
 
-class ConfirmStatusViewController: UIViewController {
-    
-    //TODO: 데이터 바인딩
+class ConfirmStatusViewController: UIViewController, UIGestureRecognizerDelegate {
     var fruitOrder: FruitOrder?
     
     @IBOutlet weak var backgroundView: UIView!
@@ -17,6 +15,12 @@ class ConfirmStatusViewController: UIViewController {
     @IBOutlet weak var secondaryTitleLabel: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var statusImage: UIImageView!
+    
+    @IBAction func onNavigationBackButtonClicked(_ sender: UIBarButtonItem) {
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        self.navigationController?.popViewController(animated: true)
+    }
     
     let orderSheet: OrderSheet = {
         let orderSheet = OrderSheet(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 48, height: 370))
@@ -26,7 +30,7 @@ class ConfirmStatusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let fruitOrder = fruitOrder else { return }
+        
         setUI()
         navigationBar.shadowImage = UIImage()
     }
@@ -47,6 +51,7 @@ extension ConfirmStatusViewController {
     }
     
     private func setLabels() {
+        guard let fruitOrder = fruitOrder else { return }
         titleLabel.text = FruitStatus(rawValue: fruitOrder.status)?.detailTitleLabel
         titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         titleLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
@@ -57,11 +62,13 @@ extension ConfirmStatusViewController {
     }
     
     private func setImage() {
+        guard let fruitOrder = fruitOrder else { return }
         statusImage.image = UIImage(named: FruitStatus(rawValue: fruitOrder.status)!.getStatusImageName(fruit: fruitOrder.name))
         statusImage.frame.size = CGSize(width: 160, height: 160)
     }
     
     private func setOrderSheet() {
+        guard let fruitOrder = fruitOrder else { return }
         view.addSubview(orderSheet)
         orderSheet.prepare(orderInfo: fruitOrder)
 

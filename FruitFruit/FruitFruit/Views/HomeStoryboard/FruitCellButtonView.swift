@@ -45,19 +45,14 @@ class FruitCellButtonView: UIView {
         setBackground()
         setLabels()
         setLabelText(fruitSaleInfo)
-        setFruitButtonImage(fruitSaleInfo.fruitType.fruitSecondary)
+        setFruitButtonImage(fruitSaleInfo.fruitType.fruitImageName)
     }
     
     private func setBackground() {
-        backgroundColor = .white
+        backgroundColor = UIColor(white: 1, alpha: 0.5)
         layer.cornerRadius = 20
         layer.borderWidth = 1
         layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
-//        self.backgroundColor = .clear
-//        self.layer.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1).cgColor
-//        self.layer.cornerRadius = 20
-//        self.layer.borderWidth = 1
-//        self.layer.borderColor = UIColor(red: 0.949, green: 0.957, blue: 0.965, alpha: 1).cgColor
     }
    
     private func setLabels() {
@@ -66,7 +61,7 @@ class FruitCellButtonView: UIView {
         self.addSubview(fruitPriceLabel)
         self.addSubview(fruitImage)
         fruitShopLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        fruitShopLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+        fruitShopLabel.textColor = UIColor(named: Constants.FruitfruitColors.black2)
         fruitShopLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
         fruitShopLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitShopLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -75,7 +70,7 @@ class FruitCellButtonView: UIView {
         fruitNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitNameLabel.heightAnchor.constraint(equalToConstant: 33).isActive = true
         fruitPriceLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        fruitPriceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+        fruitPriceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black2)
         fruitPriceLabel.topAnchor.constraint(equalTo: topAnchor, constant: 108).isActive = true
         fruitPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitPriceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -94,7 +89,6 @@ class FruitCellButtonView: UIView {
     }
     
     func setFruitButtonImage(_ text: String) {
-        print(text)
         fruitImage.image = UIImage(named: text)
         fruitImage.frame.size = CGSize(width: 93, height: 100)
     }

@@ -67,6 +67,12 @@ class HomeViewController: UIViewController {
 
     
     // MARK: - LIFECYCLES
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,10 +91,8 @@ class HomeViewController: UIViewController {
     private func fetchOrders() {
         //TODO: 유효한 주문 -> 연산 프로퍼티로 체크하기
         if let user = Storage().fruitUser {
-            let detailCollectionName = "\(user.name) \(user.nickname)"
-            database.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
-
-//            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
+            let detailCollectionName = "\(user.name) + \(user.nickname)"
+            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitOrders = []
                 if let error = error {
                     print(error.localizedDescription)
@@ -185,7 +189,7 @@ class HomeViewController: UIViewController {
         fruitInfoTableView.separatorStyle = .none
         fruitInfoTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 24).isActive = true
         fruitInfoTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        fruitInfoTableView.topAnchor.constraint(equalTo: fruitOrderLabel.bottomAnchor, constant: 10).isActive = true
+        fruitInfoTableView.topAnchor.constraint(equalTo: fruitOrderLabel.bottomAnchor, constant: 20).isActive = true
         fruitInfoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
@@ -251,15 +255,18 @@ class HomeViewController: UIViewController {
     }
     
     @objc func tapFruitProfile() {
-        print("FruitfruitLabel tapped")
-        addMockSaleInfo(fruitInfo: FruitSaleInfo(shopName: "효곡청과", fruitName: "수박", price: 400, fruitOrigin: "영천", saleDate: Date(), place: "C5", time: 13))
+        let storyboard = UIStoryboard(name: "Setting", bundle: nil)
+        let settingVC = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+        let homeVC = self.navigationController
+        homeVC?.pushViewController(settingVC, animated: true)
+        homeVC?.isNavigationBarHidden = false
     }
     
     private func initFruitOrderLabel() {
         fruitOrderLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
         view.addSubview(fruitOrderLabel)
         fruitOrderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        let fruitOrderLabelTop = fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 277)
+        let fruitOrderLabelTop = fruitOrderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 237)
         fruitOrderLabelTop.isActive = true
         fruitOrderLabelTop.identifier = "fruitOrderLabelTop"
     }
@@ -325,6 +332,14 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(fruitOrders[indexPath.item])
+        // 1. ConfrimStatusView -> 연동
+        let storyboard = UIStoryboard(name: "ConfirmStatus", bundle: nil)
+        guard let confirmVC = storyboard.instantiateViewController(withIdentifier: "ConfirmStatusViewController") as? ConfirmStatusViewController else { return }
+        // 2. Data Binding
+        confirmVC.fruitOrder = fruitOrders[indexPath.item]
+        let homeVC = self.navigationController
+        homeVC?.pushViewController(confirmVC, animated: true)
+        homeVC?.isNavigationBarHidden = true
+        
     }
 }

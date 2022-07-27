@@ -8,7 +8,7 @@
 import Foundation
 
 struct FruitUser: Codable {
-    let id = UUID().uuidString
+    var id: String
     var name: String
     var nickname: String
 }
