@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import Lottie
 
 //TODO: 로딩 시간 -> 로티 넣기
 
@@ -15,6 +16,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     var validModels = [MonthModel]()
     var validOrders = [Int : [FruitOrder]]()
     let database = Firestore.firestore()
+    let animationView = AnimationView()
     
     let fruitMonthView: FruitMonthView = {
         let monthView = FruitMonthView()
@@ -30,12 +32,14 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addMockOrder()
-        initCalendarViewUI()
+        initCalendarViewNavBar()
+        self.playLottie()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.initCalendarViewUI()
+        }
     }
     
     private func initCalendarViewUI() {
-        initCalendarViewNavBar()
         initCalendarTableView()
         fetchOrders()
         view.applyBackgroundGradient()
@@ -142,6 +146,22 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingMonthPadding - 7).isActive = true
         fruitCalendarTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         fruitCalendarTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    private func playLottie() {
+        let background = UILabel()
+        background.frame = CGRect(x: 0, y: 0, width: 390, height: 844)
+        background.backgroundColor = .white
+//        background.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        background.tag = 0
+        view.addSubview(background)
+        
+        animationView.frame = CGRect(x: 93, y: 315, width: 180, height: 180)
+        animationView.contentMode = .scaleAspectFill
+        animationView.animation = Animation.named("FruitLottie")
+        animationView.play(fromFrame: 0, toFrame: 35)
+        animationView.loopMode = .repeat(2)
+        view.addSubview(animationView)
     }
 }
 
