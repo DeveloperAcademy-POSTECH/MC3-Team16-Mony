@@ -22,6 +22,10 @@ struct FruitOrder: Codable {
         return FruitStatus(rawValue: status) ?? FruitStatus.Canceled
     }
     
+    var fruitType: FruitType {
+        return name.getFruitType
+    }
+    
     var totalPrice: Int {
         return price * amount
     }
