@@ -71,7 +71,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let user = Storage().fruitUser else { return }
         let detailCollectionName = "\(user.name) \(user.nickname)"
         database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).whereField("status", isEqualTo: "Arrived").getDocuments { querySnapShot, error in
-            // addSnapShotListener -> 네비게이션 클릭 시점 문서만 불러오기
             self.fruitArrivedOrders = []
             if let error = error {
                 print(error.localizedDescription)
