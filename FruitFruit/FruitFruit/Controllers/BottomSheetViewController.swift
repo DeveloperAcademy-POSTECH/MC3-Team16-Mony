@@ -8,8 +8,6 @@
 import UIKit
 
 class BottomSheetViewController: UIViewController {
-
-//    @IBOutlet var lbl: UILabel!
     var defaultHeight: CGFloat = 250
     var fruitSaleInfo: FruitSaleInfo?
     var number = 1
