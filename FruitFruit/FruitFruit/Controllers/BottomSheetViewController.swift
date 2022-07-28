@@ -77,14 +77,14 @@ class BottomSheetViewController: UIViewController {
         btnMinus.addTarget(self, action: #selector(onTapMinus), for: .touchUpInside)
         
         self.view.addSubview(checkOrderButton)
-        checkOrderButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 152).isActive = true
+        checkOrderButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 142).isActive = true
         checkOrderButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 24).isActive = true
         checkOrderButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -24).isActive = true
         checkOrderButton.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -40).isActive = true
         checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.setTitle(costcountCheckText(), for: .normal)
-        checkOrderButton.backgroundColor = .blue
+        checkOrderButton.backgroundColor = .white
         checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         checkOrderButton.layer.cornerRadius = 16
         checkOrderButton.layer.borderWidth = 1
@@ -101,22 +101,25 @@ class BottomSheetViewController: UIViewController {
     
     @objc private func buttonTapGesture() {
         if let user = Storage().fruitUser {
-            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
-            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
-            let orderViewNavController = presentingViewController as? UINavigationController
-            dismiss(animated: false, completion: {
-                guard let fruitSaleInfo = self.fruitSaleInfo else { return }
-                guard let user = Storage().fruitUser else { return }
-                let fruitOrder = FruitOrder(name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.Number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
-                checkOrderVC.fruitOrder = fruitOrder
-                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
-            })
+//            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
+//            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
+//            let orderViewNavController = presentingViewController as? UINavigationController
+//            dismiss(animated: false, completion: {
+//                guard let fruitSaleInfo = self.fruitSaleInfo else { return }
+//                guard let user = Storage().fruitUser else { return }
+//                let fruitOrder = FruitOrder(name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.Number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
+//                checkOrderVC.fruitOrder = fruitOrder
+//                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
+//            })
+            let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
+            guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
+            initVC.modalPresentationStyle = .formSheet
+            self.present(initVC, animated: true, completion: nil)
         } else {
             let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
             guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
-            initVC.modalPresentationStyle = .overFullScreen
+            initVC.modalPresentationStyle = .pageSheet
             self.present(initVC, animated: true, completion: nil)
-            
         }
     }
 
@@ -182,7 +185,7 @@ class BottomSheetViewController: UIViewController {
         let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.height
         let bottomPadding: CGFloat = view.safeAreaInsets.bottom
         
-       bottomSheetViewTopConstraint.constant = (safeAreaHeight + bottomPadding) - defaultHeight
+        bottomSheetViewTopConstraint.constant = (safeAreaHeight + bottomPadding) - defaultHeight
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
             self.dimmedView.alpha = 0.7

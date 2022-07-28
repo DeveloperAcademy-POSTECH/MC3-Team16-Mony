@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZg-0l-MYw">
-                                <rect key="frame" x="24" y="746" width="366" height="58"/>
+                                <rect key="frame" x="24" y="764" width="366" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="EZ4-8K-cRn"/>
                                 </constraints>
@@ -71,7 +71,7 @@
                             <constraint firstItem="eNE-W0-YVs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="HLZ-J9-391"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eNE-W0-YVs" secondAttribute="trailing" constant="24" id="PaO-Y3-utX"/>
                             <constraint firstItem="sAk-Q5-Idh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="125" id="RwV-Yc-g6r"/>
-                            <constraint firstItem="fZg-0l-MYw" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="746" id="RyG-wI-ioG"/>
+                            <constraint firstItem="fZg-0l-MYw" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-40" id="RyG-wI-ioG"/>
                             <constraint firstItem="fZg-0l-MYw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="U99-o4-GHq"/>
                             <constraint firstItem="aOM-LO-Sbd" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="Vtq-i7-407"/>
                             <constraint firstItem="8Kz-AJ-iXy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="X4o-h5-uLX"/>

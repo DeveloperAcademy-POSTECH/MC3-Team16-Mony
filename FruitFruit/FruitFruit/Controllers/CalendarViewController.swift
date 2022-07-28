@@ -69,7 +69,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func fetchOrders() {
         guard let user = Storage().fruitUser else { return }
-        let detailCollectionName = "\(user.name) \(user.nickname)"
+        let detailCollectionName = "\(user.name) + \(user.nickname)"
         database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).whereField("status", isEqualTo: "Arrived").getDocuments { querySnapShot, error in
             self.fruitArrivedOrders = []
             if let error = error {
