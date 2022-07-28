@@ -10,6 +10,7 @@ import FirebaseFirestore
 import Firebase
 
 class InitSettingViewController: UIViewController {
+        
     // MARK: - PROPERTIES
     @IBOutlet weak var addNameLabel: UILabel!
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -28,18 +29,18 @@ class InitSettingViewController: UIViewController {
     
     // MARK: - FUNCTIONS
     
-    func setUI() {
+    private func setUI() {
         welcomeLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
-        welcomeLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        welcomeLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
         addNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        addNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        addNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
-        nameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        nameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nameTextField.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nameTextField.autocorrectionType = .no
         nicknameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
-        nicknameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black)
+        nicknameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nicknameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nicknameTextField.autocorrectionType = .no
@@ -54,20 +55,22 @@ class InitSettingViewController: UIViewController {
     }
     
     @IBAction func initSettingFinished(_ sender: UIButton) {
-        if let name = nameTextField.text, let nickname = nicknameTextField.text {
-            if !name.isEmpty && !nickname.isEmpty {
-                let user = User(name: name, nickname: nickname)
-                // User 정보 생성
-                let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
-                db.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
-                // FireStore 입력
-                UserDefaults.standard.set(true, forKey: "isInitSet")
-                // UserDefaults true 설정
-            }
+        guard let name = nameTextField.text, let nickname = nicknameTextField.text else { return }
+        if !name.isEmpty && !nickname.isEmpty {
+            let userId = UUID().uuidString
+            let user = FruitUser(id: userId, name: name, nickname: nickname)
+            // User 정보 생성
+            let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
+            db.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
+            // FireStore 입력
+            Storage().setFruitUser(fruitUser: user)
+            // UserDefaults true 설정
+            goToHome()
+            // HomeView 이동
         }
     }
     
-    func nicknameHiddenToggle() {
+    private func nicknameHiddenToggle() {
         if nicknameTextField.isHidden {
             nicknameTextField.isHidden = false
             nameLabel.isHidden = false
@@ -77,7 +80,7 @@ class InitSettingViewController: UIViewController {
         }
     }
 
-    func nameTextFieldSet(_ initialSet: Bool) {
+    private func nameTextFieldSet(_ initialSet: Bool) {
         let topPadding: CGFloat = initialSet ? 325 : 232
         for constraint in self.view.constraints {
             if constraint.identifier == "nameTextFieldTop" {
@@ -111,75 +114,71 @@ class InitSettingViewController: UIViewController {
         }
         
         UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseIn, animations: {
-            self.welcomeLabel.text = !initialSet ? "어서와요 푸릇푸릇입니다" : "애플아카데미개발자 러너인가요?"
+            self.welcomeLabel.text = !initialSet ? "푸릇푸릇 첫 번째 구매를 위해" : "애플아카데미개발자 러너인가요?"
             self.addNameLabel.text = !initialSet ? "이름을 입력해주세요" : "닉네임을 입력해주세요"
         }, completion: nil)
         // 이름/닉네임 입력 상황 -> 텍스트 변경
     }
     
-    func textFieldVisibilityCheck() {
-        if let name = nameTextField.text {
-            if name != "" && nicknameTextField.isHidden {
-                nameTextFieldSet(true)
-            } else if name == "" {
-                if !nicknameTextField.isHidden {
-                    if let nickname = nicknameTextField.text {
-                        if nickname == "" {
-                            nameTextFieldSet(false)
-                        }
-                    }
-                }
+    private func textFieldVisibilityCheck() {
+        guard let name = nameTextField.text else { return }
+        if !name.isEmpty && nicknameTextField.isHidden {
+            nameTextFieldSet(true)
+        } else if name.isEmpty && !nicknameTextField.isHidden {
+            guard let nickname = nicknameTextField.text else { return }
+            if !nickname.isEmpty {
+                nameTextFieldSet(false)
             }
         }
     }
     
     func buttonColorCheck() {
-        if let name = nameTextField.text, let nickname = nicknameTextField.text {
+        guard let name = nameTextField.text, let nickname = nicknameTextField.text else { return }
+        if !name.isEmpty && !nickname.isEmpty {
             if !name.isEmpty && !nickname.isEmpty {
-                if initSettingButton.layer.sublayers!.count == 2 {
-                    let graident = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
+                let limitedCnt = 2
+                if initSettingButton.layer.sublayers!.count == limitedCnt {
+                    let gradient = initSettingButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
                     UIView.animate(withDuration: 4.0, delay: 0, options: .transitionCrossDissolve, animations: {
-                        self.initSettingButton.layer.insertSublayer(graident, at: 0)
-                        self.initSettingButton.configuration?.background.backgroundColor = UIColor.clear
-                        self.initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+                        self.initSettingButton.layer.insertSublayer(gradient, at: 0)
                     }, completion: nil)
                 }
             } else {
-                if initSettingButton.layer.sublayers!.count == 3 {
+                let limitedCnt = 3
+                if initSettingButton.layer.sublayers!.count == limitedCnt {
                     initSettingButton.layer.sublayers?.removeFirst()
-                    initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)
-                    initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
-
                 }
             }
         }
+        DispatchQueue.main.async {
+            self.initSettingButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        }
+    }
+    
+    private func goToHome() {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let initVC = self.navigationController
+        initVC?.pushViewController(homeVC, animated: true)
+        initVC?.isNavigationBarHidden = true
+        // 현재 네비게이션 컨트롤러 -> 홈뷰 푸쉬로 띄우기
     }
 }
 
 // MARK: - EXTENSIONS
 
 extension InitSettingViewController: UITextFieldDelegate {
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if nameTextField.isEditing {
-            nameTextField.backgroundSet(true)
-            nameTextField.heightSet(true)
-        } else if nicknameTextField.isEditing {
-            nicknameTextField.backgroundSet(true)
-            nicknameTextField.heightSet(true)
-        }
+        guard let fruitTextField = textField as? FruitTextField else { return }
+        fruitTextField.backgroundSet(true)
+        fruitTextField.heightSet(true)
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if !nicknameTextField.isEditing {
-            nicknameTextField.backgroundSet(false)
-            nameTextField.heightSet(false)
-        }
-
-        if !nameTextField.isEditing {
-            nameTextField.backgroundSet(false)
-            nicknameTextField.heightSet(false)
-        }
+        guard let fruitTextField = textField as? FruitTextField else { return }
+        fruitTextField.backgroundSet(false)
+        fruitTextField.heightSet(false)
         //TODO: 텍스트 필드 체크 -> 공백 체크 / 한글, 영어만 가능
     }
     
