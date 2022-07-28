@@ -78,14 +78,86 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.applyBackgroundGradient()
         initHomeViewUI()
-        fetchData()
+        Task {
+            do {
+                self.fruitOrders = try await self.fetchValidOrders()
+                self.fruitOrders.sort(by: {$0.dueDate < $1.dueDate})
+                print(self.fruitOrders)
+                let layout = UICollectionViewFlowLayout()
+                layout.scrollDirection = .horizontal
+
+                if self.fruitOrders.count == 1 {
+                    layout.itemSize = CGSize(width: self.view.bounds.width - 48, height: 68)
+                } else {
+                    layout.itemSize = CGSize(width: 204, height: 68)
+                }
+                self.fruitStatusCollectionView.collectionViewLayout = layout
+                self.setHomeViewUI()
+                if !self.fruitOrders.isEmpty {
+                    self.fruitStatusCollectionView.reloadData()
+                }
+            } catch {
+                print(error)
+            }
+        }
+        fetchInfos()
     }
     
     // MARK: - FUNCTIONS
     
-    private func fetchData() {
-        fetchOrders()
-        fetchInfos()
+    private func fetchNames() async throws -> [String] {
+        var detailNames = [String]()
+        guard let user = Storage().fruitUser else { return [] }
+        do {
+            let snapShot = try await database.collection(Constants.FStore.DetailCollection.collectionName).document(user.id).collection(user.id).getDocuments()
+            snapShot.documents.forEach { documentSnapShot in
+                let data = documentSnapShot.data()
+                if let detailName = data[Constants.FStore.DetailCollection.nameField] as? String {
+                    detailNames.append(detailName)
+                }
+            }
+        } catch {
+            print(error)
+        }
+        return detailNames
+    }
+    
+    private func fetchOrder(detailName: String) async throws -> [FruitOrder] {
+        var tmp = [FruitOrder]()
+        guard let user = Storage().fruitUser else { return [] }
+        
+        do {
+            let snapShot = try await database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailName).getDocuments()
+            snapShot.documents.forEach { documentSnapShot in
+                let data = documentSnapShot.data()
+                do {
+                    let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
+                    tmp.append(fruitOrder)
+                    print(fruitOrder)
+                } catch {
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+        return tmp
+    }
+    //TODO: fruitOrder -> 비동기 처리 + 스냅샷 리스너 추가하기
+    
+    func fetchValidOrders() async throws -> [FruitOrder] {
+        var orders = [FruitOrder]()
+        do {
+            let detailNames = try await self.fetchNames()
+            for detailName in detailNames {
+                print(detailName)
+                let order = try await self.fetchOrder(detailName: detailName)
+                orders += order
+            }
+        } catch {
+            print(error)
+        }
+        return orders
     }
     
     private func fetchOrders() {
