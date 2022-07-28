@@ -20,7 +20,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let fruitMonthView: FruitMonthView = {
         let monthView = FruitMonthView()
-        monthView.translatesAutoresizingMaskIntoConstraints = false
         return monthView
     }()
     
@@ -195,4 +194,3 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
 }
-

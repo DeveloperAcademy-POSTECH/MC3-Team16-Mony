@@ -21,9 +21,10 @@ class FruitMonthCell: UITableViewCell {
     
     func setUI(model: MonthModel, orders: [FruitOrder]) {
         backgroundColor = .clear
+        isUserInteractionEnabled = true
         let fruitMonthView = FruitMonthView()
         fruitMonthView.setUI(model: model, orders: orders)
         let _ = subviews.map{ $0.removeFromSuperview() }
         insertSubview(fruitMonthView, at: 0)
-    }    
+    }
 }

@@ -36,6 +36,11 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         self.view = view
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     private func initOrderViewNavBar() {
         guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }

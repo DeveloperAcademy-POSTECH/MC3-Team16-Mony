@@ -13,6 +13,7 @@ class FruitMonthView: UIView {
     var fruitOrderWeek = [Int:[FruitOrder]]()
     var todayPosition: (Int, Int)?
     
+    
     let monthLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +30,6 @@ class FruitMonthView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented.")
@@ -71,7 +71,11 @@ class FruitMonthView: UIView {
         fruitMonthTableView.leadingAnchor.constraint(equalTo: monthLabel.leadingAnchor, constant: 7).isActive = true
         fruitMonthTableView.reloadData()
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print("TOUCHES")
+    }
 }
 
 extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
@@ -112,5 +116,9 @@ extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
         let footerView = UIView()
         footerView.backgroundColor = .clear
         return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("MONTHVIEWCELL")
     }
 }

@@ -77,8 +77,12 @@ extension FruitWeekCell: UICollectionViewDataSource {
         }
         if let todayPos = todayPos, todayPos == indexPath.item {
             cell.prepareToday(model: weekday[indexPath.item])
-
         }
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(weekday[indexPath.item])
     }
 }
