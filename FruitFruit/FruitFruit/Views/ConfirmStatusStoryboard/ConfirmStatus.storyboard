@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Confirm Status View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmStatusViewController" id="Y6W-OH-hqX" customClass="ConfirmStatusViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mH-dl-muE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-bi-6yO">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="44"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textAttributes key="titleTextAttributes">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        </textAttributes>
+                                        <items>
+                                            <navigationItem title="알림" id="Xhe-Pj-NC1">
+                                                <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="qD7-el-Wdx">
+                                                    <color key="tintColor" name="Fruitfruit_Orange1"/>
+                                                    <connections>
+                                                        <action selector="onNavigationBackButtonClicked:" destination="Y6W-OH-hqX" id="h39-dJ-74l"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLi-tN-6hA">
+                                        <rect key="frame" x="24" y="140" width="41.5" height="22"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.0800000000000001" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbf-bl-8m6">
+                                        <rect key="frame" x="24" y="170" width="41.5" height="26.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.29" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hth-E5-4C7">
+                                        <rect key="frame" x="254" y="110" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="Omq-M6-kOG"/>
+                                            <constraint firstAttribute="width" constant="160" id="cmA-Ra-wCj"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bgP-bi-6yO" firstAttribute="centerX" secondItem="7mH-dl-muE" secondAttribute="centerX" id="KO9-G5-DwK"/>
+                                    <constraint firstItem="Cbf-bl-8m6" firstAttribute="top" secondItem="WLi-tN-6hA" secondAttribute="bottom" constant="8" id="LgY-UM-IUN"/>
+                                    <constraint firstItem="bgP-bi-6yO" firstAttribute="top" secondItem="7mH-dl-muE" secondAttribute="top" constant="50" id="Rcb-8Q-Qkx"/>
+                                    <constraint firstAttribute="trailing" secondItem="hth-E5-4C7" secondAttribute="trailing" id="RxY-i6-nAv"/>
+                                    <constraint firstItem="WLi-tN-6hA" firstAttribute="leading" secondItem="7mH-dl-muE" secondAttribute="leading" constant="24" id="U6n-3h-ZCi"/>
+                                    <constraint firstItem="bgP-bi-6yO" firstAttribute="leading" secondItem="7mH-dl-muE" secondAttribute="leading" id="XL7-UC-Nnx"/>
+                                    <constraint firstItem="hth-E5-4C7" firstAttribute="top" secondItem="7mH-dl-muE" secondAttribute="top" constant="110" id="aNt-g6-gXG"/>
+                                    <constraint firstAttribute="trailing" secondItem="bgP-bi-6yO" secondAttribute="trailing" id="hqT-LU-7Yn"/>
+                                    <constraint firstItem="Cbf-bl-8m6" firstAttribute="leading" secondItem="7mH-dl-muE" secondAttribute="leading" constant="24" id="k0g-OR-gSg"/>
+                                    <constraint firstItem="WLi-tN-6hA" firstAttribute="top" secondItem="7mH-dl-muE" secondAttribute="top" constant="140" id="vei-zV-ghe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7mH-dl-muE" secondAttribute="bottom" id="Fj3-cS-V41"/>
+                            <constraint firstItem="7mH-dl-muE" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="L0A-M1-e3s"/>
+                            <constraint firstAttribute="trailing" secondItem="7mH-dl-muE" secondAttribute="trailing" id="gE6-Zq-D4r"/>
+                            <constraint firstItem="7mH-dl-muE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="liB-eG-hVv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="7mH-dl-muE" id="fke-xV-1by"/>
+                        <outlet property="navigationBar" destination="bgP-bi-6yO" id="vIE-BI-jqB"/>
+                        <outlet property="secondaryTitleLabel" destination="Cbf-bl-8m6" id="pIO-mn-Wji"/>
+                        <outlet property="statusImage" destination="hth-E5-4C7" id="gJP-Un-Lzg"/>
+                        <outlet property="titleLabel" destination="WLi-tN-6hA" id="jnj-zL-2sV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="91.741071428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <namedColor name="Fruitfruit_Orange1">
+            <color red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

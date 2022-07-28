@@ -1,0 +1,29 @@
+{
+  "images" : [
+    {
+<<<<<<< HEAD:FruitFruit/FruitFruit/Assets.xcassets/Fruitfruit_Images/Fruitfruit_Orange_Secondary.imageset/Contents.json
+      "filename" : "OrangePreview.png",
+      "idiom" : "universal"
+=======
+      "filename" : "Fruitfruit_Account.svg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+>>>>>>> ca33b30fc5ca3aaea2a8252bdedd1014782e7183:FruitFruit/FruitFruit/Assets.xcassets/Fruitfruit_Images/Fruitfruit_Others/Fruitfruit_Account.imageset/Contents.json
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

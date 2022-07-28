@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IhQ-Nq-710">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="PX8-Vx-0Ya">
+            <objects>
+                <navigationController id="IhQ-Nq-710" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o20-Ld-Ip7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="kH5-EI-AKt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7gb-Mc-Y0O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-619" y="92"/>
+        </scene>
         <!--Check Order View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="CheckOrderViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckOrderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CheckOrderViewController" customModule="FruitFruit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,22 +36,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-NN-9fU">
-                                <rect key="frame" x="0.0" y="50" width="414" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="주문하기" id="d54-IL-clG">
-                                        <barButtonItem key="leftBarButtonItem" title="BackButton" image="chevron.left" catalog="system" style="plain" id="Bur-y3-cPh">
-                                            <color key="tintColor" name="Fruitfruit_Orange1"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="ExitButton" image="xmark" catalog="system" id="9fh-FD-LI4">
-                                            <color key="tintColor" name="Fruitfruit_Orange1"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdu-33-Zhz">
-                                <rect key="frame" x="24" y="196" width="41.5" height="22"/>
+                                <rect key="frame" x="24" y="195" width="41.5" height="22"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
@@ -48,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox6-Th-Sog">
-                                <rect key="frame" x="24" y="248" width="41.5" height="27.5"/>
+                                <rect key="frame" x="24" y="247" width="41.5" height="27.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
@@ -61,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmd-oV-Rjw">
-                                <rect key="frame" x="36" y="640.5" width="342" height="58"/>
+                                <rect key="frame" x="36" y="639.5" width="342" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="7Gc-2w-7zo"/>
                                     <constraint firstAttribute="width" constant="342" id="UUt-XG-Y21"/>
@@ -70,7 +71,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="onCheckOrderButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wCy-EQ-Kgf"/>
+                                    <action selector="onOrderButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zur-dZ-ofi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -81,20 +82,20 @@
                             <constraint firstItem="jmd-oV-Rjw" firstAttribute="top" secondItem="Ox6-Th-Sog" secondAttribute="bottom" constant="365" id="5YR-F2-nB6"/>
                             <constraint firstItem="Ox6-Th-Sog" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="6uA-cY-Ux7"/>
                             <constraint firstItem="jmd-oV-Rjw" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="EsN-7K-jRx"/>
-                            <constraint firstItem="WnE-NN-9fU" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="50" id="Qed-H2-QcR"/>
                             <constraint firstItem="Ox6-Th-Sog" firstAttribute="top" secondItem="Fdu-33-Zhz" secondAttribute="bottom" constant="30" id="Yym-r9-cgg"/>
                             <constraint firstItem="eWQ-zW-czO" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="c4A-wv-PZK"/>
                             <constraint firstAttribute="trailing" secondItem="eWQ-zW-czO" secondAttribute="trailing" id="cje-rn-Zyo"/>
+                            <constraint firstItem="Fdu-33-Zhz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="195" id="dHr-zV-9cs"/>
                             <constraint firstItem="Fdu-33-Zhz" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="ofx-KE-8Lc"/>
-                            <constraint firstItem="Fdu-33-Zhz" firstAttribute="top" secondItem="WnE-NN-9fU" secondAttribute="bottom" constant="102" id="sCh-3Z-tVB"/>
                             <constraint firstItem="eWQ-zW-czO" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="xuX-Zq-8Z6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Jkd-cz-EWb"/>
                     <connections>
                         <outlet property="backgroundView" destination="eWQ-zW-czO" id="Mr2-ei-xyH"/>
-                        <outlet property="checkOrderButton" destination="jmd-oV-Rjw" id="ftr-pm-d1A"/>
-                        <outlet property="checkOrderSecondaryLabel" destination="Ox6-Th-Sog" id="GsK-0F-hUj"/>
-                        <outlet property="checkOrderTitleLabel" destination="Fdu-33-Zhz" id="f0S-BS-MPH"/>
+                        <outlet property="orderButton" destination="jmd-oV-Rjw" id="tWS-NP-Ufm"/>
+                        <outlet property="secondaryTitleLabel" destination="Ox6-Th-Sog" id="GsK-0F-hUj"/>
+                        <outlet property="titleLabel" destination="Fdu-33-Zhz" id="f0S-BS-MPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -103,11 +104,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
-        <namedColor name="Fruitfruit_Orange1">
-            <color red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
