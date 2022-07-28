@@ -257,6 +257,7 @@
                         <outlet property="LocationView" destination="0hA-Yr-Ld0" id="8rN-MY-NlX"/>
                         <outlet property="TimeView" destination="pS5-Tu-yU3" id="otQ-P3-lwE"/>
                         <outlet property="checkOrderButton" destination="YQv-Ne-rX7" id="Pcb-om-CXx"/>
+                        <outlet property="fruitImage" destination="lls-Zn-JJW" id="n5l-BN-Sv1"/>
                         <outlet property="fruitNameLabel" destination="Qpg-9v-pdH" id="Kbk-Es-sFS"/>
                         <outlet property="fruitOriginLabel" destination="uaG-ZI-EGD" id="lQb-CI-HTX"/>
                         <outlet property="fruitOriginSublabel" destination="sTO-vd-GC6" id="d5k-cu-zc7"/>

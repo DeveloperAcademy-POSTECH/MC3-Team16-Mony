@@ -9,6 +9,7 @@ import UIKit
 
 class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     var fruitSaleInfo: FruitSaleInfo?
+    @IBOutlet weak var fruitImage: UIImageView!
     @IBOutlet weak var fruitOriginLabel: UILabel!
     @IBOutlet weak var fruitNameLabel: UILabel!
     @IBOutlet weak var fruitOriginSublabel: UILabel!
@@ -56,12 +57,21 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     //TODO: 4. 과일 이미지 따오기
     private func setUI() {
         guard let fruitSaleInfo = fruitSaleInfo else { return }
+        let fruitType = fruitSaleInfo.fruitName.getFruitType
+        let fruitColorName = fruitType.fruitColorName
+        guard let fruitColor = UIColor(named: fruitColorName) else { return }
+        let fruitImageName = fruitType.fruitImageName
+        guard let image = UIImage(named: fruitImageName) else { return }
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        
         fruitOriginLabel.text = "\(fruitSaleInfo.fruitOrigin)에서 태어난"
+        fruitOriginLabel.textColor = blackColor
         fruitNameLabel.text = fruitSaleInfo.fruitName
         fruitOriginSublabel.text = fruitSaleInfo.fruitOrigin
         shopNameLabel.text = fruitSaleInfo.shopName
         shopNameLabel.numberOfLines = 0
         placeLabel.text = fruitSaleInfo.place
+        fruitImage.image = image
         var hour = fruitSaleInfo.time
         
         if hour > 12 {
