@@ -61,10 +61,9 @@
 		D26F029428901EE200BDA9F2 /* FruitWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F029328901EE200BDA9F2 /* FruitWeekCell.swift */; };
 		D26F02982890230E00BDA9F2 /* FruitMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F02972890230E00BDA9F2 /* FruitMonthView.swift */; };
 		D26F029A28910A2300BDA9F2 /* FruitMonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F029928910A2300BDA9F2 /* FruitMonthCell.swift */; };
-		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
-		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
 		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
 		D2DF56DE288E42900064B9A1 /* FruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF56DD288E42900064B9A1 /* FruitType.swift */; };
+		D2E69B1E28920C1F00812062 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D2E69B1D28920C1F00812062 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +131,7 @@
 			files = (
 				526189532890BA360059BFB0 /* FirebaseAuth in Frameworks */,
 				526189552890BA3A0059BFB0 /* FirebaseFirestore in Frameworks */,
+				D2E69B1E28920C1F00812062 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +346,7 @@
 			packageProductDependencies = (
 				526189522890BA360059BFB0 /* FirebaseAuth */,
 				526189542890BA3A0059BFB0 /* FirebaseFirestore */,
+				D2E69B1D28920C1F00812062 /* Lottie */,
 			);
 			productName = FruitFruit;
 			productReference = 52D0534A287BAF9000FF87DD /* FruitFruit.app */;
@@ -378,6 +379,7 @@
 			packageReferences = (
 				526189502890B9570059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				526189512890B9AE0059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D2E69B1C28920C1F00812062 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 52D0534B287BAF9000FF87DD /* Products */;
 			projectDirPath = "";
@@ -689,6 +691,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		D2E69B1C28920C1F00812062 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -701,6 +711,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 526189502890B9570059BFB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		D2E69B1D28920C1F00812062 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2E69B1C28920C1F00812062 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
