@@ -116,7 +116,7 @@
                                 <rect key="frame" x="173" y="529" width="45" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="매입일자">
+                                    <fragment content="구매가게">
                                         <attributes>
                                             <color key="NSColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="13" name="AppleSDGothicNeo-SemiBold"/>
@@ -126,21 +126,21 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gda-8y-rz4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gda-8y-rz4">
                                 <rect key="frame" x="174" y="554" width="43.333333333333343" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="11">
                                         <attributes>
                                             <font key="NSFont" size="17" name="SFProText-Semibold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="시">
                                         <attributes>
                                             <font key="NSFont" size="17" name="AppleSDGothicNeo-SemiBold"/>
                                             <font key="NSOriginalFont" size="17" name="SFProText-Semibold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -269,6 +269,13 @@
                         <outlet property="LocationView" destination="0hA-Yr-Ld0" id="8rN-MY-NlX"/>
                         <outlet property="TimeView" destination="pS5-Tu-yU3" id="otQ-P3-lwE"/>
                         <outlet property="checkOrderButton" destination="YQv-Ne-rX7" id="Pcb-om-CXx"/>
+                        <outlet property="fruitNameLabel" destination="Qpg-9v-pdH" id="Kbk-Es-sFS"/>
+                        <outlet property="fruitOriginLabel" destination="uaG-ZI-EGD" id="lQb-CI-HTX"/>
+                        <outlet property="fruitOriginSublabel" destination="sTO-vd-GC6" id="d5k-cu-zc7"/>
+                        <outlet property="placeLabel" destination="hyn-SP-REi" id="YSL-aH-ChH"/>
+                        <outlet property="priceLabel" destination="vgR-P7-Nbd" id="cPq-E6-R4L"/>
+                        <outlet property="shopNameLabel" destination="Gda-8y-rz4" id="kSn-Qd-nNE"/>
+                        <outlet property="timeLabel" destination="kHE-lg-4cg" id="npL-SO-8m0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

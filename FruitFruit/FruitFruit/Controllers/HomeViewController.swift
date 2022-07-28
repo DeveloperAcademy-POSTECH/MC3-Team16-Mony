@@ -313,6 +313,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "OrderView", bundle: nil)
         guard let orderVC = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as? OrderViewController else { return }
+        orderVC.fruitSaleInfo = fruitSaleInfos[indexPath.section]
         let homeVC = self.navigationController
         homeVC?.pushViewController(orderVC, animated: true)
         print(fruitSaleInfos[indexPath.section])
