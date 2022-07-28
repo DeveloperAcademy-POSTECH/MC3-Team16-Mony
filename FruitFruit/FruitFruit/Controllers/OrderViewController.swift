@@ -87,7 +87,9 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
         checkOrderButton.setTitle("주문하기", for: .normal)
-        checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
+        DispatchQueue.main.async {
+            self.checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+        }
         checkOrderButton.layer.cornerRadius = 16
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor

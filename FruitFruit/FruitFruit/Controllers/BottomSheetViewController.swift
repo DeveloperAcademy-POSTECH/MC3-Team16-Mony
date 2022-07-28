@@ -42,6 +42,7 @@ class BottomSheetViewController: UIViewController {
     private let bottomSheetView: UIView = {
             let view = UIView()
             view.backgroundColor = .white
+        
             view.layer.cornerRadius = 40
             view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             view.clipsToBounds = true
@@ -80,11 +81,12 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 142).isActive = true
         checkOrderButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 24).isActive = true
         checkOrderButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -24).isActive = true
-        checkOrderButton.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -40).isActive = true
+        checkOrderButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
+//        checkOrderButton.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -40).isActive = true
         checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.setTitle(costcountCheckText(), for: .normal)
-        checkOrderButton.backgroundColor = .white
+        checkOrderButton.backgroundColor = .clear
         checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         checkOrderButton.layer.cornerRadius = 16
         checkOrderButton.layer.borderWidth = 1
