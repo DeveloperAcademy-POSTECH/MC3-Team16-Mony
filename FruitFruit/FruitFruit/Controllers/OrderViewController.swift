@@ -35,9 +35,9 @@ class OrderViewController: UIViewController {
     }
     
     //TODO: 1. 폰트 사이즈
-    //TODO: 2. 텍스트 컬러
+    //TODO: 2. 과일 종류에 따라서 텍스트 컬러 주기
     //TODO: 3. 정렬
-    //TODO: 4. 네비게이션 바 커스텀하기
+    //TODO: 4. 과일 이미지 따오기
     private func setUI() {
         guard let fruitSaleInfo = fruitSaleInfo else { return }
         fruitOriginLabel.text = "\(fruitSaleInfo.fruitOrigin)에서 태어난"
@@ -60,6 +60,7 @@ class OrderViewController: UIViewController {
     @objc func checkOrderButtonTapped() {
         let BottomSheetVC = BottomSheetViewController()
         BottomSheetVC.modalPresentationStyle = .overFullScreen
+        BottomSheetVC.fruitSaleInfo = fruitSaleInfo
         self.present(BottomSheetVC, animated: false, completion: nil)
     }
     
