@@ -12,7 +12,7 @@ class BottomSheetViewController: UIViewController {
 //    @IBOutlet var lbl: UILabel!
     var defaultHeight: CGFloat = 250
     var fruitSaleInfo: FruitSaleInfo?
-    var Number = 1
+    var number = 1
     let lblNumber: UILabel = {
        var lblNumber = UILabel()
         lblNumber.translatesAutoresizingMaskIntoConstraints = false
@@ -127,12 +127,13 @@ class BottomSheetViewController: UIViewController {
 
     
     private func setCount() -> String {
-        let count = String(Number) + "개"
+        let count = String(number) + "개"
         return count
     }
     private func setCost() -> String {
-        let cost = "900원 "
-        return cost
+        guard let fruitSaleInfo = fruitSaleInfo else { return "" }
+        
+        return "\(number * fruitSaleInfo.price)원 "
     }
     private func costcountCheckText() -> String {
         return setCost() + setCount() + " 주문하기"
@@ -147,17 +148,19 @@ class BottomSheetViewController: UIViewController {
       }
     @objc
     func onTapPlus() {
-        Number += 1
+        number += 1
         lblNumber.text = setCount()
+        checkOrderButton.setTitle(costcountCheckText(), for: .normal)
     }
     
     @objc
     func onTapMinus() {
-        if Number - 1 <= 0 {
+        if number - 1 <= 0 {
             return
     }
-        Number -= 1
+        number -= 1
         lblNumber.text = setCount()
+        checkOrderButton.setTitle(costcountCheckText(), for: .normal)
     }
     
     @objc
