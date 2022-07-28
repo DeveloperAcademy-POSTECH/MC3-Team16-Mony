@@ -316,8 +316,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         orderVC.fruitSaleInfo = fruitSaleInfos[indexPath.section]
         let homeVC = self.navigationController
         homeVC?.pushViewController(orderVC, animated: true)
-        print(fruitSaleInfos[indexPath.section])
-        //TODO: FruitOrderView로 navigation prepare
+        homeVC?.isNavigationBarHidden = false
     }
 }
 

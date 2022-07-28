@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrderViewController: UIViewController {
+class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     var fruitSaleInfo: FruitSaleInfo?
     @IBOutlet weak var fruitOriginLabel: UILabel!
     @IBOutlet weak var fruitNameLabel: UILabel!
@@ -22,6 +22,7 @@ class OrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initOrderViewNavBar()
         setUI()
         setCheckOrderButtonUI()
         setLocationViewUI()
@@ -32,6 +33,21 @@ class OrderViewController: UIViewController {
         view.addSubview(checkOrderButton)
         checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
         self.view = view
+    }
+    
+    private func initOrderViewNavBar() {
+        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        let backButtonImage = UIImage(systemName: "chevron.left")?.withTintColor(orangeColor, renderingMode: .alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .done, target: self, action: #selector(popToPrevious))
+        navigationItem.title = "자세히보기"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .bold)]
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
+    @objc private func popToPrevious() {
+        navigationController?.popViewController(animated: true)
     }
     
     //TODO: 1. 폰트 사이즈
