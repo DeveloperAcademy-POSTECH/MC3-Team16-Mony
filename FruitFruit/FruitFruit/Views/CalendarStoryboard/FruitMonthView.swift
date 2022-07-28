@@ -90,11 +90,7 @@ extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
         if let position = todayPosition {
             let weekPos = position.0
             let dayPos = position.1
-            if indexPath.section == weekPos {
-                cell.setUI(model: month[indexPath.section], orders: fruitOrders, todayPos: dayPos)
-            } else {
-                cell.setUI(model: month[indexPath.section], orders: fruitOrders, todayPos: nil)
-            }
+            cell.setUI(model: month[indexPath.section], orders: fruitOrders, todayPos: indexPath.section == weekPos ? dayPos : nil)
         } else {
             cell.setUI(model: month[indexPath.section], orders: fruitOrders, todayPos: nil)
         }

@@ -75,10 +75,9 @@ extension FruitWeekCell: UICollectionViewDataSource {
         } else {
             cell.prepare(model: weekday[indexPath.item])
         }
-        if let todayPos = todayPos {
-            if todayPos == indexPath.item {
-                cell.prepareToday(model: weekday[indexPath.item])
-            }
+        if let todayPos = todayPos, todayPos == indexPath.item {
+            cell.prepareToday(model: weekday[indexPath.item])
+
         }
         return cell
     }

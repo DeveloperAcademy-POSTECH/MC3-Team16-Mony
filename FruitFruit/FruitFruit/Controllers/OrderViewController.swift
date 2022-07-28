@@ -8,13 +8,21 @@
 import UIKit
 
 class OrderViewController: UIViewController {
+    var fruitSaleInfo: FruitSaleInfo?
+    @IBOutlet weak var fruitOriginLabel: UILabel!
+    @IBOutlet weak var fruitNameLabel: UILabel!
+    @IBOutlet weak var fruitOriginSublabel: UILabel!
+    @IBOutlet weak var shopNameLabel: UILabel!
+    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet var checkOrderButton: UIButton!
     @IBOutlet var TimeView: UIView!
     @IBOutlet var LocationView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUI()
         setCheckOrderButtonUI()
         setLocationViewUI()
         setTimeViewUI()
@@ -25,6 +33,26 @@ class OrderViewController: UIViewController {
         checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
         self.view = view
     }
+    
+    private func setUI() {
+        guard let fruitSaleInfo = fruitSaleInfo else { return }
+        fruitOriginLabel.text = "\(fruitSaleInfo.fruitOrigin)에서 태어난"
+        fruitNameLabel.text = fruitSaleInfo.fruitName
+        fruitOriginSublabel.text = fruitSaleInfo.fruitOrigin
+        shopNameLabel.text = fruitSaleInfo.shopName
+        shopNameLabel.numberOfLines = 0
+        placeLabel.text = fruitSaleInfo.place
+        var hour = fruitSaleInfo.time
+        
+        if hour > 12 {
+            hour = hour - 12
+            timeLabel.text = "오후 " + String(hour) + "시 "
+        } else {
+            timeLabel.text = "오전 " + String(hour) + "시 "
+        }
+        
+    }
+    
     @objc func checkOrderButtonTapped() {
         let BottomSheetVC = BottomSheetViewController()
         BottomSheetVC.modalPresentationStyle = .overFullScreen
