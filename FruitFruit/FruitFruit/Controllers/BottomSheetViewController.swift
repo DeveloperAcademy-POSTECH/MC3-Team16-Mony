@@ -78,7 +78,7 @@ class BottomSheetViewController: UIViewController {
         btnMinus.addTarget(self, action: #selector(onTapMinus), for: .touchUpInside)
         
         self.view.addSubview(checkOrderButton)
-        checkOrderButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 142).isActive = true
+        checkOrderButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 152).isActive = true
         checkOrderButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 24).isActive = true
         checkOrderButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -24).isActive = true
         checkOrderButton.heightAnchor.constraint(equalToConstant: 58).isActive = true

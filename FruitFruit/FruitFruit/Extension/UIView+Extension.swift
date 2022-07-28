@@ -23,6 +23,8 @@ extension UIView {
         graident.endPoint = CGPoint(x: 0.75, y: 0.5)
         return graident
     }
+    
+    
     // How to use
     // 1. let gradient = button.applyButtonGraident(colors: [yourColor])
     // 2. button.layer.insertSublayer(graident, at: 0)

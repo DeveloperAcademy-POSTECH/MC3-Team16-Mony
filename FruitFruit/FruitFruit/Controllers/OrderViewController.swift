@@ -88,6 +88,12 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
             timeLabel.text = "오전 " + String(hour) + "시 "
         }
         
+        checkOrderButton.translatesAutoresizingMaskIntoConstraints = false
+        checkOrderButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 746).isActive = true
+        checkOrderButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        checkOrderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        checkOrderButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
+        checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
     }
     
     @objc func checkOrderButtonTapped() {
@@ -97,9 +103,6 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         self.present(BottomSheetVC, animated: false, completion: nil)
     }
     
-
-    //checkOrderButton.titleLabel.text = "2400원 3개 구매"
-
     private func setCheckOrderButtonUI() {
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
