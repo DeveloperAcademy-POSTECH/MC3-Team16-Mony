@@ -103,20 +103,16 @@ class BottomSheetViewController: UIViewController {
     
     @objc private func buttonTapGesture() {
         if let user = Storage().fruitUser {
-//            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
-//            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
-//            let orderViewNavController = presentingViewController as? UINavigationController
-//            dismiss(animated: false, completion: {
-//                guard let fruitSaleInfo = self.fruitSaleInfo else { return }
-//                guard let user = Storage().fruitUser else { return }
-//                let fruitOrder = FruitOrder(name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.Number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
-//                checkOrderVC.fruitOrder = fruitOrder
-//                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
-//            })
-            let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
-            guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
-            initVC.modalPresentationStyle = .formSheet
-            self.present(initVC, animated: true, completion: nil)
+            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
+            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
+            let orderViewNavController = presentingViewController as? UINavigationController
+            dismiss(animated: false, completion: {
+                guard let fruitSaleInfo = self.fruitSaleInfo else { return }
+                guard let user = Storage().fruitUser else { return }
+                let fruitOrder = FruitOrder(name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
+                checkOrderVC.fruitOrder = fruitOrder
+                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
+            })
         } else {
             let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
             guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
@@ -206,6 +202,11 @@ class BottomSheetViewController: UIViewController {
             self.view.layoutIfNeeded()
         }) { _ in
             if self.presentingViewController != nil {
+                let presetingVC = self.presentingViewController as! UINavigationController
+                let orderView = presetingVC.topViewController as! OrderViewController
+                DispatchQueue.main.async {
+                    orderView.checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
+                }
                 self.dismiss(animated: false, completion: nil)
             }
         }

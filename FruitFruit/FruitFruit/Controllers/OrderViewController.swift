@@ -56,6 +56,12 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     //TODO: 3. 정렬
     //TODO: 4. 과일 이미지 따오기
     private func setUI() {
+        
+        //fruitNameLabel 오토 레이아웃
+        fruitNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        fruitNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 425).isActive = true
+        fruitNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         guard let fruitSaleInfo = fruitSaleInfo else { return }
         let fruitType = fruitSaleInfo.fruitName.getFruitType
         let fruitColorName = fruitType.fruitColorName
@@ -67,6 +73,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitOriginLabel.text = "\(fruitSaleInfo.fruitOrigin)에서 태어난"
         fruitOriginLabel.textColor = blackColor
         fruitNameLabel.text = fruitSaleInfo.fruitName
+        fruitNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         fruitOriginSublabel.text = fruitSaleInfo.fruitOrigin
         shopNameLabel.text = fruitSaleInfo.shopName
         shopNameLabel.numberOfLines = 0

@@ -34,7 +34,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         initCalendarViewNavBar()
         self.playLottie()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.initCalendarViewUI()
         }
     }

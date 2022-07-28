@@ -91,6 +91,7 @@ extension CheckOrderViewController {
         let share: String
         let remainder: String
         let result: String
+        //TODO: 2000원 -> 2,0원, 3000원 -> 3,0원으로 표시되는 이슈가 있습니다!
         
         if cost >= 1000 {
             share = String(cost / 1000)
