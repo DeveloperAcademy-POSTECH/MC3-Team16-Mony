@@ -34,6 +34,10 @@ class OrderViewController: UIViewController {
         self.view = view
     }
     
+    //TODO: 1. 폰트 사이즈
+    //TODO: 2. 텍스트 컬러
+    //TODO: 3. 정렬
+    //TODO: 4. 네비게이션 바 커스텀하기
     private func setUI() {
         guard let fruitSaleInfo = fruitSaleInfo else { return }
         fruitOriginLabel.text = "\(fruitSaleInfo.fruitOrigin)에서 태어난"

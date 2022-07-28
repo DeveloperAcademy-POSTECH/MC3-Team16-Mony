@@ -265,6 +265,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7JT-ak-Us6"/>
                     <connections>
                         <outlet property="LocationView" destination="0hA-Yr-Ld0" id="8rN-MY-NlX"/>
                         <outlet property="TimeView" destination="pS5-Tu-yU3" id="otQ-P3-lwE"/>
@@ -280,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27.69230769230769" y="83.175355450236964"/>
+            <point key="canvasLocation" x="956.92307692307691" y="83.175355450236964"/>
         </scene>
     </scenes>
     <resources>

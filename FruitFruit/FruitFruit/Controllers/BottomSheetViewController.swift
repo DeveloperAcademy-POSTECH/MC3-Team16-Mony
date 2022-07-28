@@ -100,7 +100,12 @@ class BottomSheetViewController: UIViewController {
     
     @objc private func buttonTapGesture() {
         if let user = Storage().fruitUser {
-            print("NEXT CHECK")
+            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
+            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
+            let orderViewNavController = presentingViewController as? UINavigationController
+            dismiss(animated: false, completion: {
+                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
+            })
         } else {
             let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
             guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
