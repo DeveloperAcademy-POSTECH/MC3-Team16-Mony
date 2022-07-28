@@ -48,6 +48,10 @@ class BottomSheetViewController: UIViewController {
             }()
     private var bottomSheetViewTopConstraint: NSLayoutConstraint!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showBottomSheet()
+    }
     
     private func setupUI() {
         view.addSubview(dimmedView)
@@ -85,8 +89,28 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
-        checkOrderButton.addTarget(self, action: #selector(onTapOrder), for: .touchUpInside)
+//        checkOrderButton.addTarget(self, action: #selector(onTapOrder), for: .touchUpInside)
+        initCheckOrderButton()
     }
+    
+    private func initCheckOrderButton() {
+        checkOrderButton.isUserInteractionEnabled = true
+        checkOrderButton.addTarget(self, action: #selector(buttonTapGesture), for: .touchUpInside)
+    }
+    
+    @objc private func buttonTapGesture() {
+        if let user = Storage().fruitUser {
+            print("NEXT CHECK")
+        } else {
+            let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
+            guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
+            initVC.modalPresentationStyle = .overFullScreen
+            self.present(initVC, animated: true, completion: nil)
+            
+        }
+    }
+
+    
     private func setCount() -> String {
         let count = String(Number) + "개"
         return count
@@ -126,10 +150,6 @@ class BottomSheetViewController: UIViewController {
         print("맛있는 과일 사기 was tapped.")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showBottomSheet()
-    }
     private func setupLayout() {
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -175,4 +195,6 @@ class BottomSheetViewController: UIViewController {
     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
         hideBottomSheetAndGoBack()
     }
+    
+    
 }
