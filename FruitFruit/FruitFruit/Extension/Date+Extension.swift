@@ -56,7 +56,7 @@ extension Date {
         let endYear = endDateComponent.year!
                 
         var tempDate = from
-        while startMonth < endMonth && startYear <= endYear {
+        while (startYear < endYear) || ((startYear == endYear) && startMonth < endMonth) {
             tempDate = calendar.date(byAdding: .month, value: 1, to: tempDate)!
             let tempMonthModel = MonthModel(date: tempDate)
             months.append(tempMonthModel)
