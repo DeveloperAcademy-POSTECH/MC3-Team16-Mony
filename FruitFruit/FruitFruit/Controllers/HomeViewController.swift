@@ -91,7 +91,7 @@ class HomeViewController: UIViewController {
     private func fetchOrders() {
         //TODO: 유효한 주문 -> 연산 프로퍼티로 체크하기
         if let user = Storage().fruitUser {
-            let detailCollectionName = "\(user.name) \(user.nickname)"
+            let detailCollectionName = "\(user.name) + \(user.nickname)"
             database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitOrders = []
                 if let error = error {
@@ -316,8 +316,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         orderVC.fruitSaleInfo = fruitSaleInfos[indexPath.section]
         let homeVC = self.navigationController
         homeVC?.pushViewController(orderVC, animated: true)
-        print(fruitSaleInfos[indexPath.section])
-        //TODO: FruitOrderView로 navigation prepare
+        homeVC?.isNavigationBarHidden = false
     }
 }
 

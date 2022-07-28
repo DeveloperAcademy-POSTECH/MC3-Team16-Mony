@@ -158,6 +158,7 @@ extension CheckOrderViewController {
         let storyboard = UIStoryboard(name: "OrderResult", bundle: nil)
         let orderResultVC = storyboard.instantiateViewController(withIdentifier: "OrderResultViewController") as! OrderResultViewController
         let initVC = self.navigationController
+        orderResultVC.fruitOrder = fruitOrder
         initVC?.pushViewController(orderResultVC, animated: true)
         initVC?.isNavigationBarHidden = true
     }

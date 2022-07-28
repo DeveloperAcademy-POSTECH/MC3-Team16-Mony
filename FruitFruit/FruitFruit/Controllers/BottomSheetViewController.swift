@@ -9,6 +9,7 @@ import UIKit
 
 class BottomSheetViewController: UIViewController {
     var defaultHeight: CGFloat = 250
+    var fruitSaleInfo: FruitSaleInfo?
     var Number = 1
     let lblNumber: UILabel = {
        var lblNumber = UILabel()
@@ -98,7 +99,16 @@ class BottomSheetViewController: UIViewController {
     
     @objc private func buttonTapGesture() {
         if let user = Storage().fruitUser {
-            print("NEXT CHECK")
+            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
+            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
+            let orderViewNavController = presentingViewController as? UINavigationController
+            dismiss(animated: false, completion: {
+                guard let fruitSaleInfo = self.fruitSaleInfo else { return }
+                guard let user = Storage().fruitUser else { return }
+                let fruitOrder = FruitOrder(name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.Number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
+                checkOrderVC.fruitOrder = fruitOrder
+                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
+            })
         } else {
             let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
             guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
