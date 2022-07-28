@@ -12,11 +12,11 @@ import Lottie
 //TODO: 로딩 시간 -> 로티 넣기
 
 class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
-    var fruitArrivedOrders = [FruitOrder]()
-    var validModels = [MonthModel]()
-    var validOrders = [Int : [FruitOrder]]()
-    let database = Firestore.firestore()
-    let animationView = AnimationView()
+    private var fruitArrivedOrders = [FruitOrder]()
+    private var validModels = [MonthModel]()
+    private var validOrders = [Int : [FruitOrder]]()
+    private let database = Firestore.firestore()
+    private let animationView = AnimationView()
     
     let fruitMonthView: FruitMonthView = {
         let monthView = FruitMonthView()
@@ -151,7 +151,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         let background = UILabel()
         background.frame = CGRect(x: 0, y: 0, width: 390, height: 844)
         background.backgroundColor = .white
-//        background.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         background.tag = 0
         view.addSubview(background)
         

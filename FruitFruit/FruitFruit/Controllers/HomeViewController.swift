@@ -131,7 +131,7 @@ class HomeViewController: UIViewController {
     private func fetchInfos() {
         //TODO: 날짜, 시간 맞춰서 뷰에 보이는 주문 가능 과일 버튼 표시하기
         //TODO: 판매 유효한 과일 -> 날짜순서대로 고르기
-        if let user = Storage().fruitUser {
+//        if let user = Storage().fruitUser {
             database.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
                 self.fruitSaleInfos.removeAll()
                 if let error = error {
@@ -156,7 +156,7 @@ class HomeViewController: UIViewController {
                     }
                 }
             }
-        }
+//        }
     }
     
     private func initHomeViewUI() {
@@ -311,6 +311,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "OrderView", bundle: nil)
+        guard let orderVC = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as? OrderViewController else { return }
+        let homeVC = self.navigationController
+        homeVC?.pushViewController(orderVC, animated: true)
         print(fruitSaleInfos[indexPath.section])
         //TODO: FruitOrderView로 navigation prepare
     }
