@@ -13,10 +13,13 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var fruitOriginLabel: UILabel!
     @IBOutlet weak var fruitNameLabel: UILabel!
     @IBOutlet weak var fruitOriginSublabel: UILabel!
+    @IBOutlet weak var fruitOriginTitlelabel: UILabel!
     @IBOutlet weak var shopNameLabel: UILabel!
+    @IBOutlet weak var shopNameTitlelabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var priceTitlelabel: UILabel!
     @IBOutlet var checkOrderButton: UIButton!
     @IBOutlet var TimeView: UIView!
     @IBOutlet var LocationView: UIView!
@@ -61,12 +64,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     //TODO: 3. 정렬
     //TODO: 4. 과일 이미지 따오기
     private func setUI() {
-        
-        //fruitNameLabel 오토 레이아웃
-        fruitNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        fruitNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 425).isActive = true
-        fruitNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
+                
         guard let fruitSaleInfo = fruitSaleInfo else { return }
         let fruitType = fruitSaleInfo.fruitName.getFruitType
         let fruitColorName = fruitType.fruitColorName
@@ -76,14 +74,58 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
         
         fruitOriginLabel.text = "\(fruitSaleInfo.fruitOrigin)에서 태어난"
-        fruitOriginLabel.textColor = blackColor
+        fruitOriginLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+        fruitOriginLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
+        fruitOriginLabel.translatesAutoresizingMaskIntoConstraints = false
+        fruitOriginLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 395).isActive = true
+        
+
         fruitNameLabel.text = fruitSaleInfo.fruitName
         fruitNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
+        fruitNameLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        fruitOriginTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        fruitOriginTitlelabel.translatesAutoresizingMaskIntoConstraints = false
+        fruitOriginTitlelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 510).isActive = true
+//        fruitOriginTitlelabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 56).isActive = true
+        
+        let thirdFirst = view.bounds.width / 4
+        fruitOriginTitlelabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: thirdFirst / 2).isActive = true
+        
         fruitOriginSublabel.text = fruitSaleInfo.fruitOrigin
+        fruitOriginSublabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        fruitOriginSublabel.translatesAutoresizingMaskIntoConstraints = false
+        fruitOriginSublabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 535).isActive = true
+        fruitOriginSublabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: thirdFirst / 2).isActive = true
+        
+        shopNameTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        shopNameTitlelabel.numberOfLines = 0
+        shopNameTitlelabel.translatesAutoresizingMaskIntoConstraints = false
+        shopNameTitlelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 510).isActive = true
+        
         shopNameLabel.text = fruitSaleInfo.shopName
         shopNameLabel.numberOfLines = 0
+        shopNameLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        shopNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        shopNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 535).isActive = true
+
+        priceTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        priceTitlelabel.numberOfLines = 0
+        priceTitlelabel.translatesAutoresizingMaskIntoConstraints = false
+        priceTitlelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 510).isActive = true
+        priceTitlelabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -56).isActive = true
+        
+        priceLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        priceLabel.numberOfLines = 0
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 535).isActive = true
+        priceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -56).isActive = true
+        
+        
         placeLabel.text = fruitSaleInfo.place
+        
         fruitImage.image = image
+        
         var hour = fruitSaleInfo.time
         
         if hour > 12 {
