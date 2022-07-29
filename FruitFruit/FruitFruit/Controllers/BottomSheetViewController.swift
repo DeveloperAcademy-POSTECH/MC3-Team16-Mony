@@ -80,7 +80,6 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 24).isActive = true
         checkOrderButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -24).isActive = true
         checkOrderButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
-//        checkOrderButton.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -40).isActive = true
         checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.setTitle(costcountCheckText(), for: .normal)
@@ -90,7 +89,6 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
-//        checkOrderButton.addTarget(self, action: #selector(onTapOrder), for: .touchUpInside)
         initCheckOrderButton()
     }
     
@@ -101,20 +99,16 @@ class BottomSheetViewController: UIViewController {
     
     @objc private func buttonTapGesture() {
         if let user = Storage().fruitUser {
-//            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
-//            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
-//            let orderViewNavController = presentingViewController as? UINavigationController
-//            dismiss(animated: false, completion: {
-//                guard let fruitSaleInfo = self.fruitSaleInfo else { return }
-//                guard let user = Storage().fruitUser else { return }
-//                let fruitOrder = FruitOrder(saleFruitId: fruitSaleInfo.fruitSaleId, name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
-//                checkOrderVC.fruitOrder = fruitOrder
-//                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
-//            })
-            let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
-            guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
-            initVC.modalPresentationStyle = .pageSheet
-            self.present(initVC, animated: true, completion: nil)
+            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
+            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
+            let orderViewNavController = presentingViewController as? UINavigationController
+            dismiss(animated: false, completion: {
+                guard let fruitSaleInfo = self.fruitSaleInfo else { return }
+                guard let user = Storage().fruitUser else { return }
+                let fruitOrder = FruitOrder(saleFruitId: fruitSaleInfo.fruitSaleId, name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
+                checkOrderVC.fruitOrder = fruitOrder
+                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
+            })
         } else {
             let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
             guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
