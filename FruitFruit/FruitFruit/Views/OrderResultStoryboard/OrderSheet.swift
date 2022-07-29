@@ -153,18 +153,11 @@ extension OrderSheet {
     }
     
     private func setTotalPriceToString(price: Int) -> String {
-        let share: String
-        let remainder: String
         let result: String
+        let numberFormatter = NumberFormatter()
         
-        if price >= 1000 {
-            share = String(price / 1000)
-            remainder = String(price % 1000)
-            result = share + "," + remainder
-        } else {
-            result = String(price)
-        }
-        
+        numberFormatter.numberStyle = .decimal
+        result = numberFormatter.string(from: NSNumber(value: price))!
         return result + "원"
     }
     
