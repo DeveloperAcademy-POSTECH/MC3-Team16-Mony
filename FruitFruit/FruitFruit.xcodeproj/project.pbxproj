@@ -53,6 +53,11 @@
 		52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D05356287BAF9100FF87DD /* Assets.xcassets */; };
 		52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */; };
 		52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */; };
+		6305D180288F693F00EB25C0 /* OrderViewModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */; };
+		6305D184288FE94100EB25C0 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305D183288FE94100EB25C0 /* BottomSheetViewController.swift */; };
+		6305D188288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */; };
+		6341892D28869CC7005E0C2C /* OrderView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6341892C28869CC7005E0C2C /* OrderView.storyboard */; };
+		6341893228869D58005E0C2C /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341893128869D58005E0C2C /* OrderViewController.swift */; };
 		D213CFC4288EAA930038F6E4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFC3288EAA930038F6E4 /* SettingViewController.swift */; };
 		D213CFC6288EAAFC0038F6E4 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D213CFC5288EAAFC0038F6E4 /* Setting.storyboard */; };
 		D213CFC8288EC4F90038F6E4 /* FruitSettingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */; };
@@ -63,8 +68,6 @@
 		D26F029428901EE200BDA9F2 /* FruitWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F029328901EE200BDA9F2 /* FruitWeekCell.swift */; };
 		D26F02982890230E00BDA9F2 /* FruitMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F02972890230E00BDA9F2 /* FruitMonthView.swift */; };
 		D26F029A28910A2300BDA9F2 /* FruitMonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F029928910A2300BDA9F2 /* FruitMonthCell.swift */; };
-		D2C81583288A54B7001AD894 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81582288A54B7001AD894 /* FirebaseFirestore */; };
-		D2C81585288A54B7001AD894 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2C81584288A54B7001AD894 /* FirebaseFirestoreSwift */; };
 		D2C81587288A717E001AD894 /* FruitStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C81586288A717E001AD894 /* FruitStatusCell.swift */; };
 		D2DF56DE288E42900064B9A1 /* FruitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF56DD288E42900064B9A1 /* FruitType.swift */; };
 /* End PBXBuildFile section */
@@ -114,6 +117,11 @@
 		52D05359287BAF9100FF87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52D0535B287BAF9100FF87DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
+		6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderViewModal.storyboard; sourceTree = "<group>"; };
+		6305D183288FE94100EB25C0 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheetViewStoryboard.storyboard; sourceTree = "<group>"; };
+		6341892C28869CC7005E0C2C /* OrderView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderView.storyboard; sourceTree = "<group>"; };
+		6341893128869D58005E0C2C /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		D213CFC3288EAA930038F6E4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D213CFC5288EAAFC0038F6E4 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		D213CFC7288EC4F90038F6E4 /* FruitSettingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSettingTextField.swift; sourceTree = "<group>"; };
@@ -272,6 +280,8 @@
 				522AEE902888583C007ADD6D /* ConfirmStatusViewController.swift */,
 				D213CFC3288EAA930038F6E4 /* SettingViewController.swift */,
 				D213CFCC288F88140038F6E4 /* CalendarViewController.swift */,
+				6341893128869D58005E0C2C /* OrderViewController.swift */,
+				6305D183288FE94100EB25C0 /* BottomSheetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,9 +289,11 @@
 		52D05362287BB69600FF87DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6341892E28869CD1005E0C2C /* OrderViewStoryboard */,
 				D213CFC9288F87F60038F6E4 /* CalendarStoryboard */,
 				D213CFC0288EAA3A0038F6E4 /* SettingStoryboard */,
 				522AEE8D2888580E007ADD6D /* ConfirmStatusStoryboard */,
+				63D3CFBA28877E0F00D9A0B4 /* OrderViewModalStoryboard */,
 				5216C4232886F05200EB58A8 /* OrderResultStoryboard */,
 				5230C6392880FD6B0069583B /* CheckOrderStoryboard */,
 				4ACD00282881079400BBEB4D /* FruitBackground.swift */,
@@ -309,6 +321,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6341892E28869CD1005E0C2C /* OrderViewStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				6341892C28869CC7005E0C2C /* OrderView.storyboard */,
+			);
+			path = OrderViewStoryboard;
+			sourceTree = "<group>";
+		};
+		63D3CFBA28877E0F00D9A0B4 /* OrderViewModalStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */,
+				6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */,
+			);
+			path = OrderViewModalStoryboard;
 			sourceTree = "<group>";
 		};
 		D213CFC0288EAA3A0038F6E4 /* SettingStoryboard */ = {
@@ -404,7 +433,10 @@
 				526189572890D7930059BFB0 /* FruitLottie.json in Resources */,
 				522AEE8F28885827007ADD6D /* ConfirmStatus.storyboard in Resources */,
 				52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */,
+				6305D188288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard in Resources */,
 				4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */,
+				6341892D28869CC7005E0C2C /* OrderView.storyboard in Resources */,
+				6305D180288F693F00EB25C0 /* OrderViewModal.storyboard in Resources */,
 				4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */,
 				D213CFC6288EAAFC0038F6E4 /* Setting.storyboard in Resources */,
 				52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */,
@@ -427,6 +459,7 @@
 				4A0D8ACE288679C7003CFAEE /* FruitStatus.swift in Sources */,
 				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
 				4A1867522886F7ED00630023 /* Storage.swift in Sources */,
+				6305D184288FE94100EB25C0 /* BottomSheetViewController.swift in Sources */,
 				5230C63D2880FDC50069583B /* CheckOrderViewController.swift in Sources */,
 				4AD892E5287F0DC500A01BA3 /* FruitUser.swift in Sources */,
 				522AEE8B28882B7C007ADD6D /* AccountRow.swift in Sources */,
@@ -443,6 +476,7 @@
 				D213CFC8288EC4F90038F6E4 /* FruitSettingTextField.swift in Sources */,
 				4A1867562886FFAE00630023 /* Decodable+Extension.swift in Sources */,
 				D213CFCD288F88140038F6E4 /* CalendarViewController.swift in Sources */,
+				6341893228869D58005E0C2C /* OrderViewController.swift in Sources */,
 				4ACD00332881A7AA00BBEB4D /* String+Extension.swift in Sources */,
 				4ACD002F2881A73000BBEB4D /* NSMutableAttributedString_Extension.swift in Sources */,
 				52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */,
