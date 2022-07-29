@@ -16,24 +16,20 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var fruitOriginTitlelabel: UILabel!
     @IBOutlet weak var shopNameLabel: UILabel!
     @IBOutlet weak var shopNameTitlelabel: UILabel!
+    @IBOutlet weak var placeHeadLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var timeHeadLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var priceTitlelabel: UILabel!
     @IBOutlet var checkOrderButton: UIButton!
-    @IBOutlet var TimeView: UIView!
-    @IBOutlet var LocationView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initOrderViewNavBar()
         setUI()
         setCheckOrderButtonUI()
-        setLocationViewUI()
-        setTimeViewUI()
         view.applyBackgroundGradient()
-        view.addSubview(LocationView)
-        view.addSubview(TimeView)
         view.addSubview(checkOrderButton)
         checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
         self.view = view
@@ -82,50 +78,35 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
 
         fruitNameLabel.text = fruitSaleInfo.fruitName
         fruitNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        fruitNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         fruitOriginTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
-        fruitOriginTitlelabel.translatesAutoresizingMaskIntoConstraints = false
-        fruitOriginTitlelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 510).isActive = true
-//        fruitOriginTitlelabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 56).isActive = true
-        
-        let thirdFirst = view.bounds.width / 4
-        fruitOriginTitlelabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: thirdFirst / 2).isActive = true
+        fruitOriginTitlelabel.textColor = UIColor(named: Constants.FruitfruitColors.orange1)
         
         fruitOriginSublabel.text = fruitSaleInfo.fruitOrigin
         fruitOriginSublabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
-        fruitOriginSublabel.translatesAutoresizingMaskIntoConstraints = false
-        fruitOriginSublabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 535).isActive = true
-        fruitOriginSublabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: thirdFirst / 2).isActive = true
+        fruitOriginSublabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+        
         
         shopNameTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
-        shopNameTitlelabel.numberOfLines = 0
-        shopNameTitlelabel.translatesAutoresizingMaskIntoConstraints = false
-        shopNameTitlelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 510).isActive = true
+        shopNameTitlelabel.textColor = UIColor(named: Constants.FruitfruitColors.orange1)
         
         shopNameLabel.text = fruitSaleInfo.shopName
         shopNameLabel.numberOfLines = 0
         shopNameLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
-        shopNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        shopNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 535).isActive = true
+        shopNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
 
         priceTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
-        priceTitlelabel.numberOfLines = 0
-        priceTitlelabel.translatesAutoresizingMaskIntoConstraints = false
-        priceTitlelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 510).isActive = true
-        priceTitlelabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -56).isActive = true
+        priceTitlelabel.textColor = UIColor(named: Constants.FruitfruitColors.orange1)
         
         priceLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
-        priceLabel.numberOfLines = 0
-        priceLabel.translatesAutoresizingMaskIntoConstraints = false
-        priceLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 535).isActive = true
-        priceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -56).isActive = true
+        priceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         
-        
+        placeHeadLabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        placeHeadLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
         placeLabel.text = fruitSaleInfo.place
-        
-        fruitImage.image = image
-        
+        placeLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        placeLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+
         var hour = fruitSaleInfo.time
         
         if hour > 12 {
@@ -134,13 +115,12 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         } else {
             timeLabel.text = "오전 " + String(hour) + "시 "
         }
+        timeHeadLabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        timeHeadLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
+        timeLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        timeLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         
-        checkOrderButton.translatesAutoresizingMaskIntoConstraints = false
-        checkOrderButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 746).isActive = true
-        checkOrderButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        checkOrderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-        checkOrderButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
-        checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
+        fruitImage.image = image
     }
     
     @objc func checkOrderButtonTapped() {
@@ -161,21 +141,5 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
     }
-    private func setTimeViewUI() {
-        TimeView.backgroundColor = .white
-        TimeView.layer.shadowOpacity = 1
-        TimeView.layer.shadowColor = UIColor(red: 0.917, green: 0.813, blue: 0.737, alpha: 0.3).cgColor
-        TimeView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        TimeView.layer.shadowRadius = 20
-        TimeView.layer.masksToBounds = false
-    }
-    private func setLocationViewUI() {
-        LocationView.backgroundColor = .white
-        LocationView.layer.shadowOpacity = 1
-        LocationView.layer.shadowColor = UIColor(red: 0.917, green: 0.813, blue: 0.737, alpha: 0.3).cgColor
-        LocationView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        LocationView.layer.shadowRadius = 20
-        LocationView.layer.masksToBounds = false
-    }
-    
+
 }
