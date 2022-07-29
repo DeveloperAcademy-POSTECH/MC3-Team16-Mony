@@ -78,93 +78,17 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.applyBackgroundGradient()
         initHomeViewUI()
-        Task {
-            do {
-                self.fruitOrders = try await self.fetchValidOrders()
-                self.fruitOrders.sort(by: {$0.dueDate < $1.dueDate})
-                print(self.fruitOrders)
-                let layout = UICollectionViewFlowLayout()
-                layout.scrollDirection = .horizontal
-
-                if self.fruitOrders.count == 1 {
-                    layout.itemSize = CGSize(width: self.view.bounds.width - 48, height: 68)
-                } else {
-                    layout.itemSize = CGSize(width: 204, height: 68)
-                }
-                self.fruitStatusCollectionView.collectionViewLayout = layout
-                self.setHomeViewUI()
-                if !self.fruitOrders.isEmpty {
-                    self.fruitStatusCollectionView.reloadData()
-                }
-            } catch {
-                print(error)
-            }
-        }
+        fetchData()
+    }
+    
+    private func fetchData() {
+        fetchOrders()
         fetchInfos()
     }
-    
-    // MARK: - FUNCTIONS
-    
-    private func fetchNames() async throws -> [String] {
-        var detailNames = [String]()
-        guard let user = Storage().fruitUser else { return [] }
-        do {
-            let snapShot = try await database.collection(Constants.FStore.DetailCollection.collectionName).document(user.id).collection(user.id).getDocuments()
-            snapShot.documents.forEach { documentSnapShot in
-                let data = documentSnapShot.data()
-                if let detailName = data[Constants.FStore.DetailCollection.nameField] as? String {
-                    detailNames.append(detailName)
-                }
-            }
-        } catch {
-            print(error)
-        }
-        return detailNames
-    }
-    
-    private func fetchOrder(detailName: String) async throws -> [FruitOrder] {
-        var tmp = [FruitOrder]()
-        guard let user = Storage().fruitUser else { return [] }
         
-        do {
-            let snapShot = try await database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailName).getDocuments()
-            snapShot.documents.forEach { documentSnapShot in
-                let data = documentSnapShot.data()
-                do {
-                    let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
-                    tmp.append(fruitOrder)
-                    print(fruitOrder)
-                } catch {
-                    print(error)
-                }
-            }
-        } catch {
-            print(error)
-        }
-        return tmp
-    }
-    //TODO: fruitOrder -> 비동기 처리 + 스냅샷 리스너 추가하기
-    
-    func fetchValidOrders() async throws -> [FruitOrder] {
-        var orders = [FruitOrder]()
-        do {
-            let detailNames = try await self.fetchNames()
-            for detailName in detailNames {
-                print(detailName)
-                let order = try await self.fetchOrder(detailName: detailName)
-                orders += order
-            }
-        } catch {
-            print(error)
-        }
-        return orders
-    }
-    
     private func fetchOrders() {
-        //TODO: 유효한 주문 -> 연산 프로퍼티로 체크하기
         if let user = Storage().fruitUser {
-            let detailCollectionName = "\(user.name) + \(user.nickname)"
-            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
+            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(Constants.FStore.Orders.collectionPath).addSnapshotListener { querySnapShot, error in
                 self.fruitOrders = []
                 if let error = error {
                     print(error.localizedDescription)
@@ -174,11 +98,14 @@ class HomeViewController: UIViewController {
                             let data = document.data()
                             do {
                                 let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
-                                self.fruitOrders.append(fruitOrder)
+                                if fruitOrder.dueDate >= Date() {
+                                    self.fruitOrders.append(fruitOrder)
+                                }
                             } catch {
                                 print(error)
                             }
                         }
+                        self.fruitOrders.sort(by: {$0.dueDate < $1.dueDate})
                         let layout = UICollectionViewFlowLayout()
                         layout.scrollDirection = .horizontal
 
@@ -196,6 +123,7 @@ class HomeViewController: UIViewController {
                         }
                     }
                 }
+                
             }
         }
     }
@@ -203,32 +131,33 @@ class HomeViewController: UIViewController {
     private func fetchInfos() {
         //TODO: 날짜, 시간 맞춰서 뷰에 보이는 주문 가능 과일 버튼 표시하기
         //TODO: 판매 유효한 과일 -> 날짜순서대로 고르기
-//        if let user = Storage().fruitUser {
-            database.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
-                self.fruitSaleInfos.removeAll()
-                if let error = error {
-                    print(error.localizedDescription)
-                } else {
-                    if let documents = querySnapShot?.documents {
-                        for document in documents {
-                            let data = document.data()
-                            do {
-                                let fruitSaleInfo: FruitSaleInfo = try FruitSaleInfo.decode(dictionary: data)
+        database.collection(Constants.FStore.SaleInfos.collectionName).addSnapshotListener { querySnapShot, error in
+            self.fruitSaleInfos.removeAll()
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let documents = querySnapShot?.documents {
+                    for document in documents {
+                        let data = document.data()
+                        do {
+                            let fruitSaleInfo: FruitSaleInfo = try FruitSaleInfo.decode(dictionary: data)
+                            if fruitSaleInfo.saleDate >= Date() {
                                 self.fruitSaleInfos.append(fruitSaleInfo)
-                            } catch {
-                                print(error)
                             }
+                        } catch {
+                            print(error)
                         }
-                        DispatchQueue.main.async {
-                            self.setHomeViewUI()
-                            if !self.fruitSaleInfos.isEmpty {
-                                self.fruitInfoTableView.reloadData()
-                            }
+                    }
+                    self.fruitSaleInfos.sort(by: {$0.saleDate < $1.saleDate})
+                    DispatchQueue.main.async {
+                        self.setHomeViewUI()
+                        if !self.fruitSaleInfos.isEmpty {
+                            self.fruitInfoTableView.reloadData()
                         }
                     }
                 }
             }
-//        }
+        }
     }
     
     private func initHomeViewUI() {
@@ -331,6 +260,12 @@ class HomeViewController: UIViewController {
         let homeVC = self.navigationController
         homeVC?.pushViewController(settingVC, animated: true)
         homeVC?.isNavigationBarHidden = false
+        
+        //addMockSaleInfo
+        let fruitId = UUID().uuidString
+        let saleDateComponent = DateComponents(year: 2022, month: 7, day: 25, hour: 13)
+        let saleDate = Calendar.current.date(from: saleDateComponent)!
+        addMockSaleInfo(fruitInfo: FruitSaleInfo(fruitSaleId: fruitId, shopName: "능금청과", fruitName: "여름바나나", price: 1200, fruitOrigin: "영천", saleDate: saleDate, place: "C5", time: 14))
     }
     
     private func initFruitOrderLabel() {

@@ -39,7 +39,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         Task {
             do {
                 self.fruitArrivedOrders = try await self.fetchData()
-                self.fruitArrivedOrders.sort(by: {$0.dueDate < $1.dueDate})
                 self.fetchMonthData()
             } catch {
                 print(error)
@@ -74,34 +73,18 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    private func fetchNames() async throws -> [String] {
-        var detailNames = [String]()
-        guard let user = Storage().fruitUser else { return [] }
-        do {
-            let snapShot = try await database.collection(Constants.FStore.DetailCollection.collectionName).document(user.id).collection(user.id).getDocuments()
-            snapShot.documents.forEach { documentSnapShot in
-                let data = documentSnapShot.data()
-                if let detailName = data[Constants.FStore.DetailCollection.nameField] as? String {
-                    detailNames.append(detailName)
-                }
-            }
-        } catch {
-            print(error)
-        }
-        return detailNames
-    }
-    
-    private func fetchOrder(detailName: String) async throws -> [FruitOrder] {
-        var tmp = [FruitOrder]()
+    private func fetchOrders() async throws -> [FruitOrder] {
+        var fruitArrivedOrders = [FruitOrder]()
         guard let user = Storage().fruitUser else { return [] }
         
         do {
-            let snapShot = try await database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailName).whereField("status", isEqualTo: "Arrived").getDocuments()
+            let snapShot = try await database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(Constants.FStore.Orders.collectionPath).whereField("status", isEqualTo: "Arrived").getDocuments()
             snapShot.documents.forEach { documentSnapShot in
                 let data = documentSnapShot.data()
                 do {
                     let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
-                    tmp.append(fruitOrder)
+                    print(fruitOrder)
+                    fruitArrivedOrders.append(fruitOrder)
                 } catch {
                     print(error)
                 }
@@ -109,17 +92,14 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         } catch {
             print(error)
         }
-        return tmp
+        fruitArrivedOrders.sort(by: {$0.dueDate < $1.dueDate})
+        return fruitArrivedOrders
     }
-    
+
     func fetchData() async throws -> [FruitOrder] {
         var orders = [FruitOrder]()
         do {
-            let detailNames = try await self.fetchNames()
-            for detailName in detailNames {
-                let order = try await self.fetchOrder(detailName: detailName)
-                orders += order
-            }
+            orders = try await self.fetchOrders()
         } catch {
             print(error)
         }

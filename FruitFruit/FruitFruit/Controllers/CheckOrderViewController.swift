@@ -11,7 +11,7 @@ import Lottie
 class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //TODO: 데이터 바인딩
-    var fruitOrder = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
+    var fruitOrder = FruitOrder(saleFruitId: "fruitUserId", name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     let animationView = AnimationView()
     

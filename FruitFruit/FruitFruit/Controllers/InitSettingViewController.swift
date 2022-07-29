@@ -62,9 +62,6 @@ class InitSettingViewController: UIViewController {
             // User 정보 생성
             let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
             db.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
-            let detailName = "\(name) + \(nickname)"
-            let detailNameData = [Constants.FStore.DetailCollection.nameField : detailName] as [String : Any]
-            db.collection(Constants.FStore.DetailCollection.collectionName).document(user.id).collection(user.id).document(detailName).setData(detailNameData)
             // FireStore 입력
             Storage().setFruitUser(fruitUser: user)
             // UserDefaults true 설정

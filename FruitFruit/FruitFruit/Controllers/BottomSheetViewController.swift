@@ -107,7 +107,7 @@ class BottomSheetViewController: UIViewController {
             dismiss(animated: false, completion: {
                 guard let fruitSaleInfo = self.fruitSaleInfo else { return }
                 guard let user = Storage().fruitUser else { return }
-                let fruitOrder = FruitOrder(name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
+                let fruitOrder = FruitOrder(saleFruitId: fruitSaleInfo.fruitSaleId, name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
                 checkOrderVC.fruitOrder = fruitOrder
                 orderViewNavController?.pushViewController(checkOrderVC, animated: true)
             })

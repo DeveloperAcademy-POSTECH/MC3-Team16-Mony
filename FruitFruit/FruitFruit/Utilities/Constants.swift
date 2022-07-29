@@ -18,15 +18,12 @@ struct Constants {
         }
         struct Orders {
             static let collectionName =  "Orders"
-            static let orderField = "dueDate"
+            static let collectionPath = "FruitOrders"
         }
         struct SaleInfos {
             static let collectionName = "SaleInfos"
             static let orderField = "saleDate"
-        }
-        struct DetailCollection {
-            static let collectionName = "DetailCollection"
-            static let nameField = "name"
+            static let collectionPath = "Users"
         }
     }
     struct FruitfruitColors {
