@@ -21,6 +21,8 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var TimeView: UIView!
     @IBOutlet var LocationView: UIView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initOrderViewNavBar()
@@ -28,11 +30,14 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         setCheckOrderButtonUI()
         setLocationViewUI()
         setTimeViewUI()
-        view.applyBackgroundGradient()
         view.addSubview(LocationView)
         view.addSubview(TimeView)
         view.addSubview(checkOrderButton)
         checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
+        view.applyBackgroundGradient()
+        if let backgroundView = view.viewWithTag(1) {
+            view.sendSubviewToBack(backgroundView)
+        }
         self.view = view
     }
     
