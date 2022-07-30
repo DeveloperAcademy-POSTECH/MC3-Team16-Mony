@@ -42,11 +42,29 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    let fruitCalendarContainer: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let fruitCalendarTable: FruitWeekCell = {
+        let cell = FruitWeekCell()
+        cell.translatesAutoresizingMaskIntoConstraints = false
+        return cell
+    }()
+    
+    let fruitCalendarButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initSettingViewUI()
-        initMockNaviation()
+        //initMockNaviation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,18 +77,23 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         initProfile()
         initTextField()
         initDivider()
-        initCalendar()
+        initCalendarLabel()
+        initCalendarContainer()
     }
     
     private func initSettingViewNavBar() {
-        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
-        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
-        let backButtonImage = UIImage(systemName: "chevron.left")?.withTintColor(orangeColor, renderingMode: .alwaysOriginal)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .done, target: self, action: #selector(popToPrevious))
-        navigationItem.title = "프로필"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .bold)]
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        
+        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        
+        let backButtonImage = UIImage(systemName: "chevron.left")?.withTintColor(orangeColor, renderingMode: .alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .done, target: self, action: #selector(popToPrevious))
+        
+        navigationItem.title = "프로필"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.preferredFont(for: .headline, weight: .bold)]
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정하기", style: .done, target: self, action: #selector(editToggle))
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: orangeColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold)], for: .normal)
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: blackColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold)], for: .selected)
@@ -83,9 +106,11 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc private func editToggle() {
         guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        
         isProfileEditing.toggle()
         fruitNicknameTextField.isUserInteractionEnabled.toggle()
         fruitNameTextField.isUserInteractionEnabled.toggle()
+        
         if isProfileEditing {
             fruitNicknameTextField.becomeFirstResponder()
             navigationItem.rightBarButtonItem?.title = "수정완료"
@@ -100,6 +125,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     private func saveProfile() {
         guard let name = fruitNameTextField.text, let nickname = fruitNicknameTextField.text else { return }
         guard let user = Storage().fruitUser else { return }
+        
         let curId = user.id
         if !name.isEmpty && !nickname.isEmpty {
             let fruitUser = FruitUser(id: curId, name: name, nickname: nickname)
@@ -118,15 +144,16 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func initTextField() {
+        guard let user = Storage().fruitUser else { return }
+
         view.addSubview(fruitNicknameTextField)
         fruitNicknameTextField.delegate = self
-        guard let user = Storage().fruitUser else { return }
-        print(user.id)
         fruitNicknameTextField.font = UIFont.preferredFont(for: .title1, weight: .bold)
         fruitNicknameTextField.topAnchor.constraint(equalTo: fruitProfile.bottomAnchor, constant: 20).isActive = true
         fruitNicknameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         fruitNicknameTextField.text = user.nickname
         fruitNicknameTextField.placeholder = user.nickname
+        
         view.addSubview(fruitNameTextField)
         fruitNameTextField.delegate = self
         fruitNameTextField.font = UIFont.preferredFont(for: .headline, weight: .bold)
@@ -147,9 +174,9 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitDivider.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
-    private func initCalendar() {
-        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+    private func initCalendarLabel() {
         view.addSubview(fruitCalendarLabel)
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
         fruitCalendarLabel.textColor = blackColor
         fruitCalendarLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
         fruitCalendarLabel.text = "푸릇푸릇 달력"
@@ -157,18 +184,44 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
     }
     
-    private func initMockNaviation() {
-        fruitCalendarLabel.isUserInteractionEnabled = true
-        let calendarTapGesture = UITapGestureRecognizer(target: self, action: #selector(calendarTapGesture))
-        fruitCalendarLabel.addGestureRecognizer(calendarTapGesture)
+    private func initCalendarContainer() {
+        view.addSubview(fruitCalendarContainer)
+        guard let grayColor = UIColor(named: Constants.FruitfruitColors.gray3) else { return }
+        initCalendarTable()
+        initCalendarButton()
+        
+        fruitCalendarContainer.clipsToBounds = true
+        fruitCalendarContainer.layer.cornerRadius = 20
+        fruitCalendarContainer.backgroundColor = grayColor
+        fruitCalendarContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        fruitCalendarContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 462).isActive = true
+        fruitCalendarContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32).isActive = true
+        fruitCalendarContainer.heightAnchor.constraint(equalToConstant: 204).isActive = true
     }
     
-    @objc private func calendarTapGesture() {
-        let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
-        guard let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
-        let settingVC = self.navigationController
-        settingVC?.pushViewController(calendarVC, animated: true)
+    private func initCalendarTable() {
+        view.addSubview(fruitCalendarTable)
+        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
     }
+    
+    private func initCalendarButton() {
+        view.addSubview(fruitCalendarButton)
+        guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
+
+    }
+    
+//    private func initMockNaviation() {
+//        fruitCalendarLabel.isUserInteractionEnabled = true
+//        let calendarTapGesture = UITapGestureRecognizer(target: self, action: #selector(calendarTapGesture))
+//        fruitCalendarLabel.addGestureRecognizer(calendarTapGesture)
+//    }
+    
+//    @objc private func calendarTapGesture() {
+//        let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
+//        guard let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
+//        let settingVC = self.navigationController
+//        settingVC?.pushViewController(calendarVC, animated: true)
+//    }
 }
 
 extension SettingViewController: UITextFieldDelegate {
