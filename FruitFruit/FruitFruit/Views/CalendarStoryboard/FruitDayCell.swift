@@ -87,5 +87,5 @@ class FruitDayCell: UICollectionViewCell {
         fruitImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         fruitImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
         fruitImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
-    }
+    }    
 }

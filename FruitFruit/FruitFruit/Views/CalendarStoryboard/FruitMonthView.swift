@@ -13,6 +13,7 @@ class FruitMonthView: UIView {
     var fruitOrderWeek = [Int:[FruitOrder]]()
     var todayPosition: (Int, Int)?
     
+    
     let monthLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +30,6 @@ class FruitMonthView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented.")
@@ -39,9 +39,10 @@ class FruitMonthView: UIView {
         month = model.checkWeekDay()
         for order in orders {
             if let position = model.getDatePosition(from: order.dueDate) {
-                let weekPos = position.0 + 1
+                let weekPos = position.0
                 let dayPos = position.1
                 var savedData = fruitOrderWeek[weekPos] ?? []
+                print(weekPos, dayPos)
                 savedData.append(order)
                 fruitOrderWeek[weekPos] = savedData
             }
@@ -71,7 +72,11 @@ class FruitMonthView: UIView {
         fruitMonthTableView.leadingAnchor.constraint(equalTo: monthLabel.leadingAnchor, constant: 7).isActive = true
         fruitMonthTableView.reloadData()
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print("TOUCHES")
+    }
 }
 
 extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
@@ -90,11 +95,7 @@ extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
         if let position = todayPosition {
             let weekPos = position.0
             let dayPos = position.1
-            if indexPath.section == weekPos {
-                cell.setUI(model: month[indexPath.section], orders: fruitOrders, todayPos: dayPos)
-            } else {
-                cell.setUI(model: month[indexPath.section], orders: fruitOrders, todayPos: nil)
-            }
+            cell.setUI(model: month[indexPath.section], orders: fruitOrders, todayPos: indexPath.section == weekPos ? dayPos : nil)
         } else {
             cell.setUI(model: month[indexPath.section], orders: fruitOrders, todayPos: nil)
         }
@@ -116,5 +117,9 @@ extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
         let footerView = UIView()
         footerView.backgroundColor = .clear
         return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("MONTHVIEWCELL")
     }
 }

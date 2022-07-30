@@ -23,12 +23,15 @@ extension UIView {
         graident.endPoint = CGPoint(x: 0.75, y: 0.5)
         return graident
     }
+    
+    
     // How to use
     // 1. let gradient = button.applyButtonGraident(colors: [yourColor])
     // 2. button.layer.insertSublayer(graident, at: 0)
     // 버튼 레이어의 가장 상단부에 위치 백그라운드 컬러를 그레디언트로 주기    
     func applyBackgroundGradient() {
         let backgroundLabel = FruitBackground(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - 547))
+        backgroundLabel.tag = 1
         backgroundLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundLabel)
         backgroundLabel.widthAnchor.constraint(equalToConstant: self.bounds.width).isActive = true

@@ -9,18 +9,15 @@ import UIKit
 import FirebaseFirestore
 import Lottie
 
-//TODO: 로딩 시간 -> 로티 넣기
-
 class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
-    var fruitArrivedOrders = [FruitOrder]()
-    var validModels = [MonthModel]()
-    var validOrders = [Int : [FruitOrder]]()
-    let database = Firestore.firestore()
-    let animationView = AnimationView()
+    private var fruitArrivedOrders = [FruitOrder]()
+    private var validModels = [MonthModel]()
+    private var validOrders = [Int : [FruitOrder]]()
+    private let database = Firestore.firestore()
+    private let animationView = AnimationView()
     
     let fruitMonthView: FruitMonthView = {
         let monthView = FruitMonthView()
-        monthView.translatesAutoresizingMaskIntoConstraints = false
         return monthView
     }()
     
@@ -34,14 +31,21 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         initCalendarViewNavBar()
         self.playLottie()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.initCalendarViewUI()
+        }
+        Task {
+            do {
+                self.fruitArrivedOrders = try await self.fetchData()
+                self.fetchMonthData()
+            } catch {
+                print(error)
+            }
         }
     }
     
     private func initCalendarViewUI() {
         initCalendarTableView()
-        fetchOrders()
         view.applyBackgroundGradient()
     }
     
@@ -67,31 +71,37 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    private func fetchOrders() {
-        guard let user = Storage().fruitUser else { return }
-        let detailCollectionName = "\(user.name) \(user.nickname)"
-        database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).whereField("status", isEqualTo: "Arrived").getDocuments { querySnapShot, error in
-            self.fruitArrivedOrders = []
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                if let documents = querySnapShot?.documents {
-                    for document in documents {
-                        let data = document.data()
-                        do {
-                            let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
-                            self.fruitArrivedOrders.append(fruitOrder)
-                        } catch {
-                            print(error)
-                        }
-                    }
-                    self.fruitArrivedOrders.sort(by: {$0.dueDate < $1.dueDate})
-                    DispatchQueue.main.async {
-                        self.fetchMonthData()
-                    }
+    private func fetchOrders() async throws -> [FruitOrder] {
+        var fruitArrivedOrders = [FruitOrder]()
+        guard let user = Storage().fruitUser else { return [] }
+        
+        do {
+            let snapShot = try await database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(Constants.FStore.Orders.collectionPath).whereField("status", isEqualTo: "Arrived").getDocuments()
+            snapShot.documents.forEach { documentSnapShot in
+                let data = documentSnapShot.data()
+                do {
+                    let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
+                    print(fruitOrder)
+                    fruitArrivedOrders.append(fruitOrder)
+                } catch {
+                    print(error)
                 }
             }
+        } catch {
+            print(error)
         }
+        fruitArrivedOrders.sort(by: {$0.dueDate < $1.dueDate})
+        return fruitArrivedOrders
+    }
+
+    func fetchData() async throws -> [FruitOrder] {
+        var orders = [FruitOrder]()
+        do {
+            orders = try await self.fetchOrders()
+        } catch {
+            print(error)
+        }
+        return orders
     }
     
     private func fetchMonthData() {
@@ -119,21 +129,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarTableView.reloadData()
     }
     
-    private func setMonthView(model: MonthModel) {
-        var validOrders = [FruitOrder]()
-        for order in fruitArrivedOrders {
-            if let _ = model.getDatePosition(from: order.dueDate) {
-                validOrders.append(order)
-            }
-        }
-
-        view.addSubview(fruitMonthView)
-        let leadingMonthPadding: CGFloat = (view.bounds.width - 328) / 2
-        fruitMonthView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingMonthPadding - 7).isActive = true
-        fruitMonthView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-        fruitMonthView.setUI(model: model, orders: validOrders)
-    }
-    
     private func initCalendarTableView() {
         view.addSubview(fruitCalendarTableView)
         fruitCalendarTableView.separatorStyle = .none
@@ -151,7 +146,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         let background = UILabel()
         background.frame = CGRect(x: 0, y: 0, width: 390, height: 844)
         background.backgroundColor = .white
-//        background.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         background.tag = 0
         view.addSubview(background)
         
@@ -196,4 +190,3 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
 }
-

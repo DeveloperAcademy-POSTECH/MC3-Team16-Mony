@@ -11,7 +11,7 @@ import Lottie
 class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //TODO: 데이터 바인딩
-    var fruitOrder = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
+    var fruitOrder = FruitOrder(saleFruitId: "fruitUserId", name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     let animationView = AnimationView()
     
@@ -91,6 +91,7 @@ extension CheckOrderViewController {
         let share: String
         let remainder: String
         let result: String
+        //TODO: 2000원 -> 2,0원, 3000원 -> 3,0원으로 표시되는 이슈가 있습니다!
         
         if cost >= 1000 {
             share = String(cost / 1000)
@@ -158,6 +159,7 @@ extension CheckOrderViewController {
         let storyboard = UIStoryboard(name: "OrderResult", bundle: nil)
         let orderResultVC = storyboard.instantiateViewController(withIdentifier: "OrderResultViewController") as! OrderResultViewController
         let initVC = self.navigationController
+        orderResultVC.fruitOrder = fruitOrder
         initVC?.pushViewController(orderResultVC, animated: true)
         initVC?.isNavigationBarHidden = true
     }

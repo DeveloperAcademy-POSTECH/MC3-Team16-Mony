@@ -65,7 +65,7 @@ class InitSettingViewController: UIViewController {
             // FireStore 입력
             Storage().setFruitUser(fruitUser: user)
             // UserDefaults true 설정
-            goToHome()
+            dismissToOrderView()
             // HomeView 이동
         }
     }
@@ -155,13 +155,8 @@ class InitSettingViewController: UIViewController {
         }
     }
     
-    private func goToHome() {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        let initVC = self.navigationController
-        initVC?.pushViewController(homeVC, animated: true)
-        initVC?.isNavigationBarHidden = true
-        // 현재 네비게이션 컨트롤러 -> 홈뷰 푸쉬로 띄우기
+    private func dismissToOrderView() {
+        dismiss(animated: true)
     }
 }
 

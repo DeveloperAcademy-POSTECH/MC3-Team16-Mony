@@ -53,7 +53,6 @@
 		52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D05356287BAF9100FF87DD /* Assets.xcassets */; };
 		52D0535A287BAF9100FF87DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D05358287BAF9100FF87DD /* LaunchScreen.storyboard */; };
 		52F046DE2886FEBE00A61FD7 /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */; };
-		6305D180288F693F00EB25C0 /* OrderViewModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */; };
 		6305D184288FE94100EB25C0 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305D183288FE94100EB25C0 /* BottomSheetViewController.swift */; };
 		6305D188288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */; };
 		6341892D28869CC7005E0C2C /* OrderView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6341892C28869CC7005E0C2C /* OrderView.storyboard */; };
@@ -117,7 +116,6 @@
 		52D05359287BAF9100FF87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52D0535B287BAF9100FF87DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F046DD2886FEBE00A61FD7 /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
-		6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderViewModal.storyboard; sourceTree = "<group>"; };
 		6305D183288FE94100EB25C0 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheetViewStoryboard.storyboard; sourceTree = "<group>"; };
 		6341892C28869CC7005E0C2C /* OrderView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderView.storyboard; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 		63D3CFBA28877E0F00D9A0B4 /* OrderViewModalStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				6305D17F288F693F00EB25C0 /* OrderViewModal.storyboard */,
 				6305D187288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard */,
 			);
 			path = OrderViewModalStoryboard;
@@ -436,7 +433,6 @@
 				6305D188288FF10300EB25C0 /* BottomSheetViewStoryboard.storyboard in Resources */,
 				4ACD0024288103E100BBEB4D /* Home.storyboard in Resources */,
 				6341892D28869CC7005E0C2C /* OrderView.storyboard in Resources */,
-				6305D180288F693F00EB25C0 /* OrderViewModal.storyboard in Resources */,
 				4AD892DF287EA4B000A01BA3 /* GoogleService-Info.plist in Resources */,
 				D213CFC6288EAAFC0038F6E4 /* Setting.storyboard in Resources */,
 				52D05357287BAF9100FF87DD /* Assets.xcassets in Resources */,
