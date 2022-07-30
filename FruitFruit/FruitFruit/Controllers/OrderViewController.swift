@@ -61,10 +61,6 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    //TODO: 1. 폰트 사이즈
-    //TODO: 2. 과일 종류에 따라서 텍스트 컬러 주기
-    //TODO: 3. 정렬
-    //TODO: 4. 과일 이미지 따오기
     private func setUI() {
                 
         guard let fruitSaleInfo = fruitSaleInfo else { return }
