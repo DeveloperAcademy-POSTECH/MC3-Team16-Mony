@@ -8,10 +8,9 @@
 import UIKit
 
 class BottomSheetViewController: UIViewController {
-
-//    @IBOutlet var lbl: UILabel!
     var defaultHeight: CGFloat = 250
-    var Number = 1
+    var fruitSaleInfo: FruitSaleInfo?
+    var number = 1
     let lblNumber: UILabel = {
        var lblNumber = UILabel()
         lblNumber.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +40,7 @@ class BottomSheetViewController: UIViewController {
     private let bottomSheetView: UIView = {
             let view = UIView()
             view.backgroundColor = .white
+        
             view.layer.cornerRadius = 40
             view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             view.clipsToBounds = true
@@ -48,6 +48,10 @@ class BottomSheetViewController: UIViewController {
             }()
     private var bottomSheetViewTopConstraint: NSLayoutConstraint!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showBottomSheet()
+    }
     
     private func setupUI() {
         view.addSubview(dimmedView)
@@ -75,25 +79,52 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 152).isActive = true
         checkOrderButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 24).isActive = true
         checkOrderButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -24).isActive = true
-        checkOrderButton.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -40).isActive = true
+        checkOrderButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
         checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.setTitle(costcountCheckText(), for: .normal)
-        checkOrderButton.backgroundColor = .blue
+        checkOrderButton.backgroundColor = .clear
         checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         checkOrderButton.layer.cornerRadius = 16
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
-        checkOrderButton.addTarget(self, action: #selector(onTapOrder), for: .touchUpInside)
+        initCheckOrderButton()
     }
+    
+    private func initCheckOrderButton() {
+        checkOrderButton.isUserInteractionEnabled = true
+        checkOrderButton.addTarget(self, action: #selector(buttonTapGesture), for: .touchUpInside)
+    }
+    
+    @objc private func buttonTapGesture() {
+        if let user = Storage().fruitUser {
+            let checkOrderStoryboard = UIStoryboard(name: "CheckOrder", bundle: nil)
+            guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
+            let orderViewNavController = presentingViewController as? UINavigationController
+            dismiss(animated: false, completion: {
+                guard let fruitSaleInfo = self.fruitSaleInfo, let user = Storage().fruitUser else { return }
+                let fruitOrder = FruitOrder(saleFruitId: fruitSaleInfo.fruitSaleId, name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
+                checkOrderVC.fruitOrder = fruitOrder
+                orderViewNavController?.pushViewController(checkOrderVC, animated: true)
+            })
+        } else {
+            let storyboard = UIStoryboard(name: "InitSetting", bundle: nil)
+            guard let initVC = storyboard.instantiateViewController(withIdentifier: "InitSettingViewController") as? InitSettingViewController else { return }
+            initVC.modalPresentationStyle = .pageSheet
+            self.present(initVC, animated: true, completion: nil)
+        }
+    }
+
+    
     private func setCount() -> String {
-        let count = String(Number) + "개"
+        let count = String(number) + "개"
         return count
     }
     private func setCost() -> String {
-        let cost = "900원 "
-        return cost
+        guard let fruitSaleInfo = fruitSaleInfo else { return "" }
+        
+        return "\(number * fruitSaleInfo.price)원 "
     }
     private func costcountCheckText() -> String {
         return setCost() + setCount() + " 주문하기"
@@ -108,17 +139,19 @@ class BottomSheetViewController: UIViewController {
       }
     @objc
     func onTapPlus() {
-        Number += 1
+        number += 1
         lblNumber.text = setCount()
+        checkOrderButton.setTitle(costcountCheckText(), for: .normal)
     }
     
     @objc
     func onTapMinus() {
-        if Number - 1 <= 0 {
+        if number - 1 <= 0 {
             return
     }
-        Number -= 1
+        number -= 1
         lblNumber.text = setCount()
+        checkOrderButton.setTitle(costcountCheckText(), for: .normal)
     }
     
     @objc
@@ -126,10 +159,6 @@ class BottomSheetViewController: UIViewController {
         print("맛있는 과일 사기 was tapped.")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showBottomSheet()
-    }
     private func setupLayout() {
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -152,7 +181,7 @@ class BottomSheetViewController: UIViewController {
         let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.height
         let bottomPadding: CGFloat = view.safeAreaInsets.bottom
         
-       bottomSheetViewTopConstraint.constant = (safeAreaHeight + bottomPadding) - defaultHeight
+        bottomSheetViewTopConstraint.constant = (safeAreaHeight + bottomPadding) - defaultHeight
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
             self.dimmedView.alpha = 0.7
@@ -167,12 +196,17 @@ class BottomSheetViewController: UIViewController {
             self.dimmedView.alpha = 0.0
             self.view.layoutIfNeeded()
         }) { _ in
-            if self.presentingViewController != nil {
-                self.dismiss(animated: false, completion: nil)
+            guard let presentingVC = self.presentationController as? UINavigationController else { return }
+            guard let orderView = presentingVC.topViewController as? OrderViewController else { return }
+            DispatchQueue.main.async {
+                orderView.checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
             }
+            self.dismiss(animated: false, completion: nil)
         }
     }
     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
         hideBottomSheetAndGoBack()
     }
+    
+    
 }
