@@ -55,10 +55,10 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         return cell
     }()
     
-    let fruitCalendarButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    let fruitCalendarButton: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override func viewDidLoad() {
@@ -202,26 +202,30 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     private func initCalendarTable() {
         view.addSubview(fruitCalendarTable)
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
+        
     }
     
     private func initCalendarButton() {
         view.addSubview(fruitCalendarButton)
         guard let orangeColor = UIColor(named: Constants.FruitfruitColors.orange1) else { return }
-
+        fruitCalendarButton.text = "캘린더 보기"
+        fruitCalendarButton.textColor = orangeColor
+        fruitCalendarButton.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
+        fruitCalendarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        fruitCalendarButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 611).isActive = true
+        fruitCalendarButton.widthAnchor.constraint(equalToConstant: 71).isActive = true
+        fruitCalendarButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        fruitCalendarButton.isUserInteractionEnabled = true
+        let calendarTapGesture = UITapGestureRecognizer(target: self, action: #selector(calendarTapGesture))
+        fruitCalendarButton.addGestureRecognizer(calendarTapGesture)
     }
     
-//    private func initMockNaviation() {
-//        fruitCalendarLabel.isUserInteractionEnabled = true
-//        let calendarTapGesture = UITapGestureRecognizer(target: self, action: #selector(calendarTapGesture))
-//        fruitCalendarLabel.addGestureRecognizer(calendarTapGesture)
-//    }
-    
-//    @objc private func calendarTapGesture() {
-//        let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
-//        guard let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
-//        let settingVC = self.navigationController
-//        settingVC?.pushViewController(calendarVC, animated: true)
-//    }
+    @objc private func calendarTapGesture() {
+        let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
+        guard let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
+        let settingVC = self.navigationController
+        settingVC?.pushViewController(calendarVC, animated: true)
+    }
 }
 
 extension SettingViewController: UITextFieldDelegate {
