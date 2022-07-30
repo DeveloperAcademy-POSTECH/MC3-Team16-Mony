@@ -263,7 +263,7 @@ class HomeViewController: UIViewController {
         
         //addMockSaleInfo
         let fruitId = UUID().uuidString
-        let saleDateComponent = DateComponents(year: 2022, month: 7, day: 30, hour: 13)
+        let saleDateComponent = DateComponents(year: 2022, month: 8, day: 3, hour: 13)
         let saleDate = Calendar.current.date(from: saleDateComponent)!
         guard let user = Storage().fruitUser else { return }
         addOrder(fruitOrder: FruitOrder(saleFruitId: "Mock 과일입니다", name: "여름오렌지", dueDate: saleDate, amount: 4, price: 500, status: "Arrived", user: user, place: "C5", time: 15))

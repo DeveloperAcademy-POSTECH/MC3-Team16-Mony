@@ -32,9 +32,9 @@ enum FruitType: String {
         case .Apple:
             return "Apple"
         case .Pineapple:
-            return "파인애플"
+            return "Pineapple"
         case .Plum:
-            return "자두"
+            return "Plum"
         }
     }
     
@@ -74,9 +74,9 @@ enum FruitType: String {
         case .Apple:
             return Constants.FruitfruitColors.apple
         case .Pineapple:
-            return Constants.FruitfruitImages.Fruits.pineapple
+            return Constants.FruitfruitColors.pineapple
         case .Plum:
-            return Constants.FruitfruitImages.Fruits.plum
+            return Constants.FruitfruitColors.plum
         }
     }
 }
