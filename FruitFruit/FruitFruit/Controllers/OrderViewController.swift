@@ -101,10 +101,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         priceTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
         priceTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         
-        
-        var price = fruitSaleInfo.price
-        
-        priceLabel.text = String(price) + "원"
+        priceLabel.text = String(fruitSaleInfo.price) + "원"
         priceLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
         priceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         
