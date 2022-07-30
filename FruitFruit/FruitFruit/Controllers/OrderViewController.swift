@@ -31,11 +31,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         initOrderViewNavBar()
         setUI()
         setCheckOrderButtonUI()
-        view.applyBackgroundGradient()
-        setLocationViewUI()
-        setTimeViewUI()
-        view.addSubview(LocationView)
-        view.addSubview(TimeView)
+
         view.addSubview(checkOrderButton)
         checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
         view.applyBackgroundGradient()
@@ -88,9 +84,10 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
 
         fruitNameLabel.text = fruitSaleInfo.fruitName
         fruitNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
+        fruitNameLabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
 
         fruitOriginTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
-        fruitOriginTitlelabel.textColor = UIColor(named: Constants.FruitfruitColors.orange1)
+        fruitOriginTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         
         fruitOriginSublabel.text = fruitSaleInfo.fruitOrigin
         fruitOriginSublabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
@@ -98,7 +95,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         
         
         shopNameTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
-        shopNameTitlelabel.textColor = UIColor(named: Constants.FruitfruitColors.orange1)
+        shopNameTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         
         shopNameLabel.text = fruitSaleInfo.shopName
         shopNameLabel.numberOfLines = 0
@@ -106,7 +103,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         shopNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
 
         priceTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
-        priceTitlelabel.textColor = UIColor(named: Constants.FruitfruitColors.orange1)
+        priceTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         
         priceLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
         priceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
