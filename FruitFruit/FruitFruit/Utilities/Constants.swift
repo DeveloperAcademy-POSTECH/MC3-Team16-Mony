@@ -18,15 +18,12 @@ struct Constants {
         }
         struct Orders {
             static let collectionName =  "Orders"
-            static let orderField = "dueDate"
+            static let collectionPath = "FruitOrders"
         }
         struct SaleInfos {
             static let collectionName = "SaleInfos"
             static let orderField = "saleDate"
-        }
-        struct DetailCollection {
-            static let collectionName = "DetailCollection"
-            static let nameField = "name"
+            static let collectionPath = "Users"
         }
     }
     struct FruitfruitColors {
@@ -45,6 +42,8 @@ struct Constants {
         static let watermelon = "Fruitfruit_Watermelon"
         static let banana = "Fruitfruit_Banana"
         static let apple = "Fruitfruit_Apple"
+        static let pineapple = "Fruitfruit_Pineapple"
+        static let plum = "Fruitfruit_Plum"
         static let buttonGradient = [
             UIColor(red: 0.992, green: 0.533, blue: 0.157, alpha: 1),
             UIColor(red: 1, green: 0.6, blue: 0, alpha: 1)
@@ -62,6 +61,8 @@ struct Constants {
             static let watermelon = "Fruitfruit_Watermelon.pdf"
             static let grape = "Fruitfruit_Grape.pdf"
             static let apple = "Fruitfruit_Apple.pdf"
+            static let pineapple = "Fruitfruit_Pineapple.pdf"
+            static let plum = "Fruitfruit_Plum.pdf"
         }
         struct Status {
             static let arrived = "Fruitfruit_Status_Arrived.pdf"

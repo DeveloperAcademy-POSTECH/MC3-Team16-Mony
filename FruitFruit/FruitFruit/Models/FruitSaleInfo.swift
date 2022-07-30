@@ -8,6 +8,7 @@
 import Foundation
 
 struct FruitSaleInfo: Codable {
+    let fruitSaleId: String
     let shopName: String
     let fruitName: String
     let price: Int

@@ -24,14 +24,24 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var priceTitlelabel: UILabel!
     @IBOutlet var checkOrderButton: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initOrderViewNavBar()
         setUI()
         setCheckOrderButtonUI()
         view.applyBackgroundGradient()
+        setLocationViewUI()
+        setTimeViewUI()
+        view.addSubview(LocationView)
+        view.addSubview(TimeView)
         view.addSubview(checkOrderButton)
         checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
+        view.applyBackgroundGradient()
+        if let backgroundView = view.viewWithTag(1) {
+            view.sendSubviewToBack(backgroundView)
+        }
         self.view = view
     }
     

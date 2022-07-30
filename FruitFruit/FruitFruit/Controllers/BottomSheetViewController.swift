@@ -80,7 +80,6 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 24).isActive = true
         checkOrderButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -24).isActive = true
         checkOrderButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
-//        checkOrderButton.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -40).isActive = true
         checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
         let gradient = checkOrderButton.applyButtonGradient(colors: Constants.FruitfruitColors.buttonGradient)
         checkOrderButton.setTitle(costcountCheckText(), for: .normal)
@@ -90,7 +89,6 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
         checkOrderButton.layer.insertSublayer(gradient, at: 0)
-//        checkOrderButton.addTarget(self, action: #selector(onTapOrder), for: .touchUpInside)
         initCheckOrderButton()
     }
     
@@ -105,9 +103,8 @@ class BottomSheetViewController: UIViewController {
             guard let checkOrderVC = checkOrderStoryboard.instantiateViewController(withIdentifier: "CheckOrderViewController") as? CheckOrderViewController else { return }
             let orderViewNavController = presentingViewController as? UINavigationController
             dismiss(animated: false, completion: {
-                guard let fruitSaleInfo = self.fruitSaleInfo else { return }
-                guard let user = Storage().fruitUser else { return }
-                let fruitOrder = FruitOrder(name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
+                guard let fruitSaleInfo = self.fruitSaleInfo, let user = Storage().fruitUser else { return }
+                let fruitOrder = FruitOrder(saleFruitId: fruitSaleInfo.fruitSaleId, name: fruitSaleInfo.fruitName, dueDate: fruitSaleInfo.saleDate, amount: self.number, price: fruitSaleInfo.price, status: "Checking", user: user, place: fruitSaleInfo.place, time: fruitSaleInfo.time)
                 checkOrderVC.fruitOrder = fruitOrder
                 orderViewNavController?.pushViewController(checkOrderVC, animated: true)
             })
@@ -199,14 +196,12 @@ class BottomSheetViewController: UIViewController {
             self.dimmedView.alpha = 0.0
             self.view.layoutIfNeeded()
         }) { _ in
-            if self.presentingViewController != nil {
-                let presetingVC = self.presentingViewController as! UINavigationController
-                let orderView = presetingVC.topViewController as! OrderViewController
-                DispatchQueue.main.async {
-                    orderView.checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
-                }
-                self.dismiss(animated: false, completion: nil)
+            guard let presentingVC = self.presentationController as? UINavigationController else { return }
+            guard let orderView = presentingVC.topViewController as? OrderViewController else { return }
+            DispatchQueue.main.async {
+                orderView.checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
             }
+            self.dismiss(animated: false, completion: nil)
         }
     }
     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {

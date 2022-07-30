@@ -9,7 +9,7 @@ import UIKit
 
 class OrderResultViewController: UIViewController, UIGestureRecognizerDelegate {
     //TODO: 데이터 바인딩
-    var fruitOrder = FruitOrder(name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Canceled", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
+    var fruitOrder = FruitOrder(saleFruitId: "fruitUserId", name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Canceled", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!

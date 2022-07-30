@@ -37,17 +37,26 @@ struct MonthModel: Hashable {
         if year != curYear || month != curMonth {
             return nil
         }
+        
         let weekdayDict = ["일":0, "월":1, "화":2, "수":3, "목":4, "금":5, "토":6]
         let weekDayDictRev = [0:"일", 1:"월", 2:"화", 3:"수", 4:"목", 5:"금", 6:"토"]
-        
-        var weekIdx = 0
-        var tempDay = 0
-        while tempDay + 7 <= curDay {
-            tempDay += 7
-            weekIdx += 1
+        var tempDayInt = 1
+        var tempDayOrder = weekdayDict[firstWeekDay]!
+        var weekDayIdx = 1
+        for day in 0...numOfDays {
+            if tempDayInt == curDay {
+                return (weekDayIdx, weekdayDict[curDayString]!)
+            }
+            tempDayInt += 1
+            if tempDayOrder + 1 == 7 {
+                tempDayOrder = 0
+                weekDayIdx += 1
+                continue
+            }
+            tempDayOrder += 1
         }
         
-        return (weekIdx + 1, weekdayDict[curDayString]!)
+        return nil
         // 해당 날짜 -> MonthModel의 달 내에서 몇 주차 몇 번째 요일인지 리턴하기
         // TODO: 달력 그리기 -> 오늘 / 과일 섭취일 날짜 입력 -> 달력 다시 입력값 넣기
     }
@@ -61,10 +70,10 @@ struct MonthModel: Hashable {
         var curDayOrder = weekdayDict[firstWeekDay]!
         var curDayInt = 1
         var curWeek = [String]()
-        for curDay in 0..<curDayOrder {
+        for _ in 0..<curDayOrder {
             curWeek.append("")
         }
-        for weekIdx in 1...numOfWeeks {
+        for _ in 1...numOfWeeks {
             for _ in 0..<7 {
                 if curDayInt > numOfDays {
                     curWeek.append("")

@@ -39,9 +39,10 @@ class FruitMonthView: UIView {
         month = model.checkWeekDay()
         for order in orders {
             if let position = model.getDatePosition(from: order.dueDate) {
-                let weekPos = position.0 + 1
+                let weekPos = position.0
                 let dayPos = position.1
                 var savedData = fruitOrderWeek[weekPos] ?? []
+                print(weekPos, dayPos)
                 savedData.append(order)
                 fruitOrderWeek[weekPos] = savedData
             }

@@ -105,9 +105,6 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
             let fruitUser = FruitUser(id: curId, name: name, nickname: nickname)
             let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
             database.collection(Constants.FStore.Users.collectionName).document(user.id).setData(data)
-            let detailName = "\(name) + \(nickname)"
-            let detailNameData = [Constants.FStore.DetailCollection.nameField : detailName] as [String : Any]
-            database.collection(Constants.FStore.DetailCollection.collectionName).document(user.id).collection(user.id).document(detailName).setData(detailNameData)
             Storage().setFruitUser(fruitUser: fruitUser)
         }
     }
