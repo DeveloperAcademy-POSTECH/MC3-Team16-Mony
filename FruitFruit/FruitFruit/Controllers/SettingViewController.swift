@@ -9,8 +9,13 @@ import UIKit
 import FirebaseFirestore
 
 class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
+    
     let database = Firestore.firestore()
     var isProfileEditing: Bool = false
+    var month = [[String]]()
+    private var fruitArrivedOrders = [FruitOrder]()
+    private var validModels = [MonthModel]()
+    private var validOrders = [Int : [FruitOrder]]()
     
     let fruitProfile: UIImageView = {
         let profile = UIImageView()
@@ -60,11 +65,10 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initSettingViewUI()
-        //initMockNaviation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -145,7 +149,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func initTextField() {
         guard let user = Storage().fruitUser else { return }
-
+        
         view.addSubview(fruitNicknameTextField)
         fruitNicknameTextField.delegate = self
         fruitNicknameTextField.font = UIFont.preferredFont(for: .title1, weight: .bold)
@@ -201,8 +205,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func initCalendarTable() {
         view.addSubview(fruitCalendarTable)
-        guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
-        
+        //TODO: 접속일 기준으로 해당 주와 전주 불러오기
     }
     
     private func initCalendarButton() {
