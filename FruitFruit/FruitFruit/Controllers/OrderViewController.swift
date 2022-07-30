@@ -81,7 +81,9 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitNameLabel.text = fruitSaleInfo.fruitName
         fruitNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         fruitNameLabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
-
+guard let fruitColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName) else { return }
+// 옵셔널 바인딩 -> 이후 fruitColor는 UIColor 옵셔널이 아니라 UIColor 변수입니다
+fruitNameLabel.textColor = fruitColor
         fruitOriginTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
         fruitOriginTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         
