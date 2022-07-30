@@ -70,10 +70,10 @@ struct MonthModel: Hashable {
         var curDayOrder = weekdayDict[firstWeekDay]!
         var curDayInt = 1
         var curWeek = [String]()
-        for curDay in 0..<curDayOrder {
+        for _ in 0..<curDayOrder {
             curWeek.append("")
         }
-        for weekIdx in 1...numOfWeeks {
+        for _ in 1...numOfWeeks {
             for _ in 0..<7 {
                 if curDayInt > numOfDays {
                     curWeek.append("")

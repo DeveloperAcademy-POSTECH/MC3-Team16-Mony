@@ -9,8 +9,6 @@ import UIKit
 import FirebaseFirestore
 import Lottie
 
-//TODO: 로딩 시간 -> 로티 넣기
-
 class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
     private var fruitArrivedOrders = [FruitOrder]()
     private var validModels = [MonthModel]()
@@ -130,20 +128,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         fruitCalendarTableView.reloadData()
     }
-    
-//    private func setMonthView(model: MonthModel) {
-//        var validOrders = [FruitOrder]()
-//        for order in fruitArrivedOrders {
-//            if let _ = model.getDatePosition(from: order.dueDate) {
-//                validOrders.append(order)
-//            }
-//        }
-//        view.addSubview(fruitMonthView)
-//        let leadingMonthPadding: CGFloat = (view.bounds.width - 328) / 2
-//        fruitMonthView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingMonthPadding - 7).isActive = true
-//        fruitMonthView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-//        fruitMonthView.setUI(model: model, orders: validOrders)
-//    }
     
     private func initCalendarTableView() {
         view.addSubview(fruitCalendarTableView)
