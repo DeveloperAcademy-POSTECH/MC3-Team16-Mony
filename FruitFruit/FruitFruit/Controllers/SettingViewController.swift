@@ -13,7 +13,8 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     let database = Firestore.firestore()
     var isProfileEditing: Bool = false
     private var validWeekString = [[String]]()
-    private var fruitArrivedOrders = [FruitOrder]()
+    private var fruitArrivedOrders = [Int:[FruitOrder]]()
+    private var todayPos: (Int, Int)?
     
     let fruitProfile: UIImageView = {
         let profile = UIImageView()
@@ -210,9 +211,9 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarContainer.heightAnchor.constraint(equalToConstant: 204).isActive = true
     }
     
-    private func fetchOrders() async throws -> [FruitOrder] {
-        var fruitArrivedOrders = [FruitOrder]()
-        guard let user = Storage().fruitUser else { return [] }
+    private func fetchOrders() async throws -> [Int:[FruitOrder]] {
+        var fruitArrivedOrders = [Int:[FruitOrder]]()
+        guard let user = Storage().fruitUser else { return [:] }
         
         let calendar = Calendar.current
         let validWeeks = Date().getValidWeeks()
@@ -230,7 +231,8 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
             validWeekString.append(tmpWeek)
         }
         
-        let validWeekComponentsSet = Set(validWeeksComponents)
+        let validFirstWeekSet = Set(validWeeksComponents[0..<7])
+        let validSecondWeekSet = Set(validWeeksComponents[7..<14])
         
         do {
             let snapShot = try await database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(Constants.FStore.Orders.collectionPath).whereField("status", isEqualTo: "Arrived").getDocuments()
@@ -239,8 +241,14 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
                 do {
                     let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
                     let orderComponent = calendar.dateComponents([.year, .month, .day], from: fruitOrder.dueDate)
-                    if validWeekComponentsSet.contains(orderComponent) {
-                        fruitArrivedOrders.append(fruitOrder)
+                    if validFirstWeekSet.contains(orderComponent) {
+                        var savedDays = fruitArrivedOrders[0] ?? []
+                        savedDays.append(fruitOrder)
+                        fruitArrivedOrders[0] = savedDays
+                    } else if validSecondWeekSet.contains(orderComponent) {
+                        var savedDays = fruitArrivedOrders[1] ?? []
+                        savedDays.append(fruitOrder)
+                        fruitArrivedOrders[1] = savedDays
                     }
                 } catch {
                     print(error)
@@ -249,7 +257,6 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         } catch {
             print(error)
         }
-        fruitArrivedOrders.sort(by: {$0.dueDate < $1.dueDate})
         return fruitArrivedOrders
     }
     
@@ -286,6 +293,13 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
         let settingVC = self.navigationController
         settingVC?.pushViewController(calendarVC, animated: true)
+        
+        
+        let dueDateComp = DateComponents(year: 2022, month: 7, day: 30)
+        let dueDate = Calendar.current.date(from: dueDateComp)!
+        guard let user = Storage().fruitUser else { return }
+        let fruitMockOrder = FruitOrder(saleFruitId: "MockOrder", name: "여름복숭아", dueDate: dueDate, amount: 3, price: 400, status: "Arrived", user: user, place: "C5", time: 14)
+        addOrder(fruitOrder: fruitMockOrder)
     }
 }
 
@@ -324,7 +338,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitWeekCell.id, for: indexPath) as? FruitWeekCell else { return FruitWeekCell() }
-        cell.setUI(model: validWeekString[indexPath.section], orders: [], todayPos: nil)
+        let orders = fruitArrivedOrders[indexPath.section] ?? []
+        cell.setUI(model: validWeekString[indexPath.section], orders: orders, todayPos: nil)
         cell.backgroundColor = .clear
         return cell
     }
