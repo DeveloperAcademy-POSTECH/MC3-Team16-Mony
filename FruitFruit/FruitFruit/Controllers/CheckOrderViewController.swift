@@ -10,7 +10,6 @@ import Lottie
 
 class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    //TODO: 데이터 바인딩
     var fruitOrder = FruitOrder(saleFruitId: "fruitUserId", name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     let animationView = AnimationView()
@@ -73,7 +72,7 @@ extension CheckOrderViewController {
     }
     
     private func setTitleText() -> String {
-        return setTitleFruit() + " " + setTitleAmount() + "개\n" + setTitleCost() + "원\n주문하시겠어요?"
+        return setTitleFruit() + " " + setTitleAmount() + "개\n" + setTotalPriceToString(price: fruitOrder.totalPrice) + "원\n주문하시겠어요?"
     }
     
     private func setTitleFruit() -> String {
@@ -86,27 +85,20 @@ extension CheckOrderViewController {
         return String(amount)
     }
     
-    private func setTitleCost() -> String {
-        let cost = fruitOrder.totalPrice
-        let share: String
-        let remainder: String
+    private func setTotalPriceToString(price: Int) -> String {
         let result: String
+        let numberFormatter = NumberFormatter()
         
-        if cost >= 1000 {
-            share = String(cost / 1000)
-            remainder = String(cost % 1000)
-            result = share + "," + remainder
-        } else {
-            result = String(cost)
-        }
-        
+        numberFormatter.numberStyle = .decimal
+        result = numberFormatter.string(from: NSNumber(value: price))!
         return result
     }
     
     private func setSecondaryLabelUI() {
+        guard let grayColor = UIColor(named: Constants.FruitfruitColors.gray0) else { return }
         secondaryTitleLabel.text = setSecondaryText()
         secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
+        secondaryTitleLabel.textColor = grayColor
     }
     
     private func setSecondaryText() -> String {
