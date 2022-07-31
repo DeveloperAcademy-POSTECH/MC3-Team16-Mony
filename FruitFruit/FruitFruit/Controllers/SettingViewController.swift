@@ -231,6 +231,10 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
             validWeekString.append(tmpWeek)
         }
         
+        let weekDict = ["일":0, "월":1, "화":2, "수":3, "목":4, "금":5, "토":6]
+        todayPos = (1, weekDict[Date().dayString] ?? 0)
+        
+        
         let validFirstWeekSet = Set(validWeeksComponents[0..<7])
         let validSecondWeekSet = Set(validWeeksComponents[7..<14])
         
@@ -337,9 +341,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitWeekCell.id, for: indexPath) as? FruitWeekCell else { return FruitWeekCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitWeekCell.id, for: indexPath) as? FruitWeekCell, let todayPos = todayPos else { return FruitWeekCell() }
         let orders = fruitArrivedOrders[indexPath.section] ?? []
-        cell.setUI(model: validWeekString[indexPath.section], orders: orders, todayPos: nil)
+        let dayPos = indexPath.section == 1 ? todayPos.1 : nil
+        cell.setUI(model: validWeekString[indexPath.section], orders: orders, todayPos: dayPos)
         cell.backgroundColor = .clear
         return cell
     }
