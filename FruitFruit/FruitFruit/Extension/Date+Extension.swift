@@ -76,7 +76,7 @@ extension Date {
         let todayOrdinal = weekDict[todayString] ?? 0
         let calendar = Calendar.current
         var validWeeks = [Date]()
-        var offset = -todayOrdinal - 6
+        var offset = -todayOrdinal - 7
         for _ in 0..<14 {
             let tempDay = calendar.date(byAdding: .day, value: offset, to: Date())!
             validWeeks.append(tempDay)

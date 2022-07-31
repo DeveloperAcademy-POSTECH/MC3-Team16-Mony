@@ -12,10 +12,8 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let database = Firestore.firestore()
     var isProfileEditing: Bool = false
-    var month = [[String]]()
+    private var validWeekString = [[String]]()
     private var fruitArrivedOrders = [FruitOrder]()
-    private var validModels = [MonthModel]()
-    private var validOrders = [Int : [FruitOrder]]()
     
     let fruitProfile: UIImageView = {
         let profile = UIImageView()
@@ -60,16 +58,24 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         return label
     }()
     
+    let fruitWeekCalendar: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initSettingViewUI()
         Task {
             do {
                 self.fruitArrivedOrders = try await self.fetchOrders()
+                self.fruitWeekCalendar.reloadData()
             } catch {
                 print(error)
             }
         }
-        initSettingViewUI()
+        print(validWeekString)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +90,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         initDivider()
         initCalendarLabel()
         initCalendarContainer()
+        initWeekCalendar()
     }
     
     private func initSettingViewNavBar() {
@@ -209,7 +216,20 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let calendar = Calendar.current
         let validWeeks = Date().getValidWeeks()
-        let validWeeksComponents = validWeeks.map{calendar.dateComponents([.year, .month, .day], from: $0)}
+        
+        let validWeeksComponents = Array(validWeeks.map{calendar.dateComponents([.year, .month, .day], from: $0)})
+        
+        var dayIndex = 0
+        for _ in 0..<2 {
+            var tmpWeek = [String]()
+            for _ in 0..<7 {
+                let dayString = String(validWeeksComponents[dayIndex].day!)
+                tmpWeek.append(dayString)
+                dayIndex += 1
+            }
+            validWeekString.append(tmpWeek)
+        }
+        
         let validWeekComponentsSet = Set(validWeeksComponents)
         
         do {
@@ -248,6 +268,19 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarButton.addGestureRecognizer(calendarTapGesture)
     }
     
+    private func initWeekCalendar() {
+        view.addSubview(fruitWeekCalendar)
+        fruitWeekCalendar.delegate = self
+        fruitWeekCalendar.dataSource = self
+        fruitWeekCalendar.separatorStyle = .none
+        fruitWeekCalendar.backgroundColor = .clear
+        fruitWeekCalendar.register(FruitWeekCell.self, forCellReuseIdentifier: FruitWeekCell.id)
+        fruitWeekCalendar.topAnchor.constraint(equalTo: fruitCalendarContainer.topAnchor, constant: 26).isActive = true
+        fruitWeekCalendar.leadingAnchor.constraint(equalTo: fruitCalendarContainer.leadingAnchor, constant: 15).isActive = true
+        fruitWeekCalendar.trailingAnchor.constraint(equalTo: fruitCalendarContainer.trailingAnchor, constant: -15).isActive = true
+        fruitWeekCalendar.bottomAnchor.constraint(equalTo: fruitCalendarButton.topAnchor, constant: -26).isActive = true
+    }
+    
     @objc private func calendarTapGesture() {
         let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
         guard let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
@@ -277,5 +310,22 @@ extension SettingViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+}
+
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return validWeekString.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FruitWeekCell.id, for: indexPath) as? FruitWeekCell else { return FruitWeekCell() }
+        cell.setUI(model: validWeekString[indexPath.section], orders: [], todayPos: nil)
+        cell.backgroundColor = .clear
+        return cell
     }
 }
