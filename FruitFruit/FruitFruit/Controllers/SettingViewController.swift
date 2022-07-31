@@ -211,10 +211,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarContainer.heightAnchor.constraint(equalToConstant: 204).isActive = true
     }
     
-    private func fetchOrders() async throws -> [Int:[FruitOrder]] {
-        var fruitArrivedOrders = [Int:[FruitOrder]]()
-        guard let user = Storage().fruitUser else { return [:] }
-        
+    private func fetchValidWeeks() -> [DateComponents] {
         let calendar = Calendar.current
         let validWeeks = Date().getValidWeeks()
         
@@ -233,7 +230,15 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let weekDict = ["일":0, "월":1, "화":2, "수":3, "목":4, "금":5, "토":6]
         todayPos = (1, weekDict[Date().dayString] ?? 0)
+        return validWeeksComponents
+    }
+    
+    private func fetchOrders() async throws -> [Int:[FruitOrder]] {
+        var fruitArrivedOrders = [Int:[FruitOrder]]()
+        guard let user = Storage().fruitUser else { return [:] }
         
+        let calendar = Calendar.current
+        let validWeeksComponents = fetchValidWeeks()
         
         let validFirstWeekSet = Set(validWeeksComponents[0..<7])
         let validSecondWeekSet = Set(validWeeksComponents[7..<14])
