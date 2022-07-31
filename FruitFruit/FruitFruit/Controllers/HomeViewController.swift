@@ -81,20 +81,14 @@ class HomeViewController: UIViewController {
         fetchData()
     }
     
-    // MARK: - FUNCTIONS
-    
-    private func fetchData() {
+    func fetchData() {
         fetchOrders()
         fetchInfos()
     }
-    
+        
     private func fetchOrders() {
-        //TODO: 유효한 주문 -> 연산 프로퍼티로 체크하기
         if let user = Storage().fruitUser {
-            let detailCollectionName = "\(user.name) \(user.nickname)"
-            database.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
-
-//            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).order(by: Constants.FStore.Orders.orderField).addSnapshotListener { querySnapShot, error in
+            database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(Constants.FStore.Orders.collectionPath).addSnapshotListener { querySnapShot, error in
                 self.fruitOrders = []
                 if let error = error {
                     print(error.localizedDescription)
@@ -104,11 +98,14 @@ class HomeViewController: UIViewController {
                             let data = document.data()
                             do {
                                 let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
-                                self.fruitOrders.append(fruitOrder)
+                                if fruitOrder.dueDate >= Date() {
+                                    self.fruitOrders.append(fruitOrder)
+                                }
                             } catch {
                                 print(error)
                             }
                         }
+                        self.fruitOrders.sort(by: {$0.dueDate < $1.dueDate})
                         let layout = UICollectionViewFlowLayout()
                         layout.scrollDirection = .horizontal
 
@@ -126,6 +123,7 @@ class HomeViewController: UIViewController {
                         }
                     }
                 }
+                
             }
         }
     }
@@ -133,27 +131,28 @@ class HomeViewController: UIViewController {
     private func fetchInfos() {
         //TODO: 날짜, 시간 맞춰서 뷰에 보이는 주문 가능 과일 버튼 표시하기
         //TODO: 판매 유효한 과일 -> 날짜순서대로 고르기
-        if let user = Storage().fruitUser {
-            database.collection(Constants.FStore.SaleInfos.collectionName).order(by: Constants.FStore.SaleInfos.orderField).addSnapshotListener { querySnapShot, error in
-                self.fruitSaleInfos.removeAll()
-                if let error = error {
-                    print(error.localizedDescription)
-                } else {
-                    if let documents = querySnapShot?.documents {
-                        for document in documents {
-                            let data = document.data()
-                            do {
-                                let fruitSaleInfo: FruitSaleInfo = try FruitSaleInfo.decode(dictionary: data)
+        database.collection(Constants.FStore.SaleInfos.collectionName).addSnapshotListener { querySnapShot, error in
+            self.fruitSaleInfos.removeAll()
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let documents = querySnapShot?.documents {
+                    for document in documents {
+                        let data = document.data()
+                        do {
+                            let fruitSaleInfo: FruitSaleInfo = try FruitSaleInfo.decode(dictionary: data)
+                            if fruitSaleInfo.saleDate >= Date() {
                                 self.fruitSaleInfos.append(fruitSaleInfo)
-                            } catch {
-                                print(error)
                             }
+                        } catch {
+                            print(error)
                         }
-                        DispatchQueue.main.async {
-                            self.setHomeViewUI()
-                            if !self.fruitSaleInfos.isEmpty {
-                                self.fruitInfoTableView.reloadData()
-                            }
+                    }
+                    self.fruitSaleInfos.sort(by: {$0.saleDate < $1.saleDate})
+                    DispatchQueue.main.async {
+                        self.setHomeViewUI()
+                        if !self.fruitSaleInfos.isEmpty {
+                            self.fruitInfoTableView.reloadData()
                         }
                     }
                 }
@@ -179,7 +178,6 @@ class HomeViewController: UIViewController {
         fruitStatusCollectionView.heightAnchor.constraint(equalToConstant: 68).isActive = true
         fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         fruitStatusCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
     }
     
     private func initFruitInfoTableView() {
@@ -257,13 +255,11 @@ class HomeViewController: UIViewController {
     }
     
     @objc func tapFruitProfile() {
-        print("FruitfruitLabel tapped")
         let storyboard = UIStoryboard(name: "Setting", bundle: nil)
         let settingVC = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
         let homeVC = self.navigationController
         homeVC?.pushViewController(settingVC, animated: true)
         homeVC?.isNavigationBarHidden = false
-        
     }
     
     private func initFruitOrderLabel() {
@@ -316,8 +312,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(fruitSaleInfos[indexPath.section])
-        //TODO: FruitOrderView로 navigation prepare
+        let storyboard = UIStoryboard(name: "OrderView", bundle: nil)
+        guard let orderVC = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as? OrderViewController else { return }
+        orderVC.fruitSaleInfo = fruitSaleInfos[indexPath.section]
+        let homeVC = self.navigationController
+        homeVC?.pushViewController(orderVC, animated: true)
+        homeVC?.isNavigationBarHidden = false
     }
 }
 
@@ -336,6 +336,14 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(fruitOrders[indexPath.item])
+        // 1. ConfrimStatusView -> 연동
+        let storyboard = UIStoryboard(name: "ConfirmStatus", bundle: nil)
+        guard let confirmVC = storyboard.instantiateViewController(withIdentifier: "ConfirmStatusViewController") as? ConfirmStatusViewController else { return }
+        // 2. Data Binding
+        confirmVC.fruitOrder = fruitOrders[indexPath.item]
+        let homeVC = self.navigationController
+        homeVC?.pushViewController(confirmVC, animated: true)
+        homeVC?.isNavigationBarHidden = true
+        
     }
 }

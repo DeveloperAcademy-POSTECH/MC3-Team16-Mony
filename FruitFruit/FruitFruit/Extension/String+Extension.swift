@@ -24,6 +24,14 @@ extension String {
             return FruitType.Watermelon
         } else if self.contains("바나나") {
             return FruitType.Banana
+        } else if self.contains("포도") {
+            return FruitType.Grape
+        } else if self.contains("사과") {
+            return FruitType.Apple
+        } else if self.contains("파인애플") {
+            return FruitType.Pineapple
+        } else if self.contains("자두") {
+            return FruitType.Plum
         } else {
             return FruitType.Orange
         }

@@ -15,7 +15,7 @@ class OrderSheet: UIView {
         return label
     }()
     
-    let fruitLabel: UILabel = {
+    var fruitLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -33,9 +33,6 @@ class OrderSheet: UIView {
         return accountRow
     }()
     
-    //TODO: Home에서 전달된 data 배치
-    var status: FruitStatus = .Checking
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -47,10 +44,33 @@ class OrderSheet: UIView {
     
     private func setUI() {
         setBackground()
-        setLabels(status)
+        setLabels()
         setSheetTable()
         setDivider()
         setAccount()
+    }
+    
+    func prepare(orderInfo: FruitOrder) {
+        secondaryTitleLabel.text = orderInfo.statusEnum == .Canceled ? "주문 취소 내역" : "주문내역"
+        
+        fruitLabel.text = orderInfo.name
+        fruitLabel.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
+        
+        sheetTable.sheetRowAmount.value.text = String(orderInfo.amount) + "개"
+        sheetTable.sheetRowAmount.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
+        
+        sheetTable.sheetRowPrice.value.text = setTotalPriceToString(price: orderInfo.totalPrice)
+        sheetTable.sheetRowPrice.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
+        
+        sheetTable.sheetRowPlace.value.text = orderInfo.place
+        sheetTable.sheetRowPlace.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
+        
+        sheetTable.sheetRowTime.value.text = setTimeToString(time: orderInfo.time)
+        sheetTable.sheetRowTime.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
+        
+        account.accountText.textColor = UIColor(named: orderInfo.statusEnum == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
+        account.accountImage.tintColor = UIColor(named: orderInfo.statusEnum == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
+        
     }
 
 }
@@ -97,20 +117,17 @@ extension OrderSheet {
         shapes.layer.borderColor = UIColor(named: Constants.FruitfruitColors.gray2)?.cgColor
     }
     
-    private func setLabels(_ status: FruitStatus) {
+    private func setLabels() {
         self.addSubview(secondaryTitleLabel)
         self.addSubview(fruitLabel)
         
-        secondaryTitleLabel.text = status == .Canceled ? "주문 취소 내역" : "주문내역"
         secondaryTitleLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
         secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         secondaryTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
         secondaryTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         secondaryTitleLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
         
-        fruitLabel.text = "여름오렌지"
         fruitLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
-        fruitLabel.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
         fruitLabel.topAnchor.constraint(equalTo: topAnchor, constant: 70).isActive = true
         fruitLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         fruitLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
@@ -118,10 +135,6 @@ extension OrderSheet {
     
     private func setSheetTable() {
         self.addSubview(sheetTable)
-        sheetTable.sheetRowAmount.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
-        sheetTable.sheetRowPrice.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
-        sheetTable.sheetRowPlace.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
-        sheetTable.sheetRowTime.value.textColor = UIColor(named: status == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
     }
     
     private func setDivider() {
@@ -137,8 +150,26 @@ extension OrderSheet {
         account.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34).isActive = true
         account.widthAnchor.constraint(equalToConstant: 270).isActive = true
         account.heightAnchor.constraint(equalToConstant: 21).isActive = true
-        account.accountText.textColor = UIColor(named: status == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
-        account.accountImage.tintColor = UIColor(named: status == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
+    }
+    
+    private func setTotalPriceToString(price: Int) -> String {
+        let result: String
+        let numberFormatter = NumberFormatter()
+        
+        numberFormatter.numberStyle = .decimal
+        result = numberFormatter.string(from: NSNumber(value: price))!
+        return result + "원"
+    }
+    
+    private func setTimeToString(time: Int) -> String {
+        var hour: Int
+        
+        if time > 12 {
+            hour = time - 12
+            return "오후 " + String(hour) + "시 "
+        } else {
+            return "오전 " + String(time) + "시 "
+        }
     }
     
 }

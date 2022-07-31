@@ -14,7 +14,6 @@ class SheetTable: UIView {
         let sheet = SheetRow()
         sheet.translatesAutoresizingMaskIntoConstraints = false
         sheet.label.text = "개수"
-        sheet.value.text = "3개"
         return sheet
     }()
     
@@ -22,7 +21,6 @@ class SheetTable: UIView {
         let sheet = SheetRow()
         sheet.translatesAutoresizingMaskIntoConstraints = false
         sheet.label.text = "금액"
-        sheet.value.text = "2,400원"
         return sheet
     }()
     
@@ -30,7 +28,6 @@ class SheetTable: UIView {
         let sheet = SheetRow()
         sheet.translatesAutoresizingMaskIntoConstraints = false
         sheet.label.text = "수령장소"
-        sheet.value.text = "포스텍 C5"
         return sheet
     }()
     
@@ -38,7 +35,6 @@ class SheetTable: UIView {
         let sheet = SheetRow()
         sheet.translatesAutoresizingMaskIntoConstraints = false
         sheet.label.text = "시간"
-        sheet.value.text = "오후 1시"
         return sheet
     }()
     

@@ -23,12 +23,15 @@ extension UIView {
         graident.endPoint = CGPoint(x: 0.75, y: 0.5)
         return graident
     }
+    
+    
     // How to use
     // 1. let gradient = button.applyButtonGraident(colors: [yourColor])
     // 2. button.layer.insertSublayer(graident, at: 0)
     // 버튼 레이어의 가장 상단부에 위치 백그라운드 컬러를 그레디언트로 주기    
     func applyBackgroundGradient() {
         let backgroundLabel = FruitBackground(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - 547))
+        backgroundLabel.tag = 1
         backgroundLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundLabel)
         backgroundLabel.widthAnchor.constraint(equalToConstant: self.bounds.width).isActive = true
@@ -39,4 +42,14 @@ extension UIView {
     // How to use
     // 1. viewDidLoaded() -> self(VC).view(current view) extension func applyBackgroundGradient()
     // 2. 해당 뷰의 서브 뷰에 그레디언트 레이어가 입혀진 UILabel를 추가하기
+    func applyBackgroundBlurring() {
+        let backgroundLabel = FruitBackground(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height - 547))
+        backgroundLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(backgroundLabel)
+        backgroundLabel.widthAnchor.constraint(equalToConstant: bounds.width).isActive = true
+        backgroundLabel.heightAnchor.constraint(equalToConstant: self.bounds.height - 547).isActive = true
+        backgroundLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        backgroundLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: -347).isActive = true
+    }
+    //TODO: width, height -> 사이즈 감지 체크 + 블러링 이펙트 주기
 }

@@ -11,23 +11,14 @@ import FirebaseFirestore
 func addOrder(fruitOrder: FruitOrder) {
     let db = Firestore.firestore()
     guard let fruitOrderDict = fruitOrder.dictionary else { return }
-    if let user = Storage().fruitUser {
-        let detailCollectionName = "\(user.name) + \(user.nickname)"
-        db.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(detailCollectionName).addDocument(data: fruitOrderDict)
-    }
-}
-
-func addMockOrder(fruitOrder: FruitOrder) {
-    let db = Firestore.firestore()
-    guard let fruitOrderDict = fruitOrder.dictionary else { return }
-    if let user = Storage().fruitUser {
-        let detailCollectionName = "\(user.name) \(user.nickname)"
-        db.collection(Constants.FStore.Orders.collectionName).document(detailCollectionName).collection(detailCollectionName).addDocument(data: fruitOrderDict)
-    }
+    guard let user = Storage().fruitUser else { return }
+    db.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(Constants.FStore.Orders.collectionPath).addDocument(data: fruitOrderDict)
+    let data = [Constants.FStore.Users.idField : user.id, Constants.FStore.Users.nameField : user.name, Constants.FStore.Users.nicknameField : user.nickname] as [String : Any]
+    db.collection(Constants.FStore.SaleInfos.collectionName).document(fruitOrder.saleFruitId).collection(Constants.FStore.SaleInfos.collectionPath).document(user.id).setData(data)
 }
 
 func addMockSaleInfo(fruitInfo: FruitSaleInfo) {
     let db = Firestore.firestore()
     guard let fruitInfoDict = fruitInfo.dictionary else { return }
-    db.collection(Constants.FStore.SaleInfos.collectionName).addDocument(data: fruitInfoDict)
+    db.collection(Constants.FStore.SaleInfos.collectionName).document(fruitInfo.fruitSaleId).setData(fruitInfoDict)
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct FruitOrder: Codable {
+    let saleFruitId: String
     let name: String
     let dueDate: Date
     //TODO: dueDate가 해당 주문 상태 라벨을 보여주는 기준
@@ -20,6 +21,10 @@ struct FruitOrder: Codable {
     
     var statusEnum: FruitStatus {
         return FruitStatus(rawValue: status) ?? FruitStatus.Canceled
+    }
+    
+    var fruitType: FruitType {
+        return name.getFruitType
     }
     
     var totalPrice: Int {

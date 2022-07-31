@@ -51,9 +51,19 @@ enum FruitStatus: String {
     
     func getStatusImageName(fruit: String) -> String {
         
-        let fruit = fruit.getFruitType.fruitName
+        let fruit = FruitType.Orange.fruitName
         
         switch self {
+//        case .Checking:
+//            return "Fruitfruit_Status_\(fruit)_Checking.pdf"
+//        case .Checked:
+//            return "Fruitfruit_Status_\(fruit)_Checked.pdf"
+//        case .Canceled:
+//            return "Fruitfruit_Status_Canceled.pdf"
+//        case .Arriving:
+//            return "Fruitfruit_Status_\(fruit)_Arrived.pdf"
+//        case .Arrived:
+//            return "Fruitfruit_Status_\(fruit)_Arrived.pdf"
         case .Checking:
             return "Fruitfruit_Status_\(fruit)_Checking.pdf"
         case .Checked:
