@@ -13,13 +13,16 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var fruitOriginLabel: UILabel!
     @IBOutlet weak var fruitNameLabel: UILabel!
     @IBOutlet weak var fruitOriginSublabel: UILabel!
+    @IBOutlet weak var fruitOriginTitlelabel: UILabel!
     @IBOutlet weak var shopNameLabel: UILabel!
+    @IBOutlet weak var shopNameTitlelabel: UILabel!
+    @IBOutlet weak var placeHeadLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var timeHeadLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var priceTitlelabel: UILabel!
     @IBOutlet var checkOrderButton: UIButton!
-    @IBOutlet var TimeView: UIView!
-    @IBOutlet var LocationView: UIView!
     
     
     
@@ -28,10 +31,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         initOrderViewNavBar()
         setUI()
         setCheckOrderButtonUI()
-        setLocationViewUI()
-        setTimeViewUI()
-        view.addSubview(LocationView)
-        view.addSubview(TimeView)
+
         view.addSubview(checkOrderButton)
         checkOrderButton.addTarget(self, action: #selector(checkOrderButtonTapped), for: .touchUpInside)
         view.applyBackgroundGradient()
@@ -61,17 +61,8 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    //TODO: 1. 폰트 사이즈
-    //TODO: 2. 과일 종류에 따라서 텍스트 컬러 주기
-    //TODO: 3. 정렬
-    //TODO: 4. 과일 이미지 따오기
     private func setUI() {
-        
-        //fruitNameLabel 오토 레이아웃
-        fruitNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        fruitNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 425).isActive = true
-        fruitNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
+                
         guard let fruitSaleInfo = fruitSaleInfo else { return }
         let fruitType = fruitSaleInfo.fruitName.getFruitType
         let fruitColorName = fruitType.fruitColorName
@@ -81,14 +72,47 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let blackColor = UIColor(named: Constants.FruitfruitColors.black1) else { return }
         
         fruitOriginLabel.text = "\(fruitSaleInfo.fruitOrigin)에서 태어난"
-        fruitOriginLabel.textColor = blackColor
+        fruitOriginLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+        fruitOriginLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
+        fruitOriginLabel.translatesAutoresizingMaskIntoConstraints = false
+        fruitOriginLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 395).isActive = true
+        
+
         fruitNameLabel.text = fruitSaleInfo.fruitName
         fruitNameLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
+        fruitNameLabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
+guard let fruitColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName) else { return }
+// 옵셔널 바인딩 -> 이후 fruitColor는 UIColor 옵셔널이 아니라 UIColor 변수입니다
+fruitNameLabel.textColor = fruitColor
+        fruitOriginTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        fruitOriginTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
+        
         fruitOriginSublabel.text = fruitSaleInfo.fruitOrigin
+        fruitOriginSublabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        fruitOriginSublabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+        
+        
+        shopNameTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        shopNameTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
+        
         shopNameLabel.text = fruitSaleInfo.shopName
         shopNameLabel.numberOfLines = 0
+        shopNameLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        shopNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+
+        priceTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        priceTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
+        
+        priceLabel.text = String(fruitSaleInfo.price) + "원"
+        priceLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        priceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+        
+        placeHeadLabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        placeHeadLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
         placeLabel.text = fruitSaleInfo.place
-        fruitImage.image = image
+        placeLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        placeLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+
         var hour = fruitSaleInfo.time
         
         if hour > 12 {
@@ -97,13 +121,12 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         } else {
             timeLabel.text = "오전 " + String(hour) + "시 "
         }
+        timeHeadLabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        timeHeadLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
+        timeLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
+        timeLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         
-        checkOrderButton.translatesAutoresizingMaskIntoConstraints = false
-        checkOrderButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 746).isActive = true
-        checkOrderButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        checkOrderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-        checkOrderButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
-        checkOrderButton.frame.size = CGSize(width: view.bounds.size.width - 48, height: 58)
+        fruitImage.image = image
     }
     
     @objc func checkOrderButtonTapped() {
@@ -124,21 +147,5 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         checkOrderButton.layer.borderWidth = 1
         checkOrderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
     }
-    private func setTimeViewUI() {
-        TimeView.backgroundColor = .white
-        TimeView.layer.shadowOpacity = 1
-        TimeView.layer.shadowColor = UIColor(red: 0.917, green: 0.813, blue: 0.737, alpha: 0.3).cgColor
-        TimeView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        TimeView.layer.shadowRadius = 20
-        TimeView.layer.masksToBounds = false
-    }
-    private func setLocationViewUI() {
-        LocationView.backgroundColor = .white
-        LocationView.layer.shadowOpacity = 1
-        LocationView.layer.shadowColor = UIColor(red: 0.917, green: 0.813, blue: 0.737, alpha: 0.3).cgColor
-        LocationView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        LocationView.layer.shadowRadius = 20
-        LocationView.layer.masksToBounds = false
-    }
-    
+
 }
