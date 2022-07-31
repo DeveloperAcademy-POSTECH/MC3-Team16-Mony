@@ -302,13 +302,6 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarViewController") as? CalendarViewController else { return }
         let settingVC = self.navigationController
         settingVC?.pushViewController(calendarVC, animated: true)
-        
-        
-        let dueDateComp = DateComponents(year: 2022, month: 7, day: 30)
-        let dueDate = Calendar.current.date(from: dueDateComp)!
-        guard let user = Storage().fruitUser else { return }
-        let fruitMockOrder = FruitOrder(saleFruitId: "MockOrder", name: "여름복숭아", dueDate: dueDate, amount: 3, price: 400, status: "Arrived", user: user, place: "C5", time: 14)
-        addOrder(fruitOrder: fruitMockOrder)
     }
 }
 
