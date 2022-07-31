@@ -54,12 +54,6 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         return label
     }()
     
-    let fruitCalendarTable: FruitWeekCell = {
-        let cell = FruitWeekCell()
-        cell.translatesAutoresizingMaskIntoConstraints = false
-        return cell
-    }()
-    
     let fruitCalendarButton: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -68,6 +62,13 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Task {
+            do {
+                self.fruitArrivedOrders = try await self.fetchOrders()
+            } catch {
+                print(error)
+            }
+        }
         initSettingViewUI()
     }
     
@@ -191,7 +192,6 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     private func initCalendarContainer() {
         view.addSubview(fruitCalendarContainer)
         guard let grayColor = UIColor(named: Constants.FruitfruitColors.gray3) else { return }
-        initCalendarTable()
         initCalendarButton()
         
         fruitCalendarContainer.clipsToBounds = true
@@ -203,9 +203,34 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitCalendarContainer.heightAnchor.constraint(equalToConstant: 204).isActive = true
     }
     
-    private func initCalendarTable() {
-        view.addSubview(fruitCalendarTable)
-        //TODO: 접속일 기준으로 해당 주와 전주 불러오기
+    private func fetchOrders() async throws -> [FruitOrder] {
+        var fruitArrivedOrders = [FruitOrder]()
+        guard let user = Storage().fruitUser else { return [] }
+        
+        let calendar = Calendar.current
+        let validWeeks = Date().getValidWeeks()
+        let validWeeksComponents = validWeeks.map{calendar.dateComponents([.year, .month, .day], from: $0)}
+        let validWeekComponentsSet = Set(validWeeksComponents)
+        
+        do {
+            let snapShot = try await database.collection(Constants.FStore.Orders.collectionName).document(user.id).collection(Constants.FStore.Orders.collectionPath).whereField("status", isEqualTo: "Arrived").getDocuments()
+            snapShot.documents.forEach { documentSnapShot in
+                let data = documentSnapShot.data()
+                do {
+                    let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
+                    let orderComponent = calendar.dateComponents([.year, .month, .day], from: fruitOrder.dueDate)
+                    if validWeekComponentsSet.contains(orderComponent) {
+                        fruitArrivedOrders.append(fruitOrder)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+        fruitArrivedOrders.sort(by: {$0.dueDate < $1.dueDate})
+        return fruitArrivedOrders
     }
     
     private func initCalendarButton() {
