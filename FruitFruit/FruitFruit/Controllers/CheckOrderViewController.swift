@@ -91,7 +91,6 @@ extension CheckOrderViewController {
         let share: String
         let remainder: String
         let result: String
-        //TODO: 2000원 -> 2,0원, 3000원 -> 3,0원으로 표시되는 이슈가 있습니다!
         
         if cost >= 1000 {
             share = String(cost / 1000)
@@ -107,7 +106,7 @@ extension CheckOrderViewController {
     private func setSecondaryLabelUI() {
         secondaryTitleLabel.text = setSecondaryText()
         secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
     }
     
     private func setSecondaryText() -> String {
