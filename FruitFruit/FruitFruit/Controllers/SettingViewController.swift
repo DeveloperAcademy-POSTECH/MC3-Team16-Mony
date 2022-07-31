@@ -290,6 +290,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
         fruitWeekCalendar.dataSource = self
         fruitWeekCalendar.separatorStyle = .none
         fruitWeekCalendar.backgroundColor = .clear
+        fruitWeekCalendar.isUserInteractionEnabled = false
         fruitWeekCalendar.register(FruitWeekCell.self, forCellReuseIdentifier: FruitWeekCell.id)
         fruitWeekCalendar.topAnchor.constraint(equalTo: fruitCalendarContainer.topAnchor, constant: 26).isActive = true
         fruitWeekCalendar.leadingAnchor.constraint(equalTo: fruitCalendarContainer.leadingAnchor, constant: 15).isActive = true
