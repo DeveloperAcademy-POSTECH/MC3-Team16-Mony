@@ -144,7 +144,7 @@ extension CheckOrderViewController {
     private func playLottie() {
         let background = UILabel()
         background.frame = CGRect(x: 0, y: 0, width: 390, height: 844)
-        background.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        background.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.96).cgColor
         view.addSubview(background)
         
         animationView.frame = CGRect(x: 93, y: 315, width: 180, height: 180)
