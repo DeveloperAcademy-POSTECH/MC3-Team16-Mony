@@ -13,6 +13,7 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     var fruitOrder = FruitOrder(saleFruitId: "fruitUserId", name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     let animationView = AnimationView()
+    var isOrderCompleted: Bool = false
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,10 +21,15 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var orderButton: UIButton!
     
     @IBAction func onOrderButtonClicked(_ sender: UIButton) {
-        playLottie()
-        addOrder(fruitOrder: fruitOrder)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.navigateToOrderResultView()
+        if isOrderCompleted == true {
+            orderButton.isUserInteractionEnabled = false
+        } else {
+            isOrderCompleted = true
+            playLottie()
+            addOrder(fruitOrder: fruitOrder)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+                self.navigateToOrderResultView()
+            }
         }
     }
     
