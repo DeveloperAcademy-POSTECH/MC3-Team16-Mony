@@ -20,7 +20,7 @@ extension UIView {
         graident.locations = locations
         graident.cornerRadius = 16
         graident.startPoint = CGPoint(x: 0.5, y: 0.75)
-        graident.endPoint = CGPoint(x: 0.5, y: 0.2g5)
+        graident.endPoint = CGPoint(x: 0.5, y: 0.25)
         return graident
     }
     

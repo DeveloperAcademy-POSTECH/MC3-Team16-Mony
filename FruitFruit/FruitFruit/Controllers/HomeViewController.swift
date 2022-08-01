@@ -11,6 +11,7 @@ import FirebaseFirestore
 class HomeViewController: UIViewController {
     
     // MARK: - PROPERTIES
+    private var isFirstLoaded = true
     var fruitOrders = [FruitOrder]()
     var fruitSaleInfos = [FruitSaleInfo]()
     let database = Firestore.firestore()
@@ -273,9 +274,10 @@ class HomeViewController: UIViewController {
     
     private func setFruitOrderLayout(_ isTop: Bool) {
         view.constraints.filter{$0.identifier == "fruitOrderLabelTop"}.first?.constant = isTop ? 237 : 335
-        UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+        self.view.layoutIfNeeded()
+//        UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseInOut, animations: {
+//            self.view.layoutIfNeeded()
+//        }, completion: nil)
     }
 }
 
