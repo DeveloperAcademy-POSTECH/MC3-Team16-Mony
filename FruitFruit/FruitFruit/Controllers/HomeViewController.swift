@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
     
     let fruitProfile: UIImageView = {
         let profile = UIImageView()
-        profile.image = UIImage(named: Constants.FruitfruitImages.profile)
+        profile.image = UIImage(named: Constants.FruitfruitImages.Others.profile)
         profile.frame = CGRect(x:0, y:0, width: 48, height: 48)
         profile.translatesAutoresizingMaskIntoConstraints = false
         return profile

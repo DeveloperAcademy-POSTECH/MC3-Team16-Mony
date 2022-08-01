@@ -18,7 +18,7 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let fruitProfile: UIImageView = {
         let profile = UIImageView()
-        profile.image = UIImage(named: Constants.FruitfruitImages.profile)
+        profile.image = UIImage(named: Constants.FruitfruitImages.Others.profile)
         profile.translatesAutoresizingMaskIntoConstraints = false
         return profile
     }()
