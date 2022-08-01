@@ -52,27 +52,30 @@ class OrderSheet: UIView {
     
     func prepare(orderInfo: FruitOrder) {
         secondaryTitleLabel.text = orderInfo.statusEnum == .Canceled ? "주문 취소 내역" : "주문내역"
-        
-        fruitLabel.text = orderInfo.name
-        fruitLabel.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
-        
-        sheetTable.sheetRowAmount.value.text = String(orderInfo.amount) + "개"
-        sheetTable.sheetRowAmount.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
-        
-        sheetTable.sheetRowPrice.value.text = setTotalPriceToString(price: orderInfo.totalPrice)
-        sheetTable.sheetRowPrice.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
-        
-        sheetTable.sheetRowPlace.value.text = orderInfo.place
-        sheetTable.sheetRowPlace.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
-        
-        sheetTable.sheetRowTime.value.text = setTimeToString(time: orderInfo.time)
-        sheetTable.sheetRowTime.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.black1)
-        
-        account.accountText.textColor = UIColor(named: orderInfo.statusEnum == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
-        account.accountImage.tintColor = UIColor(named: orderInfo.statusEnum == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray1)
-        
-    }
+        secondaryTitleLabel.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.gray0)
 
+        fruitLabel.text = orderInfo.name
+        fruitLabel.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray0 : Constants.FruitfruitColors.black1)
+        
+        sheetTable.sheetRowAmount.label.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.gray0)
+        sheetTable.sheetRowAmount.value.text = String(orderInfo.amount) + "개"
+        sheetTable.sheetRowAmount.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray0 : Constants.FruitfruitColors.black1)
+        
+        sheetTable.sheetRowPrice.label.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.gray0)
+        sheetTable.sheetRowPrice.value.text = setTotalPriceToString(price: orderInfo.totalPrice)
+        sheetTable.sheetRowPrice.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray0 : Constants.FruitfruitColors.black1)
+        
+        sheetTable.sheetRowPlace.label.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.gray0)
+        sheetTable.sheetRowPlace.value.text = orderInfo.place
+        sheetTable.sheetRowPlace.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray0 : Constants.FruitfruitColors.black1)
+        
+        sheetTable.sheetRowTime.label.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray1 : Constants.FruitfruitColors.gray0)
+        sheetTable.sheetRowTime.value.text = setTimeToString(time: orderInfo.time)
+        sheetTable.sheetRowTime.value.textColor = UIColor(named: orderInfo.statusEnum == .Canceled ? Constants.FruitfruitColors.gray0 : Constants.FruitfruitColors.black1)
+        
+        account.accountText.textColor = UIColor(named: orderInfo.statusEnum == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray0)
+        account.accountImage.tintColor = UIColor(named: orderInfo.statusEnum == .Checking ? Constants.FruitfruitColors.orange1 : Constants.FruitfruitColors.gray0)
+    }
 }
 
 extension OrderSheet {
@@ -122,7 +125,6 @@ extension OrderSheet {
         self.addSubview(fruitLabel)
         
         secondaryTitleLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
-        secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         secondaryTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
         secondaryTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         secondaryTitleLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
@@ -173,3 +175,4 @@ extension OrderSheet {
     }
     
 }
+

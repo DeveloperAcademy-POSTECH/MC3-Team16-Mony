@@ -58,9 +58,12 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-iW-nDo">
-                                <rect key="frame" x="36" y="746" width="342" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-iW-nDo">
+                                <rect key="frame" x="36" y="798" width="342" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="342" id="70u-eI-2Ek"/>
+                                    <constraint firstAttribute="height" constant="58" id="UIq-27-2hI"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -75,6 +78,8 @@
                             <constraint firstItem="Ym3-Lu-DLc" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="0US-dA-jhD"/>
                             <constraint firstItem="Ym3-Lu-DLc" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="62" id="3bb-kl-AZh"/>
                             <constraint firstItem="CB3-YI-fQw" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="6XG-AO-Fli"/>
+                            <constraint firstItem="LCy-iW-nDo" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="H98-1K-sw7"/>
+                            <constraint firstAttribute="bottom" secondItem="LCy-iW-nDo" secondAttribute="bottom" constant="40" id="HOf-PO-zNH"/>
                             <constraint firstItem="QdS-Gw-2DI" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="JKN-6v-fx1"/>
                             <constraint firstItem="l5h-PY-oa1" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="24" id="cbx-Es-Fxg"/>
                             <constraint firstItem="l5h-PY-oa1" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="125" id="ig9-om-sOm"/>

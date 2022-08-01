@@ -10,7 +10,6 @@ import Lottie
 
 class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    //TODO: 데이터 바인딩
     var fruitOrder = FruitOrder(saleFruitId: "fruitUserId", name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     let animationView = AnimationView()
@@ -21,17 +20,14 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var orderButton: UIButton!
     
     @IBAction func onOrderButtonClicked(_ sender: UIButton) {
-        playLottie()
-        addOrder(fruitOrder: fruitOrder)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.navigateToOrderResultView()
-        }
+        orderButton.isUserInteractionEnabled ? activateOrder() : disableOrder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundView.applyBackgroundGradient()
         setCheckOrderViewUI()
+        orderButton.isUserInteractionEnabled = true
     }
 }
 
@@ -73,7 +69,7 @@ extension CheckOrderViewController {
     }
     
     private func setTitleText() -> String {
-        return setTitleFruit() + " " + setTitleAmount() + "개\n" + setTitleCost() + "원\n주문하시겠어요?"
+        return setTitleFruit() + " " + setTitleAmount() + "개\n" + setTotalPriceToString(price: fruitOrder.totalPrice) + "원\n주문하시겠어요?"
     }
     
     private func setTitleFruit() -> String {
@@ -86,28 +82,20 @@ extension CheckOrderViewController {
         return String(amount)
     }
     
-    private func setTitleCost() -> String {
-        let cost = fruitOrder.totalPrice
-        let share: String
-        let remainder: String
+    private func setTotalPriceToString(price: Int) -> String {
         let result: String
-        //TODO: 2000원 -> 2,0원, 3000원 -> 3,0원으로 표시되는 이슈가 있습니다!
+        let numberFormatter = NumberFormatter()
         
-        if cost >= 1000 {
-            share = String(cost / 1000)
-            remainder = String(cost % 1000)
-            result = share + "," + remainder
-        } else {
-            result = String(cost)
-        }
-        
+        numberFormatter.numberStyle = .decimal
+        result = numberFormatter.string(from: NSNumber(value: price))!
         return result
     }
     
     private func setSecondaryLabelUI() {
+        guard let grayColor = UIColor(named: Constants.FruitfruitColors.gray0) else { return }
         secondaryTitleLabel.text = setSecondaryText()
         secondaryTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        secondaryTitleLabel.textColor = grayColor
     }
     
     private func setSecondaryText() -> String {
@@ -141,10 +129,23 @@ extension CheckOrderViewController {
         orderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
     }
     
+    private func activateOrder() {
+        orderButton.isUserInteractionEnabled = false
+        playLottie()
+        addOrder(fruitOrder: fruitOrder)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.navigateToOrderResultView()
+        }
+    }
+    
+    private func disableOrder() {
+        return
+    }
+    
     private func playLottie() {
         let background = UILabel()
         background.frame = CGRect(x: 0, y: 0, width: 390, height: 844)
-        background.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        background.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.96).cgColor
         view.addSubview(background)
         
         animationView.frame = CGRect(x: 93, y: 315, width: 180, height: 180)

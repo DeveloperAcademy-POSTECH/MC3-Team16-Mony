@@ -13,7 +13,6 @@ class SheetRow: UIView {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        label.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         return label
     }()
     
@@ -21,7 +20,6 @@ class SheetRow: UIView {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(for: .subheadline, weight: .bold)
-        label.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         return label
     }()
     

@@ -74,7 +74,7 @@ extension OrderResultViewController {
         titleLabel.font = UIFont.preferredFont(for: .title1, weight: .bold)
         
         secondaryTitleLabel.text = "아래 계좌로 입금해주세요"
-        secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        secondaryTitleLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
         secondaryTitleLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
     }
     
@@ -98,7 +98,7 @@ extension OrderResultViewController {
     private func setWarningLabel() {
         warningLabel.text = "오늘 오후 6시까지 입금이 확인되지 않으면\n주문이 자동으로 취소됩니다."
         warningLabel.font = UIFont.preferredFont(for: .footnote, weight: .bold)
-        warningLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
+        warningLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
     }
     
     private func setBackToHomeButton() {
