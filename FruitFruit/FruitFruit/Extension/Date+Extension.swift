@@ -69,4 +69,20 @@ extension Date {
         }
         return months
     }
+    
+    func getValidWeeks() -> [Date] {
+        let weekDict = ["일":0, "월":1, "화":2, "수":3, "목":4, "금":5, "토":6]
+        let todayString = Date().dayString
+        let todayOrdinal = weekDict[todayString] ?? 0
+        let calendar = Calendar.current
+        var validWeeks = [Date]()
+        var offset = -todayOrdinal - 7
+        for _ in 0..<14 {
+            let tempDay = calendar.date(byAdding: .day, value: offset, to: Date())!
+            validWeeks.append(tempDay)
+            offset += 1
+        }
+        
+        return validWeeks
+    }
 }
