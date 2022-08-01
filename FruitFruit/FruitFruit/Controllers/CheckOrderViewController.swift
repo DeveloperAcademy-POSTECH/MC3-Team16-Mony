@@ -13,7 +13,6 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     var fruitOrder = FruitOrder(saleFruitId: "fruitUserId", name: "여름오렌지", dueDate: Date(), amount: 3, price: 800, status: "Checking", user: Storage().fruitUser!, place: "포스텍 C5", time: 13)
     
     let animationView = AnimationView()
-    var isOrderCompleted: Bool = false
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,22 +20,14 @@ class CheckOrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var orderButton: UIButton!
     
     @IBAction func onOrderButtonClicked(_ sender: UIButton) {
-        if isOrderCompleted == true {
-            orderButton.isUserInteractionEnabled = false
-        } else {
-            isOrderCompleted = true
-            playLottie()
-            addOrder(fruitOrder: fruitOrder)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-                self.navigateToOrderResultView()
-            }
-        }
+        orderButton.isUserInteractionEnabled ? activateOrder() : disableOrder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundView.applyBackgroundGradient()
         setCheckOrderViewUI()
+        orderButton.isUserInteractionEnabled = true
     }
 }
 
@@ -136,6 +127,19 @@ extension CheckOrderViewController {
         orderButton.layer.cornerRadius = 16
         orderButton.layer.borderWidth = 1
         orderButton.layer.borderColor = UIColor(named: Constants.FruitfruitColors.button1)?.cgColor
+    }
+    
+    private func activateOrder() {
+        orderButton.isUserInteractionEnabled = false
+        playLottie()
+        addOrder(fruitOrder: fruitOrder)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.navigateToOrderResultView()
+        }
+    }
+    
+    private func disableOrder() {
+        return
     }
     
     private func playLottie() {
