@@ -19,8 +19,8 @@ extension UIView {
         graident.colors = colors.map {$0.cgColor}
         graident.locations = locations
         graident.cornerRadius = 16
-        graident.startPoint = CGPoint(x: 0.25, y: 0.5)
-        graident.endPoint = CGPoint(x: 0.75, y: 0.5)
+        graident.startPoint = CGPoint(x: 0.5, y: 0.75)
+        graident.endPoint = CGPoint(x: 0.5, y: 0.2g5)
         return graident
     }
     
