@@ -76,7 +76,6 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
                 print(error)
             }
         }
-        print(validWeekString)
     }
     
     override func viewWillAppear(_ animated: Bool) {

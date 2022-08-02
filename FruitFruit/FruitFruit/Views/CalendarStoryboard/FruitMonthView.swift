@@ -42,7 +42,6 @@ class FruitMonthView: UIView {
                 let weekPos = position.0
                 let dayPos = position.1
                 var savedData = fruitOrderWeek[weekPos] ?? []
-                print(weekPos, dayPos)
                 savedData.append(order)
                 fruitOrderWeek[weekPos] = savedData
             }
@@ -75,7 +74,6 @@ class FruitMonthView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        print("TOUCHES")
     }
 }
 
@@ -117,9 +115,5 @@ extension FruitMonthView: UITableViewDataSource, UITableViewDelegate {
         let footerView = UIView()
         footerView.backgroundColor = .clear
         return footerView
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("MONTHVIEWCELL")
     }
 }

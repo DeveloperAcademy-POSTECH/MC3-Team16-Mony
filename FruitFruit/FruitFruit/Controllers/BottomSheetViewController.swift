@@ -154,11 +154,6 @@ class BottomSheetViewController: UIViewController {
         checkOrderButton.setTitle(costcountCheckText(), for: .normal)
     }
     
-    @objc
-    func onTapOrder() {
-        print("맛있는 과일 사기 was tapped.")
-    }
-    
     private func setupLayout() {
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

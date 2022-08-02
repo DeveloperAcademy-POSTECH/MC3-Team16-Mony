@@ -17,7 +17,6 @@ enum FruitStatus: String {
     func makeHomeTitleText(fruit: String, time: Int, place: String) -> NSMutableAttributedString  {
         let fruitType = fruit.getFruitType
         let color = UIColor(named: fruitType.fruitColorName)!
-        print(fruit.isLastConsonantLetter)
         switch self {
         case .Checking:
             let preposition = fruit.isLastConsonantLetter ? "이" : "가"

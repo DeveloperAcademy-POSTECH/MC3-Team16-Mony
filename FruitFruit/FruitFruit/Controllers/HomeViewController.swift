@@ -209,7 +209,6 @@ class HomeViewController: UIViewController {
             setFruitOrderLayout(true)
         }
         if fruitSaleInfos.isEmpty {
-            print(fruitSaleInfos)
             fruitInfoTableView.isHidden = true
             fruitQuestionLabel.isHidden = false
             fruitQuestionMark.isHidden = false
