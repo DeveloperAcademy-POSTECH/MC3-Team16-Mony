@@ -39,11 +39,13 @@ class InitSettingViewController: UIViewController {
         nameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nameTextField.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nameTextField.autocorrectionType = .no
+        nameTextField.keyboardType = .default
         nicknameTextField.font = UIFont.preferredFont(for: .title3, weight: .regular)
         nicknameTextField.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         nicknameTextField.tintColor = UIColor(named: Constants.FruitfruitColors.orange1)
         nicknameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: Constants.FruitfruitColors.gray1)!])
         nicknameTextField.autocorrectionType = .no
+        nicknameTextField.keyboardType = .default
         nameLabel.font = UIFont.preferredFont(for: .footnote, weight: .regular)
         nameLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray1)
         initSettingButton.configuration?.background.backgroundColor = UIColor(named: Constants.FruitfruitColors.button2)

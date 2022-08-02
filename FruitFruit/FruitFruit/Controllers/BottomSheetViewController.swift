@@ -191,11 +191,6 @@ class BottomSheetViewController: UIViewController {
             self.dimmedView.alpha = 0.0
             self.view.layoutIfNeeded()
         }) { _ in
-            guard let presentingVC = self.presentationController as? UINavigationController else { return }
-            guard let orderView = presentingVC.topViewController as? OrderViewController else { return }
-            DispatchQueue.main.async {
-                orderView.checkOrderButton.titleLabel?.font = UIFont.preferredFont(for: .headline, weight: .bold)
-            }
             self.dismiss(animated: false, completion: nil)
         }
     }
