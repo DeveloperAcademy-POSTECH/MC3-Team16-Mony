@@ -17,8 +17,6 @@ class ConfirmStatusViewController: UIViewController, UIGestureRecognizerDelegate
     @IBOutlet weak var statusImage: UIImageView!
     
     @IBAction func onNavigationBackButtonClicked(_ sender: UIBarButtonItem) {
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -36,6 +34,7 @@ class ConfirmStatusViewController: UIViewController, UIGestureRecognizerDelegate
     }
     
     private func setUI() {
+        setNavbar()
         setBackground()
         setLabels()
         setImage()
@@ -45,6 +44,11 @@ class ConfirmStatusViewController: UIViewController, UIGestureRecognizerDelegate
 }
 
 extension ConfirmStatusViewController {
+    
+    private func setNavbar() {
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
     
     private func setBackground() {
         backgroundView.applyBackgroundGradient()
