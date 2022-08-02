@@ -148,7 +148,7 @@ extension CheckOrderViewController {
         background.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.96).cgColor
         view.addSubview(background)
         
-        animationView.frame = CGRect(x: 93, y: 315, width: 180, height: 180)
+        animationView.frame = CGRect(x: 85, y: 345, width: 210, height: 105)
         animationView.contentMode = .scaleAspectFill
         animationView.animation = Animation.named("FruitLottie")
         animationView.play(fromFrame: 0, toFrame: 35)

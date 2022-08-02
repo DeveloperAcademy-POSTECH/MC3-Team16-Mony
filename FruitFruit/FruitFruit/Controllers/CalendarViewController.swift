@@ -148,7 +148,7 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
         background.tag = 0
         view.addSubview(background)
         
-        animationView.frame = CGRect(x: 93, y: 315, width: 180, height: 180)
+        animationView.frame = CGRect(x: 85, y: 345, width: 210, height: 105)
         animationView.contentMode = .scaleAspectFill
         animationView.animation = Animation.named("FruitLottie")
         animationView.play(fromFrame: 0, toFrame: 35)
