@@ -70,6 +70,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.popToRootViewController(animated: false)
         self.navigationController?.isNavigationBarHidden = true
         
     }
