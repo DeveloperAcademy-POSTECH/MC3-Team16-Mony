@@ -76,7 +76,6 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
                 print(error)
             }
         }
-        print(validWeekString)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -235,10 +234,10 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func fetchOrders() async throws -> [Int:[FruitOrder]] {
         var fruitArrivedOrders = [Int:[FruitOrder]]()
-        guard let user = Storage().fruitUser else { return [:] }
         
         let calendar = Calendar.current
         let validWeeksComponents = fetchValidWeeks()
+        guard let user = Storage().fruitUser else { return [:] }
         
         let validFirstWeekSet = Set(validWeeksComponents[0..<7])
         let validSecondWeekSet = Set(validWeeksComponents[7..<14])

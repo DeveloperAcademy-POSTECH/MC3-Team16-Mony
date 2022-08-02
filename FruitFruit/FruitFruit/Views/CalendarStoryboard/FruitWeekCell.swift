@@ -81,8 +81,4 @@ extension FruitWeekCell: UICollectionViewDataSource {
         
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(weekday[indexPath.item])
-    }
 }

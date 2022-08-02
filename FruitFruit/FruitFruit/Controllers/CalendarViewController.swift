@@ -81,7 +81,6 @@ class CalendarViewController: UIViewController, UIGestureRecognizerDelegate {
                 let data = documentSnapShot.data()
                 do {
                     let fruitOrder: FruitOrder = try FruitOrder.decode(dictionary: data)
-                    print(fruitOrder)
                     fruitArrivedOrders.append(fruitOrder)
                 } catch {
                     print(error)
