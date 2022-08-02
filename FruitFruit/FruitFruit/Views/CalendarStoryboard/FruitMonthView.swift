@@ -66,7 +66,7 @@ class FruitMonthView: UIView {
         fruitMonthTableView.backgroundColor = .clear
         fruitMonthTableView.separatorStyle = .none
         fruitMonthTableView.widthAnchor.constraint(equalToConstant: 328).isActive = true
-        let height = CGFloat(month.count * 40 + (month.count - 1) * 17 + 2)
+        let height = CGFloat(month.count * 40 + (month.count) * 17 + 2)
         fruitMonthTableView.heightAnchor.constraint(equalToConstant: height).isActive = true
         fruitMonthTableView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 11).isActive = true
         fruitMonthTableView.leadingAnchor.constraint(equalTo: monthLabel.leadingAnchor, constant: 7).isActive = true
