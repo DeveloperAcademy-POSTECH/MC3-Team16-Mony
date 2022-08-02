@@ -45,7 +45,6 @@ class HomeViewController: UIViewController {
     
     let fruitProfile: UIImageView = {
         let profile = UIImageView()
-        profile.image = UIImage(named: Constants.FruitfruitImages.Others.profile)
         profile.frame = CGRect(x:0, y:0, width: 48, height: 48)
         profile.translatesAutoresizingMaskIntoConstraints = false
         return profile
@@ -247,9 +246,12 @@ class HomeViewController: UIViewController {
     
     private func initFruitProfile() {
         view.addSubview(fruitProfile)
+        let profileImage = UIImage(named: Constants.FruitfruitImages.Others.profile)
+        let profileDisabledImage = UIImage(named: Constants.FruitfruitImages.Others.profileDisabled)
+        fruitProfile.image = Storage().fruitUser != nil ? profileImage : profileDisabledImage
+        fruitProfile.isUserInteractionEnabled = Storage().fruitUser != nil ? true : false
         fruitProfile.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
         fruitProfile.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26).isActive = true
-        fruitProfile.isUserInteractionEnabled = true
         let profileTapGesture = UITapGestureRecognizer(target: self, action: #selector(tapFruitProfile))
         fruitProfile.addGestureRecognizer(profileTapGesture)
     }
