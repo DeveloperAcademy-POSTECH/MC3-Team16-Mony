@@ -73,6 +73,7 @@ struct Constants {
         struct Others {
             static let account = "Fruitfruit_Account.svg"
             static let profile = "Fruitfruit_Profile.pdf"
+            static let profileDisabled = "Fruitfruit_Profile_Disabled.pdf"
             static let launch = "Fruitfruit_Launch.svg"
         }
     }
