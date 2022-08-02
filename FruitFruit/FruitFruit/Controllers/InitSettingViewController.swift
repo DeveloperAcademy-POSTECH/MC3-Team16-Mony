@@ -116,7 +116,7 @@ class InitSettingViewController: UIViewController {
         }
         
         UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveEaseIn, animations: {
-            self.welcomeLabel.text = !initialSet ? "첫 번째 구매를 위해" : "애플아카데미개발자 러너인가요?"
+            self.welcomeLabel.text = !initialSet ? "푸릇푸릇 첫 번째 구매를 위해" : "애플아카데미개발자 러너인가요?"
             self.addNameLabel.text = !initialSet ? "이름을 입력해주세요" : "닉네임을 입력해주세요"
         }, completion: nil)
         // 이름/닉네임 입력 상황 -> 텍스트 변경
@@ -124,11 +124,12 @@ class InitSettingViewController: UIViewController {
     
     private func textFieldVisibilityCheck() {
         guard let name = nameTextField.text else { return }
+
         if !name.isEmpty && nicknameTextField.isHidden {
             nameTextFieldSet(true)
         } else if name.isEmpty && !nicknameTextField.isHidden {
             guard let nickname = nicknameTextField.text else { return }
-            if !nickname.isEmpty {
+            if nickname.isEmpty {
                 nameTextFieldSet(false)
             }
         }
