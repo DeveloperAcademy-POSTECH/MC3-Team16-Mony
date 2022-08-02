@@ -177,7 +177,7 @@ class HomeViewController: UIViewController {
         view.addSubview(fruitStatusCollectionView)
         fruitStatusCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
         fruitStatusCollectionView.heightAnchor.constraint(equalToConstant: 68).isActive = true
-        fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         fruitStatusCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
@@ -322,7 +322,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -345,6 +345,13 @@ extension HomeViewController: UICollectionViewDataSource {
         let homeVC = self.navigationController
         homeVC?.pushViewController(confirmVC, animated: true)
         homeVC?.isNavigationBarHidden = true
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: 24, height: 68)
+        } else {
+            return CGSize.zero
+        }
     }
 }
