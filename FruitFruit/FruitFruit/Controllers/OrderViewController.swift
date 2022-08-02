@@ -16,8 +16,10 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var fruitOriginTitlelabel: UILabel!
     @IBOutlet weak var shopNameLabel: UILabel!
     @IBOutlet weak var shopNameTitlelabel: UILabel!
+    @IBOutlet weak var placeView: UIView!
     @IBOutlet weak var placeHeadLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var timeHeadLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -61,6 +63,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+    
     private func setUI() {
                 
         guard let fruitSaleInfo = fruitSaleInfo else { return }
@@ -84,7 +87,7 @@ class OrderViewController: UIViewController, UIGestureRecognizerDelegate {
 guard let fruitColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName) else { return }
 // 옵셔널 바인딩 -> 이후 fruitColor는 UIColor 옵셔널이 아니라 UIColor 변수입니다
 fruitNameLabel.textColor = fruitColor
-        fruitOriginTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        fruitOriginTitlelabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         fruitOriginTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         
         fruitOriginSublabel.text = fruitSaleInfo.fruitOrigin
@@ -92,7 +95,7 @@ fruitNameLabel.textColor = fruitColor
         fruitOriginSublabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         
         
-        shopNameTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        shopNameTitlelabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         shopNameTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         
         shopNameLabel.text = fruitSaleInfo.shopName
@@ -100,15 +103,15 @@ fruitNameLabel.textColor = fruitColor
         shopNameLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
         shopNameLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
 
-        priceTitlelabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
+        priceTitlelabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         priceTitlelabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         
         priceLabel.text = String(fruitSaleInfo.price) + "원"
         priceLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
         priceLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
         
-        placeHeadLabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
-        placeHeadLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
+        placeHeadLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
+        placeHeadLabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         placeLabel.text = fruitSaleInfo.place
         placeLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
         placeLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
@@ -121,10 +124,28 @@ fruitNameLabel.textColor = fruitColor
         } else {
             timeLabel.text = "오전 " + String(hour) + "시 "
         }
-        timeHeadLabel.font = UIFont.preferredFont(for: .footnote, weight: .semibold)
-        timeHeadLabel.textColor = UIColor(named: Constants.FruitfruitColors.gray0)
+        timeHeadLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
+        timeHeadLabel.textColor = UIColor(named: fruitSaleInfo.fruitType.fruitColorName)!
         timeLabel.font = UIFont.preferredFont(for: .body, weight: .semibold)
         timeLabel.textColor = UIColor(named: Constants.FruitfruitColors.black1)
+        
+       
+
+        timeView.layer.masksToBounds = false
+        timeView.layer.shadowColor = UIColor(red: 0.854, green: 0.72, blue: 0.623, alpha: 0.3).cgColor
+        timeView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        timeView.layer.shadowOpacity = 1
+        timeView.layer.shadowRadius = 16
+        
+
+
+        
+        placeView.layer.masksToBounds = false
+        placeView.layer.shadowColor = UIColor(red: 0.854, green: 0.72, blue: 0.623, alpha: 0.3).cgColor
+        placeView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        placeView.layer.shadowOpacity = 1
+        placeView.layer.shadowRadius = 16
+ 
         
         fruitImage.image = image
     }

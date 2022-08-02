@@ -45,7 +45,6 @@ class HomeViewController: UIViewController {
     
     let fruitProfile: UIImageView = {
         let profile = UIImageView()
-        profile.image = UIImage(named: Constants.FruitfruitImages.Others.profile)
         profile.frame = CGRect(x:0, y:0, width: 48, height: 48)
         profile.translatesAutoresizingMaskIntoConstraints = false
         return profile
@@ -71,6 +70,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.popToRootViewController(animated: false)
         self.navigationController?.isNavigationBarHidden = true
         
     }
@@ -177,7 +177,7 @@ class HomeViewController: UIViewController {
         view.addSubview(fruitStatusCollectionView)
         fruitStatusCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 217).isActive = true
         fruitStatusCollectionView.heightAnchor.constraint(equalToConstant: 68).isActive = true
-        fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        fruitStatusCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         fruitStatusCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
@@ -247,9 +247,12 @@ class HomeViewController: UIViewController {
     
     private func initFruitProfile() {
         view.addSubview(fruitProfile)
+        let profileImage = UIImage(named: Constants.FruitfruitImages.Others.profile)
+        let profileDisabledImage = UIImage(named: Constants.FruitfruitImages.Others.profileDisabled)
+        fruitProfile.image = Storage().fruitUser != nil ? profileImage : profileDisabledImage
+        fruitProfile.isUserInteractionEnabled = Storage().fruitUser != nil ? true : false
         fruitProfile.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
         fruitProfile.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26).isActive = true
-        fruitProfile.isUserInteractionEnabled = true
         let profileTapGesture = UITapGestureRecognizer(target: self, action: #selector(tapFruitProfile))
         fruitProfile.addGestureRecognizer(profileTapGesture)
     }
@@ -319,7 +322,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -342,6 +345,13 @@ extension HomeViewController: UICollectionViewDataSource {
         let homeVC = self.navigationController
         homeVC?.pushViewController(confirmVC, animated: true)
         homeVC?.isNavigationBarHidden = true
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: 24, height: 68)
+        } else {
+            return CGSize.zero
+        }
     }
 }

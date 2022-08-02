@@ -40,7 +40,7 @@ enum FruitStatus: String {
     var statusLabel: String {
         switch self {
         case .Checking:
-            return "입금을 확인 중이예요"
+            return "입금을 확인 중이에요"
         case .Checked, .Arrived, .Arriving:
             return "입금이 확인되었어요"
         case .Canceled:

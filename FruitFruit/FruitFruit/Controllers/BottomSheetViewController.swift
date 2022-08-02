@@ -127,7 +127,7 @@ class BottomSheetViewController: UIViewController {
         return "\(number * fruitSaleInfo.price)원 "
     }
     private func costcountCheckText() -> String {
-        return setCost() + setCount() + " 주문하기"
+        return setCost() + " 주문하기"
     }
     
     override func viewDidLoad() {

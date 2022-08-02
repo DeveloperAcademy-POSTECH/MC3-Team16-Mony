@@ -124,11 +124,12 @@ class InitSettingViewController: UIViewController {
     
     private func textFieldVisibilityCheck() {
         guard let name = nameTextField.text else { return }
+
         if !name.isEmpty && nicknameTextField.isHidden {
             nameTextFieldSet(true)
         } else if name.isEmpty && !nicknameTextField.isHidden {
             guard let nickname = nicknameTextField.text else { return }
-            if !nickname.isEmpty {
+            if nickname.isEmpty {
                 nameTextFieldSet(false)
             }
         }
