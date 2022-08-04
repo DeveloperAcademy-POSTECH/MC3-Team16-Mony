@@ -59,20 +59,31 @@ class BottomSheetViewController: UIViewController {
         dimmedView.alpha = 0.0
         setupLayout()
         lblNumber.text = setCount()
-        view.addSubview(lblNumber)
-        lblNumber.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 72).isActive = true
-        lblNumber.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 179).isActive = true
+        
+        self.view.addSubview(lblNumber)
+        lblNumber.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 66).isActive = true
+        lblNumber.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -144).isActive = true
+//        lblNumber.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 179).isActive = true
+//        lblNumber.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -179).isActive = true
+        lblNumber.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        lblNumber.translatesAutoresizingMaskIntoConstraints = false
         
         btnPlus.setImage(UIImage(named: "Fruitfruit_btn_Plus"), for: .normal)
         self.view.addSubview(btnPlus)
-        btnPlus.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 72).isActive = true
-        btnPlus.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 265).isActive = true
+        btnPlus.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 66).isActive = true
+        btnPlus.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -144).isActive = true
+        btnPlus.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 253).isActive = true
+        btnPlus.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -97).isActive = true
+        btnPlus.translatesAutoresizingMaskIntoConstraints = false
         btnPlus.addTarget(self, action: #selector(onTapPlus), for: .touchUpInside)
         
         btnMinus.setImage(UIImage(named: "Fruitfruit_btn_Minus"), for: .normal)
         self.view.addSubview(btnMinus)
-        btnMinus.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 72).isActive = true
-        btnMinus.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 110).isActive = true
+        btnMinus.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 66).isActive = true
+        btnMinus.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -144).isActive = true
+        btnMinus.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 98).isActive = true
+        btnMinus.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -253).isActive = true
+        btnMinus.translatesAutoresizingMaskIntoConstraints = false
         btnMinus.addTarget(self, action: #selector(onTapMinus), for: .touchUpInside)
         
         self.view.addSubview(checkOrderButton)
