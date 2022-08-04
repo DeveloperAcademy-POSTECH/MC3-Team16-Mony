@@ -30,7 +30,7 @@ extension UIView {
     // 2. button.layer.insertSublayer(graident, at: 0)
     // 버튼 레이어의 가장 상단부에 위치 백그라운드 컬러를 그레디언트로 주기    
     func applyBackgroundGradient() {
-        let backgroundLabel = FruitBackground(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - 547))
+        let backgroundLabel = FruitBackground(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - 520))
         backgroundLabel.tag = 1
         backgroundLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundLabel)
