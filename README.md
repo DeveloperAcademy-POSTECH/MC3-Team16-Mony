@@ -13,74 +13,65 @@
 
 ## 🗂 Directory Structure
 ```
-
 FruitFruit
-        │── AppDelegate
-        |── SceneDelegate
-        │── Assets.xcassets
-        │        │
-        │── Utility
-        │   │── Constants
-        │   │── Storage
-        │   └── addOrder
-        |
-        │── Extension
-        │
-        |── Models
-        │   │── FruitUser
-        │   │── FruitOrder
-        │   │── FruitSaleInfo
-        │   │── FruitStatus
-        │   │── FruitType
-        │   └── MonthModel
-        │
-        |── Views
-        │   │── Order
-        │   │── Calendar
-        │   │── Setting
-        │   │── ConfirmStatus
-        │   │── OrderViewModal
-        │   │── OrderResult
-        │   │── InitSetting
-        │   │── Home
-        │   └── CheckOrder
-        │
-        └── Controllers
-            │── Order
-            │── Calendar
-            │── Setting
-            │── ConfirmStatus
-            │── BottomSheet
-            │── Home
-            │── CheckOrder
-            │── OrderResult
-            └── InitSetting
+│── AppDelegate
+|── SceneDelegate
+│── Assets.xcassets
+│        
+│── Utility
+│   │── Constants
+│   │── Storage
+│   └── addOrder
+|
+│── Extension
+│
+|── Models
+│   │── FruitUser
+│   │── FruitOrder
+│   │── FruitSaleInfo
+│   │── FruitStatus
+│   │── FruitType
+│   └── MonthModel
+│
+|── Views
+│   │── Order
+│   │── Calendar
+│   │── Setting
+│   │── ConfirmStatus
+│   │── OrderViewModal
+│   │── OrderResult
+│   │── InitSetting
+│   │── Home
+│   └── CheckOrder
+│
+└── Controllers
+   │── Order
+   │── Calendar
+   │── Setting
+   │── ConfirmStatus
+   │── BottomSheet
+   │── Home
+   │── CheckOrder
+   │── OrderResult
+   └── InitSetting
 ```
-
+<br><br>
 ## 🔩 Tech & Skills
-<div style="display: flex; flex-direction: row;">
-  <div>UIKit</div>
-  <div>Firebase</div>
-  <div>Lottie</div>
-</div>
-<div style="display: flex; flex-direction: row;">
-  <div>UIKit</div>
-  <div>Firebase</div>
-  <div>Lottie</div>
-</div>
-<div style="display: flex; flex-direction: row;">
-  <div>UIKit</div>
-  <div>Firebase</div>
-  <div>Lottie</div>
-</div>
-Figma
-Illustrator
-Photoshop
-After Effect
-Github
-Miro
-Notion
-![IMG_6703](https://user-images.githubusercontent.com/81340603/182752794-2c8f41fd-929f-4b8b-93ff-11bc1900927b.PNG)![IMG_6704](https://user-images.githubusercontent.com/81340603/182752799-2a005e7a-00d4-460e-9f4a-4e7804168876.PNG)
+- UIKit
+- Firebase
+- Lottie
+- Figma
+- Illustrator
+- Photoshop
+- After Effect
+- Github
+- Miro
+- Notion
+
+<br><br> 
+
+![IMG_6703](https://user-images.githubusercontent.com/81340603/182752794-2c8f41fd-929f-4b8b-93ff-11bc1900927b.PNG)
+![IMG_6704](https://user-images.githubusercontent.com/81340603/182752799-2a005e7a-00d4-460e-9f4a-4e7804168876.PNG)
 ![IMG_6705](https://user-images.githubusercontent.com/81340603/182752802-4c068440-c027-4fdd-ba8c-6572aecd1c95.PNG)
 ![IMG_6701](https://user-images.githubusercontent.com/81340603/182752782-45613980-b928-48c8-965f-c68a50bf316d.PNG)
 ![IMG_6702](https://user-images.githubusercontent.com/81340603/182752792-c78d7062-f8a0-47fb-b341-248839ceffe3.PNG)
