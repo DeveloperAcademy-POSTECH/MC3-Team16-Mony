@@ -76,7 +76,9 @@ FruitFruit
 
 ## 👥 Authors
 |[Berry]()|[Dinner]()|[Ginger]()|[Noah]()|[Willow]()|
-|![IMG_6703](https://user-images.githubusercontent.com/81340603/182752794-2c8f41fd-929f-4b8b-93ff-11bc1900927b.PNG)|![IMG_6704](https://user-images.githubusercontent.com/81340603/182752799-2a005e7a-00d4-460e-9f4a-4e7804168876.PNG)|![IMG_6705](https://user-images.githubusercontent.com/81340603/182752802-4c068440-c027-4fdd-ba8c-6572aecd1c95.PNG)|![IMG_6701](https://user-images.githubusercontent.com/81340603/182752782-45613980-b928-48c8-965f-c68a50bf316d.PNG)|![IMG_6702](https://user-images.githubusercontent.com/81340603/182752792-c78d7062-f8a0-47fb-b341-248839ceffe3.PNG)|
+|:---:|:---:|:---:|:---:|:---:|
+|<img src="https://user-images.githubusercontent.com/81340603/182752794-2c8f41fd-929f-4b8b-93ff-11bc1900927b.PNG"/>|<img src="https://user-images.githubusercontent.com/81340603/182752799-2a005e7a-00d4-460e-9f4a-4e7804168876.PNG"/>|<img src="https://user-images.githubusercontent.com/81340603/182752802-4c068440-c027-4fdd-ba8c-6572aecd1c95.PNG"/>|<img src="https://user-images.githubusercontent.com/81340603/182752782-45613980-b928-48c8-965f-c68a50bf316d.PNG"/>|<img src="https://user-images.githubusercontent.com/81340603/182752792-c78d7062-f8a0-47fb-b341-248839ceffe3.PNG"/>|
+|:---:|:---:|:---:|:---:|:---:|
 |다이아손 디자이너|냉철한 기획자|제너럴리스트 개발자|대체불가능한 개발자|소나무같은 개발자|
 
 <br><br>
