@@ -24,6 +24,53 @@
 <br><br>
 
 ## 🗂 Directory Structure
+```
+FruitFruit
+  |
+  └── FruitFruit
+        │── AppDelegate
+        |── SceneDelegate
+        │── Assets.xcassets
+        │
+        │── Resources
+        │
+        │── Utility
+        │   │── Constants
+        │   │── Storage
+        │   └── addOrder
+        |
+        │── Extension
+        │
+        |── Models
+        │   │── FruitUser
+        │   │── FruitOrder
+        │   │── FruitSaleInfo
+        │   │── FruitStatus
+        │   │── FruitType
+        │   └── MonthModel
+        │
+        |── Views
+        │   │── Order
+        │   │── Calendar
+        │   │── Setting
+        │   │── ConfirmStatus
+        │   │── OrderViewModal
+        │   │── OrderResult
+        │   │── InitSetting
+        │   │── Home
+        │   └── CheckOrder
+        │
+        └── Controllers
+            │── Order
+            │── Calendar
+            │── Setting
+            │── ConfirmStatus
+            │── BottomSheet
+            │── Home
+            │── CheckOrder
+            │── OrderResult
+            └── InitSetting
+```
 
 ## 🔩 Tech & Skills
 <div style="display: flex; flex-direction: row;">
