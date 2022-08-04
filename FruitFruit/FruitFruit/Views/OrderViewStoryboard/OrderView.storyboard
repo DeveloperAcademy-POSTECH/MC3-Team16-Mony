@@ -42,10 +42,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpg-9v-pdH">
-                                <rect key="frame" x="70" y="425" width="250" height="34"/>
+                                <rect key="frame" x="70" y="425" width="250" height="33.666666666666686"/>
                                 <color key="tintColor" name="Fruitfruit_Orange1"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="여름가울겨울오렌지">
+                                    <fragment content="봄여름가을겨울오렌지">
                                         <attributes>
                                             <color key="NSColor" name="Fruitfruit_Button1"/>
                                             <font key="NSFont" size="28" name="AppleSDGothicNeo-Bold"/>
@@ -56,9 +56,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Fruitfruit_Orange_Primary" id="lls-Zn-JJW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Fruitfruit_Orange_Primary" translatesAutoresizingMaskIntoConstraints="NO" id="lls-Zn-JJW">
                                 <rect key="frame" x="95" y="186" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="XIt-6d-QHn"/>
                                     <constraint firstAttribute="width" constant="200" id="r26-Xq-VzE"/>
@@ -68,19 +67,18 @@
                                 <rect key="frame" x="198" y="582" width="167" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="13" id="Kbl-4v-wuP">
-                                        <rect key="frame" x="50" y="30" width="67" height="49.333333333333371"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Kbl-4v-wuP">
+                                        <rect key="frame" x="60.666666666666686" y="29.333333333333375" width="45" height="49.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="받는위치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GE0-u8-G5H">
-                                                <rect key="frame" x="11" y="0.0" width="45" height="15.666666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="15.666666666666666"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="13"/>
                                                 <color key="textColor" red="0.80000001190000003" green="0.81176471709999998" blue="0.82745099070000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyn-SP-REi">
-                                                <rect key="frame" x="24.333333333333329" y="28.666666666666664" width="18.666666666666671" height="20.666666666666664"/>
+                                                <rect key="frame" x="13.000000000000002" y="28.666666666666629" width="18.666666666666671" height="20.666666666666671"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="C5">
@@ -97,6 +95,10 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Kbl-4v-wuP" firstAttribute="centerY" secondItem="6WG-oG-tLT" secondAttribute="centerY" id="9qp-Iy-tE3"/>
+                                    <constraint firstItem="Kbl-4v-wuP" firstAttribute="centerX" secondItem="6WG-oG-tLT" secondAttribute="centerX" id="qOX-XY-4wC"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -105,7 +107,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="4XQ-bR-EZB">
-                                <rect key="frame" x="50" y="499" width="45" height="16"/>
+                                <rect key="frame" x="50" y="499.33333333333331" width="45" height="15.666666666666686"/>
                                 <attributedString key="attributedText">
                                     <fragment content="태어난곳">
                                         <attributes>
@@ -118,7 +120,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Qnz-PT-kbW">
-                                <rect key="frame" x="172" y="499" width="45" height="16"/>
+                                <rect key="frame" x="172.66666666666666" y="499" width="45" height="15.666666666666629"/>
                                 <attributedString key="attributedText">
                                     <fragment content="구매가게">
                                         <attributes>
@@ -131,7 +133,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Gda-8y-rz4">
-                                <rect key="frame" x="147" y="522" width="95" height="21"/>
+                                <rect key="frame" x="147.33333333333334" y="522" width="95.666666666666657" height="21.333333333333371"/>
                                 <attributedString key="attributedText">
                                     <fragment content="능금">
                                         <attributes>
@@ -150,7 +152,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yjG-yT-Tko">
-                                <rect key="frame" x="294" y="499" width="45" height="16"/>
+                                <rect key="frame" x="294" y="499.33333333333331" width="45" height="15.666666666666686"/>
                                 <attributedString key="attributedText">
                                     <fragment content="판매가격">
                                         <attributes>
@@ -166,19 +168,18 @@
                                 <rect key="frame" x="24" y="582" width="166" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="13" id="sSW-l4-HhJ">
-                                        <rect key="frame" x="53" y="30" width="61.666666666666657" height="49.333333333333371"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="sSW-l4-HhJ">
+                                        <rect key="frame" x="52.333333333333329" y="29.333333333333375" width="61.666666666666671" height="49.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="받는시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQq-gY-A39">
-                                                <rect key="frame" x="8.3333333333333357" y="0.0" width="45" height="15.666666666666666"/>
+                                                <rect key="frame" x="8.3333333333333428" y="0.0" width="45" height="15.666666666666666"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="13"/>
                                                 <color key="textColor" red="0.80000001190000003" green="0.81176471709999998" blue="0.82745099070000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHE-lg-4cg">
-                                                <rect key="frame" x="0.0" y="28.666666666666664" width="61.666666666666664" height="20.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="28.666666666666629" width="61.666666666666664" height="20.666666666666671"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="오전 11시">
@@ -195,6 +196,10 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="sSW-l4-HhJ" firstAttribute="centerX" secondItem="5qD-K3-jAh" secondAttribute="centerX" id="vvE-j7-CrT"/>
+                                    <constraint firstItem="sSW-l4-HhJ" firstAttribute="centerY" secondItem="5qD-K3-jAh" secondAttribute="centerY" id="zzv-r8-vIc"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -219,17 +224,17 @@
                                 </buttonConfiguration>
                             </button>
                             <view contentMode="scaleToFill" id="8kf-hx-aPq">
-                                <rect key="frame" x="128" y="493" width="1" height="56"/>
+                                <rect key="frame" x="127" y="493" width="1" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94117647410000005" green="0.94117647410000005" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" id="8rx-29-yAR">
-                                <rect key="frame" x="260" y="492" width="1" height="56"/>
+                                <rect key="frame" x="259" y="492" width="1" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94117647410000005" green="0.94117647410000005" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sTO-vd-GC6">
-                                <rect key="frame" x="26" y="522" width="92" height="21"/>
+                                <rect key="frame" x="26.333333333333336" y="522" width="91.666666666666657" height="21.333333333333371"/>
                                 <attributedString key="attributedText">
                                     <fragment content="제주">
                                         <attributes>
@@ -255,7 +260,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgR-P7-Nbd">
-                                <rect key="frame" x="285" y="523" width="62" height="21"/>
+                                <rect key="frame" x="285" y="523" width="62" height="21.333333333333371"/>
                                 <attributedString key="attributedText">
                                     <fragment content="12900">
                                         <attributes>
