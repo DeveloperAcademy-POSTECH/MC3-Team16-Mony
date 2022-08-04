@@ -13,8 +13,12 @@
 <br><br>
 
 ## 📱 Preview
-|<img width="323" src="https://user-images.githubusercontent.com/81340603/182743110-bb98718b-4299-4cf4-b3b9-0868bd3e5443.png">|<img width="323" src="https://user-images.githubusercontent.com/81340603/182743110-bb98718b-4299-4cf4-b3b9-0868bd3e5443.png">|<img width="323" src="https://user-images.githubusercontent.com/81340603/182743110-bb98718b-4299-4cf4-b3b9-0868bd3e5443.png">|<img width="323" src="https://user-images.githubusercontent.com/81340603/182743110-bb98718b-4299-4cf4-b3b9-0868bd3e5443.png">|
-|:---:|:---:|:---:|:---:|
+||![가입하기](https://user-images.githubusercontent.com/103012086/182745986-fcb82d5f-11e0-4ddb-af1f-f5ac62ca0b60.gif)
+![주문하기](https://user-images.githubusercontent.com/103012086/182746014-64023863-af95-4964-a07e-8533e0e1be17.gif)
+![주문상태보기](https://user-images.githubusercontent.com/103012086/182746028-4c7690f2-1fd8-4aba-9aa0-5b370032eefa.gif)
+![캘린더](https://user-images.githubusercontent.com/103012086/182746031-2a549f46-0fe9-4648-9af2-1c42540e6561.gif)
+
+---:|:---:|:---:|:---:|
 |<center>새로 가입하기</center>|<center>과일 주문하기</center>|<center>주문상태 보기</center>|<center>내 정보 보기</center>|
 
 <br><br>
