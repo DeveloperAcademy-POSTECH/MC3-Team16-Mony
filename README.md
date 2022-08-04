@@ -59,16 +59,9 @@ FruitFruit
 <br><br>
 
 ## 🔩  Tech & Skills
-- UIKit
-- Firebase
-- Lottie
-- Figma
-- Illustrator
-- Photoshop
-- After Effect
-- Github
-- Miro
-- Notion
+<img width="60" src="https://img.shields.io/badge/UIKit-blue"> <img width="92" src="https://img.shields.io/badge/Firebase-blue"> <img width="67" src="https://img.shields.io/badge/Lottie-blue"><br>
+<img width="70" src="https://img.shields.io/badge/Figma-red"> <img width="105" src="https://img.shields.io/badge/Illustrator-red"> <img width="110" src="https://img.shields.io/badge/Photoshop-red"> <img width="118" src="https://img.shields.io/badge/After Effect-red"><br>
+<img width="75" src="https://img.shields.io/badge/Github-yellow"> <img width="53" src="https://img.shields.io/badge/Miro-yellow"> <img width="73" src="https://img.shields.io/badge/Notion-yellow"><br>
 
 <br><br> 
 
