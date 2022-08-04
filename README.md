@@ -31,9 +31,7 @@ FruitFruit
         │── AppDelegate
         |── SceneDelegate
         │── Assets.xcassets
-        │
-        │── Resources
-        │
+        │        │
         │── Utility
         │   │── Constants
         │   │── Storage
